@@ -58,9 +58,13 @@ export function Highlights() {
           </p>
         </Reveal>
 
-        <div className="mx-auto mt-10 grid max-w-4xl grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mx-auto mt-10 flex max-w-4xl flex-wrap justify-center gap-4">
           {STATS.map((stat, i) => (
-            <Reveal key={stat.title} delay={i * 60}>
+            <Reveal
+              key={stat.title}
+              delay={i * 60}
+              className="w-full sm:w-[calc(50%-0.5rem)] lg:w-[calc(25%-0.75rem)]"
+            >
               <div className="flex h-full flex-col items-center gap-3 rounded-lg bg-klr-cream p-6 text-black transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-lg">
                 <Image
                   src={`${ASSET_BASE}/${stat.icon}`}
