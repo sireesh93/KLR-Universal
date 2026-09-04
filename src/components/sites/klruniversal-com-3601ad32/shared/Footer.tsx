@@ -13,11 +13,11 @@ const QUICK_LINKS = [
 ];
 
 const DRILLING_RIGS = [
-  { label: "Water Well Drill Rigs", href: "/drilling-rigs/water-well/dthr-150" },
-  { label: "Surface Mining & Quarrying Drill Rigs", href: "/drilling-rigs/surface-mining/ea-20-30" },
-  { label: "Construction Drill Rigs", href: "/drilling-rigs/construction/tp-30" },
-  { label: "Exploration Drill Rigs", href: "/drilling-rigs/exploration/core-drill-rig-150" },
-  { label: "Underground Drill Rigs", href: "/drilling-rigs/underground-drill-rigs/ith-60" },
+  { label: "Water Well Drill Rigs", href: "/product_category/water-well" },
+  { label: "Surface Mining & Quarrying Drill Rigs", href: "/product_category/surface-mining" },
+  { label: "Construction Drill Rigs", href: "/product_category/construction" },
+  { label: "Exploration Drill Rigs", href: "/product_category/exploration" },
+  { label: "Underground Drill Rigs", href: "/product_category/underground-drill-rigs" },
 ];
 
 const DRILLING_TOOLS = [
