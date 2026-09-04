@@ -17,13 +17,21 @@ export function FaqAccordion({ items }: { items: FaqItem[] }) {
             <button
               type="button"
               onClick={() => setOpenIndex(open ? null : i)}
+              aria-expanded={open}
+              aria-controls={`faq-panel-${i}`}
               className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left text-sm font-medium"
             >
               {item.q}
-              {open ? <Minus className="size-4 shrink-0" /> : <Plus className="size-4 shrink-0" />}
+              {open ? (
+                <Minus className="size-4 shrink-0" aria-hidden="true" />
+              ) : (
+                <Plus className="size-4 shrink-0" aria-hidden="true" />
+              )}
             </button>
             {open && (
-              <p className="px-5 pb-4 text-sm text-black/60">{item.a}</p>
+              <p id={`faq-panel-${i}`} className="px-5 pb-4 text-sm text-black/60">
+                {item.a}
+              </p>
             )}
           </div>
         );

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Globe, Menu, X, ChevronLeft } from "lucide-react";
@@ -106,6 +106,18 @@ export function Header() {
     setActiveCategory(null);
   }
 
+  useEffect(() => {
+    if (!productsOpen && !mobileOpen) return;
+    function onKeyDown(e: KeyboardEvent) {
+      if (e.key === "Escape") {
+        closeProducts();
+        setMobileOpen(false);
+      }
+    }
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [productsOpen, mobileOpen]);
+
   return (
     <header className="relative z-40 bg-klr-header">
       <div className="mx-auto flex max-w-[1400px] items-center justify-between gap-6 px-4 py-3 md:px-8">
@@ -128,6 +140,8 @@ export function Header() {
           <button
             type="button"
             onClick={() => setProductsOpen(true)}
+            aria-expanded={productsOpen}
+            aria-haspopup="true"
             className="hover:text-klr-red"
           >
             Products
@@ -166,6 +180,8 @@ export function Header() {
         className={`fixed inset-0 z-50 transition-opacity ${
           productsOpen ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0"
         }`}
+        aria-hidden={!productsOpen}
+        inert={!productsOpen}
       >
         <div className="absolute inset-0 bg-black/50" onClick={closeProducts} />
 
@@ -265,6 +281,8 @@ export function Header() {
         className={`fixed inset-0 z-50 md:hidden transition-opacity ${
           mobileOpen ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0"
         }`}
+        aria-hidden={!mobileOpen}
+        inert={!mobileOpen}
       >
         <div
           className="absolute inset-0 bg-black/50"
