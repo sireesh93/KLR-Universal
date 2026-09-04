@@ -1,0 +1,130 @@
+{
+  "url": "https://klruniversal.com/drilling-tools/dth-drilling-tools",
+  "scraped_at": "2026-09-04T04:46:20.543Z",
+  "files": [
+    {
+      "path": "image-001.svg",
+      "src": "https://klruniversal.com/wp-content/uploads/2025/09/Brand-logo-1.svg",
+      "size": 35519,
+      "type": "image/svg+xml"
+    },
+    {
+      "path": "image-002.svg",
+      "src": "https://klruniversal.com/wp-content/themes/klr-child/assets/images/header/mob-menu-logo.svg",
+      "size": 32043,
+      "type": "image/svg+xml"
+    },
+    {
+      "path": "image-003.svg",
+      "src": "https://klruniversal.com/wp-content/themes/klr-child/assets/images/header/cancel.svg",
+      "size": 275,
+      "type": "image/svg+xml"
+    },
+    {
+      "path": "image-004.svg",
+      "src": "https://klruniversal.com/wp-content/themes/klr-child/assets/images/homepage/red.svg",
+      "size": 469,
+      "type": "image/svg+xml"
+    },
+    {
+      "path": "image-005.svg",
+      "src": "https://klruniversal.com/wp-content/themes/klr-child/assets/images/homepage/black.svg",
+      "size": 465,
+      "type": "image/svg+xml"
+    },
+    {
+      "path": "image-006.png",
+      "src": "https://www.gstatic.com/images/branding/googlelogo/1x/googlelogo_color_42x16dp.png",
+      "size": 910,
+      "type": "image/png"
+    },
+    {
+      "path": "image-007.png",
+      "src": "https://klruniversal.com/wp-content/uploads/2025/12/Vector.png",
+      "size": 604,
+      "type": "image/png"
+    },
+    {
+      "path": "image-008.jpg",
+      "src": "https://klruniversal.com/wp-content/uploads/2026/03/624f982b8a1c3714c3b3fc6845a2d57bc508677c-1.jpg",
+      "size": 228958,
+      "type": "image/jpeg"
+    },
+    {
+      "path": "image-009.svg",
+      "src": "https://klr-website.wpstaging.amura.in/wp-content/uploads/2025/09/content-img.svg",
+      "size": 1087,
+      "type": "image/svg+xml"
+    },
+    {
+      "path": null,
+      "src": "http://localhost/klr-website/wp-content/uploads/2025/12/message.svg",
+      "size": 0,
+      "type": "",
+      "error": "apiRequestContext.fetch: connect ECONNREFUSED ::1:80\nCall log:\n\u001b[2m  - → GET http://localhost/klr-website/wp-content/uploads/2025/12/message.svg\u001b[22m\n\u001b[2m    - user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/145.0.7632.6 Safari/537.36\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n"
+    },
+    {
+      "path": "image-011.png",
+      "src": "https://klruniversal.com/wp-content/uploads/2025/12/Image-10.png",
+      "size": 52883,
+      "type": "image/png"
+    },
+    {
+      "path": "image-012.png",
+      "src": "https://klruniversal.com/wp-content/uploads/2025/12/Image-15.png",
+      "size": 95054,
+      "type": "image/png"
+    },
+    {
+      "path": "image-013.png",
+      "src": "https://klruniversal.com/wp-content/uploads/2025/12/Image-16.png",
+      "size": 186634,
+      "type": "image/png"
+    },
+    {
+      "path": "image-014.svg",
+      "src": "https://klruniversal.com/wp-content/uploads/2025/09/content-img.svg",
+      "size": 1087,
+      "type": "image/svg+xml"
+    },
+    {
+      "path": "image-015.svg",
+      "src": "https://klr-website.wpstaging.amura.in/wp-content/uploads/2025/08/red.svg",
+      "size": 476,
+      "type": "image/svg+xml"
+    },
+    {
+      "path": "image-016.svg",
+      "src": "https://klr-website.wpstaging.amura.in/wp-content/uploads/2025/08/black.svg",
+      "size": 472,
+      "type": "image/svg+xml"
+    },
+    {
+      "path": "image-017.svg",
+      "src": "https://klruniversal.com/wp-content/themes/klr-child/assets/images/footer/Layer_1%20(15).svg",
+      "size": 5854,
+      "type": "image/svg+xml"
+    },
+    {
+      "path": "image-018.svg",
+      "src": "https://klruniversal.com/wp-content/themes/klr-child/assets/images/footer/Layer_1%20(16).svg",
+      "size": 1063,
+      "type": "image/svg+xml"
+    },
+    {
+      "path": "image-019.svg",
+      "src": "https://klruniversal.com/wp-content/uploads/2025/09/Brand-logo-1-1.svg",
+      "size": 32710,
+      "type": "image/svg+xml"
+    },
+    {
+      "path": "image-020.svg",
+      "src": "https://klruniversal.com/wp-content/themes/klr-child/assets/images/footer/Vector%20(3).svg",
+      "size": 1242,
+      "type": "image/svg+xml"
+    }
+  ],
+  "total_size": 677805,
+  "succeeded": 19,
+  "failed": 1
+}

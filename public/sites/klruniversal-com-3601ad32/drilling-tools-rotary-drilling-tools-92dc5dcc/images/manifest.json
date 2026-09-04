@@ -1,0 +1,129 @@
+{
+  "url": "https://klruniversal.com/drilling-tools/rotary-drilling-tools",
+  "scraped_at": "2026-09-04T04:46:27.235Z",
+  "files": [
+    {
+      "path": "image-001.svg",
+      "src": "https://klruniversal.com/wp-content/uploads/2025/09/Brand-logo-1.svg",
+      "size": 35519,
+      "type": "image/svg+xml"
+    },
+    {
+      "path": "image-002.svg",
+      "src": "https://klruniversal.com/wp-content/themes/klr-child/assets/images/header/mob-menu-logo.svg",
+      "size": 32043,
+      "type": "image/svg+xml"
+    },
+    {
+      "path": "image-003.svg",
+      "src": "https://klruniversal.com/wp-content/themes/klr-child/assets/images/header/cancel.svg",
+      "size": 275,
+      "type": "image/svg+xml"
+    },
+    {
+      "path": "image-004.svg",
+      "src": "https://klruniversal.com/wp-content/themes/klr-child/assets/images/homepage/red.svg",
+      "size": 469,
+      "type": "image/svg+xml"
+    },
+    {
+      "path": "image-005.svg",
+      "src": "https://klruniversal.com/wp-content/themes/klr-child/assets/images/homepage/black.svg",
+      "size": 465,
+      "type": "image/svg+xml"
+    },
+    {
+      "path": "image-006.png",
+      "src": "https://www.gstatic.com/images/branding/googlelogo/1x/googlelogo_color_42x16dp.png",
+      "size": 910,
+      "type": "image/png"
+    },
+    {
+      "path": "image-007.png",
+      "src": "https://klruniversal.com/wp-content/uploads/2025/12/Vector.png",
+      "size": 604,
+      "type": "image/png"
+    },
+    {
+      "path": "image-008.jpg",
+      "src": "https://klruniversal.com/wp-content/uploads/2026/03/af961c15105dca7b2b6aa5e9d4a91fd30262444f.jpg",
+      "size": 223912,
+      "type": "image/jpeg"
+    },
+    {
+      "path": "image-009.svg",
+      "src": "https://klr-website.wpstaging.amura.in/wp-content/uploads/2025/09/content-img.svg",
+      "size": 1087,
+      "type": "image/svg+xml"
+    },
+    {
+      "path": "image-010.png",
+      "src": "https://klruniversal.com/wp-content/uploads/2025/12/Image-12.png",
+      "size": 185136,
+      "type": "image/png"
+    },
+    {
+      "path": "image-011.png",
+      "src": "https://klruniversal.com/wp-content/uploads/2025/12/Image-13.png",
+      "size": 87321,
+      "type": "image/png"
+    },
+    {
+      "path": "image-012.png",
+      "src": "https://klruniversal.com/wp-content/uploads/2025/12/Image-14.png",
+      "size": 135297,
+      "type": "image/png"
+    },
+    {
+      "path": "image-013.svg",
+      "src": "https://klruniversal.com/wp-content/uploads/2025/09/content-img.svg",
+      "size": 1087,
+      "type": "image/svg+xml"
+    },
+    {
+      "path": "image-014.svg",
+      "src": "https://klr-website.wpstaging.amura.in/wp-content/uploads/2025/08/red.svg",
+      "size": 476,
+      "type": "image/svg+xml"
+    },
+    {
+      "path": "image-015.svg",
+      "src": "https://klr-website.wpstaging.amura.in/wp-content/uploads/2025/08/black.svg",
+      "size": 472,
+      "type": "image/svg+xml"
+    },
+    {
+      "path": "image-016.svg",
+      "src": "https://klruniversal.com/wp-content/themes/klr-child/assets/images/footer/Layer_1%20(15).svg",
+      "size": 5854,
+      "type": "image/svg+xml"
+    },
+    {
+      "path": "image-017.svg",
+      "src": "https://klruniversal.com/wp-content/themes/klr-child/assets/images/footer/Layer_1%20(16).svg",
+      "size": 1063,
+      "type": "image/svg+xml"
+    },
+    {
+      "path": "image-018.svg",
+      "src": "https://klruniversal.com/wp-content/uploads/2025/09/Brand-logo-1-1.svg",
+      "size": 32710,
+      "type": "image/svg+xml"
+    },
+    {
+      "path": "image-019.svg",
+      "src": "https://klruniversal.com/wp-content/themes/klr-child/assets/images/footer/Vector%20(3).svg",
+      "size": 1242,
+      "type": "image/svg+xml"
+    },
+    {
+      "path": "image-020.svg",
+      "src": "https://klruniversal.com/wp-content/themes/klr-child/assets/images/footer/Layer_1%20(10).svg",
+      "size": 2089,
+      "type": "image/svg+xml"
+    }
+  ],
+  "total_size": 748031,
+  "succeeded": 20,
+  "failed": 0
+}

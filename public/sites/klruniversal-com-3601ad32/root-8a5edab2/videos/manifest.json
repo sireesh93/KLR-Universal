@@ -1,0 +1,15 @@
+{
+  "url": "https://klruniversal.com/",
+  "scraped_at": "2026-09-04T03:07:44.746Z",
+  "files": [
+    {
+      "path": "video-001.mp4",
+      "src": "https://klruniversal.com/wp-content/uploads/2025/11/Desktop-Size-_1_1_1.mp4",
+      "size": 11919480,
+      "type": "video/mp4"
+    }
+  ],
+  "total_size": 11919480,
+  "succeeded": 1,
+  "failed": 0
+}

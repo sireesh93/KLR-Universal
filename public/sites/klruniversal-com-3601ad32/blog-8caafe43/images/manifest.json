@@ -1,0 +1,99 @@
+{
+  "url": "https://klruniversal.com/blog",
+  "scraped_at": "2026-09-04T04:30:20.571Z",
+  "files": [
+    {
+      "path": "image-001.svg",
+      "src": "https://klruniversal.com/wp-content/uploads/2025/09/Brand-logo-1.svg",
+      "size": 35519,
+      "type": "image/svg+xml"
+    },
+    {
+      "path": "image-002.svg",
+      "src": "https://klruniversal.com/wp-content/themes/klr-child/assets/images/header/mob-menu-logo.svg",
+      "size": 32043,
+      "type": "image/svg+xml"
+    },
+    {
+      "path": "image-003.svg",
+      "src": "https://klruniversal.com/wp-content/themes/klr-child/assets/images/header/cancel.svg",
+      "size": 275,
+      "type": "image/svg+xml"
+    },
+    {
+      "path": "image-004.svg",
+      "src": "https://klruniversal.com/wp-content/themes/klr-child/assets/images/homepage/red.svg",
+      "size": 469,
+      "type": "image/svg+xml"
+    },
+    {
+      "path": "image-005.svg",
+      "src": "https://klruniversal.com/wp-content/themes/klr-child/assets/images/homepage/black.svg",
+      "size": 465,
+      "type": "image/svg+xml"
+    },
+    {
+      "path": "image-006.png",
+      "src": "https://www.gstatic.com/images/branding/googlelogo/1x/googlelogo_color_42x16dp.png",
+      "size": 910,
+      "type": "image/png"
+    },
+    {
+      "path": "image-007.png",
+      "src": "https://klruniversal.com/wp-content/uploads/2025/12/Vector.png",
+      "size": 604,
+      "type": "image/png"
+    },
+    {
+      "path": "image-008.png",
+      "src": "https://klruniversal.com/wp-content/uploads/2025/11/Common-Banner-Image-KLR.png",
+      "size": 332598,
+      "type": "image/png"
+    },
+    {
+      "path": "image-009.svg",
+      "src": "https://klruniversal.com/wp-content/uploads/2025/09/content-img.svg",
+      "size": 1087,
+      "type": "image/svg+xml"
+    },
+    {
+      "path": "image-010.jpg",
+      "src": "https://klruniversal.com/wp-content/uploads/2026/06/klr-april-banner-2-768x402.jpg",
+      "size": 74539,
+      "type": "image/jpeg"
+    },
+    {
+      "path": "image-011.jpg",
+      "src": "https://klruniversal.com/wp-content/uploads/2026/05/klr-april-banner-1-768x402.jpg",
+      "size": 83927,
+      "type": "image/jpeg"
+    },
+    {
+      "path": "image-012.jpg",
+      "src": "https://klruniversal.com/wp-content/uploads/2026/05/klr-april-banner-3-768x402.jpg",
+      "size": 75550,
+      "type": "image/jpeg"
+    },
+    {
+      "path": "image-013.jpg",
+      "src": "https://klruniversal.com/wp-content/uploads/2026/06/Rotary-vs-DTH-Drilling-2-768x402.jpg",
+      "size": 63935,
+      "type": "image/jpeg"
+    },
+    {
+      "path": "image-014.jpg",
+      "src": "https://klruniversal.com/wp-content/uploads/2026/05/klr-may-banner-3.jpg",
+      "size": 280473,
+      "type": "image/jpeg"
+    },
+    {
+      "path": "image-015.jpg",
+      "src": "https://klruniversal.com/wp-content/uploads/2026/06/klr-may-banner-2-1.jpg",
+      "size": 341369,
+      "type": "image/jpeg"
+    }
+  ],
+  "total_size": 1323763,
+  "succeeded": 15,
+  "failed": 0
+}

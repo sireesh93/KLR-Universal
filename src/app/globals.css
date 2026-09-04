@@ -7,9 +7,14 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: "Geist", "Geist Fallback", ui-sans-serif, system-ui, sans-serif;
-  --font-mono: "Geist Mono", "Geist Mono Fallback", ui-monospace, monospace;
+  --font-sans: var(--font-saira), "Saira", ui-sans-serif, system-ui, sans-serif;
   --font-heading: var(--font-sans);
+  --color-klr-red: #da2129;
+  --color-klr-red-dark: #b81b22;
+  --color-klr-dark: #0a0a0a;
+  --color-klr-header: #f9f9f9;
+  --color-klr-offwhite: #f7f7f7;
+  --color-klr-cream: #fffef2;
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
