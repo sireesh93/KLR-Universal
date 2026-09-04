@@ -55,12 +55,12 @@ export default function ContactAndSupportPage() {
                 solution? We&rsquo;re here to help every step of the way.
               </p>
             </div>
-            <div className="relative h-[200px] w-full overflow-hidden rounded-lg md:h-[260px]">
+            <div className="relative h-[200px] w-full overflow-hidden rounded-lg bg-klr-offwhite md:h-[260px]">
               <Image
                 src={HERO_IMAGE}
                 alt="KLR Universal drilling rigs collage"
                 fill
-                className="object-cover"
+                className="object-contain"
                 sizes="(min-width: 768px) 50vw, 100vw"
                 priority
               />
@@ -116,8 +116,16 @@ export default function ContactAndSupportPage() {
                 Closed on Sundays and Public Holidays
               </p>
             </div>
-            <div className="flex min-h-[220px] items-center justify-center rounded-lg border border-black/10 bg-white text-sm text-black/40">
-              Map
+            <div className="min-h-[220px] overflow-hidden rounded-lg border border-black/10">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3805.657630419007!2d78.5882453!3d17.4760934!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb9c8a26aaaaab%3A0xd093af5453066f79!2sKLR%20Industries%20Limited!5e0!3m2!1sen!2sin!4v1757331410497!5m2!1sen!2sin"
+                title="KLR Universal location on Google Maps"
+                width="100%"
+                height="100%"
+                style={{ border: 0, minHeight: 220 }}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
             </div>
           </div>
         </section>

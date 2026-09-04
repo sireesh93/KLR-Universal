@@ -12,21 +12,21 @@ const POSTS = [
     title: "Role of Drilling Tools in Mining & Construction",
     excerpt:
       "Imagine building a tall office tower in Hyderabad or digging deep beneath its bustling streets. These big projects don’t…",
-    href: "https://klruniversal.com/blog/role-of-drilling-tools-in-mining-construction/",
+    href: "/blog/role-of-drilling-tools-in-mining-construction",
   },
   {
     image: "blog-card-02.webp",
     title: "What Is a Drilling Rig?",
     excerpt:
       "Have you ever wondered where oil comes from for the vehicles burning it, or the minerals for construction? The…",
-    href: "https://klruniversal.com/blog/what-is-drilling-rig/",
+    href: "/blog/what-is-drilling-rig",
   },
   {
     image: "blog-card-03.webp",
     title: "How Depth & Soil Type Impact Drilling Rig Choice",
     excerpt:
       "Choosing the proper drilling rig is about technology, and it’s the secret to success in your project. Whether it…",
-    href: "https://klruniversal.com/blog/how-depth-soil-type-impact-drilling-rig-choice/",
+    href: "/blog/how-depth-soil-type-impact-drilling-rig-choice",
   },
 ];
 

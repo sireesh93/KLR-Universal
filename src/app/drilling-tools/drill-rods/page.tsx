@@ -37,17 +37,17 @@ export default function DrillRodsPage() {
           <Link href="/" className="hover:text-klr-red">
             Home
           </Link>
-          <ChevronRight className="size-3" />
+          <ChevronRight className="size-3" aria-hidden="true" />
           <span>Products</span>
-          <ChevronRight className="size-3" />
+          <ChevronRight className="size-3" aria-hidden="true" />
           <span>Drilling Tools</span>
-          <ChevronRight className="size-3" />
+          <ChevronRight className="size-3" aria-hidden="true" />
           <span className="text-black">Drill Rods</span>
         </div>
 
         <section className="mx-auto max-w-[1400px] px-4 md:px-8">
           <div
-            className="relative flex min-h-[220px] items-center overflow-hidden rounded-lg bg-black/5 bg-cover bg-center"
+            className="relative flex min-h-[220px] items-center overflow-hidden rounded-lg bg-klr-offwhite bg-contain bg-center bg-no-repeat"
             style={{ backgroundImage: `url(${HERO_IMAGE})` }}
           >
             <div className="relative z-10 m-6 max-w-md rounded-lg bg-white p-6">

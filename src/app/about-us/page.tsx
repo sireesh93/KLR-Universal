@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { CheckCircle2, MapPin } from "lucide-react";
+import { CheckCircle2 } from "lucide-react";
 import { Header } from "@/components/sites/klruniversal-com-3601ad32/shared/Header";
 import { Footer } from "@/components/sites/klruniversal-com-3601ad32/shared/Footer";
 import { ContactForm } from "@/components/sites/klruniversal-com-3601ad32/shared/ContactForm";
@@ -55,16 +55,6 @@ const PILLARS = [
     title: "Process Improvement",
     text: "Lean, agile systems backed by R&D",
   },
-];
-
-const MAP_PINS = [
-  { top: "38%", left: "18%" }, // Americas
-  { top: "30%", left: "48%" }, // Europe
-  { top: "42%", left: "50%" }, // Africa
-  { top: "36%", left: "58%" }, // Middle East
-  { top: "40%", left: "68%" }, // India
-  { top: "55%", left: "72%" }, // SE Asia
-  { top: "65%", left: "50%" }, // Africa south
 ];
 
 export default function AboutUsPage() {
@@ -248,20 +238,13 @@ export default function AboutUsPage() {
               and beyond, ensuring you&rsquo;re never far from expert support.
             </p>
 
-            <div className="relative mx-auto mt-10 aspect-[16/8] w-full max-w-3xl opacity-80">
+            <div className="relative mx-auto mt-10 aspect-[1000/647] w-full max-w-3xl">
               <Image
                 src={`${ASSET_BASE}/world-map.svg`}
                 alt="Global presence map"
                 fill
                 className="object-contain"
               />
-              {MAP_PINS.map((pin, i) => (
-                <MapPin
-                  key={i}
-                  className="absolute size-5 -translate-x-1/2 -translate-y-full fill-klr-red text-klr-red"
-                  style={{ top: pin.top, left: pin.left }}
-                />
-              ))}
             </div>
           </div>
         </section>
