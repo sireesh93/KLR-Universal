@@ -162,7 +162,7 @@ export function Header() {
             aria-label="Language"
             className="flex size-9 shrink-0 items-center justify-center rounded-full bg-klr-red text-white"
           >
-            <Globe className="size-4" />
+            <Globe className="size-4" aria-hidden="true" />
           </button>
           <button
             type="button"
@@ -170,7 +170,7 @@ export function Header() {
             onClick={() => setMobileOpen(true)}
             className="flex size-9 shrink-0 items-center justify-center rounded-full bg-klr-red text-white md:hidden"
           >
-            <Menu className="size-4" />
+            <Menu className="size-4" aria-hidden="true" />
           </button>
         </div>
       </div>
@@ -196,9 +196,9 @@ export function Header() {
               <button
                 type="button"
                 onClick={() => setActiveCategory(null)}
-                className="flex items-center gap-1 text-sm text-black/50 hover:text-klr-red"
+                className="-ml-2 flex items-center gap-1 rounded px-2 py-1.5 text-sm text-black/50 hover:text-klr-red"
               >
-                <ChevronLeft className="size-4" /> Back
+                <ChevronLeft className="size-4" aria-hidden="true" /> Back
               </button>
               <h2 className="mt-4 text-3xl font-semibold text-klr-red">{activeCategory.title}</h2>
               {activeCategory.subtitle && (
@@ -238,7 +238,7 @@ export function Header() {
               onClick={closeProducts}
               className="rounded-full p-1 hover:bg-white/10"
             >
-              <X className="size-6" />
+              <X className="size-6" aria-hidden="true" />
             </button>
           </div>
 
@@ -306,7 +306,7 @@ export function Header() {
               onClick={() => setMobileOpen(false)}
               className="rounded-full p-1 hover:bg-black/5"
             >
-              <X className="size-6" />
+              <X className="size-6" aria-hidden="true" />
             </button>
           </div>
           <nav className="mt-8 flex flex-col gap-5 text-base font-medium">

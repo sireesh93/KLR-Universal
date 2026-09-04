@@ -36,11 +36,11 @@ export function ToolCategoryTemplate({
         <Link href="/" className="hover:text-klr-red">
           Home
         </Link>
-        <ChevronRight className="size-3" />
+        <ChevronRight className="size-3" aria-hidden="true" />
         <span>Products</span>
-        <ChevronRight className="size-3" />
+        <ChevronRight className="size-3" aria-hidden="true" />
         <span>Drilling Tools</span>
-        <ChevronRight className="size-3" />
+        <ChevronRight className="size-3" aria-hidden="true" />
         <span className="text-black">{title}</span>
       </div>
 

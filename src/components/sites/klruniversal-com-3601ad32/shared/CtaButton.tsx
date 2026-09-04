@@ -34,7 +34,7 @@ export function CtaButton({
           isRed ? "bg-white text-klr-red" : "bg-klr-red text-white"
         )}
       >
-        <ArrowRight className="size-3.5" />
+        <ArrowRight className="size-3.5" aria-hidden="true" />
       </span>
     </Link>
   );

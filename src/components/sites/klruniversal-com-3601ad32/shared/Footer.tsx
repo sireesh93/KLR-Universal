@@ -76,13 +76,13 @@ export function Footer() {
               href="mailto:sales@klruniversal.com"
               className="mt-3 flex items-center gap-2 text-sm text-white/60 hover:text-white"
             >
-              <Mail className="size-4" /> sales@klruniversal.com
+              <Mail className="size-4" aria-hidden="true" /> sales@klruniversal.com
             </a>
             <a
               href="tel:+919030327878"
               className="mt-2 flex items-center gap-2 text-sm text-white/60 hover:text-white"
             >
-              <Phone className="size-4" /> +91 9030327878
+              <Phone className="size-4" aria-hidden="true" /> +91 9030327878
             </a>
           </div>
 

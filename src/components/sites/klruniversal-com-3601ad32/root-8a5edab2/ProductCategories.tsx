@@ -67,7 +67,7 @@ export function ProductCategories() {
                 <p className="mt-4 text-xs text-black/50">{cat.eyebrow}</p>
                 <p className="mt-1 font-medium">{cat.title}</p>
                 <span className="mt-4 inline-flex items-center gap-1 text-xs font-medium text-klr-red opacity-0 transition-all duration-300 group-hover:translate-x-0.5 group-hover:opacity-100">
-                  Explore More <ArrowRight className="size-3" />
+                  Explore More <ArrowRight className="size-3" aria-hidden="true" />
                 </span>
               </Link>
             </Reveal>

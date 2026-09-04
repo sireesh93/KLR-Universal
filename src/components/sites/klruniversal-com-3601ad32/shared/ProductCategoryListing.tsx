@@ -16,9 +16,9 @@ export function ProductCategoryListing({
         <Link href="/" className="hover:text-klr-red">
           Home
         </Link>
-        <ChevronRight className="size-3" />
+        <ChevronRight className="size-3" aria-hidden="true" />
         <span>Drilling Rigs</span>
-        <ChevronRight className="size-3" />
+        <ChevronRight className="size-3" aria-hidden="true" />
         <span className="text-black">{categoryLabel}</span>
       </div>
 
