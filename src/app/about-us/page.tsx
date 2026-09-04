@@ -83,12 +83,12 @@ export default function AboutUsPage() {
                 Innovative, reliable, and cost-efficient drilling solutions
               </p>
             </div>
-            <div className="relative h-[200px] w-full overflow-hidden rounded-lg md:h-[260px]">
+            <div className="relative h-[200px] w-full overflow-hidden rounded-lg bg-klr-offwhite md:h-[260px]">
               <Image
                 src={`${ASSET_BASE}/hero-banner-collage.png`}
                 alt="KLR Universal drilling rigs collage"
                 fill
-                className="object-cover"
+                className="object-contain"
                 sizes="(min-width: 768px) 50vw, 100vw"
                 priority
               />
