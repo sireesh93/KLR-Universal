@@ -17,7 +17,21 @@ export async function generateMetadata({
   const { category, slug } = await params;
   const product = getProduct(category, slug);
   if (!product) return {};
-  return { title: `${product.title} | KLR Universal` };
+  const title = `${product.title} | KLR Universal`;
+  const description = product.bandHeading
+    ? `${product.title} — ${product.categoryLabel} by KLR Universal. ${product.bandHeading}`.slice(0, 160)
+    : `${product.title} — ${product.categoryLabel} by KLR Universal, trusted in 60+ countries for reliable drilling equipment.`;
+  return {
+    title,
+    description,
+    alternates: { canonical: `/drilling-rigs/${product.category}/${product.slug}` },
+    openGraph: {
+      title,
+      description,
+      type: "website",
+      images: product.heroImage ? [product.heroImage] : undefined,
+    },
+  };
 }
 
 export default async function DrillingRigProductPage({

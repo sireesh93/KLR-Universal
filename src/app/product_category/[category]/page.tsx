@@ -18,7 +18,15 @@ export async function generateMetadata({
   const { category } = await params;
   const match = products.find((p) => p.category === category);
   if (!match) return {};
-  return { title: `${match.categoryLabel} | KLR Universal` };
+  const count = products.filter((p) => p.category === category).length;
+  const title = `${match.categoryLabel} | KLR Universal`;
+  const description = `Explore KLR Universal's ${count} ${match.categoryLabel} models — hydraulic-powered drilling rigs engineered for reliability, backed by 40+ years of manufacturing expertise.`;
+  return {
+    title,
+    description,
+    alternates: { canonical: `/product_category/${category}` },
+    openGraph: { title, description, type: "website" },
+  };
 }
 
 export default async function ProductCategoryPage({

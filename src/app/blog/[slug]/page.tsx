@@ -9,6 +9,12 @@ export function generateStaticParams() {
   return blogPosts.filter((p) => !p.standaloneUrl).map((p) => ({ slug: p.slug }));
 }
 
+function excerptFrom(post: ReturnType<typeof getBlogPost>) {
+  const firstParagraph = post?.blocks.find((b) => b.tag === "P");
+  const text = firstParagraph && "text" in firstParagraph ? firstParagraph.text : "";
+  return text.length > 157 ? `${text.slice(0, 157).trimEnd()}...` : text;
+}
+
 export async function generateMetadata({
   params,
 }: {
@@ -17,7 +23,19 @@ export async function generateMetadata({
   const { slug } = await params;
   const post = getBlogPost(slug);
   if (!post) return {};
-  return { title: `${post.title} | KLR Universal Blog` };
+  const title = `${post.title} | KLR Universal Blog`;
+  const description = excerptFrom(post);
+  return {
+    title,
+    description,
+    alternates: { canonical: `/blog/${post.slug}` },
+    openGraph: {
+      title,
+      description,
+      type: "article",
+      images: post.heroImage ? [post.heroImage] : undefined,
+    },
+  };
 }
 
 export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
