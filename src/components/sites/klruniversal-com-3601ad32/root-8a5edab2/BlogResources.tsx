@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { CtaButton } from "../shared/CtaButton";
+import { Reveal } from "../shared/Reveal";
 
 const ASSET_BASE =
   "/sites/klruniversal-com-3601ad32/root-8a5edab2/images";
@@ -33,37 +34,39 @@ export function BlogResources() {
   return (
     <section className="bg-klr-offwhite py-16">
       <div className="mx-auto max-w-[1400px] px-4 md:px-8">
-        <div className="flex items-center justify-between">
+        <Reveal className="flex items-center justify-between">
           <h2 className="text-3xl font-medium leading-tight md:text-4xl">
             News, Innovations & Expert Resources
           </h2>
           <CtaButton href="/blog/" className="hidden sm:inline-flex">
             All Blogs
           </CtaButton>
-        </div>
+        </Reveal>
 
         <div className="mt-10 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
-          {POSTS.map((post) => (
-            <article key={post.href}>
-              <Link href={post.href} className="block overflow-hidden rounded-lg">
-                <div className="relative aspect-[4/3] w-full">
-                  <Image
-                    src={`${ASSET_BASE}/${post.image}`}
-                    alt={post.title}
-                    fill
-                    sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-                    className="object-cover transition-transform hover:scale-105"
-                  />
-                </div>
-              </Link>
-              <p className="mt-4 text-sm text-black/70">{post.excerpt}</p>
-              <Link
-                href={post.href}
-                className="mt-2 inline-block text-sm font-medium text-klr-red hover:underline"
-              >
-                Read more
-              </Link>
-            </article>
+          {POSTS.map((post, i) => (
+            <Reveal key={post.href} delay={i * 75}>
+              <article>
+                <Link href={post.href} className="block overflow-hidden rounded-lg">
+                  <div className="relative aspect-[4/3] w-full">
+                    <Image
+                      src={`${ASSET_BASE}/${post.image}`}
+                      alt={post.title}
+                      fill
+                      sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                      className="object-cover transition-transform duration-500 ease-out hover:scale-105"
+                    />
+                  </div>
+                </Link>
+                <p className="mt-4 text-sm text-black/70">{post.excerpt}</p>
+                <Link
+                  href={post.href}
+                  className="mt-2 inline-block text-sm font-medium text-klr-red transition-colors hover:underline"
+                >
+                  Read more
+                </Link>
+              </article>
+            </Reveal>
           ))}
         </div>
 

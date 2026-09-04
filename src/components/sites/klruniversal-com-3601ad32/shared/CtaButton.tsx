@@ -20,7 +20,7 @@ export function CtaButton({
     <Link
       href={href}
       className={cn(
-        "group inline-flex items-center gap-3 rounded-full py-1 pl-4 pr-1 text-sm font-medium transition-colors",
+        "group inline-flex items-center gap-3 rounded-full py-1 pl-4 pr-1 text-sm font-medium transition-all duration-200 ease-out hover:shadow-md active:scale-[0.97]",
         isRed
           ? "bg-klr-red text-white hover:bg-klr-red-dark"
           : "bg-white text-klr-red hover:bg-white/90",
@@ -30,7 +30,7 @@ export function CtaButton({
       <span>{children}</span>
       <span
         className={cn(
-          "flex size-6 shrink-0 items-center justify-center rounded-full",
+          "flex size-6 shrink-0 items-center justify-center rounded-full transition-transform duration-200 ease-out group-hover:translate-x-0.5",
           isRed ? "bg-white text-klr-red" : "bg-klr-red text-white"
         )}
       >

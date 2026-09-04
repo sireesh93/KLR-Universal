@@ -7,8 +7,8 @@ import { Globe, Menu, X, ChevronLeft } from "lucide-react";
 import { CtaButton } from "./CtaButton";
 
 const NAV_LINKS = [
+  { label: "Home", href: "/" },
   { label: "About Us", href: "/about-us" },
-  { label: "Blogs", href: "/blog" },
   { label: "Contact & Support", href: "/contact-and-support" },
 ];
 

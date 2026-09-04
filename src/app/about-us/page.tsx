@@ -218,12 +218,15 @@ export default function AboutUsPage() {
                 bodies for innovation, quality, and customer satisfaction.
               </p>
             </div>
-            <div className="divide-y divide-white/15 rounded-lg bg-white text-black">
+            <div className="flex flex-col gap-4">
               {PILLARS.map((p) => (
-                <div key={p.title} className="flex items-center gap-4 p-5">
+                <div
+                  key={p.title}
+                  className="flex items-center gap-4 rounded-lg bg-white p-5 text-black"
+                >
                   <Image src={`${ASSET_BASE}/${p.icon}`} alt="" width={36} height={36} />
                   <div>
-                    <p className="font-semibold text-klr-red">{p.title}</p>
+                    <p className="font-semibold">{p.title}</p>
                     <p className="text-sm text-black/60">{p.text}</p>
                   </div>
                 </div>

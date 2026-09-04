@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { CtaButton } from "../shared/CtaButton";
+import { Reveal } from "../shared/Reveal";
 
 const ASSET_BASE =
   "/sites/klruniversal-com-3601ad32/root-8a5edab2/images";
@@ -19,7 +20,7 @@ export function WhyUs() {
   return (
     <section className="relative overflow-hidden bg-klr-red py-16 text-white">
       <div className="mx-auto max-w-[1400px] px-4 md:px-8">
-        <div className="grid gap-10 md:grid-cols-[1.1fr_1fr] md:items-start">
+        <Reveal className="grid gap-10 md:grid-cols-[1.1fr_1fr] md:items-start">
           <h2 className="text-3xl font-medium leading-tight md:text-4xl">
             Drilling Innovation from the Ground Up
           </h2>
@@ -35,14 +36,14 @@ export function WhyUs() {
               See Our Journey
             </CtaButton>
           </div>
-        </div>
+        </Reveal>
 
         <h3 className="mt-14 text-2xl font-medium">Why KLR Universal?</h3>
         <div className="mt-6 border-t border-white/20" />
 
         <div className="mt-6 grid gap-6 sm:grid-cols-2 md:grid-cols-5">
-          {FEATURES.map((f) => (
-            <div key={f.text} className="flex items-center gap-3">
+          {FEATURES.map((f, i) => (
+            <Reveal key={f.text} delay={i * 75} className="flex items-center gap-3">
               <div className="flex size-14 shrink-0 items-center justify-center rounded-xl bg-white/95 p-2">
                 <Image
                   src={`${ASSET_BASE}/${f.icon}`}
@@ -52,7 +53,7 @@ export function WhyUs() {
                 />
               </div>
               <p className="text-sm font-medium">{f.text}</p>
-            </div>
+            </Reveal>
           ))}
         </div>
       </div>
