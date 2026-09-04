@@ -1,16 +1,38 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
+import { products } from "@/content/klruniversal-com-3601ad32/products";
 
 const inputClass =
   "w-full rounded-xl border border-black/10 bg-white px-4 py-3 text-sm placeholder:text-black/40 focus:border-klr-red focus:outline-none";
+const labelClass = "text-xs font-medium text-black/60";
+
+const DRILLING_RIG_PRODUCTS = products.map((p) => p.title);
+const DRILLING_TOOL_PRODUCTS = [
+  "Down The Hole Drilling Tools",
+  "Rotary Drilling Tools",
+  "KLR Drill Rods",
+];
 
 export function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [category, setCategory] = useState("");
+
+  const productOptions =
+    category === "Drilling Rigs"
+      ? DRILLING_RIG_PRODUCTS
+      : category === "Drilling Tools"
+        ? DRILLING_TOOL_PRODUCTS
+        : [];
 
   function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    setSubmitted(true);
+    setSubmitting(true);
+    window.setTimeout(() => {
+      setSubmitting(false);
+      setSubmitted(true);
+    }, 600);
   }
 
   return (
@@ -29,49 +51,136 @@ export function ContactForm() {
 
           <div className="bg-klr-offwhite p-8">
             {submitted ? (
-              <p className="text-sm font-medium text-klr-red">
+              <p role="status" className="text-sm font-medium text-klr-red">
                 Thanks — we&rsquo;ve received your enquiry and will be in
                 touch shortly.
               </p>
             ) : (
               <form onSubmit={handleSubmit} className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-                <input className={inputClass} placeholder="Name*" name="name" />
-                <input className={inputClass} placeholder="E-mail*" name="email" type="email" />
-                <input className={inputClass} placeholder="Phone*" name="phone" type="tel" />
-                <input className={inputClass} placeholder="Country*" name="country" />
-                <input
-                  className={inputClass}
-                  placeholder="Drilling Depth (Ex: 5m or 5ft)*"
-                  name="drilling-depth"
-                />
-                <input
-                  className={inputClass}
-                  placeholder="Drilling Diameter (Ex: 165 mm or 6.5&apos;)*"
-                  name="drilling-diameter"
-                />
-                <select className={inputClass} name="select-category" defaultValue="">
-                  <option value="" disabled>
-                    Select Category*
-                  </option>
-                  <option>Drilling Rigs</option>
-                  <option>Drilling Tools</option>
-                </select>
-                <select className={inputClass} name="select-product" defaultValue="">
-                  <option value="" disabled>
-                    Select Product*
-                  </option>
-                </select>
-                <textarea
-                  className={`${inputClass} sm:col-span-2`}
-                  rows={4}
-                  placeholder="Describe your needs, including any custom requirements you may have.*"
-                  name="message"
-                />
+                <div className="flex flex-col gap-1.5">
+                  <label htmlFor="cf-name" className={labelClass}>
+                    Name*
+                  </label>
+                  <input id="cf-name" className={inputClass} name="name" required aria-required="true" />
+                </div>
+                <div className="flex flex-col gap-1.5">
+                  <label htmlFor="cf-email" className={labelClass}>
+                    E-mail*
+                  </label>
+                  <input
+                    id="cf-email"
+                    className={inputClass}
+                    name="email"
+                    type="email"
+                    required
+                    aria-required="true"
+                  />
+                </div>
+                <div className="flex flex-col gap-1.5">
+                  <label htmlFor="cf-phone" className={labelClass}>
+                    Phone*
+                  </label>
+                  <input
+                    id="cf-phone"
+                    className={inputClass}
+                    name="phone"
+                    type="tel"
+                    required
+                    aria-required="true"
+                  />
+                </div>
+                <div className="flex flex-col gap-1.5">
+                  <label htmlFor="cf-country" className={labelClass}>
+                    Country*
+                  </label>
+                  <input id="cf-country" className={inputClass} name="country" required aria-required="true" />
+                </div>
+                <div className="flex flex-col gap-1.5">
+                  <label htmlFor="cf-depth" className={labelClass}>
+                    Drilling Depth (Ex: 5m or 5ft)*
+                  </label>
+                  <input
+                    id="cf-depth"
+                    className={inputClass}
+                    name="drilling-depth"
+                    required
+                    aria-required="true"
+                  />
+                </div>
+                <div className="flex flex-col gap-1.5">
+                  <label htmlFor="cf-diameter" className={labelClass}>
+                    Drilling Diameter (Ex: 165 mm or 6.5&apos;)*
+                  </label>
+                  <input
+                    id="cf-diameter"
+                    className={inputClass}
+                    name="drilling-diameter"
+                    required
+                    aria-required="true"
+                  />
+                </div>
+                <div className="flex flex-col gap-1.5">
+                  <label htmlFor="cf-category" className={labelClass}>
+                    Category*
+                  </label>
+                  <select
+                    id="cf-category"
+                    className={inputClass}
+                    name="select-category"
+                    value={category}
+                    onChange={(e) => setCategory(e.target.value)}
+                    required
+                    aria-required="true"
+                  >
+                    <option value="" disabled>
+                      Select Category
+                    </option>
+                    <option>Drilling Rigs</option>
+                    <option>Drilling Tools</option>
+                  </select>
+                </div>
+                <div className="flex flex-col gap-1.5">
+                  <label htmlFor="cf-product" className={labelClass}>
+                    Product*
+                  </label>
+                  <select
+                    key={category}
+                    id="cf-product"
+                    className={inputClass}
+                    name="select-product"
+                    defaultValue=""
+                    required
+                    aria-required="true"
+                    disabled={productOptions.length === 0}
+                  >
+                    <option value="" disabled>
+                      {category ? "Select Product" : "Select a category first"}
+                    </option>
+                    {productOptions.map((name) => (
+                      <option key={name}>{name}</option>
+                    ))}
+                  </select>
+                </div>
+                <div className="flex flex-col gap-1.5 sm:col-span-2">
+                  <label htmlFor="cf-message" className={labelClass}>
+                    Your Requirements*
+                  </label>
+                  <textarea
+                    id="cf-message"
+                    className={inputClass}
+                    rows={4}
+                    placeholder="Describe your needs, including any custom requirements you may have."
+                    name="message"
+                    required
+                    aria-required="true"
+                  />
+                </div>
                 <button
                   type="submit"
-                  className="w-fit rounded-full bg-klr-red px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-klr-red-dark"
+                  disabled={submitting}
+                  className="w-fit rounded-full bg-klr-red px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-klr-red-dark disabled:cursor-not-allowed disabled:opacity-60"
                 >
-                  Get In Touch
+                  {submitting ? "Sending..." : "Get In Touch"}
                 </button>
               </form>
             )}
