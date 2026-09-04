@@ -1218,5 +1218,95 @@
     "value": "Atlas Copco / ELGI / as per request — Capacity: 450–600 cfm @ 150–250 psi"
    }
   ]
+ },
+ {
+  "slug": "ts-911-75-sp",
+  "category": "surface-mining",
+  "categoryLabel": "Surface Mining & Quarrying Drill Rigs",
+  "title": "TS 911 – 75 SP",
+  "seriesTag": "Mining & Quarrying Series",
+  "heroImage": "/sites/klruniversal-com-3601ad32/products/ts-911-75-sp/hero.png",
+  "quickSpecs": [
+   {
+    "label": "Drill Diameter",
+    "value": "4″ to 16″"
+   },
+   {
+    "label": "Depth",
+    "value": "60 m"
+   }
+  ],
+  "bandSubtitle": "Modular DTH & rotary rig for 4″–16″ wells up to 200 m",
+  "bandHeading": "The platform is available in 70 and 80 variants with D (Down-the-Hole) and E (Rotary) configurations. Built for flexible deployment across mixed formations, it enables quick changeover between methods on the same chassis for water-well, irrigation and civil drilling needs.",
+  "specRows": [
+   {
+    "param": "Compressor capacity",
+    "value": "9-5/8″ (250 mm) to 12-1/4″ (311 mm)"
+   },
+   {
+    "param": "Single pass (Standard)",
+    "value": "11.3 m"
+   },
+   {
+    "param": "Single pass (Optional)",
+    "value": "18 m"
+   },
+   {
+    "param": "Multi pass capacity",
+    "value": "60 m"
+   },
+   {
+    "param": "Drill pipe length",
+    "value": "9 m / 12.2 m"
+   },
+   {
+    "param": "Storage capacity",
+    "value": "3+1/4+1"
+   },
+   {
+    "param": "Rotation Torque",
+    "value": "12200 / 14688 Nm"
+   },
+   {
+    "param": "Rotation Speed",
+    "value": "0-150 RPM\n0-180 RPM"
+   },
+   {
+    "param": "Pull down Mechanism",
+    "value": "Motor with Chain"
+   },
+   {
+    "param": "Feed force",
+    "value": "70000-80000 lbs"
+   },
+   {
+    "param": "Hoist force",
+    "value": "70000-80000 lbs"
+   },
+   {
+    "param": "Engine / Motor type",
+    "value": "Cat -C18, 27\nCummins- QSX23"
+   },
+   {
+    "param": "Engine output power",
+    "value": "600 HP, 700 HP, 800 HP"
+   },
+   {
+    "param": "Compressor capacity (2)",
+    "value": "1200 cfm @ 100 psi\n1600 cfm @ 100 psi\n1900 cfm @ 100 psi"
+   },
+   {
+    "param": "Levelling jacks",
+    "value": "4"
+   },
+   {
+    "param": "Undercarriage",
+    "value": "D7/D8"
+   },
+   {
+    "param": "Estimated weight",
+    "value": "75-90 tons"
+   }
+  ]
  }
 ]
