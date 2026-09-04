@@ -24,8 +24,34 @@ const WHY_US = [
 ];
 
 export function ProductTemplate({ product }: { product: Product }) {
+  const productJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    name: product.title,
+    category: product.categoryLabel,
+    description: product.bandHeading ?? `${product.title} — ${product.categoryLabel} by KLR Universal.`,
+    image: product.heroImage ? `https://klr-universal.vercel.app${product.heroImage}` : undefined,
+    brand: { "@type": "Brand", name: "KLR Universal" },
+    additionalProperty: [
+      ...product.quickSpecs.map((s) => ({
+        "@type": "PropertyValue",
+        name: s.label,
+        value: s.value,
+      })),
+      ...product.specRows.map((r) => ({
+        "@type": "PropertyValue",
+        name: r.param,
+        value: r.value,
+      })),
+    ],
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(productJsonLd) }}
+      />
       {/* Breadcrumb */}
       <div className="mx-auto flex max-w-[1400px] items-center gap-1 px-4 py-4 text-xs text-black/50 md:px-8">
         <Link href="/" className="hover:text-klr-red">

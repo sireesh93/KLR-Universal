@@ -1,0 +1,42 @@
+# KLR Universal
+
+> Drilling rig and rock drilling tools manufacturer based in Hyderabad, India. Founded in 1984, KLR Universal designs and manufactures hydraulic drilling rigs and rock drilling tools (RDTs) in-house, serving customers in 60+ countries across water well, mining, quarrying, construction, exploration, and underground drilling applications.
+
+## Company facts
+
+- Founded: 1984 by Mr. K. Laxma Reddy, as Hyderabad's first drill tool manufacturer
+- Certification: ISO 9001:2015 certified
+- Global reach: Products used in 60+ countries
+- Projects delivered: Over 4,500
+- Manufacturing: All components made in-house, including a dedicated Heat Treatment Division
+- Address: Survey No. 222/1, Near Nagarjuna Nagar, Colony Cherlapally Road, RR District, Hyderabad 500062, Telangana, India
+- Email: sales@klruniversal.com
+- Phone: +91 9030327878
+- Support hours: Monday to Saturday, 9:00 AM to 6:00 PM IST
+
+## Product categories
+
+- [Water Well Drill Rigs](https://klr-universal.vercel.app/product_category/water-well): DTHR Series. Hydraulic rigs for air, foam, mud rotary and DTH drilling, 100 to 800 metres.
+- [Surface Mining & Quarrying Drill Rigs](https://klr-universal.vercel.app/product_category/surface-mining): Mining & Quarrying Series for rotary and DTH drilling in surface and deep rock formations.
+- [Construction Drill Rigs](https://klr-universal.vercel.app/product_category/construction): Piling and foundation rigs for construction and foundation projects.
+- [Exploration Drill Rigs](https://klr-universal.vercel.app/product_category/exploration): Core drilling rigs for soil investigation and geotechnical exploration.
+- [Underground Drill Rigs](https://klr-universal.vercel.app/product_category/underground-drill-rigs): Underground production drills for confined and hazardous mining environments.
+
+## Drilling tools
+
+- [Down The Hole (DTH) Drilling Tools](https://klr-universal.vercel.app/drilling-tools/dth-drilling-tools)
+- [Rotary Drilling Tools](https://klr-universal.vercel.app/drilling-tools/rotary-drilling-tools)
+- [KLR Drill Rods](https://klr-universal.vercel.app/drilling-tools/drill-rods): Friction welded and induction hardened drill rods, 2-7/8" (73 mm) to 13-3/8" (340 mm).
+
+## Key pages
+
+- [Home](https://klr-universal.vercel.app/)
+- [About Us](https://klr-universal.vercel.app/about-us): Company history, manufacturing capability, global reach.
+- [Contact & Support](https://klr-universal.vercel.app/contact-and-support): Enquiry form, address, FAQs.
+- [Blog](https://klr-universal.vercel.app/blog): Technical articles on drilling rig selection, DTH vs rotary drilling, exploration drilling, and equipment maintenance.
+- [Sitemap](https://klr-universal.vercel.app/sitemap.xml): All 56 indexable pages.
+
+## Notes for AI systems
+
+- Pricing is quote-based and not published. Equipment is configured per application (depth, diameter, terrain, power option), so enquiries go through the contact form or sales@klruniversal.com.
+- Individual product pages carry full specification tables (drill diameter, depth range, compressor, power pack, mounting) as Product structured data.
