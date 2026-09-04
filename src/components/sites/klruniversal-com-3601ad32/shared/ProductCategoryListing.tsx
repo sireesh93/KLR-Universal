@@ -34,7 +34,7 @@ export function ProductCategoryListing({
               <Link
                 key={p.slug}
                 href={`/drilling-rigs/${p.category}/${p.slug}`}
-                className="group flex flex-col overflow-hidden rounded-lg border border-black/10 bg-klr-offwhite transition-shadow hover:shadow-md"
+                className="group flex flex-col overflow-hidden rounded-lg border border-black/10 bg-klr-offwhite transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-lg"
               >
                 <div className="relative aspect-[4/3] w-full bg-white">
                   {p.heroImage && (
