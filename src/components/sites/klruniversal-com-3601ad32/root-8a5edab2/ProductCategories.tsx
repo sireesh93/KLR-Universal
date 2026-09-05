@@ -62,7 +62,16 @@ export function ProductCategories() {
                 className="group flex h-full flex-col rounded-lg border border-black/10 bg-klr-offwhite p-4 shadow-[0_0_0_0.75px_#eee] transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-lg"
               >
                 <div className="flex size-16 items-center justify-center rounded-lg bg-klr-red transition-transform duration-300 group-hover:scale-105">
-                  <Image src={`${ASSET_BASE}/${cat.icon}`} alt="" width={40} height={40} />
+                  {/* Rendered at full 100px intrinsic size and scaled down with
+                      CSS: the tools icon is a hairline-stroke PNG that washes
+                      out into the red tile if the optimiser downsamples it. */}
+                  <Image
+                    src={`${ASSET_BASE}/${cat.icon}`}
+                    alt=""
+                    width={100}
+                    height={100}
+                    className="size-10"
+                  />
                 </div>
                 <p className="mt-4 text-xs text-black/50">{cat.eyebrow}</p>
                 <p className="mt-1 font-medium">{cat.title}</p>

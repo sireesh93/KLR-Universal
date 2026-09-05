@@ -163,8 +163,9 @@ export default function AboutUsPage() {
                     <Image
                       src={`${s.fromHome ? HOME_ASSET_BASE : ASSET_BASE}/${s.icon}`}
                       alt=""
-                      width={32}
-                      height={32}
+                      width={100}
+                      height={100}
+                      className="size-8"
                     />
                   </div>
                   <p className="text-sm font-medium">{s.title}</p>
