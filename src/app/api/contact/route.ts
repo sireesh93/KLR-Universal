@@ -27,6 +27,40 @@ const TO_EMAILS = (
 const FROM_EMAIL =
   process.env.CONTACT_FROM_EMAIL ?? "KLR Universal <onboarding@resend.dev>";
 
+const MAX_BODY_BYTES = 64 * 1024;
+const RATE_LIMIT_MAX = 5;
+const RATE_LIMIT_WINDOW_MS = 10 * 60 * 1000;
+
+/** Per-IP submission times. Note: serverless instances each hold their own
+ *  copy, so this throttles casual floods but is not a distributed limiter.
+ *  Vercel's WAF rate limiting is the durable control in front of this. */
+const recentByIp = new Map<string, number[]>();
+
+function isRateLimited(ip: string) {
+  const now = Date.now();
+  const recent = (recentByIp.get(ip) ?? []).filter(
+    (at) => now - at < RATE_LIMIT_WINDOW_MS
+  );
+
+  if (recent.length >= RATE_LIMIT_MAX) {
+    recentByIp.set(ip, recent);
+    return true;
+  }
+
+  recent.push(now);
+  recentByIp.set(ip, recent);
+
+  // Keep the map from growing without bound on a long-lived instance.
+  if (recentByIp.size > 5000) {
+    for (const [key, times] of recentByIp) {
+      if (times.every((at) => now - at >= RATE_LIMIT_WINDOW_MS)) {
+        recentByIp.delete(key);
+      }
+    }
+  }
+  return false;
+}
+
 function escapeHtml(value: string) {
   return value
     .replace(/&/g, "&amp;")
@@ -36,10 +70,50 @@ function escapeHtml(value: string) {
     .replace(/'/g, "&#39;");
 }
 
+/** Strip CR/LF so user input can never inject extra email headers. */
+function singleLine(value: string) {
+  return value.replace(/[\r\n]+/g, " ").trim();
+}
+
 export async function POST(request: Request) {
+  // Require JSON. Browsers must send a CORS preflight for application/json,
+  // and we return no Access-Control-Allow-Origin, so a cross-site page can no
+  // longer make a visitor's browser submit this form.
+  const contentType = (request.headers.get("content-type") ?? "").toLowerCase();
+  if (!contentType.includes("application/json")) {
+    return NextResponse.json({ error: "Invalid request." }, { status: 415 });
+  }
+
+  const declaredLength = Number(request.headers.get("content-length") ?? "0");
+  if (Number.isFinite(declaredLength) && declaredLength > MAX_BODY_BYTES) {
+    return NextResponse.json({ error: "Request too large." }, { status: 413 });
+  }
+
+  const ip =
+    (request.headers.get("x-forwarded-for") ?? "").split(",")[0].trim() ||
+    "unknown";
+  if (isRateLimited(ip)) {
+    return NextResponse.json(
+      {
+        error:
+          "Too many enquiries from this connection. Please try again shortly, or email sales@klruniversal.com.",
+      },
+      { status: 429 }
+    );
+  }
+
+  const rawBody = await request.text();
+  if (rawBody.length > MAX_BODY_BYTES) {
+    return NextResponse.json({ error: "Request too large." }, { status: 413 });
+  }
+
   let payload: Record<string, unknown>;
   try {
-    payload = await request.json();
+    const parsed = JSON.parse(rawBody);
+    if (typeof parsed !== "object" || parsed === null || Array.isArray(parsed)) {
+      throw new Error("not an object");
+    }
+    payload = parsed as Record<string, unknown>;
   } catch {
     return NextResponse.json({ error: "Invalid request." }, { status: 400 });
   }
@@ -110,7 +184,9 @@ export async function POST(request: Request) {
       from: FROM_EMAIL,
       to: TO_EMAILS,
       replyTo: values.email,
-      subject: `Website enquiry — ${values["select-product"]} (${values.country})`,
+      subject: singleLine(
+        `Website enquiry — ${values["select-product"]} (${values.country})`
+      ),
       html,
       text,
     });
