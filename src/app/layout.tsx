@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Saira } from "next/font/google";
 import { FloatingEnquireTab } from "@/components/sites/klruniversal-com-3601ad32/shared/FloatingEnquireTab";
+import { CookieBanner } from "@/components/sites/klruniversal-com-3601ad32/shared/CookieBanner";
 import "./globals.css";
 
 const saira = Saira({
@@ -47,6 +48,7 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col">
         {children}
         <FloatingEnquireTab />
+        <CookieBanner />
       </body>
     </html>
   );

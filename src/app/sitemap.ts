@@ -15,6 +15,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${SITE_URL}/drilling-tools/drill-rods`, changeFrequency: "monthly", priority: 0.7 },
     { url: `${SITE_URL}/drilling-tools/dth-drilling-tools`, changeFrequency: "monthly", priority: 0.7 },
     { url: `${SITE_URL}/drilling-tools/rotary-drilling-tools`, changeFrequency: "monthly", priority: 0.7 },
+    { url: `${SITE_URL}/privacy-policy`, changeFrequency: "yearly", priority: 0.3 },
+    { url: `${SITE_URL}/terms`, changeFrequency: "yearly", priority: 0.3 },
   ];
 
   const blogPaginationRoutes: MetadataRoute.Sitemap = Array.from(

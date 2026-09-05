@@ -116,8 +116,16 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 border-t border-white/10 pt-6 text-center text-xs text-white/50">
-          Copyright © {new Date().getFullYear()} KLR UNIVERSAL.
+        <div className="mt-12 flex flex-col items-center gap-3 border-t border-white/10 pt-6 text-xs text-white/50 sm:flex-row sm:justify-between">
+          <p>Copyright © {new Date().getFullYear()} KLR UNIVERSAL.</p>
+          <div className="flex gap-5">
+            <Link href="/privacy-policy" className="hover:text-white">
+              Privacy Policy
+            </Link>
+            <Link href="/terms" className="hover:text-white">
+              Terms of Use
+            </Link>
+          </div>
         </div>
       </div>
     </footer>
