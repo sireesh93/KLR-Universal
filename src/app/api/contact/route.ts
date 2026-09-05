@@ -14,7 +14,14 @@ const FIELDS = [
   { key: "message", label: "Requirements" },
 ] as const;
 
-const TO_EMAIL = process.env.CONTACT_TO_EMAIL ?? "sales@klruniversal.com";
+// Comma-separated list; every address receives each enquiry.
+const TO_EMAILS = (
+  process.env.CONTACT_TO_EMAIL ??
+  "sales@klruniversal.com,info@bycconsulting.in"
+)
+  .split(",")
+  .map((address) => address.trim())
+  .filter(Boolean);
 // Must be an address on a domain verified in the Resend account. Resend's
 // onboarding@resend.dev works for testing but only delivers to the account owner.
 const FROM_EMAIL =
@@ -101,7 +108,7 @@ export async function POST(request: Request) {
     const resend = new Resend(apiKey);
     const { error } = await resend.emails.send({
       from: FROM_EMAIL,
-      to: TO_EMAIL,
+      to: TO_EMAILS,
       replyTo: values.email,
       subject: `Website enquiry — ${values["select-product"]} (${values.country})`,
       html,
