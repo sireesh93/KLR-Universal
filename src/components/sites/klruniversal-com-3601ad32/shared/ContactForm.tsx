@@ -17,6 +17,7 @@ const DRILLING_TOOL_PRODUCTS = [
 export function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
   const [category, setCategory] = useState("");
 
   const productOptions =
@@ -26,13 +27,37 @@ export function ContactForm() {
         ? DRILLING_TOOL_PRODUCTS
         : [];
 
-  function handleSubmit(e: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    setError(null);
     setSubmitting(true);
-    window.setTimeout(() => {
-      setSubmitting(false);
+
+    const payload = Object.fromEntries(new FormData(e.currentTarget).entries());
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+      const result = await response.json().catch(() => ({}));
+
+      if (!response.ok) {
+        setError(
+          result.error ??
+            "We couldn't send your enquiry. Please email sales@klruniversal.com."
+        );
+        return;
+      }
+
       setSubmitted(true);
-    }, 600);
+    } catch {
+      setError(
+        "We couldn't reach the server. Please check your connection, or email sales@klruniversal.com."
+      );
+    } finally {
+      setSubmitting(false);
+    }
   }
 
   return (
@@ -57,6 +82,15 @@ export function ContactForm() {
               </p>
             ) : (
               <form onSubmit={handleSubmit} className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                {/* Honeypot: hidden from people, catches bots that fill everything. */}
+                <input
+                  type="text"
+                  name="company"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  aria-hidden="true"
+                  className="hidden"
+                />
                 <div className="flex flex-col gap-1.5">
                   <label htmlFor="cf-name" className={labelClass}>
                     Name*
@@ -175,6 +209,14 @@ export function ContactForm() {
                     aria-required="true"
                   />
                 </div>
+                {error && (
+                  <p
+                    role="alert"
+                    className="rounded-lg bg-klr-red/10 px-4 py-3 text-sm text-klr-red sm:col-span-2"
+                  >
+                    {error}
+                  </p>
+                )}
                 <button
                   type="submit"
                   disabled={submitting}
