@@ -61,10 +61,9 @@ export function BlogResources() {
                 <p className="mt-4 text-sm text-black/70">{post.excerpt}</p>
                 <Link
                   href={post.href}
-                  aria-label={`Read more: ${post.title}`}
                   className="mt-2 inline-block text-sm font-medium text-klr-red transition-colors hover:underline"
                 >
-                  Read more
+                  Read more<span className="sr-only"> about {post.title}</span>
                 </Link>
               </article>
             </Reveal>

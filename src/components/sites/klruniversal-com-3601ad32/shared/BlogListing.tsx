@@ -62,10 +62,9 @@ export function BlogListing({ page }: { page: number }) {
                 <p className="mt-2 line-clamp-2 text-sm text-black/60">{excerptOf(post)}</p>
                 <Link
                   href={postHref(post)}
-                  aria-label={`Read more: ${post.title}`}
                   className="mt-2 inline-block text-sm font-medium text-klr-red hover:underline"
                 >
-                  Read more
+                  Read more<span className="sr-only"> about {post.title}</span>
                 </Link>
               </article>
             ))}
