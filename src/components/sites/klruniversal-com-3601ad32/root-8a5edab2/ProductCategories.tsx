@@ -61,16 +61,17 @@ export function ProductCategories() {
                 href={cat.href}
                 className="group flex h-full flex-col rounded-lg border border-black/10 bg-klr-offwhite p-4 shadow-[0_0_0_0.75px_#eee] transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-lg"
               >
-                <div className="flex size-16 items-center justify-center rounded-lg bg-klr-red transition-transform duration-300 group-hover:scale-105">
-                  {/* Rendered at full 100px intrinsic size and scaled down with
-                      CSS: the tools icon is a hairline-stroke PNG that washes
-                      out into the red tile if the optimiser downsamples it. */}
+                <div className="flex size-24 items-center justify-center rounded-lg bg-klr-red transition-transform duration-300 group-hover:scale-105">
+                  {/* Sized to match the live site (~98px). The tools icon is a
+                      hairline-stroke PNG with no vector version available, so
+                      shrinking it below native resolution turns the strokes
+                      semi-transparent and they blend into the red tile. */}
                   <Image
                     src={`${ASSET_BASE}/${cat.icon}`}
                     alt=""
                     width={100}
                     height={100}
-                    className="size-10"
+                    className="size-[88px]"
                   />
                 </div>
                 <p className="mt-4 text-xs text-black/50">{cat.eyebrow}</p>
