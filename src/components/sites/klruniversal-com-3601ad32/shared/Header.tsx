@@ -250,7 +250,7 @@ export function Header() {
                   type="button"
                   onClick={() => setActiveCategory(item)}
                   className={`text-left text-sm hover:text-white ${
-                    activeCategory?.key === item.key ? "font-semibold text-white" : "text-white/90"
+                    activeCategory?.key === item.key ? "font-semibold text-white" : "text-white"
                   }`}
                 >
                   {item.label}
@@ -266,7 +266,7 @@ export function Header() {
                 <Link
                   href={item.href}
                   onClick={closeProducts}
-                  className="text-sm text-white/90 hover:text-white"
+                  className="text-sm text-white hover:underline"
                 >
                   {item.label}
                 </Link>

@@ -63,7 +63,7 @@ export default function DrillRodsPage() {
             <h2 className="text-3xl font-medium leading-tight md:text-4xl">
               KLR Drill Rods — Engineered for Durability and Performance
             </h2>
-            <p className="mt-4 max-w-3xl text-white/90">
+            <p className="mt-4 max-w-3xl text-white">
               KLR Drill Rods are meticulously crafted to excel in the toughest
               drilling conditions. Made from high-strength alloy steel, they
               offer unmatched durability and reliability in extreme

@@ -93,7 +93,7 @@ export default function AboutUsPage() {
               Determined to Deliver. Built to Endure.
             </h2>
             <div>
-              <p className="text-white/90">
+              <p className="text-white">
                 We specialise in end-to-end manufacturing of advanced
                 drilling rigs and rock drilling tools (RDTs) that perform in
                 the most demanding environments. All components are made
@@ -198,7 +198,7 @@ export default function AboutUsPage() {
               <h2 className="text-3xl font-medium leading-tight md:text-4xl">
                 Precision is Just the Beginning.
               </h2>
-              <p className="mt-4 text-white/90">
+              <p className="mt-4 text-white">
                 Our success is built on a three-pillar approach: This
                 unwavering commitment ensures better performance, lower
                 downtime, and greater ROI for our customers.

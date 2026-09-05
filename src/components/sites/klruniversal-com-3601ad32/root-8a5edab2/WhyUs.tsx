@@ -25,7 +25,7 @@ export function WhyUs() {
             Drilling Innovation from the Ground Up
           </h2>
           <div>
-            <p className="text-white/90">
+            <p className="text-white">
               KLR Universal isn&rsquo;t just a name-it&rsquo;s a legacy of
               engineering precision and progress. What began as a small unit
               manufacturing DTH bits has evolved into a global force in

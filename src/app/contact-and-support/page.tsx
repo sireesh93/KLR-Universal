@@ -90,7 +90,7 @@ export default function ContactAndSupportPage() {
             <h2 className="text-3xl font-medium leading-tight md:text-4xl">
               Your Global Drilling Partner, Always Within Reach
             </h2>
-            <p className="text-white/90">
+            <p className="text-white">
               From tailored support to technical assistance, KLR
               Universal&rsquo;s dedicated teams are available to help you
               make informed decisions, troubleshoot challenges, or explore

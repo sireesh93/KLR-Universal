@@ -50,7 +50,7 @@ export function Highlights() {
           <h2 className="text-3xl font-medium leading-tight md:text-4xl">
             Decades of Delivery. Global in Reach. Trusted by Thousands.
           </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-white/90">
+          <p className="mx-auto mt-4 max-w-2xl text-white">
             With over four decades of experience, KLR Universal has earned the
             trust of clients worldwide. Our numbers are more than
             metrics-they&rsquo;re milestones in reliability, performance, and

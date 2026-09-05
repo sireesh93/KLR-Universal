@@ -29,7 +29,7 @@ export function Flagship() {
           <h2 className="text-3xl font-medium leading-tight md:text-4xl">
             Performance That Sets Standards
           </h2>
-          <p className="mt-4 text-white/90">
+          <p className="mt-4 text-white">
             These aren&rsquo;t just our bestsellers, they&rsquo;re industry
             benchmarks in action, reliability, and ROI.
           </p>

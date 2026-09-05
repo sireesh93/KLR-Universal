@@ -56,7 +56,7 @@ export function ToolCategoryTemplate({
       <section className="mt-8 bg-klr-red py-14 text-white">
         <div className="mx-auto max-w-[1400px] px-4 md:px-8">
           <h2 className="text-3xl font-medium leading-tight md:text-4xl">{bandHeading}</h2>
-          <p className="mt-4 max-w-3xl text-white/90">{bandDesc}</p>
+          <p className="mt-4 max-w-3xl text-white">{bandDesc}</p>
         </div>
       </section>
 

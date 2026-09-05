@@ -68,7 +68,7 @@ export function ContactForm() {
             <h2 className="text-3xl font-medium leading-tight md:text-4xl">
               Let&rsquo;s Build Something Groundbreaking
             </h2>
-            <p className="mt-4 text-white/90">
+            <p className="mt-4 text-white">
               Whether you&rsquo;re looking for the right rig, spares, or
               tailored solutions — we&rsquo;re just a message away.
             </p>
