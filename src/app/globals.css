@@ -156,4 +156,24 @@
     opacity: 1;
     transform: translateY(0);
   }
+
+  /* Legacy timeline: the connecting line draws left-to-right, then each
+     milestone fades up in chronological order. */
+  .timeline-track {
+    transform-origin: left center;
+    scale: 0 1;
+    transition: scale 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .timeline-track-in {
+    scale: 1 1;
+  }
+  .timeline-node {
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+  }
+  .timeline-node-in {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
