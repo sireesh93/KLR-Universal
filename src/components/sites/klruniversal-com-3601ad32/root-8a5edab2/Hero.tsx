@@ -1,18 +1,54 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import { CtaButton } from "../shared/CtaButton";
 
+const ASSET_BASE = "/sites/klruniversal-com-3601ad32/root-8a5edab2/images";
+
+const SLIDES = [
+  {
+    src: `${ASSET_BASE}/hero-banner-1.webp`,
+    alt: "KLR Universal drilling rig fleet on site",
+  },
+  {
+    src: `${ASSET_BASE}/hero-banner-2.webp`,
+    alt: "KLR Universal DTH hammers, drill bits and rock drilling tools",
+  },
+];
+
+const SLIDE_DURATION = 5000;
+
 export function Hero() {
+  const [active, setActive] = useState(0);
+
+  useEffect(() => {
+    // Honour a reduced-motion preference by leaving the first slide in place.
+    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduced) return;
+
+    const id = setInterval(() => {
+      setActive((prev) => (prev + 1) % SLIDES.length);
+    }, SLIDE_DURATION);
+    return () => clearInterval(id);
+  }, []);
+
   return (
     <section className="relative hidden md:block">
-      <div className="relative h-[420px] w-full lg:h-[520px]">
-        <Image
-          src="/sites/klruniversal-com-3601ad32/root-8a5edab2/images/hero-banner-1.webp"
-          alt="KLR Universal drilling rigs fleet"
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover"
-        />
+      <div className="relative h-[420px] w-full overflow-hidden lg:h-[520px]">
+        {SLIDES.map((slide, i) => (
+          <Image
+            key={slide.src}
+            src={slide.src}
+            alt={slide.alt}
+            fill
+            priority={i === 0}
+            sizes="100vw"
+            className={`object-cover transition-opacity duration-1000 ease-out ${
+              i === active ? "opacity-100" : "opacity-0"
+            }`}
+          />
+        ))}
       </div>
 
       <div className="absolute left-6 top-1/2 w-[min(90vw,380px)] -translate-y-1/2 rounded-xl bg-white/95 p-6 shadow-xl lg:left-16">
