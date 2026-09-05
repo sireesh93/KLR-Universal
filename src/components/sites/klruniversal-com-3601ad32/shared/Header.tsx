@@ -119,7 +119,7 @@ export function Header() {
   }, [productsOpen, mobileOpen]);
 
   return (
-    <header className="relative z-40 bg-klr-header">
+    <header className="relative z-50 bg-klr-header">
       <div className="mx-auto flex max-w-[1400px] items-center justify-between gap-6 px-4 py-3 md:px-8">
         <Link href="/" className="shrink-0">
           <Image
@@ -289,7 +289,7 @@ export function Header() {
           onClick={() => setMobileOpen(false)}
         />
         <div
-          className={`absolute right-0 top-0 h-full w-72 max-w-[85vw] bg-white p-6 shadow-2xl transition-transform duration-300 ${
+          className={`absolute right-0 top-0 h-full w-72 max-w-[85vw] bg-klr-red p-6 text-white shadow-2xl transition-transform duration-300 ${
             mobileOpen ? "translate-x-0" : "translate-x-full"
           }`}
         >
@@ -304,7 +304,7 @@ export function Header() {
               type="button"
               aria-label="Close"
               onClick={() => setMobileOpen(false)}
-              className="rounded-full p-1 hover:bg-black/5"
+              className="rounded-full p-1 hover:bg-white/10"
             >
               <X className="size-6" aria-hidden="true" />
             </button>
@@ -330,7 +330,11 @@ export function Header() {
                 {link.label}
               </Link>
             ))}
-            <CtaButton href="/contact-and-support" className="mt-4 justify-center">
+            <CtaButton
+              href="/contact-and-support"
+              variant="white"
+              className="mt-4 justify-center"
+            >
               Enquire Now
             </CtaButton>
           </nav>
