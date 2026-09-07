@@ -157,6 +157,35 @@
     transform: translateY(0);
   }
 
+  /* Homepage hero: the card's contents rise in sequence on load. The red
+     half of the headline lands just after the black half so the colour
+     break reads as a deliberate beat rather than a wrap accident.
+     The delay rules follow .hero-rise so they win over its shorthand. */
+  @keyframes hero-rise {
+    from {
+      opacity: 0;
+      transform: translateY(18px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  .hero-rise {
+    /* backwards, not both: forwards would pin a transform on the element
+       and dead-lock the CTA's active:scale press state. */
+    animation: hero-rise 0.7s cubic-bezier(0.22, 1, 0.36, 1) backwards;
+  }
+  .hero-rise-2 {
+    animation-delay: 0.12s;
+  }
+  .hero-rise-3 {
+    animation-delay: 0.26s;
+  }
+  .hero-rise-4 {
+    animation-delay: 0.38s;
+  }
+
   /* Legacy timeline: the connecting line draws left-to-right, then each
      milestone fades up in chronological order. */
   .timeline-track {

@@ -51,15 +51,22 @@ export function Hero() {
         ))}
       </div>
 
-      <div className="absolute left-6 top-1/2 w-[min(90vw,380px)] -translate-y-1/2 rounded-xl bg-white/95 p-6 shadow-xl lg:left-16">
-        <h1 className="text-3xl font-medium leading-tight text-black lg:text-4xl">
-          Built to Drill. Engineered to Lead.
+      <div className="absolute left-6 top-1/2 w-[min(90vw,380px)] -translate-y-1/2 rounded-xl bg-white/95 p-5 shadow-xl lg:left-16">
+        <h1 className="text-2xl font-medium leading-[1.15] text-black lg:text-3xl">
+          <span className="hero-rise block">
+            Specialized
+            <br />
+            Customized
+          </span>
+          <span className="hero-rise hero-rise-2 block text-klr-red">
+            Equipment for All Drilling Applications.
+          </span>
         </h1>
-        <p className="mt-3 text-sm text-black/70">
-          Your global partner in drilling rig innovation and manufacturing
-          since 1984.
+        <p className="hero-rise hero-rise-3 mt-2 text-sm text-black/70">
+          Custom drilling equipment built to meet every application and
+          industry need.
         </p>
-        <CtaButton href="#solutions" className="mt-5">
+        <CtaButton href="#solutions" className="hero-rise hero-rise-4 mt-4">
           Explore Our Solutions
         </CtaButton>
       </div>
