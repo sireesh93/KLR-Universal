@@ -31,7 +31,13 @@ Cloud Startup only matters if traffic grows.
 
 hPanel -> Web Apps -> Create application.
 
-- Source: **GitHub**, repo `BycConsulting/KLRIndustries`, branch `main`
+- Source: **GitHub**, repo `BycConsulting/KLRIndustries`, branch `hostinger`
+
+  Deploy from `hostinger`, **not** `main`. Vercel auto-deploys `main` to
+  production, and the Zoho-only commit has no Resend fallback -- pushing it to
+  `main` would take the live Vercel contact form down. `hostinger` carries the
+  same code without touching Vercel production. Merge it into `main` only at
+  DNS cutover, when Vercel stops mattering.
 - Framework: Next.js (auto-detected)
 - Node version: **20 or higher**
 - Build command: `npm ci && npm run build`
@@ -69,13 +75,17 @@ domain still resolves to Vercel:
 - [ ] **Submit the contact form and confirm the email arrives at both addresses**
 - [ ] Response headers still carry the CSP from `next.config.ts`
 
-## 4. Cut over DNS
+## 4. Cut over DNS -- NOT YET
 
-Only after step 3 passes. Point the `klruniversal.com` A/CNAME records at
-Hostinger, keeping the MX records on Zoho so mail is unaffected. Allow up to
-24h for propagation, then enable SSL in hPanel.
+Deliberately not done. The site stays live on Vercel until explicitly asked.
 
-Keep the Vercel deployment alive for about a week as a rollback target.
+The domain is already owned, so Hostinger's bundled free domain is not needed
+and should not be registered -- it would just add a domain nobody uses.
+
+When the time comes: point the `klruniversal.com` A/CNAME records at
+Hostinger, **keep the MX records on Zoho** so mail is unaffected, allow up to
+24h for propagation, then enable SSL in hPanel. Keep the Vercel deployment
+alive for about a week as a rollback target.
 
 ## Known risks
 
@@ -92,9 +102,14 @@ connection timeout, this is why. In order of preference:
 **Next.js 16 is very new.** Hostinger's framework auto-detection may lag. If
 the build fails, set the build and start commands manually as in step 1.
 
-**Image optimisation needs `sharp`.** Next installs it automatically on most
-platforms. If images come back unoptimised or the build warns about it, add
-`sharp` to dependencies.
+**Node version.** `package.json` pins `engines.node: ">=24"`. Next 16 itself
+only needs 20.9+, so if Hostinger tops out at 20 or 22 this pin is what will
+block the build. Relaxing it to `">=20"` is a one-line change -- do that
+rather than fighting the platform.
+
+**Image optimisation is fine.** Verified against a local production server
+with no `sharp` installed: `/_next/image` returned 200 and compressed a 99KB
+hero to 16.7KB. Next 16 bundles its own optimiser, so nothing extra is needed.
 
 ## What is lost by leaving Vercel
 
