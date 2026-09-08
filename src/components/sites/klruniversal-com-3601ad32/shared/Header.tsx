@@ -188,7 +188,9 @@ export function Header() {
         {/* Category detail panel: full-screen on mobile, cascades left of the category list at md+ */}
         <div
           className={`absolute right-0 top-0 z-10 h-full w-full max-w-md overflow-y-auto bg-white p-8 shadow-2xl transition-transform duration-300 md:right-96 ${
-            activeCategory ? "translate-x-0" : "translate-x-full"
+            activeCategory
+              ? "translate-x-0"
+              : "translate-x-full md:translate-x-[calc(100%+24rem)]"
           }`}
         >
           {activeCategory && (
