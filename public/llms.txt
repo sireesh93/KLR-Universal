@@ -16,25 +16,25 @@
 
 ## Product categories
 
-- [Water Well Drill Rigs](https://klr-universal.vercel.app/product_category/water-well): DTHR Series. Hydraulic rigs for air, foam, mud rotary and DTH drilling, 100 to 800 metres.
-- [Surface Mining & Quarrying Drill Rigs](https://klr-universal.vercel.app/product_category/surface-mining): Mining & Quarrying Series for rotary and DTH drilling in surface and deep rock formations.
-- [Construction Drill Rigs](https://klr-universal.vercel.app/product_category/construction): Piling and foundation rigs for construction and foundation projects.
-- [Exploration Drill Rigs](https://klr-universal.vercel.app/product_category/exploration): Core drilling rigs for soil investigation and geotechnical exploration.
-- [Underground Drill Rigs](https://klr-universal.vercel.app/product_category/underground-drill-rigs): Underground production drills for confined and hazardous mining environments.
+- [Water Well Drill Rigs](https://klruniversal.com/product_category/water-well): DTHR Series. Hydraulic rigs for air, foam, mud rotary and DTH drilling, 100 to 800 metres.
+- [Surface Mining & Quarrying Drill Rigs](https://klruniversal.com/product_category/surface-mining): Mining & Quarrying Series for rotary and DTH drilling in surface and deep rock formations.
+- [Construction Drill Rigs](https://klruniversal.com/product_category/construction): Piling and foundation rigs for construction and foundation projects.
+- [Exploration Drill Rigs](https://klruniversal.com/product_category/exploration): Core drilling rigs for soil investigation and geotechnical exploration.
+- [Underground Drill Rigs](https://klruniversal.com/product_category/underground-drill-rigs): Underground production drills for confined and hazardous mining environments.
 
 ## Drilling tools
 
-- [Down The Hole (DTH) Drilling Tools](https://klr-universal.vercel.app/drilling-tools/dth-drilling-tools)
-- [Rotary Drilling Tools](https://klr-universal.vercel.app/drilling-tools/rotary-drilling-tools)
-- [KLR Drill Rods](https://klr-universal.vercel.app/drilling-tools/drill-rods): Friction welded and induction hardened drill rods, 2-7/8" (73 mm) to 13-3/8" (340 mm).
+- [Down The Hole (DTH) Drilling Tools](https://klruniversal.com/drilling-tools/dth-drilling-tools)
+- [Rotary Drilling Tools](https://klruniversal.com/drilling-tools/rotary-drilling-tools)
+- [KLR Drill Rods](https://klruniversal.com/drilling-tools/drill-rods): Friction welded and induction hardened drill rods, 2-7/8" (73 mm) to 13-3/8" (340 mm).
 
 ## Key pages
 
-- [Home](https://klr-universal.vercel.app/)
-- [About Us](https://klr-universal.vercel.app/about-us): Company history, manufacturing capability, global reach.
-- [Contact & Support](https://klr-universal.vercel.app/contact-and-support): Enquiry form, address, FAQs.
-- [Blog](https://klr-universal.vercel.app/blog): Technical articles on drilling rig selection, DTH vs rotary drilling, exploration drilling, and equipment maintenance.
-- [Sitemap](https://klr-universal.vercel.app/sitemap.xml): All 56 indexable pages.
+- [Home](https://klruniversal.com/)
+- [About Us](https://klruniversal.com/about-us): Company history, manufacturing capability, global reach.
+- [Contact & Support](https://klruniversal.com/contact-and-support): Enquiry form, address, FAQs.
+- [Blog](https://klruniversal.com/blog): Technical articles on drilling rig selection, DTH vs rotary drilling, exploration drilling, and equipment maintenance.
+- [Sitemap](https://klruniversal.com/sitemap.xml): All 56 indexable pages.
 
 ## Notes for AI systems
 
