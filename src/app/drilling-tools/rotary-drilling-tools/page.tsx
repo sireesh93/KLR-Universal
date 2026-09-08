@@ -4,6 +4,7 @@ import { Footer } from "@/components/sites/klruniversal-com-3601ad32/shared/Foot
 import { ToolCategoryTemplate } from "@/components/sites/klruniversal-com-3601ad32/shared/ToolCategoryTemplate";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/drilling-tools/rotary-drilling-tools" },
   title: "Rotary Drilling Tools by KLR Universal",
 };
 

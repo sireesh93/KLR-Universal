@@ -6,6 +6,7 @@ import { Footer } from "@/components/sites/klruniversal-com-3601ad32/shared/Foot
 import { CtaButton } from "@/components/sites/klruniversal-com-3601ad32/shared/CtaButton";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/drilling-tools/drill-rods" },
   title: "Drill Rods by KLR Universal",
 };
 

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Saira } from "next/font/google";
 import { FloatingEnquireTab } from "@/components/sites/klruniversal-com-3601ad32/shared/FloatingEnquireTab";
 import { CookieBanner } from "@/components/sites/klruniversal-com-3601ad32/shared/CookieBanner";
+import { SITE_URL } from "@/lib/site";
 import "./globals.css";
 
 const saira = Saira({
@@ -10,7 +11,6 @@ const saira = Saira({
   weight: ["400", "500", "600", "700"],
 });
 
-const SITE_URL = "https://klr-universal.vercel.app";
 const SITE_TITLE = "KLR Universal | Drilling Rigs & Drilling Tools Manufacturer";
 const SITE_DESCRIPTION =
   "KLR Universal – trusted drilling rig & rock drilling tools manufacturer in India, delivering reliable solutions for water well, mining & construction.";

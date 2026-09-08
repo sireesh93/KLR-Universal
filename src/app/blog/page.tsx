@@ -4,6 +4,7 @@ import { Footer } from "@/components/sites/klruniversal-com-3601ad32/shared/Foot
 import { BlogListing } from "@/components/sites/klruniversal-com-3601ad32/shared/BlogListing";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/blog" },
   title: "Blog | KLR Universal",
   description: "News, innovations, and expert resources from KLR Universal.",
 };

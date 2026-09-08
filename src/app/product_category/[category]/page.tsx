@@ -25,7 +25,12 @@ export async function generateMetadata({
     title,
     description,
     alternates: { canonical: `/product_category/${category}` },
-    openGraph: { title, description, type: "website" },
+    openGraph: {
+      title,
+      description,
+      type: "website",
+      images: ["/opengraph-image"],
+    },
   };
 }
 

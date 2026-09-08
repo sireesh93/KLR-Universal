@@ -8,6 +8,7 @@ import { getBlogPost, getRelatedPosts } from "@/content/klruniversal-com-3601ad3
 const SLUG = "dth-vs-rotary-drilling-for-water-well";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/dth-vs-rotary-drilling-for-water-well" },
   title: "DTH vs Rotary Drilling: Which is Better for Water Well Drilling? | KLR Universal Blog",
 };
 

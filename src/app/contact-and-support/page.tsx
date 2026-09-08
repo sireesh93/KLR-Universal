@@ -7,6 +7,7 @@ import { ContactForm } from "@/components/sites/klruniversal-com-3601ad32/shared
 import { FaqAccordion } from "@/components/sites/klruniversal-com-3601ad32/contact-and-support-0e2de176/FaqAccordion";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/contact-and-support" },
   title: "Contact & Support | KLR Universal",
   description:
     "Have a question, need support, or ready to explore a solution? KLR Universal's teams are here to help every step of the way.",

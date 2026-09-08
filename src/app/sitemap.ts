@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 import { products } from "@/content/klruniversal-com-3601ad32/products";
 import { blogPosts } from "@/content/klruniversal-com-3601ad32/blog-posts";
 
-const SITE_URL = "https://klr-universal.vercel.app";
+import { SITE_URL } from "@/lib/site";
 const BLOG_PAGE_SIZE = 6;
 const BLOG_PAGE_COUNT = Math.ceil(blogPosts.length / BLOG_PAGE_SIZE);
 

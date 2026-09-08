@@ -8,9 +8,17 @@ export function generateStaticParams() {
   return Array.from({ length: BLOG_PAGE_COUNT - 1 }, (_, i) => ({ num: String(i + 2) }));
 }
 
-export const metadata: Metadata = {
-  title: "Blog | KLR Universal",
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ num: string }>;
+}): Promise<Metadata> {
+  const { num } = await params;
+  return {
+    title: "Blog | KLR Universal",
+    alternates: { canonical: `/blog/page/${num}` },
+  };
+}
 
 export default async function BlogPagedPage({ params }: { params: Promise<{ num: string }> }) {
   const { num } = await params;

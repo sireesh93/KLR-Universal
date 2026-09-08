@@ -1,7 +1,15 @@
 import Link from "next/link";
 import { Header } from "@/components/sites/klruniversal-com-3601ad32/shared/Header";
 import { Footer } from "@/components/sites/klruniversal-com-3601ad32/shared/Footer";
+import type { Metadata } from "next";
 import { CtaButton } from "@/components/sites/klruniversal-com-3601ad32/shared/CtaButton";
+
+// The 404 was inheriting the homepage title, so a missing page looked like
+// the homepage in the tab and in any tooling that reads titles. Next already
+// emits its own noindex here, so only the title is set.
+export const metadata: Metadata = {
+  title: "Page Not Found | KLR Universal",
+};
 
 export default function NotFound() {
   return (

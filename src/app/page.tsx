@@ -8,13 +8,19 @@ import { Highlights } from "@/components/sites/klruniversal-com-3601ad32/root-8a
 import { BlogResources } from "@/components/sites/klruniversal-com-3601ad32/root-8a5edab2/BlogResources";
 import { ContactForm } from "@/components/sites/klruniversal-com-3601ad32/shared/ContactForm";
 import { Footer } from "@/components/sites/klruniversal-com-3601ad32/shared/Footer";
+import type { Metadata } from "next";
+import { SITE_URL } from "@/lib/site";
+
+export const metadata: Metadata = {
+  alternates: { canonical: "/" },
+};
 
 const ORGANIZATION_JSON_LD = {
   "@context": "https://schema.org",
   "@type": "Organization",
   name: "KLR Universal",
-  url: "https://klr-universal.vercel.app",
-  logo: "https://klr-universal.vercel.app/sites/klruniversal-com-3601ad32/root-8a5edab2/images/logo-klr.svg",
+  url: SITE_URL,
+  logo: `${SITE_URL}/sites/klruniversal-com-3601ad32/root-8a5edab2/images/logo-klr.svg`,
   description:
     "KLR Universal – trusted drilling rig & rock drilling tools manufacturer in India, delivering reliable solutions for water well, mining & construction.",
   address: {

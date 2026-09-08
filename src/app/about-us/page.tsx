@@ -7,6 +7,7 @@ import { ContactForm } from "@/components/sites/klruniversal-com-3601ad32/shared
 import { LegacyTimeline } from "@/components/sites/klruniversal-com-3601ad32/about-us-57424c1f/LegacyTimeline";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/about-us" },
   title: "About Us | KLR Universal",
   description:
     "From humble beginnings as Hyderabad's first drill tools manufacturer to a globally recognised name in drilling technologies — the KLR Universal story.",

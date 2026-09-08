@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
 import { CtaButton } from "./CtaButton";
+import { SITE_URL } from "@/lib/site";
 
 export type Product = {
   slug: string;
@@ -30,7 +31,7 @@ export function ProductTemplate({ product }: { product: Product }) {
     name: product.title,
     category: product.categoryLabel,
     description: product.bandHeading ?? `${product.title} — ${product.categoryLabel} by KLR Universal.`,
-    image: product.heroImage ? `https://klr-universal.vercel.app${product.heroImage}` : undefined,
+    image: product.heroImage ? `${SITE_URL}${product.heroImage}` : undefined,
     brand: { "@type": "Brand", name: "KLR Universal" },
     additionalProperty: [
       ...product.quickSpecs.map((s) => ({
