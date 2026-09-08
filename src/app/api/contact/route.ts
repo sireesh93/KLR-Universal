@@ -1,5 +1,9 @@
 import { NextResponse } from "next/server";
+import nodemailer from "nodemailer";
 import { Resend } from "resend";
+
+// SMTP opens a raw TCP socket, which the Edge runtime cannot do.
+export const runtime = "nodejs";
 
 /** Fields the enquiry form sends, in the order we present them in the email. */
 const FIELDS = [
@@ -22,10 +26,20 @@ const TO_EMAILS = (
   .split(",")
   .map((address) => address.trim())
   .filter(Boolean);
-// Must be an address on a domain verified in the Resend account. Resend's
-// onboarding@resend.dev works for testing but only delivers to the account owner.
+// Zoho Mail SMTP. Use smtp.zoho.in for India-hosted accounts, smtp.zoho.com
+// for US, smtp.zoho.eu for EU -- the wrong region rejects the login. Port 465
+// is implicit TLS; 587 is STARTTLS. The password must be an app-specific
+// password generated in Zoho, not the account password.
+const SMTP_HOST = process.env.ZOHO_SMTP_HOST ?? "smtp.zoho.in";
+const SMTP_PORT = Number(process.env.ZOHO_SMTP_PORT ?? 465);
+const SMTP_USER = process.env.ZOHO_SMTP_USER;
+const SMTP_PASS = process.env.ZOHO_SMTP_PASS;
+
+// Zoho only accepts a From that is the authenticated mailbox or one of its
+// verified aliases, so default to the mailbox we log in as.
 const FROM_EMAIL =
-  process.env.CONTACT_FROM_EMAIL ?? "KLR Universal <onboarding@resend.dev>";
+  process.env.CONTACT_FROM_EMAIL ??
+  (SMTP_USER ? `KLR Universal <${SMTP_USER}>` : "KLR Universal <onboarding@resend.dev>");
 
 const MAX_BODY_BYTES = 64 * 1024;
 const RATE_LIMIT_MAX = 5;
@@ -151,9 +165,12 @@ export async function POST(request: Request) {
   }
 
   const apiKey = process.env.RESEND_API_KEY;
-  if (!apiKey) {
+  const canUseSmtp = Boolean(SMTP_USER && SMTP_PASS);
+  if (!canUseSmtp && !apiKey) {
     // Fail loudly in the server log, vaguely to the visitor.
-    console.error("[contact] RESEND_API_KEY is not set — enquiry not sent.");
+    console.error(
+      "[contact] No mail transport configured — set ZOHO_SMTP_USER and ZOHO_SMTP_PASS (or RESEND_API_KEY). Enquiry not sent."
+    );
     return NextResponse.json(
       {
         error:
@@ -178,15 +195,40 @@ export async function POST(request: Request) {
     "\n"
   );
 
+  const subject = singleLine(
+    `Website enquiry — ${values["select-product"]} (${values.country})`
+  );
+
   try {
-    const resend = new Resend(apiKey);
+    if (canUseSmtp) {
+      // Zoho SMTP is the production transport. Resend stays behind it only so
+      // the form keeps working on any environment where the SMTP credentials
+      // have not been set yet.
+      const transporter = nodemailer.createTransport({
+        host: SMTP_HOST,
+        port: SMTP_PORT,
+        secure: SMTP_PORT === 465,
+        auth: { user: SMTP_USER, pass: SMTP_PASS },
+      });
+
+      await transporter.sendMail({
+        from: FROM_EMAIL,
+        to: TO_EMAILS.join(", "),
+        replyTo: values.email,
+        subject,
+        html,
+        text,
+      });
+
+      return NextResponse.json({ ok: true });
+    }
+
+    const resend = new Resend(apiKey as string);
     const { error } = await resend.emails.send({
       from: FROM_EMAIL,
       to: TO_EMAILS,
       replyTo: values.email,
-      subject: singleLine(
-        `Website enquiry — ${values["select-product"]} (${values.country})`
-      ),
+      subject,
       html,
       text,
     });
