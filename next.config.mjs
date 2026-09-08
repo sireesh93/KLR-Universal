@@ -1,4 +1,7 @@
-import type { NextConfig } from "next";
+// Plain JS, not TypeScript, on purpose. Hostinger's build image ships a glibc
+// older than 2.29, so Next 16's native SWC binary cannot load and Next falls
+// back to the WASM compiler. WASM initialises too late to transpile a
+// TypeScript config, so a next.config.ts fails the build there outright.
 
 // 'unsafe-inline' is required for scripts because Next.js inlines its
 // hydration bootstrap, and for styles because Next/Tailwind inline critical
@@ -18,8 +21,8 @@ const CONTENT_SECURITY_POLICY = [
   "upgrade-insecure-requests",
 ].join("; ");
 
-const nextConfig: NextConfig = {
-  /* config options here */
+/** @type {import("next").NextConfig} */
+const nextConfig = {
   async headers() {
     return [
       {
