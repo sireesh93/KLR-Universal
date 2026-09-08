@@ -4,6 +4,7 @@ import { Header } from "@/components/sites/klruniversal-com-3601ad32/shared/Head
 import { Footer } from "@/components/sites/klruniversal-com-3601ad32/shared/Footer";
 import { ProductCategoryListing } from "@/components/sites/klruniversal-com-3601ad32/shared/ProductCategoryListing";
 import { products } from "@/content/klruniversal-com-3601ad32/products";
+import { SITE_URL } from "@/lib/site";
 
 export function generateStaticParams() {
   const categories = [...new Set(products.map((p) => p.category))];
@@ -43,8 +44,29 @@ export default async function ProductCategoryPage({
   const categoryProducts = products.filter((p) => p.category === category);
   if (categoryProducts.length === 0) notFound();
 
+  // ItemList tells Google this is a product listing and in what order, which
+  // is what makes a category page eligible for a carousel result.
+  const itemListJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: categoryProducts[0].categoryLabel,
+    numberOfItems: categoryProducts.length,
+    itemListElement: categoryProducts.map((p, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      name: p.title,
+      url: `${SITE_URL}/drilling-rigs/${p.category}/${p.slug}`,
+    })),
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(itemListJsonLd).replace(/</g, "\\u003c"),
+        }}
+      />
       <Header />
       <main className="flex-1">
         <ProductCategoryListing

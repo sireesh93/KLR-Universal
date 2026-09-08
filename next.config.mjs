@@ -6,6 +6,8 @@
 // 'unsafe-inline' is required for scripts because Next.js inlines its
 // hydration bootstrap, and for styles because Next/Tailwind inline critical
 // CSS. frame-src allows only the Google Maps embed on Contact & Support.
+import { LEGACY_REDIRECTS } from "./src/lib/legacy-redirects.mjs";
+
 const CONTENT_SECURITY_POLICY = [
   "default-src 'self'",
   "script-src 'self' 'unsafe-inline'",
@@ -23,6 +25,25 @@ const CONTENT_SECURITY_POLICY = [
 
 /** @type {import("next").NextConfig} */
 const nextConfig = {
+  // Next serves the site under both hostnames, so www duplicated every page.
+  // Canonicals already pointed at the bare domain; this makes it a real 301.
+  // Plus 301s for the previous site's URLs, which 404 after the migration.
+  async redirects() {
+    return [
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "www.klruniversal.com" }],
+        destination: "https://klruniversal.com/:path*",
+        permanent: true,
+      },
+      ...LEGACY_REDIRECTS.map(([source, destination]) => ({
+        source,
+        destination,
+        permanent: true,
+      })),
+    ];
+  },
+
   async headers() {
     return [
       {

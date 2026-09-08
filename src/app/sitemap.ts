@@ -28,11 +28,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })
   );
 
-  const blogPostRoutes: MetadataRoute.Sitemap = blogPosts.map((post) => ({
-    url: post.standaloneUrl ? `${SITE_URL}/${post.slug}` : `${SITE_URL}/blog/${post.slug}`,
-    changeFrequency: "monthly",
-    priority: 0.6,
-  }));
+  const blogPostRoutes: MetadataRoute.Sitemap = blogPosts.map((post) => {
+    // Post dates are human formatted ("May 26, 2026"); skip anything unparseable
+    // rather than emit an invalid lastmod.
+    const published = new Date(post.date);
+    return {
+      url: post.standaloneUrl ? `${SITE_URL}/${post.slug}` : `${SITE_URL}/blog/${post.slug}`,
+      changeFrequency: "monthly" as const,
+      priority: 0.6,
+      ...(Number.isNaN(published.getTime()) ? {} : { lastModified: published }),
+    };
+  });
 
   const categories = [...new Set(products.map((p) => p.category))];
   const categoryRoutes: MetadataRoute.Sitemap = categories.map((category) => ({

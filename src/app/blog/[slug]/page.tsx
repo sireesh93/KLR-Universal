@@ -4,6 +4,7 @@ import { Header } from "@/components/sites/klruniversal-com-3601ad32/shared/Head
 import { Footer } from "@/components/sites/klruniversal-com-3601ad32/shared/Footer";
 import { BlogPostTemplate } from "@/components/sites/klruniversal-com-3601ad32/shared/BlogPostTemplate";
 import { blogPosts, getBlogPost, getRelatedPosts } from "@/content/klruniversal-com-3601ad32/blog-posts";
+import { SITE_URL } from "@/lib/site";
 
 export function generateStaticParams() {
   return blogPosts.filter((p) => !p.standaloneUrl).map((p) => ({ slug: p.slug }));
@@ -43,8 +44,40 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
   const post = getBlogPost(slug);
   if (!post || post.standaloneUrl) notFound();
 
+  // Article markup makes the 20 posts eligible for rich results. The date
+  // strings are human formatted ("May 26, 2026"), so convert to ISO-8601 and
+  // omit the field rather than emit an invalid value.
+  const published = new Date(post.date);
+  const blogPostingJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: post.title,
+    description: excerptFrom(post),
+    mainEntityOfPage: { "@type": "WebPage", "@id": `${SITE_URL}/blog/${post.slug}` },
+    url: `${SITE_URL}/blog/${post.slug}`,
+    ...(post.heroImage ? { image: `${SITE_URL}${post.heroImage}` } : {}),
+    ...(Number.isNaN(published.getTime())
+      ? {}
+      : { datePublished: published.toISOString().slice(0, 10) }),
+    author: { "@type": "Organization", name: "KLR Universal", url: SITE_URL },
+    publisher: {
+      "@type": "Organization",
+      name: "KLR Universal",
+      logo: {
+        "@type": "ImageObject",
+        url: `${SITE_URL}/sites/klruniversal-com-3601ad32/root-8a5edab2/images/logo-klr.svg`,
+      },
+    },
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(blogPostingJsonLd).replace(/</g, "\\u003c"),
+        }}
+      />
       <Header />
       <main className="flex-1">
         <BlogPostTemplate post={post} related={getRelatedPosts(post.slug)} />
