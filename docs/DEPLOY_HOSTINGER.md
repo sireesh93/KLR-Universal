@@ -24,7 +24,7 @@ Cloud Startup only matters if traffic grows.
 
 - [ ] Hostinger plan with Web Apps / Node.js active
 - [ ] Access to the `BycConsulting/KLRIndustries` GitHub repo (currently private)
-- [ ] Zoho mailbox for the sender address, with an **app-specific password**
+- [ ] Zoho mailbox `info@bycconsulting.in`, with an **app-specific password**
 - [ ] DNS control for `klruniversal.com`
 
 ## 1. Create the app
@@ -45,15 +45,16 @@ explanations are in `.env.example`.
 
 | Variable | Value |
 |---|---|
-| `ZOHO_SMTP_USER` | `enquire@klruniversal.com` |
+| `ZOHO_SMTP_USER` | `info@bycconsulting.in` |
 | `ZOHO_SMTP_PASS` | app-specific password from Zoho |
 | `ZOHO_SMTP_HOST` | `smtp.zoho.in` |
 | `ZOHO_SMTP_PORT` | `465` |
 | `CONTACT_TO_EMAIL` | `sales@klruniversal.com,info@bycconsulting.in` |
-| `CONTACT_FROM_EMAIL` | `KLR Universal <enquire@klruniversal.com>` |
+| `CONTACT_FROM_EMAIL` | `KLR Universal <info@bycconsulting.in>` |
 
-Do **not** set `RESEND_API_KEY` on Hostinger. Its absence is what makes the
-app use Zoho.
+All six are required. Zoho SMTP is now the only transport -- there is no
+fallback, so if these are missing or wrong the contact form returns an error
+and sends nothing.
 
 ## 3. Verify before pointing DNS
 

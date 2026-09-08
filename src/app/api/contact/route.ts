@@ -1,6 +1,5 @@
 import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
-import { Resend } from "resend";
 
 // SMTP opens a raw TCP socket, which the Edge runtime cannot do.
 export const runtime = "nodejs";
@@ -36,10 +35,10 @@ const SMTP_USER = process.env.ZOHO_SMTP_USER;
 const SMTP_PASS = process.env.ZOHO_SMTP_PASS;
 
 // Zoho only accepts a From that is the authenticated mailbox or one of its
-// verified aliases, so default to the mailbox we log in as.
+// verified aliases, so ZOHO_SMTP_USER must be this same address (or hold it as
+// an alias) or Zoho rejects the message with a relay error.
 const FROM_EMAIL =
-  process.env.CONTACT_FROM_EMAIL ??
-  (SMTP_USER ? `KLR Universal <${SMTP_USER}>` : "KLR Universal <onboarding@resend.dev>");
+  process.env.CONTACT_FROM_EMAIL ?? "KLR Universal <info@bycconsulting.in>";
 
 const MAX_BODY_BYTES = 64 * 1024;
 const RATE_LIMIT_MAX = 5;
@@ -164,12 +163,10 @@ export async function POST(request: Request) {
     );
   }
 
-  const apiKey = process.env.RESEND_API_KEY;
-  const canUseSmtp = Boolean(SMTP_USER && SMTP_PASS);
-  if (!canUseSmtp && !apiKey) {
+  if (!SMTP_USER || !SMTP_PASS) {
     // Fail loudly in the server log, vaguely to the visitor.
     console.error(
-      "[contact] No mail transport configured — set ZOHO_SMTP_USER and ZOHO_SMTP_PASS (or RESEND_API_KEY). Enquiry not sent."
+      "[contact] SMTP is not configured — set ZOHO_SMTP_USER and ZOHO_SMTP_PASS. Enquiry not sent."
     );
     return NextResponse.json(
       {
@@ -200,49 +197,21 @@ export async function POST(request: Request) {
   );
 
   try {
-    if (canUseSmtp) {
-      // Zoho SMTP is the production transport. Resend stays behind it only so
-      // the form keeps working on any environment where the SMTP credentials
-      // have not been set yet.
-      const transporter = nodemailer.createTransport({
-        host: SMTP_HOST,
-        port: SMTP_PORT,
-        secure: SMTP_PORT === 465,
-        auth: { user: SMTP_USER, pass: SMTP_PASS },
-      });
+    const transporter = nodemailer.createTransport({
+      host: SMTP_HOST,
+      port: SMTP_PORT,
+      secure: SMTP_PORT === 465,
+      auth: { user: SMTP_USER, pass: SMTP_PASS },
+    });
 
-      await transporter.sendMail({
-        from: FROM_EMAIL,
-        to: TO_EMAILS.join(", "),
-        replyTo: values.email,
-        subject,
-        html,
-        text,
-      });
-
-      return NextResponse.json({ ok: true });
-    }
-
-    const resend = new Resend(apiKey as string);
-    const { error } = await resend.emails.send({
+    await transporter.sendMail({
       from: FROM_EMAIL,
-      to: TO_EMAILS,
+      to: TO_EMAILS.join(", "),
       replyTo: values.email,
       subject,
       html,
       text,
     });
-
-    if (error) {
-      console.error("[contact] Resend rejected the message:", error.message);
-      return NextResponse.json(
-        {
-          error:
-            "We couldn't send your enquiry right now. Please email sales@klruniversal.com.",
-        },
-        { status: 502 }
-      );
-    }
 
     return NextResponse.json({ ok: true });
   } catch (err) {
