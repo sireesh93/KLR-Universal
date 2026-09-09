@@ -152,7 +152,10 @@ export function ProductTemplate({ product }: { product: Product }) {
                   {product.specRows.map((row, i) => (
                     <tr key={i} className="border-b border-black/5 align-top">
                       <td className="px-5 py-3 font-medium">{row.param}</td>
-                      <td className="whitespace-pre-line px-5 py-3 text-black/70">
+                      <td
+                        className="notranslate whitespace-pre-line px-5 py-3 text-black/70"
+                        translate="no"
+                      >
                         {row.value}
                       </td>
                     </tr>

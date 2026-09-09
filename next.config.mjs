@@ -10,12 +10,12 @@ import { LEGACY_REDIRECTS } from "./src/lib/legacy-redirects.mjs";
 
 const CONTENT_SECURITY_POLICY = [
   "default-src 'self'",
-  "script-src 'self' 'unsafe-inline'",
-  "style-src 'self' 'unsafe-inline'",
-  "img-src 'self' data: blob:",
-  "font-src 'self' data:",
-  "frame-src https://www.google.com",
-  "connect-src 'self'",
+  "script-src 'self' 'unsafe-inline' https://translate.google.com https://translate.googleapis.com https://translate-pa.googleapis.com https://www.gstatic.com",
+  "style-src 'self' 'unsafe-inline' https://www.gstatic.com https://fonts.googleapis.com",
+  "img-src 'self' data: blob: https://translate.google.com https://translate.googleapis.com https://translate-pa.googleapis.com https://www.gstatic.com https://fonts.gstatic.com",
+  "font-src 'self' data: https://fonts.gstatic.com",
+  "frame-src https://www.google.com https://translate.google.com",
+  "connect-src 'self' https://translate.googleapis.com https://translate-pa.googleapis.com",
   "object-src 'none'",
   "base-uri 'self'",
   "form-action 'self'",

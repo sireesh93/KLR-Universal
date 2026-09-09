@@ -206,3 +206,25 @@
     transform: translateY(0);
   }
 }
+/* Google translate element.
+   The widget injects a toolbar iframe and pushes <body> down by its height,
+   which would shift the whole layout. Suppressing it keeps the design exactly
+   as designed; the language control is our own header button. */
+.goog-te-banner-frame,
+.goog-te-gadget-icon,
+#goog-gt-tt,
+.goog-tooltip {
+  display: none !important;
+}
+body {
+  top: 0 !important;
+}
+/* The engine writes into this container; it is never meant to be seen. */
+#google_translate_element {
+  display: none !important;
+}
+/* Translated text keeps the site's own styling rather than the widget's. */
+font[style] {
+  background: none !important;
+  box-shadow: none !important;
+}

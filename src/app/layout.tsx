@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Saira } from "next/font/google";
 import { FloatingEnquireTab } from "@/components/sites/klruniversal-com-3601ad32/shared/FloatingEnquireTab";
 import { CookieBanner } from "@/components/sites/klruniversal-com-3601ad32/shared/CookieBanner";
+import { GoogleTranslate } from "@/components/sites/klruniversal-com-3601ad32/shared/GoogleTranslate";
 import { SITE_URL } from "@/lib/site";
 import "./globals.css";
 
@@ -48,6 +49,7 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col">
         {children}
         <FloatingEnquireTab />
+        <GoogleTranslate />
         <CookieBanner />
       </body>
     </html>

@@ -3,8 +3,9 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Globe, Menu, X, ChevronLeft } from "lucide-react";
+import { Menu, X, ChevronLeft } from "lucide-react";
 import { CtaButton } from "./CtaButton";
+import { LanguageSwitcher } from "./LanguageSwitcher";
 
 const NAV_LINKS = [
   { label: "Home", href: "/" },
@@ -157,13 +158,7 @@ export function Header() {
           <CtaButton href="/contact-and-support" className="hidden md:inline-flex">
             Enquire Now
           </CtaButton>
-          <button
-            type="button"
-            aria-label="Language"
-            className="flex size-9 shrink-0 items-center justify-center rounded-full bg-klr-red text-white"
-          >
-            <Globe className="size-4" aria-hidden="true" />
-          </button>
+          <LanguageSwitcher />
           <button
             type="button"
             aria-label="Open menu"
