@@ -5,6 +5,14 @@ import { Header } from "@/components/sites/klruniversal-com-3601ad32/shared/Head
 import { Footer } from "@/components/sites/klruniversal-com-3601ad32/shared/Footer";
 import { ContactForm } from "@/components/sites/klruniversal-com-3601ad32/shared/ContactForm";
 import { LegacyTimeline } from "@/components/sites/klruniversal-com-3601ad32/about-us-57424c1f/LegacyTimeline";
+import { SITE_URL } from "@/lib/site";
+
+const ABOUT_JSON_LD = {
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  url: `${SITE_URL}/about-us`,
+  mainEntity: { "@id": `${SITE_URL}/#organization` },
+};
 
 export const metadata: Metadata = {
   alternates: { canonical: "/about-us" },
@@ -61,6 +69,12 @@ const PILLARS = [
 export default function AboutUsPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(ABOUT_JSON_LD).replace(/</g, "\\u003c"),
+        }}
+      />
       <Header />
       <main className="flex-1">
         {/* Hero */}

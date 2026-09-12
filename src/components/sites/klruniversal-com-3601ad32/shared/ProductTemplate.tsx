@@ -25,6 +25,19 @@ const WHY_US = [
 ];
 
 export function ProductTemplate({ product }: { product: Product }) {
+  // Marks up the breadcrumb already visible above, so Google can render the
+  // hierarchy in results instead of a bare URL.
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: SITE_URL },
+      { "@type": "ListItem", position: 2, name: "Drilling Rigs", item: `${SITE_URL}/product_category/${product.category}` },
+      { "@type": "ListItem", position: 3, name: product.categoryLabel, item: `${SITE_URL}/product_category/${product.category}` },
+      { "@type": "ListItem", position: 4, name: product.title, item: `${SITE_URL}/drilling-rigs/${product.category}/${product.slug}` },
+    ],
+  };
+
   const productJsonLd = {
     "@context": "https://schema.org",
     "@type": "Product",
@@ -53,6 +66,12 @@ export function ProductTemplate({ product }: { product: Product }) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(productJsonLd).replace(/</g, "\\u003c"),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(breadcrumbJsonLd).replace(/</g, "\\u003c"),
         }}
       />
       {/* Breadcrumb */}
