@@ -20,7 +20,7 @@ export function GoogleTranslate() {
   return (
     <>
       <div id="google_translate_element" aria-hidden="true" />
-      <Script id="gt-init" strategy="afterInteractive">
+      <Script id="gt-init" strategy="lazyOnload">
         {`window.googleTranslateElementInit = function () {
             if (!window.google || !window.google.translate) return;
             new window.google.translate.TranslateElement(
@@ -35,7 +35,7 @@ export function GoogleTranslate() {
       </Script>
       <Script
         src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
-        strategy="afterInteractive"
+        strategy="lazyOnload"
       />
     </>
   );

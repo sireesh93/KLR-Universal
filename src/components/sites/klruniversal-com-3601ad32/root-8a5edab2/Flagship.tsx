@@ -46,7 +46,6 @@ export function Flagship() {
                 i === active ? "opacity-100" : "opacity-0"
               }`}
               sizes="(min-width: 768px) 560px, 90vw"
-              priority={i === 0}
             />
           ))}
         </div>

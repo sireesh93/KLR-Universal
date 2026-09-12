@@ -42,7 +42,6 @@ export function Hero() {
             src={slide.src}
             alt={slide.alt}
             fill
-            priority={i === 0}
             sizes="100vw"
             className={`object-cover transition-opacity duration-1000 ease-out ${
               i === active ? "opacity-100" : "opacity-0"
