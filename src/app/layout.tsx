@@ -46,6 +46,23 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${saira.variable} h-full antialiased`}>
+      <head>
+        {/* The translate engine and its assets come from four Google origins.
+            Opening the TCP and TLS handshakes early saves a round trip each on
+            mobile, where that latency is most of the cost. */}
+        <link rel="preconnect" href="https://translate.googleapis.com" crossOrigin="" />
+        <link rel="preconnect" href="https://www.gstatic.com" crossOrigin="" />
+        <link rel="dns-prefetch" href="https://translate.google.com" />
+        <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+        {/* Hostinger's edge replaces our Content-Security-Policy header with a
+            single directive, so the policy is restored here where it cannot be
+            stripped. frame-ancestors is header-only and is therefore absent;
+            X-Frame-Options: SAMEORIGIN already covers framing. */}
+        <meta
+          httpEquiv="Content-Security-Policy"
+          content="default-src 'self'; script-src 'self' 'unsafe-inline' https://translate.google.com https://translate.googleapis.com https://translate-pa.googleapis.com https://www.gstatic.com; style-src 'self' 'unsafe-inline' https://www.gstatic.com https://fonts.googleapis.com; img-src 'self' data: blob: https://www.google.com https://translate.google.com https://translate.googleapis.com https://translate-pa.googleapis.com https://www.gstatic.com https://fonts.gstatic.com; font-src 'self' data: https://fonts.gstatic.com; frame-src 'self' https://www.google.com https://translate.google.com; connect-src 'self' https://translate.googleapis.com https://translate-pa.googleapis.com; object-src 'none'; base-uri 'self'; form-action 'self'"
+        />
+      </head>
       <body className="min-h-full flex flex-col">
         {children}
         <FloatingEnquireTab />
