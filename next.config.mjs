@@ -57,9 +57,9 @@ const nextConfig = {
           { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
           { key: "Permissions-Policy", value: "camera=(), microphone=(), geolocation=()" },
           { key: "Content-Security-Policy", value: CONTENT_SECURITY_POLICY },
-          // Hostinger's LiteSpeed does not send HSTS the way Vercel did, so the
-          // first HTTP request of a session is downgrade-attackable before the
-          // 301 fires. Two years, subdomains included, preload-eligible.
+          // LiteSpeed does not send HSTS on its own, so without this the first
+          // HTTP request of a session is downgrade-attackable before the 301
+          // fires. Two years, subdomains included, preload-eligible.
           {
             key: "Strict-Transport-Security",
             value: "max-age=63072000; includeSubDomains; preload",

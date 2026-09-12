@@ -35,8 +35,6 @@ Thumbs.db
 *.tsbuildinfo
 next-env.d.ts
 
-# Vercel
-.vercel
 
 # Local settings (not project config)
 .claude/settings.local.json

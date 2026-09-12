@@ -18,7 +18,7 @@ A reusable template for reverse-engineering any website into a clean, modern Nex
 - **UI:** shadcn/ui (Radix primitives, Tailwind CSS v4, `cn()` utility)
 - **Icons:** Lucide React (default — will be replaced/supplemented by extracted SVGs)
 - **Styling:** Tailwind CSS v4 with oklch design tokens
-- **Deployment:** Vercel
+- **Deployment:** Hostinger (Node.js hosting)
 
 ## Commands
 - `npm run dev` — Start dev server

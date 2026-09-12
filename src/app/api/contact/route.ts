@@ -44,9 +44,9 @@ const MAX_BODY_BYTES = 64 * 1024;
 const RATE_LIMIT_MAX = 5;
 const RATE_LIMIT_WINDOW_MS = 10 * 60 * 1000;
 
-/** Per-IP submission times. Note: serverless instances each hold their own
- *  copy, so this throttles casual floods but is not a distributed limiter.
- *  Vercel's WAF rate limiting is the durable control in front of this. */
+/** Per-IP submission times. The app runs as a single long-lived Node
+ *  process, so this map is shared by every request and the limit is
+ *  genuinely global rather than per-instance. */
 const recentByIp = new Map<string, number[]>();
 
 function isRateLimited(ip: string) {

@@ -111,7 +111,7 @@ export default function PrivacyPolicyPage() {
                   Who else sees your information
                 </h2>
                 <p className="mt-3">
-                  This site is hosted by Vercel, which processes technical
+                  This site is hosted by Hostinger, which processes technical
                   request data such as IP address and browser type as part of
                   serving the site securely. Enquiry details are shared inside
                   KLR Universal with the sales and engineering colleagues who

@@ -48,4 +48,4 @@ docs/
 
 ## Deployment
 
-Deployed on Vercel — pushes to the connected branch build and deploy automatically. No environment variables or backend services are required; the contact form is a client-side mock (no server actions or API routes).
+Deployed on Hostinger Node.js hosting. The contact form posts to a real API route (`/api/contact`) which sends mail over Zoho SMTP, so the deployment requires environment variables — see `.env.example`.
