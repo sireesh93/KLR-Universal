@@ -46,3 +46,10 @@ next-env.d.ts
 # Local temp files
 temp/
 .gstack/
+
+# Local agent tooling. Never part of the website build.
+.vercel
+.agents/
+.claude/skills/
+.claude/settings.json
+skills-lock.json
