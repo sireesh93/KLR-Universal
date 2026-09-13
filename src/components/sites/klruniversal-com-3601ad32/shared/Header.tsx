@@ -197,7 +197,7 @@ export function Header() {
               >
                 <ChevronLeft className="size-4" aria-hidden="true" /> Back
               </button>
-              <h2 className="mt-4 text-3xl font-semibold text-klr-red">{activeCategory.title}</h2>
+              <p className="mt-4 text-3xl font-semibold text-klr-red">{activeCategory.title}</p>
               {activeCategory.subtitle && (
                 <p className="mt-2 text-sm font-semibold text-klr-red/80">{activeCategory.subtitle}</p>
               )}
@@ -228,7 +228,11 @@ export function Header() {
           }`}
         >
           <div className="flex items-center justify-between">
-            <h2 className="text-2xl font-semibold">Products</h2>
+            {/* Navigation labels, not document sections: as <h2>/<h3> these
+                rendered above <main> and made every page's outline start at
+                h2 with the real h1 fourth. Preflight resets heading size,
+                weight and margin, so <p> is pixel-identical here. */}
+            <p className="text-2xl font-semibold">Products</p>
             <button
               type="button"
               aria-label="Close"
@@ -239,7 +243,7 @@ export function Header() {
             </button>
           </div>
 
-          <h3 className="mt-8 text-lg font-semibold">Drilling Rigs</h3>
+          <p className="mt-8 text-lg font-semibold">Drilling Rigs</p>
           <ul className="mt-3 space-y-3">
             {DRILLING_RIGS.map((item) => (
               <li key={item.key}>
@@ -256,7 +260,7 @@ export function Header() {
             ))}
           </ul>
 
-          <h3 className="mt-8 text-lg font-semibold">Drilling Tools</h3>
+          <p className="mt-8 text-lg font-semibold">Drilling Tools</p>
           <ul className="mt-3 space-y-3">
             {DRILLING_TOOLS.map((item) => (
               <li key={item.label}>

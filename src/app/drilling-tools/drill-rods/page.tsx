@@ -8,6 +8,8 @@ import { CtaButton } from "@/components/sites/klruniversal-com-3601ad32/shared/C
 export const metadata: Metadata = {
   alternates: { canonical: "/drilling-tools/drill-rods" },
   title: "Drill Rods by KLR Universal",
+  description:
+    "Friction welded, induction hardened drill rods from KLR Universal — 2-7/8″ (73 mm) to 13-3/8″ (340 mm), made in-house with a dedicated Heat Treatment Division.",
 };
 
 const HERO_IMAGE =

@@ -46,6 +46,11 @@ export function ProductTemplate({ product }: { product: Product }) {
     description: product.bandHeading ?? `${product.title} — ${product.categoryLabel} by KLR Universal.`,
     image: product.heroImage ? `${SITE_URL}${product.heroImage}` : undefined,
     brand: { "@type": "Brand", name: "KLR Universal" },
+    // manufacturer points at the same Organization node the homepage declares,
+    // so every rig is attached to one company entity rather than 21 loose
+    // Brand mentions. This is what lets an engine answer "who makes the
+    // DTHR-300" without guessing.
+    manufacturer: { "@type": "Organization", "@id": `${SITE_URL}/#organization`, name: "KLR Universal" },
     additionalProperty: [
       ...product.quickSpecs.map((s) => ({
         "@type": "PropertyValue",

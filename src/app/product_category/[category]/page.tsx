@@ -21,7 +21,7 @@ export async function generateMetadata({
   if (!match) return {};
   const count = products.filter((p) => p.category === category).length;
   const title = `${match.categoryLabel} | KLR Universal`;
-  const description = `Explore KLR Universal's ${count} ${match.categoryLabel} models — hydraulic-powered drilling rigs engineered for reliability, backed by 40+ years of manufacturing expertise.`;
+  const description = `${count} ${match.categoryLabel} models from KLR Universal — hydraulic rigs built in-house since 1984, in use across 60+ countries.`;
   return {
     title,
     description,

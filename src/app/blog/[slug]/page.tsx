@@ -58,10 +58,28 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
     ...(post.heroImage ? { image: `${SITE_URL}${post.heroImage}` } : {}),
     ...(Number.isNaN(published.getTime())
       ? {}
-      : { datePublished: published.toISOString().slice(0, 10) }),
-    author: { "@type": "Organization", name: "KLR Universal", url: SITE_URL },
+      : {
+          datePublished: published.toISOString().slice(0, 10),
+          // Without dateModified an AI engine has no freshness signal at all
+          // and treats the whole blog as frozen at publish. These posts have
+          // not been revised since, so the modified date is the published
+          // date -- accurate, and enough to answer the question.
+          dateModified: published.toISOString().slice(0, 10),
+        }),
+    inLanguage: "en",
+    isPartOf: { "@type": "Blog", "@id": `${SITE_URL}/blog`, name: "KLR Universal Blog" },
+    // The @id on both nodes merges them into the single Organization entity
+    // declared on the homepage instead of minting a second, unlinked copy of
+    // the company on every post.
+    author: {
+      "@type": "Organization",
+      "@id": `${SITE_URL}/#organization`,
+      name: "KLR Universal",
+      url: SITE_URL,
+    },
     publisher: {
       "@type": "Organization",
+      "@id": `${SITE_URL}/#organization`,
       name: "KLR Universal",
       logo: {
         "@type": "ImageObject",

@@ -15,7 +15,8 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { num } = await params;
   return {
-    title: "Blog | KLR Universal",
+    title: `Blog — Page ${num} | KLR Universal`,
+    description: `Page ${num} of technical articles from KLR Universal on drilling rig selection, DTH and rotary drilling methods, exploration drilling and equipment maintenance.`,
     alternates: { canonical: `/blog/page/${num}` },
   };
 }

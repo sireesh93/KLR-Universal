@@ -6,6 +6,8 @@ import { ToolCategoryTemplate } from "@/components/sites/klruniversal-com-3601ad
 export const metadata: Metadata = {
   alternates: { canonical: "/drilling-tools/dth-drilling-tools" },
   title: "DTH Tools by KLR Universal",
+  description:
+    "Down The Hole drilling tools from KLR Universal — DTH hammers, button bits and accessories manufactured in-house for water well, mining and quarrying applications.",
 };
 
 const ASSET_BASE =

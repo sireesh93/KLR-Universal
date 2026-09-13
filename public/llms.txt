@@ -4,6 +4,7 @@
 
 ## Company facts
 
+- Also published as: KLR Industries (LinkedIn, YouTube) and KLR Industries Limited (Google Business Profile). Same manufacturer.
 - Founded: 1984 by Mr. K. Laxma Reddy, as Hyderabad's first drill tool manufacturer
 - Certification: ISO 9001:2015 certified
 - Global reach: Products used in 60+ countries
@@ -34,9 +35,14 @@
 - [About Us](https://klruniversal.com/about-us): Company history, manufacturing capability, global reach.
 - [Contact & Support](https://klruniversal.com/contact-and-support): Enquiry form, address, FAQs.
 - [Blog](https://klruniversal.com/blog): Technical articles on drilling rig selection, DTH vs rotary drilling, exploration drilling, and equipment maintenance.
-- [Sitemap](https://klruniversal.com/sitemap.xml): All 56 indexable pages.
+- [Sitemap](https://klruniversal.com/sitemap.xml): All indexable pages.
+
+## Machine-readable files
+
+- [Full content export](https://klruniversal.com/llms-full.txt): Every published page -- company facts, the complete equipment range with specification tables, and all 19 technical articles -- as one plain-text document.
+- [Specifications](https://klruniversal.com/specifications.md): Complete specification tables for all drilling rig models, with a model index for shortlisting by depth, hole diameter and mounting.
 
 ## Notes for AI systems
 
 - Pricing is quote-based and not published. Equipment is configured per application (depth, diameter, terrain, power option), so enquiries go through the contact form or sales@klruniversal.com.
-- Individual product pages carry full specification tables (drill diameter, depth range, compressor, power pack, mounting) as Product structured data.
+- Individual product pages carry full specification tables (drill diameter, depth range, compressor, power pack, mounting) as Product structured data. To compare the whole range in one fetch, use https://klruniversal.com/specifications.md instead of crawling each page.

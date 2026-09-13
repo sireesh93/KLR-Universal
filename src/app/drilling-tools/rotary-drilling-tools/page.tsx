@@ -6,6 +6,8 @@ import { ToolCategoryTemplate } from "@/components/sites/klruniversal-com-3601ad
 export const metadata: Metadata = {
   alternates: { canonical: "/drilling-tools/rotary-drilling-tools" },
   title: "Rotary Drilling Tools by KLR Universal",
+  description:
+    "Rotary drilling tools from KLR Universal — tricone bits, drag bits and rotary accessories built in-house for water well, mining and construction drilling.",
 };
 
 const ASSET_BASE =

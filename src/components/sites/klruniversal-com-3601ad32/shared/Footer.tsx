@@ -41,7 +41,11 @@ function FooterCol({
 }) {
   return (
     <div>
-      <h3 className="text-sm font-semibold text-white">{heading}</h3>
+      {/* Footer columns are top-level sections, so h2 is the correct level.
+          As h3 they skipped a level on pages whose only prior heading is the
+          h1 (the five category pages). Preflight resets heading size and
+          weight, so the rendering is unchanged. */}
+      <h2 className="text-sm font-semibold text-white">{heading}</h2>
       <ul className="mt-4 space-y-2">
         {items.map((item) => (
           <li key={item.label}>
@@ -91,7 +95,7 @@ export function Footer() {
           <FooterCol heading="Drilling Tools" items={DRILLING_TOOLS} />
 
           <div>
-            <h3 className="text-sm font-semibold text-white">Follow Us</h3>
+            <h2 className="text-sm font-semibold text-white">Follow Us</h2>
             <div className="mt-4 flex gap-3">
               {SOCIAL.map((s) => (
                 <a

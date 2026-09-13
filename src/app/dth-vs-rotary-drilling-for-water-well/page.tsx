@@ -9,7 +9,9 @@ const SLUG = "dth-vs-rotary-drilling-for-water-well";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/dth-vs-rotary-drilling-for-water-well" },
-  title: "DTH vs Rotary Drilling: Which is Better for Water Well Drilling? | KLR Universal Blog",
+  title: "DTH vs Rotary Drilling for Water Wells | KLR Universal",
+  description:
+    "How DTH and rotary drilling compare for water well work — penetration rate, formation suitability, hole quality and running cost — and how to choose between them.",
 };
 
 export default function DthVsRotaryStandalonePage() {

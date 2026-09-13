@@ -17,7 +17,15 @@ export async function generateMetadata({
   const { category, slug } = await params;
   const product = getProduct(category, slug);
   if (!product) return {};
-  const title = `${product.title} | KLR Universal`;
+  // "DTHR-150 | KLR Universal" tells a search or AI engine nothing about what
+  // the product is. The category label is already published on the page, so
+  // folding it into the title adds the missing noun without inventing copy.
+  // Some model names already carry a descriptor ("EA-20|30 - Down-the-Hole
+  // Drill"), which would overrun the ~60 character display limit, so the plain
+  // form is kept whenever the descriptive one gets too long.
+  const noun = product.categoryLabel.replace(/Rigs$/, "Rig");
+  const descriptive = `${product.title} ${noun} | KLR Universal`;
+  const title = descriptive.length <= 60 ? descriptive : `${product.title} | KLR Universal`;
   const description = product.bandHeading
     ? `${product.title} — ${product.categoryLabel} by KLR Universal. ${product.bandHeading}`.slice(0, 160)
     : `${product.title} — ${product.categoryLabel} by KLR Universal, trusted in 60+ countries for reliable drilling equipment.`;
