@@ -31,6 +31,9 @@ Deployment is archive-based: a zip of the committed tree is uploaded to
    `root_directory: .`, `output_directory: .next`, source `archive`.
 5. **Purge the cache.** Non-optional — see below.
 6. Verify against the live domain.
+7. Delete the local archive (`rm -f klr-app.zip`), and check the document root
+   is clean. A successful build consumes the archive, but **a failed build does
+   not** — it is left sitting in `public_html` until someone removes it.
 
 A build takes roughly two to four minutes. The previous version keeps serving
 throughout, so there is no downtime.
@@ -61,6 +64,16 @@ keeps Turbopack for local use, where it is much faster.
 `next.config.ts` fails outright: WASM initialises too late to transpile a
 TypeScript config, and the build dies with `ERR_MODULE_NOT_FOUND`. The config
 is `next.config.mjs` and must stay that way.
+
+**The app is served by Passenger, not by Apache from `public_html`.** The
+document root holds only an `.htaccess`, which points Passenger at
+`hbuilds/current/nodejs/server.js` with `PassengerBaseURI /`. The deployed
+application lives outside the document root entirely. Requests for files that
+were uploaded to `public_html` have been observed returning the Next.js 404
+page rather than the file, which suggests Passenger takes the request before
+Apache can serve it statically — but this has not been tested with a file
+actually present, so do not rely on it. Treat anything placed in `public_html`
+as potentially reachable and remove it promptly (see step 7).
 
 **The archive is consumed by a successful build.** Re-running a build without
 re-uploading fails in about two seconds with no logs, because

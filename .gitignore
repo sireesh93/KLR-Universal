@@ -53,3 +53,7 @@ temp/
 .claude/skills/
 .claude/settings.json
 skills-lock.json
+
+# Deploy archive. Built fresh for each Hostinger deploy and deleted after;
+# never commit it -- it is a full copy of the tree.
+/klr-app.zip
