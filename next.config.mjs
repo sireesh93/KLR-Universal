@@ -8,14 +8,21 @@
 // CSS. frame-src allows only the Google Maps embed on Contact & Support.
 import { LEGACY_REDIRECTS } from "./src/lib/legacy-redirects.mjs";
 
+// Google Tag Manager needs four of these directives, not just script-src: the
+// container script, the tracking pixels and beacons the tags it loads fire,
+// and the noscript iframe. Miss any one and the tag fails silently in the
+// browser with only a console violation to show for it. Note that GTM can be
+// configured to load further third-party tags at any time without a deploy --
+// if a tag stops reporting, check the console for a CSP violation first and
+// add that origin here and in the layout's meta copy.
 const CONTENT_SECURITY_POLICY = [
   "default-src 'self'",
-  "script-src 'self' 'unsafe-inline' https://translate.google.com https://translate.googleapis.com https://translate-pa.googleapis.com https://www.gstatic.com",
+  "script-src 'self' 'unsafe-inline' https://translate.google.com https://translate.googleapis.com https://translate-pa.googleapis.com https://www.gstatic.com https://www.googletagmanager.com",
   "style-src 'self' 'unsafe-inline' https://www.gstatic.com https://fonts.googleapis.com",
-  "img-src 'self' data: blob: https://www.google.com https://translate.google.com https://translate.googleapis.com https://translate-pa.googleapis.com https://www.gstatic.com https://fonts.gstatic.com",
+  "img-src 'self' data: blob: https://www.google.com https://translate.google.com https://translate.googleapis.com https://translate-pa.googleapis.com https://www.gstatic.com https://fonts.gstatic.com https://www.googletagmanager.com https://www.google-analytics.com https://*.google-analytics.com",
   "font-src 'self' data: https://fonts.gstatic.com",
-  "frame-src 'self' https://www.google.com https://translate.google.com",
-  "connect-src 'self' https://translate.googleapis.com https://translate-pa.googleapis.com",
+  "frame-src 'self' https://www.google.com https://translate.google.com https://www.googletagmanager.com",
+  "connect-src 'self' https://translate.googleapis.com https://translate-pa.googleapis.com https://www.googletagmanager.com https://www.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com https://stats.g.doubleclick.net",
   "object-src 'none'",
   "base-uri 'self'",
   "form-action 'self'",

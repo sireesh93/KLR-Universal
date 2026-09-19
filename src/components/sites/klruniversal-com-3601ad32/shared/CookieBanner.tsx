@@ -7,6 +7,15 @@ const STORAGE_KEY = "klr-cookie-consent";
 
 type Consent = "accepted" | "declined";
 
+declare global {
+  interface Window {
+    /** Defined by the Consent Mode bootstrap in the document head. Optional
+     *  because a blocked or failed script leaves it undefined, and consent
+     *  must fail closed rather than throw. */
+    gtag?: (...args: unknown[]) => void;
+  }
+}
+
 /** Read the visitor's stored choice. Analytics must be gated on this
  *  returning "accepted" — do not load trackers before checking. */
 export function getCookieConsent(): Consent | null {
@@ -32,6 +41,21 @@ export function CookieBanner() {
       // Storage unavailable (private mode, blocked cookies) — respect the
       // choice for this page view and ask again next visit.
     }
+    // Tell Google Consent Mode about the choice. The defaults set in the
+    // document head deny analytics and advertising storage, so until this
+    // runs the container sets no such cookies. Declining leaves the denied
+    // defaults in place, which is what the banner text promises.
+    //
+    // This must go through gtag(), not dataLayer.push(): gtag pushes the raw
+    // arguments object, and Consent Mode only recognises that shape. Pushing
+    // an array here looks equivalent and is silently ignored.
+    const granted = consent === "accepted" ? "granted" : "denied";
+    window.gtag?.("consent", "update", {
+      ad_storage: granted,
+      ad_user_data: granted,
+      ad_personalization: granted,
+      analytics_storage: granted,
+    });
     setVisible(false);
   }
 

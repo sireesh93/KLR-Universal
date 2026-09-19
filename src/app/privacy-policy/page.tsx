@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/privacy-policy" },
 };
 
-const LAST_UPDATED = "5 September 2026";
+const LAST_UPDATED = "19 September 2026";
 
 export default function PrivacyPolicyPage() {
   return (
@@ -97,12 +97,29 @@ export default function PrivacyPolicyPage() {
                   Cookies and analytics
                 </h2>
                 <p className="mt-3">
-                  This website does not set advertising or tracking cookies. If
-                  you accept analytics in the consent banner, we may use
-                  analytics cookies to understand which pages are useful and how
-                  the site performs. You can decline, and the site will work
-                  exactly the same. Your choice is stored locally in your browser
-                  so we do not have to ask again.
+                  We use Google Tag Manager on this website. Google Tag Manager
+                  loads when a page opens, but it is configured with Google
+                  Consent Mode so that no analytics or advertising cookies are
+                  set until you accept them in the consent banner.
+                </p>
+                <p className="mt-3">
+                  If you accept, Google Analytics places cookies that tell us
+                  which pages are useful, how visitors reach the site, and how
+                  it performs. This information is about how the site is used,
+                  not about who you are, and we do not use it to identify you.
+                  Google acts as our data processor for this and may handle the
+                  data outside India, including in the United States.
+                </p>
+                <p className="mt-3">
+                  If you decline, no analytics or advertising cookies are set
+                  and the site works exactly the same. Either way, your choice
+                  is stored locally in your browser so we do not have to ask
+                  again. To change it, clear this site&rsquo;s data in your
+                  browser and the banner will appear on your next visit.
+                </p>
+                <p className="mt-3">
+                  We do not use this website to build advertising profiles or to
+                  retarget you elsewhere.
                 </p>
               </div>
 
@@ -113,7 +130,10 @@ export default function PrivacyPolicyPage() {
                 <p className="mt-3">
                   This site is hosted by Hostinger, which processes technical
                   request data such as IP address and browser type as part of
-                  serving the site securely. Enquiry details are shared inside
+                  serving the site securely. If you accept analytics cookies,
+                  Google receives usage data through Google Tag Manager and
+                  Google Analytics, as described above. Enquiry details are
+                  shared inside
                   KLR Universal with the sales and engineering colleagues who
                   need them to answer you, and with our dealers or service
                   partners where your enquiry relates to a territory they cover.
