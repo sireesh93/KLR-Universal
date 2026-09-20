@@ -1,12 +1,19 @@
 import type { Metadata } from "next";
 import { Header } from "@/components/sites/klruniversal-com-3601ad32/shared/Header";
 import { Footer } from "@/components/sites/klruniversal-com-3601ad32/shared/Footer";
+import { JsonLd } from "@/components/sites/klruniversal-com-3601ad32/shared/JsonLd";
 
 export const metadata: Metadata = {
   title: "Terms of Use | KLR Universal",
   description:
     "The terms that apply when you use the KLR Universal website, including use of content, product information, and enquiries.",
   alternates: { canonical: "/terms" },
+  openGraph: {
+    title: "Terms of Use | KLR Universal",
+    description: "The terms that apply when you use the KLR Universal website, including use of content, product information, and enquiries.",
+    url: "/terms",
+    type: "website",
+  },
 };
 
 const LAST_UPDATED = "5 September 2026";
@@ -14,6 +21,15 @@ const LAST_UPDATED = "5 September 2026";
 export default function TermsPage() {
   return (
     <>
+      <JsonLd data={{
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "Terms of Use",
+        "url": "https://klruniversal.com/terms",
+        "inLanguage": "en",
+        "isPartOf": { "@type": "WebSite", "@id": "https://klruniversal.com" },
+        "publisher": { "@id": "https://klruniversal.com/#organization" },
+      }} />
       <Header />
       <main className="flex-1">
         <section className="bg-klr-header py-10">

@@ -1,1312 +1,1312 @@
 [
- {
-  "slug": "dthr-150",
-  "category": "water-well",
-  "categoryLabel": "Water Well Drill Rigs",
-  "title": "DTHR-150",
-  "seriesTag": "DTHR Series",
-  "heroImage": "/sites/klruniversal-com-3601ad32/products/dthr-150/hero.png",
-  "quickSpecs": [
-   {
-    "label": "Drill Diameter",
-    "value": "4.5″ to 10″"
-   },
-   {
-    "label": "Depth",
-    "value": "100–200 m"
-   }
-  ],
-  "bandSubtitle": "Water Well DTHR Series",
-  "bandHeading": "Hydraulic-powered and built for air, foam, mud rotary and DTH drilling, the DTHR Series adapts to any terrain with ease.",
-  "specRows": [
-   {
-    "param": "Hole diameter",
-    "value": "DTH (continuous): 4.5″–6.5″\nDTH (overburden): 7″\nRotary (continuous): 6″–8″\nRotary (overburden): 10″"
-   },
-   {
-    "param": "Rated drilling depth",
-    "value": "100–150 m (depth depends on formation, compressor and drill string; model range: 100–200 m)"
-   },
-   {
-    "param": "Carrier truck",
-    "value": "Standard: 4×2 / 4×4\nStandard mounting: Single-truck mounting (compressor + rig)"
-   },
-   {
-    "param": "Prime mover",
-    "value": "Truck engine"
-   },
-   {
-    "param": "Formations",
-    "value": "Soft,hard,unconsolidated,alluvial"
-   },
-   {
-    "param": "Mast",
-    "value": "Max pull-up force: 5,200 kg\nMax pull-down force: 2,700 kg\nPull-up speed: 45 m/min\nRod handling: 3 m rods"
-   },
-   {
-    "param": "Rotary head",
-    "value": "Max speed: 0–120 rpm\nMax torque: 360 kg·m"
-   },
-   {
-    "param": "Rod changer",
-    "value": "Standard: Manually operated single rod changer\nOptional: Automatic rod changer (for 2-truck version)"
-   },
-   {
-    "param": "Air compressor (compatible options)",
-    "value": "Atlas Copco / ELGI / as per request\nCapacity: 750–1250 cfm @ 250–350 psi (other options such as 550 cfm @ 200 psi available on request)"
-   },
-   {
-    "param": "Mud pump",
-    "value": "Make: G&P\nCapacity: 5″ × 4″"
-   },
-   {
-    "param": "Optional package",
-    "value": "Optional package\nOnly Down-the-Hole drill package"
-   }
-  ]
- },
- {
-  "slug": "dthr-300",
-  "category": "water-well",
-  "categoryLabel": "Water Well Drill Rigs",
-  "title": "DTHR-300",
-  "seriesTag": "DTHR Series",
-  "heroImage": "/sites/klruniversal-com-3601ad32/products/dthr-300/hero.png",
-  "quickSpecs": [
-   {
-    "label": "Drill Diameter",
-    "value": "4.5″ to 17½″"
-   },
-   {
-    "label": "Depth",
-    "value": "200–400 m"
-   }
-  ],
-  "bandSubtitle": "Water Well DTHR Series",
-  "bandHeading": "Hydraulic-powered and built for air, foam, mud, rotary and DTH drilling, the DTHR Series adapts to any terrain with ease",
-  "specRows": [
-   {
-    "param": "Hole diameter",
-    "value": "DTH (continuous): 4.5″–6.5″DTH (overburden): 9″, 10″Rotary (continuous): 8″–12¼″Rotary (overburden): 12¼″ & 17½″"
-   },
-   {
-    "param": "Rated drilling depth",
-    "value": "300–350 metres (depth depends on formation, compressor and drill string; model range: 200–400 m)"
-   },
-   {
-    "param": "Carrier Truck",
-    "value": "–Standard: (6×4) Ashok Leyland truck / as per customer requestStandard mounting: Single-truck mounting (compressor + rig)Optional: Double-truck mounting with separate compressor carrier"
-   },
-   {
-    "param": "Prime Mover",
-    "value": "Truck engine"
-   },
-   {
-    "param": "Formation",
-    "value": "Soft/hard/unconsolidated/alluvial"
-   },
-   {
-    "param": "Mast",
-    "value": "Max pull-up force (std): 11,200 kgMax pull-down force (std): 5,500Pull-up speed: 45 m/minRod handling: 6 m rodsOptional pull-up force: 17,000 kg"
-   },
-   {
-    "param": "Rotatory Head",
-    "value": "Max speed: 0–120 rpmMax torque: 550 kg·m"
-   },
-   {
-    "param": "Rod Changer",
-    "value": "Standard: Manually operated single rod changerOptional: Automatic rod changer (two-truck version)"
-   },
-   {
-    "param": "Air compressor (compatible options)",
-    "value": "Atlas Copco / ELGI / as per requestCapacity: 750–1250 cfm @ 250–350 psi (typical pairing: 1100 cfm @ 300 psi)"
-   },
-   {
-    "param": "Mud Pump",
-    "value": "Make: G&PCapacity: 6″ × 6″"
-   }
-  ]
- },
- {
-  "slug": "dthr-600",
-  "category": "water-well",
-  "categoryLabel": "Water Well Drill Rigs",
-  "title": "DTHR-600",
-  "seriesTag": "DTHR Series",
-  "heroImage": "/sites/klruniversal-com-3601ad32/products/dthr-600/hero.png",
-  "quickSpecs": [
-   {
-    "label": "Drill Diameter",
-    "value": "4.5” to 17½”"
-   },
-   {
-    "label": "Depth",
-    "value": "400-650 m"
-   }
-  ],
-  "bandSubtitle": "Water Well DTHR Series",
-  "bandHeading": "Hydraulic-powered and built for air, foam, mud, rotary and DTH drilling, the DTHR Series adapts to any terrain with ease.",
-  "specRows": [
-   {
-    "param": "Hole diameter",
-    "value": "DTH (continuous): 4.5″–8″ up to depth of 600 m\nDTH (overburden): 9″–12″ up to depth of 30 m\nRotary (continuous): 8″–12¼″ up to depth of 600 m\nRotary (overburden): 14″–17½″ up to depth of 300 m"
-   },
-   {
-    "param": "Rated drilling depth",
-    "value": "600 metres (depth depends on formation, compressor and drill string; model range: 400–650 m)"
-   },
-   {
-    "param": "Carrier",
-    "value": "Standard: (6×4) Ashok Leyland truck / as per customer request\nStandard mounting: Double-truck mounting (rig + compressor carrier)\nOptional: Skid mount"
-   },
-   {
-    "param": "Prime mover",
-    "value": "Deck engine — Make: Cummins / any reputed make"
-   },
-   {
-    "param": "Formations",
-    "value": "Soft/hard/unconsolidated/alluvial"
-   },
-   {
-    "param": "Mast",
-    "value": "Max pull-up force: 33,800 kgf\nMax pull-down force: 12,900 kgf\nMax pull-up speed: 25 m/min"
-   },
-   {
-    "param": "Rotary head",
-    "value": "Max speed: 0–120 rpm\nMax torque: 720 kg·m"
-   },
-   {
-    "param": "Rod changer",
-    "value": "Standard: Manually operated single rod changer\nOptional: Automatic rod changer"
-   },
-   {
-    "param": "Air compressor (compatible options)",
-    "value": "Atlas Copco / ELGI / as per request\nCapacity: 1200 cfm @ 330 psi (also compatible 750–1250 cfm @ 250–350 psi)"
-   },
-   {
-    "param": "Mud pump",
-    "value": "Make: G&P\nCapacity: 10″ × 7½″"
-   }
-  ]
- },
- {
-  "slug": "dthr-750",
-  "category": "water-well",
-  "categoryLabel": "Water Well Drill Rigs",
-  "title": "DTHR-750",
-  "seriesTag": "DTHR Series",
-  "heroImage": "/sites/klruniversal-com-3601ad32/products/dthr-750/hero.png",
-  "quickSpecs": [
-   {
-    "label": "Drill Diameter",
-    "value": "4.5” to 24”"
-   },
-   {
-    "label": "Depth",
-    "value": "650–800 m"
-   }
-  ],
-  "bandSubtitle": "Water Well DTHR Series",
-  "bandHeading": "Hydraulic-powered and built for air, foam, mud, rotary and DTH drilling, the DTHR Series adapts to any terrain with ease.",
-  "specRows": [
-   {
-    "param": "Hole diameter",
-    "value": "DTH (continuous): 4.5″–8″ up to depth of 600 m\nDTH (overburden): 9″–12″ up to depth of 100 m\nRotary (continuous): 8″–12¼″ up to depth of 750 m\nRotary (overburden): 14″–24″ up to depth of 400 m"
-   },
-   {
-    "param": "Rated drilling depth",
-    "value": "750 metres (depth depends on formation, compressor and drill string; model range: 650–800 m)"
-   },
-   {
-    "param": "Carrier",
-    "value": "Standard: (8×4) Ashok Leyland truck / as per customer request\nStandard mounting: Double-truck mounting (rig + compressor carrier)\nOptional: Skid mount"
-   },
-   {
-    "param": "Prime mover",
-    "value": "Deck engine — Make: Cummins / any reputed make"
-   },
-   {
-    "param": "Formations",
-    "value": "Soft/hard/unconsolidated/alluvial"
-   },
-   {
-    "param": "Mast",
-    "value": "Max pull-up force: 43,000 kgf\nMax pull-down force: 12,900 kgf\nMax pull-up speed: 25 m/min"
-   },
-   {
-    "param": "Rotary head",
-    "value": "Max speed: 0–120 rpm\nMax torque: 1,050 kg·m"
-   },
-   {
-    "param": "Rod changer",
-    "value": "Standard: Manually operated single rod changer\nOptional: Automatic rod changer"
-   },
-   {
-    "param": "Air compressor (compatible options)",
-    "value": "Atlas Copco / ELGI / as per request\nCapacity: 1,350 cfm @ 350 psi (also compatible 750–1,250 cfm @ 250–350 psi)"
-   },
-   {
-    "param": "Mud pump",
-    "value": "Make: G&P\nCapacity: 10″ × 7½″"
-   }
-  ]
- },
- {
-  "slug": "tbw-40",
-  "category": "water-well",
-  "categoryLabel": "Water Well Drill Rigs",
-  "title": "TBW – 40",
-  "seriesTag": "DTHR Series",
-  "heroImage": "/sites/klruniversal-com-3601ad32/products/tbw-40/hero.png",
-  "quickSpecs": [
-   {
-    "label": "Drill Diameter",
-    "value": "4.5” to 6.5”"
-   },
-   {
-    "label": "Depth",
-    "value": "100–150 m"
-   }
-  ],
-  "bandSubtitle": "Water Well DTHR Series",
-  "bandHeading": "Tractor-mounted and hydraulic-powered, the TBW Series is built for air or mud drilling across mixed formations up to 150 metres.",
-  "specRows": [
-   {
-    "param": "Hole diameter",
-    "value": "4.5″–6.5″"
-   },
-   {
-    "param": "Rated drilling depth",
-    "value": "150 metres (depth depends on formation, compressor and drill string; model range: 100–150 m)"
-   },
-   {
-    "param": "Carrier",
-    "value": "Make: New Holland / as per customer request"
-   },
-   {
-    "param": "Prime mover",
-    "value": "Tractor engine"
-   },
-   {
-    "param": "Formations",
-    "value": "Soft/hard/unconsolidated/alluvial"
-   },
-   {
-    "param": "Mast",
-    "value": "Max pull-up force: 4,500 kgf\nMax pull-down force: 2,400 kgf\nMax pull-up speed: 35 m/min\nRod handling capacity: 3 m rods"
-   },
-   {
-    "param": "Rotary head",
-    "value": "Max speed: 0–120 rpm\nMax torque: 270 kg·m"
-   },
-   {
-    "param": "Rod changer",
-    "value": "Manually operated single rod changer"
-   },
-   {
-    "param": "Mud pump",
-    "value": "Centrifugal pump / duplex double-acting mud pump — mounted on a separate skid with a separate engine"
-   },
-   {
-    "param": "Air compressor (compatible options)",
-    "value": "Make: Atlas Copco / ELGI / as per customer request\nCapacity: 600 cfm @ 200 psi (separate skid-mounted)"
-   }
-  ]
- },
- {
-  "slug": "ea-20-30",
-  "category": "surface-mining",
-  "categoryLabel": "Surface Mining & Quarrying Drill Rigs",
-  "title": "EA-20|30 — Down-the-Hole Drill",
-  "seriesTag": "Mining & Quarrying Series",
-  "heroImage": "/sites/klruniversal-com-3601ad32/products/ea-20-30/hero.png",
-  "quickSpecs": [
-   {
-    "label": "Drill Diameter",
-    "value": "4″ to 16″"
-   },
-   {
-    "label": "Depth",
-    "value": "30m"
-   }
-  ],
-  "bandSubtitle": "Excavator-attached DTH drilling",
-  "bandHeading": "Built on a 20–30-ton excavator, the EA-20|30 delivers reliable DTH drilling with single-pass efficiency and optional dust suppression for quarrying, mining and construction.",
-  "specRows": [
-   {
-    "param": "Hole diameter",
-    "value": "4″–16″ (recommended range 5″–6-3/4″; other sizes on request)"
-   },
-   {
-    "param": "Rated drilling depth",
-    "value": "Up to 200 m (single-pass 6 m standard; 9 m optional; overall depth depends on formation, compressor, and drill string)"
-   },
-   {
-    "param": "Carrier",
-    "value": "Excavator — Make options: Sany / Tata Hitachi / Volvo / Hyundai (e.g., SY215 / EX215LC) or as per customer request"
-   },
-   {
-    "param": "Carrier range",
-    "value": "20–30 ton"
-   },
-   {
-    "param": "Prime mover",
-    "value": "Excavator engine"
-   },
-   {
-    "param": "Formations",
-    "value": "Soft / hard / unconsolidated / alluvial"
-   },
-   {
-    "param": "Mast",
-    "value": "Max pull-up force: 5,200 kgf\nMax pull-down force: 2,700 kgf"
-   },
-   {
-    "param": "Rotary head",
-    "value": "Max speed: 0–250 rpm\nMax torque: 200 kg·m\nOptional head: 0–200 rpm, 250 kg·m"
-   },
-   {
-    "param": "Rod handling",
-    "value": "6 m rods (standard), 9 m rods (optional)"
-   },
-   {
-    "param": "Options",
-    "value": "Automatic rod changer; dust collector or water injection"
-   },
-   {
-    "param": "Air compressor (compatible options)",
-    "value": "Atlas Copco / ELGI / as per request — Capacity: 750–1250 cfm @ 250–350 psi"
-   },
-   {
-    "param": "Controls & mounting",
-    "value": "Excavator-mounted package with integrated controls; skid options available on request"
-   }
-  ]
- },
- {
-  "slug": "tha-20-30",
-  "category": "surface-mining",
-  "categoryLabel": "Surface Mining & Quarrying Drill Rigs",
-  "title": "THA-20|30 — Top hammer drill",
-  "seriesTag": "Mining & Quarrying Series",
-  "heroImage": "/sites/klruniversal-com-3601ad32/products/tha-20-30/hero.png",
-  "quickSpecs": [
-   {
-    "label": "Drill Diameter",
-    "value": "4″ to 16″"
-   },
-   {
-    "label": "Depth",
-    "value": "30 m"
-   }
-  ],
-  "bandSubtitle": "Excavator-attached top hammer drilling",
-  "bandHeading": "Mounted on a 20–30-ton excavator, THA-20|30 delivers fast, precise percussion drilling with single-pass efficiency and optional dust suppression for quarrying, mining, and construction sites.",
-  "specRows": [
-   {
-    "param": "Hole diameter",
-    "value": "4″–16″ (other sizes on request)"
-   },
-   {
-    "param": "Rated drilling depth",
-    "value": "Up to 400 m (single-pass 6 m standard; 9 m optional; overall depth depends on formation, compressor, and drill string)"
-   },
-   {
-    "param": "Carrier",
-    "value": "Excavator — Make options: Sany / Tata Hitachi / Volvo / Hyundai (e.g., SY215 / EX215LC) or as per customer request"
-   },
-   {
-    "param": "Carrier range",
-    "value": "20–30 ton"
-   },
-   {
-    "param": "Prime mover",
-    "value": "Excavator engine"
-   },
-   {
-    "param": "Formations",
-    "value": "Soft, hard, unconsolidated, alluvial"
-   },
-   {
-    "param": "Mast",
-    "value": "Max pull-up force: 5,200 kgf\nMax pull-down force: 2,700 kgf"
-   },
-   {
-    "param": "Rotary head",
-    "value": "Max speed: 0–250 rpm"
-   },
-   {
-    "param": "Drifter power",
-    "value": "5 / 10 / 13 / 17 / 21 / 27 kW (as configured)"
-   },
-   {
-    "param": "Rod handling",
-    "value": "6 m rods (standard), 9 m rods (optional)"
-   },
-   {
-    "param": "Options",
-    "value": "Automatic rod changer; dust collector or water injection"
-   },
-   {
-    "param": "Air compressor (compatible options)",
-    "value": "Atlas Copco / ELGI / KLR / as per request — Capacity: 750–1250 cfm @ 250–350 psi"
-   },
-   {
-    "param": "Controls & mounting",
-    "value": "Excavator-mounted package with integrated controls; skid options available on request"
-   }
-  ]
- },
- {
-  "slug": "itd-10",
-  "category": "surface-mining",
-  "categoryLabel": "Surface Mining & Quarrying Drill Rigs",
-  "title": "ITD 10 — Down-the-Hole Drill",
-  "seriesTag": "Mining & Quarrying Series",
-  "heroImage": "/sites/klruniversal-com-3601ad32/products/itd-10/hero.png",
-  "quickSpecs": [
-   {
-    "label": "Drill Diameter",
-    "value": "4.5” to 6.5”"
-   },
-   {
-    "label": "Depth",
-    "value": "Up to 30 m"
-   }
-  ],
-  "bandSubtitle": "Compact DTH drilling for shallow boreholes",
-  "bandHeading": "ITD 10 is a nimble, easy-to-deploy DTH rig designed for short-depth jobs—tube wells, site investigations, and utilities—delivering clean, fast penetration with a small footprint and simple operation.",
-  "specRows": [
-   {
-    "param": "Compressor capacity​",
-    "value": "4.5″ (114 mm) to 6.5″ (165 mm) ​"
-   },
-   {
-    "param": "Single pass (Standard)​",
-    "value": "3 m​"
-   },
-   {
-    "param": "Multi pass capacity",
-    "value": "30 m"
-   },
-   {
-    "param": "Rotation Torque​",
-    "value": "1471 Nm​"
-   },
-   {
-    "param": "Rotation Speed​",
-    "value": "100 RPM​"
-   },
-   {
-    "param": "Pull down Mechanism​",
-    "value": "Cylinder with Chain​"
-   },
-   {
-    "param": "Feed force​",
-    "value": "4850 lbs​"
-   },
-   {
-    "param": "Hoist force",
-    "value": "4850 lbs​"
-   },
-   {
-    "param": "Compressor capacity​",
-    "value": "450 cfm @ 150 psi​\n600 cfm @ 250 psi​"
-   }
-  ]
- },
- {
-  "slug": "hd-100",
-  "category": "surface-mining",
-  "categoryLabel": "Surface Mining & Quarrying Drill Rigs",
-  "title": "HD 100 — Down-the-Hole Drill",
-  "seriesTag": "Mining & Quarrying Series",
-  "heroImage": "/sites/klruniversal-com-3601ad32/products/hd-100/hero.png",
-  "quickSpecs": [
-   {
-    "label": "Drill Diameter",
-    "value": "4” to 16"
-   },
-   {
-    "label": "Depth",
-    "value": "30 m"
-   }
-  ],
-  "bandSubtitle": "Compact, versatile DTH rig for 4″–16″ wells up to 200 m",
-  "bandHeading": "A compact, hydraulic DTH rig for dependable water-well and utility drilling up to 200 meters. HD 100 balances penetration speed and control across mixed formations, pairing a wide hole-size range (4″–16″) with flexible compressor options for clean, efficient air drilling on varied sites.",
-  "specRows": [
-   {
-    "param": "Compressor capacity​",
-    "value": "3.5″ (89 mm) to 5″ (127 mm)"
-   },
-   {
-    "param": "Single pass (Standard)​",
-    "value": "3 m​"
-   },
-   {
-    "param": "Multi pass capacity​",
-    "value": "30 m​"
-   },
-   {
-    "param": "Horizontal Drilling​",
-    "value": "20 m​"
-   },
-   {
-    "param": "Rotation Torque​",
-    "value": "2100 Nm​"
-   },
-   {
-    "param": "Rotation Speed​",
-    "value": "80 RPM​"
-   },
-   {
-    "param": "Pull-down Mechanism​",
-    "value": "motor with Chain​"
-   },
-   {
-    "param": "Feed force​",
-    "value": "3300 lbs​"
-   },
-   {
-    "param": "Hoist force​",
-    "value": "3300 lbs​"
-   },
-   {
-    "param": "Compressor capacity​",
-    "value": "450 cfm @ 150 / 200 psi​"
-   }
-  ]
- },
- {
-  "slug": "ts-590-30-40-50-d-e",
-  "category": "surface-mining",
-  "categoryLabel": "Surface Mining & Quarrying Drill Rigs",
-  "title": "TS 590 — 30 | 40 | 50 (D / E)",
-  "seriesTag": "Mining & Quarrying Series",
-  "heroImage": "/sites/klruniversal-com-3601ad32/products/ts-590-30-40-50-d-e/hero.png",
-  "quickSpecs": [
-   {
-    "label": "Drill Diameter",
-    "value": "4″ to 16″"
-   },
-   {
-    "label": "Depth",
-    "value": "30m to 45m"
-   }
-  ],
-  "bandSubtitle": "Modular DTH & rotary rig for versatile 4″–16″ wells up to 200 m",
-  "bandHeading": "The TS 590 platform is offered in 30 / 40 / 50 variants with D (DTH) and E (Rotary) configurations. It’s designed to switch between drilling methods with minimal changeover, giving contractors the flexibility to handle varied formations and project scopes on the same chassis.",
-  "specRows": [
-   {
-    "param": "Compressor capacity​",
-    "value": "5″ (127 mm) to 9″ (229 mm)"
-   },
-   {
-    "param": "Single pass (Standard)​",
-    "value": "7.6 m /9 m"
-   },
-   {
-    "param": "Single pass (Optional)​",
-    "value": "13m​"
-   },
-   {
-    "param": "Multi pass capacity​",
-    "value": "30 m, 36 m, 45 m​"
-   },
-   {
-    "param": "Drill pipe length​",
-    "value": "9 m / 13 m​"
-   },
-   {
-    "param": "Storage capacity​",
-    "value": "3+1/4+1​"
-   },
-   {
-    "param": "Rotation Torque​",
-    "value": "3400 Nm / 9600 Nm​"
-   },
-   {
-    "param": "Rotation Speed​​",
-    "value": "0- 120 RPM​\n0-150 RPM​\n0-180 RPM​"
-   },
-   {
-    "param": "Pull down Mechanism​",
-    "value": "Cylinder with Chain​"
-   },
-   {
-    "param": "Feed force​",
-    "value": "40000-60000 lbs​"
-   },
-   {
-    "param": "Hoist force​",
-    "value": "40000-60000 lbs​"
-   },
-   {
-    "param": "Engine / Motor type​",
-    "value": "Cat- C15​\nCummins- KTA 1150C / QSX15/ X15​\nElectric Motor – Crompton greeves / Simens 320 hp /540 hp"
-   },
-   {
-    "param": "Engine output power​",
-    "value": "540HP​"
-   },
-   {
-    "param": "Compressor capacity​",
-    "value": "1000 cfm @ 100 psi​\n900 cfm @ 350 psi​"
-   },
-   {
-    "param": "Levelling jacks",
-    "value": "3​"
-   },
-   {
-    "param": "Undercarriage​",
-    "value": "D5/D6​"
-   },
-   {
-    "param": "Estimated weight",
-    "value": "45-55 tons​"
-   }
-  ]
- },
- {
-  "slug": "ts-911-70-80-d-e",
-  "category": "surface-mining",
-  "categoryLabel": "Surface Mining & Quarrying Drill Rigs",
-  "title": "TS 911 — 70 | 80 (D / E)",
-  "seriesTag": "Mining & Quarrying Series",
-  "heroImage": "/sites/klruniversal-com-3601ad32/products/ts-911-70-80-d-e/hero.png",
-  "quickSpecs": [
-   {
-    "label": "Drill Diameter",
-    "value": "4″ to 16″"
-   },
-   {
-    "label": "Depth",
-    "value": "60 m"
-   }
-  ],
-  "bandSubtitle": "Modular DTH & rotary rig for 4″–16″ wells up to 200 m",
-  "bandHeading": "Water-well, irrigation and civil drilling needs.",
-  "specRows": [
-   {
-    "param": "Compressor capacity​",
-    "value": "9-5/8″ (250 mm) to 12-1/4″ (311 mm)​"
-   },
-   {
-    "param": "Single pass (Standard)​",
-    "value": "11.3 m​"
-   },
-   {
-    "param": "Single pass (Optional)​",
-    "value": "18 m ​"
-   },
-   {
-    "param": "Multi pass capacity​",
-    "value": "60 m​"
-   },
-   {
-    "param": "Drill pipe length​",
-    "value": "9 m / 12.2 m​"
-   },
-   {
-    "param": "Storage capacity​",
-    "value": "3+1/4+1​"
-   },
-   {
-    "param": "Rotation Torque​",
-    "value": "12200 / 14688 Nm​"
-   },
-   {
-    "param": "Rotation Speed​",
-    "value": "0-150 RPM​\n0-180 RPM​"
-   },
-   {
-    "param": "Pull down Mechanism​",
-    "value": "Motor with Chain​"
-   },
-   {
-    "param": "Feed force​",
-    "value": "70000-80000 lbs"
-   },
-   {
-    "param": "Hoist force​",
-    "value": "70000-80000 lbs​"
-   },
-   {
-    "param": "Engine / Motor type​",
-    "value": "Cat -C18,27​\nCummins- QSX23​"
-   },
-   {
-    "param": "Engine output power​",
-    "value": "600 HP,  700 HP,  800 HP​"
-   },
-   {
-    "param": "Compressor capacity​",
-    "value": "1200 cfm @ 100 psi​\n1600 cfm @ 100 psi​\n1900 cfm @ 100 psi​"
-   },
-   {
-    "param": "Levelling jacks",
-    "value": "4​"
-   },
-   {
-    "param": "Undercarriage​",
-    "value": "D7/D8​"
-   },
-   {
-    "param": "Estimated weight",
-    "value": "75-90 tons​"
-   }
-  ]
- },
- {
-  "slug": "tp-30",
-  "category": "construction",
-  "categoryLabel": "Construction Drill Rigs",
-  "title": "TP30 — Rotary & Auger Drill",
-  "seriesTag": "Piling & Foundation Rigs",
-  "heroImage": "/sites/klruniversal-com-3601ad32/products/tp-30/hero.png",
-  "quickSpecs": [
-   {
-    "label": "Drill Diameter",
-    "value": "Up to 24″"
-   },
-   {
-    "label": "Depth",
-    "value": "Up to 50 m"
-   }
-  ],
-  "bandSubtitle": "Tractor-mounted rotary/auger rig for fast, clean boreholes",
-  "bandHeading": "PD 1200 combines a robust mast with high-torque rotary drive and on-board mud handling for efficient foundation, utilities, and civil works across soft, hard, unconsolidated, and alluvial formations.",
-  "specRows": [
-   {
-    "param": "Hole diameter (rotary)Hole diameter (auger)",
-    "value": "300–1200 mm\nUp to 24″ (610 mm)"
-   },
-   {
-    "param": "Max depth",
-    "value": "50 m"
-   },
-   {
-    "param": "Carrier",
-    "value": "New Holland / as per customer request"
-   },
-   {
-    "param": "Prime mover & Power",
-    "value": "Tractor engine, 75 HP"
-   },
-   {
-    "param": "Formations",
-    "value": "Soft/hard/unconsolidated/alluvial"
-   },
-   {
-    "param": "Mast",
-    "value": "Max pull-up force 4,500 kgf\nMax pull-down force 2,400 kgf\nFeed / pull-up speed – 35 m/min"
-   },
-   {
-    "param": "Rotary head (standard)Rotary head (optional)",
-    "value": "Max speed 0–200 rpm • Max torque 250 kg·m\nMax speed 0–160 rpm • Max torque 320 kg·m"
-   },
-   {
-    "param": "Rod handling capacity",
-    "value": "Rotary drilling 3 m • Auger drilling 6 m"
-   },
-   {
-    "param": "Rod changer",
-    "value": "Manually operated single rod changer"
-   },
-   {
-    "param": "Mud pump",
-    "value": "On-board 1000 LPM pump (up to 16″ drilling); external mud pump for &gt;16″"
-   }
-  ]
- },
- {
-  "slug": "kpr",
-  "category": "construction",
-  "categoryLabel": "Construction Drill Rigs",
-  "title": "Reliable KPR Pole Hole Drilling Rig – KLR Universal",
-  "seriesTag": "Piling & Foundation Rigs",
-  "heroImage": "/sites/klruniversal-com-3601ad32/products/kpr/hero.png",
-  "quickSpecs": [
-   {
-    "label": "Drill Diameter",
-    "value": "24″ to 47.2″"
-   },
-   {
-    "label": "Depth",
-    "value": "15 m"
-   }
-  ],
-  "bandSubtitle": "Heavy-duty water well rig for deep, large-diameter bores",
-  "bandHeading": "The KPR is a robust, truck-mounted drilling rig designed for large-diameter water wells. Equipped with a 260 HP deck engine, heavy-duty mast, and high-torque rotary head (2,500 kg·m), it delivers exceptional performance in soft, hard, unconsolidated, and alluvial formations. Ideal for irrigation, municipal, and industrial borewell projects.",
-  "specRows": [
-   {
-    "param": "Hole diameter options",
-    "value": "24″ (610 mm) — up to 66 ft (20 m) depth\n31.5″ (800 mm) — up to 33 ft (10 m) depth\n39.3″ (1000 mm) — up to 23 ft (7 m) depth\n47.2″ (1200 mm) — up to 16 ft (7 m) (optional)"
-   },
-   {
-    "param": "Carrier",
-    "value": "10×4 Truck / As per customer request"
-   },
-   {
-    "param": "Standard mounting",
-    "value": "Skid mount"
-   },
-   {
-    "param": "Prime mover",
-    "value": "Deck engine (260 HP)"
-   },
-   {
-    "param": "Engine make",
-    "value": "Cummins / Any reputed make"
-   },
-   {
-    "param": "Formations",
-    "value": "Soft / Hard / Unconsolidated / Alluvial"
-   },
-   {
-    "param": "Mast",
-    "value": "Max pull-up force: 32,100 kgf\nMax pull-down force: 16,900 kgf\nPull-up speed: 16 m/min"
-   },
-   {
-    "param": "Rotary head",
-    "value": "Max speed: 30 rpmMax torque: 2,500 kg·m"
-   },
-   {
-    "param": "Air compressor (compatible options)",
-    "value": "Atlas Copco / ELGI / As per customer request — 2 × 1100 cfm @ 300 psi or 1200 cfm @ 300 psi (optional)"
-   }
-  ]
- },
- {
-  "slug": "cp-20",
-  "category": "construction",
-  "categoryLabel": "Construction Drill Rigs",
-  "title": "CP20 — Rotary & Auger Drill",
-  "seriesTag": "Piling & Foundation Rigs",
-  "heroImage": "/sites/klruniversal-com-3601ad32/products/cp-20/hero.png",
-  "quickSpecs": [
-   {
-    "label": "Drill Diameter",
-    "value": "Up to 24″"
-   },
-   {
-    "label": "Depth",
-    "value": "Up to 50 m"
-   }
-  ],
-  "bandSubtitle": "Deck-engine rotary/auger rig for fast, clean boreholes",
-  "bandHeading": "CMP 40 combines a powerful deck engine with high-torque rotary drive and on-board mud handling, delivering efficient foundations and utility bores in soft, hard, unconsolidated, and alluvial formations.",
-  "specRows": [
-   {
-    "param": "Hole diameter (rotary)Hole diameter (auger)",
-    "value": "300–1200 mm\nUp to 24″ (610 mm)"
-   },
-   {
-    "param": "Max depth",
-    "value": "50 m"
-   },
-   {
-    "param": "Carrier",
-    "value": "New Holland / as per customer request"
-   },
-   {
-    "param": "Prime mover & Power",
-    "value": "Deck engine, 105 HP"
-   },
-   {
-    "param": "Formations",
-    "value": "Soft/hard/unconsolidated/alluvial"
-   },
-   {
-    "param": "Mast",
-    "value": "Max pull-up force 5,500 kgf\nMax pull-down force 2,500 kgf\nFeed / pull-up speed – 35 m/min"
-   },
-   {
-    "param": "Rotary head (standard)Rotary head (optional)",
-    "value": "Max speed 0–200 rpm • Max torque 250 kg·m\nMax speed 0–160 rpm • Max torque 320 kg·m"
-   },
-   {
-    "param": "Rod handling capacity",
-    "value": "Rotary drilling 3 m • Auger drilling 6 m"
-   },
-   {
-    "param": "Rod changer",
-    "value": "Manually operated single rod changer"
-   },
-   {
-    "param": "Mud pump",
-    "value": "On-board 1000 LPM pump (up to 16″ drilling); external mud pump for &gt;16″"
-   }
-  ]
- },
- {
-  "slug": "core-drill-rig-150",
-  "category": "exploration",
-  "categoryLabel": "Exploration Drill Rigs",
-  "title": "CDR 150 — Core drill rig​",
-  "seriesTag": "Core Drilling Rigs",
-  "heroImage": "/sites/klruniversal-com-3601ad32/products/core-drill-rig-150/hero.png",
-  "quickSpecs": [
-   {
-    "label": "Drill Diameter",
-    "value": "75.7″ to 96.0″"
-   },
-   {
-    "label": "Depth",
-    "value": "100–200 m"
-   }
-  ],
-  "bandSubtitle": "CDR 150 — Core drill rig (NQ/HQ)",
-  "bandHeading": "Compact and reliable for mineral exploration and geotechnical investigations. A 101 HP diesel engine drives a strong mast (5,200 kgf pull-up, 3,100 kgf pull-down) and a wide-range rotary head (300–900 rpm, 30–90 kg·m) to deliver consistent NQ/HQ core recovery. Achieves up to 150 m (NQ) and 100 m (HQ) in mixed formations with quick set-ups and steady penetration.",
-  "specRows": [
-   {
-    "param": "Hole diameter",
-    "value": "NQ: 75.7 mm\nHQ: 96.0 mm"
-   },
-   {
-    "param": "Rated drilling depth",
-    "value": "NQ: 150 m\nHQ: 100 m (overall capability varies by formation, compressor, and drill string; model range 100–200 m)"
-   },
-   {
-    "param": "Prime mover",
-    "value": "Diesel engine — 101 HP"
-   },
-   {
-    "param": "Mast",
-    "value": "Max pull-up force: 5,200 kgf\nMax pull-down force: 3,100 kgf"
-   },
-   {
-    "param": "Rotary head",
-    "value": "Speed range: 300–900 rpm\nMax torque: 30–90 kg·m"
-   },
-   {
-    "param": "Air compressor (compatible options)",
-    "value": "Atlas Copco / ELGI / as per request — Capacity: 750–1250 cfm @ 250–350 psi"
-   }
-  ]
- },
- {
-  "slug": "core-drill-rig-500",
-  "category": "exploration",
-  "categoryLabel": "Exploration Drill Rigs",
-  "title": "CDR 500 — Core drill rig",
-  "seriesTag": "Core Drilling Rigs",
-  "heroImage": "/sites/klruniversal-com-3601ad32/products/core-drill-rig-500/hero.png",
-  "quickSpecs": [
-   {
-    "label": "Drill Diameter",
-    "value": "75.7″ to 96.0″"
-   },
-   {
-    "label": "Depth",
-    "value": "200–500 m"
-   }
-  ],
-  "bandSubtitle": "CDR 500 — Core drill rig (NQ/HQ)",
-  "bandHeading": "Built for deeper exploration and geotechnical programmes, the CDR 500 pairs a diesel powerpack with a high-strength mast (7,800 kgf pull-up, 4,700 kgf pull-down) and a versatile rotary head (160–1000 rpm, 40–250 kg·m). It delivers consistent core recovery up to 500 m in NQ and 300 m in HQ, maintaining steady penetration across mixed formations with reliable, field-ready operation.",
-  "specRows": [
-   {
-    "param": "Hole diameter",
-    "value": "NQ: 75.7 mm\nHQ: 96.0 mm"
-   },
-   {
-    "param": "Rated drilling depth",
-    "value": "NQ: 500 m\nHQ: 300 m (overall capability varies by formation, compressor, and drill string; model range 200–400 m)"
-   },
-   {
-    "param": "Prime mover",
-    "value": "Diesel engine"
-   },
-   {
-    "param": "Mast",
-    "value": "Max pull-up force: 7,800 kgf\nMax pull-down force: 4,700 kgf"
-   },
-   {
-    "param": "Rotary head",
-    "value": "Speed range: 160–1000 rpm\nMax torque: 40–250 kg·m"
-   },
-   {
-    "param": "Air compressor (compatible options)",
-    "value": "Atlas Copco / ELGI / as per request — Capacity: 750–1250 cfm @ 250–350 psi"
-   }
-  ]
- },
- {
-  "slug": "core-drill-rig-750",
-  "category": "exploration",
-  "categoryLabel": "Exploration Drill Rigs",
-  "title": "CDR 750 — Core drill rig",
-  "seriesTag": "Core Drilling Rigs",
-  "heroImage": "/sites/klruniversal-com-3601ad32/products/core-drill-rig-750/hero.png",
-  "quickSpecs": [
-   {
-    "label": "Drill Diameter",
-    "value": "75.7″ to 96.0″"
-   },
-   {
-    "label": "Depth",
-    "value": "100–750 m"
-   }
-  ],
-  "bandSubtitle": "CDR 750 — deep core capability with stable control.",
-  "bandHeading": "A diesel powerpack, high-capacity mast (11,400 kgf pull-up, 4,500 kgf pull-down) and wide-range rotary head (160–1000 rpm, 50–310 kg·m) support consistent NQ/HQ core recovery. The rig is configured for demanding exploration programmes, achieving up to 750 m (NQ) and 500 m (HQ) in mixed formations with reliable field operation.",
-  "specRows": [
-   {
-    "param": "Hole diameter",
-    "value": "NQ: 75.7 mm\nHQ: 96.0 mm"
-   },
-   {
-    "param": "Rated drilling depth",
-    "value": "NQ: 750 m\nHQ: 500 m (overall capability varies by formation, compressor, and drill string)"
-   },
-   {
-    "param": "Prime mover",
-    "value": "Diesel engine"
-   },
-   {
-    "param": "Mast",
-    "value": "Max pull-up force: 11,400 kgf\nMax pull-down force: 4,500 kgf"
-   },
-   {
-    "param": "Rotary head",
-    "value": "Speed range: 160–1000 rpm\nMax torque: 50–310 kg·m"
-   },
-   {
-    "param": "Air compressor (compatible options)",
-    "value": "Atlas Copco / ELGI / as per request — Capacity: 750–1250 cfm @ 250–350 psi"
-   }
-  ]
- },
- {
-  "slug": "tmc",
-  "category": "exploration",
-  "categoryLabel": "Exploration Drill Rigs",
-  "title": "TMC 40 — Core drill rig (NQ/HQ)",
-  "seriesTag": "Core Drilling Rigs",
-  "heroImage": "/sites/klruniversal-com-3601ad32/products/tmc/hero.png",
-  "quickSpecs": [
-   {
-    "label": "Drill Diameter",
-    "value": "75.7″ to 96.0″"
-   },
-   {
-    "label": "Depth",
-    "value": "50m"
-   }
-  ],
-  "bandSubtitle": "Compact, diesel-powered core rig for near-surface exploration.",
-  "bandHeading": "Delivers dependable NQ/HQ recovery with a strong mast (4,500 kgf pull-up, 2,400 kgf pull-down) and a wide torque band (up to 700 kg·m). Suitable for mineral exploration and geotechnical work up to 150 m (NQ) and 100 m (HQ).",
-  "specRows": [
-   {
-    "param": "Hole diameter",
-    "value": "NQ: 75.7 mm • HQ: 96.0 mm"
-   },
-   {
-    "param": "Rated drilling rate",
-    "value": "NQ: 150 m • HQ: 100 m"
-   },
-   {
-    "param": "Prime mover",
-    "value": "Diesel engine"
-   },
-   {
-    "param": "Mast",
-    "value": "Max pull-up force: 4,500 kgf • Max pull-down force: 2,400 kgf"
-   },
-   {
-    "param": "Rotary head",
-    "value": "Speed range: 40–120 rpm • Max torque: 0–700 kg·m"
-   }
-  ]
- },
- {
-  "slug": "ith-60",
-  "category": "underground-drill-rigs",
-  "categoryLabel": "Underground Drill Rigs",
-  "title": "ITH 60 — In-the-hole drill",
-  "seriesTag": null,
-  "heroImage": "/sites/klruniversal-com-3601ad32/products/ith-60/hero.png",
-  "quickSpecs": [
-   {
-    "label": "Drill Diameter",
-    "value": "6.5” to 12″"
-   },
-   {
-    "label": "Depth",
-    "value": "Up to 50 m"
-   }
-  ],
-  "bandSubtitle": "Compact electric ITH for precise hard-rock holes",
-  "bandHeading": "Purpose-built for vertical and angled holes in competent rock, ITH 60 pairs an electric prime mover with a high-torque rotary head for smooth, controlled penetration and efficient air flushing—ideal for mining, tunneling, and civil works.",
-  "specRows": [
-   {
-    "param": "Hole diameter",
-    "value": "6.5″–12″ (vertical downward and up to ~85° left/right in hard-rock formations)"
-   },
-   {
-    "param": "Rated drilling depth",
-    "value": "Up to 50 m"
-   },
-   {
-    "param": "Prime mover",
-    "value": "Electric engine"
-   },
-   {
-    "param": "Mast",
-    "value": "Max pull-up force: 8,500 kgf\nMax pull-down force: 4,900 kgf"
-   },
-   {
-    "param": "Rotary head",
-    "value": "Max speed: 0–100 rpm\nMax torque: 360 kg·m"
-   },
-   {
-    "param": "Rod Changer",
-    "value": "Standard: Manually operated single rod changer\nOptional: Automatic rod changer"
-   },
-   {
-    "param": "Air compressor (compatible options)",
-    "value": "Atlas Copco / ELGI / as per request — Capacity: 600–1200 cfm @ 200–350 psi"
-   }
-  ]
- },
- {
-  "slug": "kwd-10",
-  "category": "underground-drill-rigs",
-  "categoryLabel": "Underground Drill Rigs",
-  "title": "KWD 10 — Down-the-Hole Drill",
-  "seriesTag": null,
-  "heroImage": "/sites/klruniversal-com-3601ad32/products/kwd-10/hero.png",
-  "quickSpecs": [
-   {
-    "label": "Drill Diameter",
-    "value": "4.5” to 6”"
-   },
-   {
-    "label": "Depth",
-    "value": "Up to 30 m"
-   }
-  ],
-  "bandSubtitle": "Compact DTH rig for shallow wells up to 30 m",
-  "bandHeading": "Built for quick deployments and dependable penetration in soft to hard rock, the KWD 10 pairs a diesel powerpack with a high-torque head—ideal for tube wells, site utilities, and short-depth jobs.",
-  "specRows": [
-   {
-    "param": "Hole diameter",
-    "value": "4.5″–6″"
-   },
-   {
-    "param": "Rated drilling depth",
-    "value": "30 m"
-   },
-   {
-    "param": "Prime mover",
-    "value": "Diesel engine"
-   },
-   {
-    "param": "Formations",
-    "value": "Soft / hard rock"
-   },
-   {
-    "param": "Mast",
-    "value": "Max pull-up force: 2,200 kgf\nMax pull-down force: 2,200 kgf\nPull-up speed: 25 m/min"
-   },
-   {
-    "param": "Rotary head",
-    "value": "Max speed: 0–100 rpm\nMax torque: 150 kg·m"
-   },
-   {
-    "param": "Air compressor (compatible options)",
-    "value": "Atlas Copco / ELGI / as per request — Capacity: 450–600 cfm @ 150–250 psi"
-   }
-  ]
- },
- {
-  "slug": "ts-911-75-sp",
-  "category": "surface-mining",
-  "categoryLabel": "Surface Mining & Quarrying Drill Rigs",
-  "title": "TS 911 – 75 SP",
-  "seriesTag": "Mining & Quarrying Series",
-  "heroImage": "/sites/klruniversal-com-3601ad32/products/ts-911-75-sp/hero.png",
-  "quickSpecs": [
-   {
-    "label": "Drill Diameter",
-    "value": "4″ to 16″"
-   },
-   {
-    "label": "Depth",
-    "value": "60 m"
-   }
-  ],
-  "bandSubtitle": "Modular DTH & rotary rig for 4″–16″ wells up to 200 m",
-  "bandHeading": "The platform is available in 70 and 80 variants with D (Down-the-Hole) and E (Rotary) configurations. Built for flexible deployment across mixed formations, it enables quick changeover between methods on the same chassis for water-well, irrigation and civil drilling needs.",
-  "specRows": [
-   {
-    "param": "Compressor capacity",
-    "value": "9-5/8″ (250 mm) to 12-1/4″ (311 mm)"
-   },
-   {
-    "param": "Single pass (Standard)",
-    "value": "11.3 m"
-   },
-   {
-    "param": "Single pass (Optional)",
-    "value": "18 m"
-   },
-   {
-    "param": "Multi pass capacity",
-    "value": "60 m"
-   },
-   {
-    "param": "Drill pipe length",
-    "value": "9 m / 12.2 m"
-   },
-   {
-    "param": "Storage capacity",
-    "value": "3+1/4+1"
-   },
-   {
-    "param": "Rotation Torque",
-    "value": "12200 / 14688 Nm"
-   },
-   {
-    "param": "Rotation Speed",
-    "value": "0-150 RPM\n0-180 RPM"
-   },
-   {
-    "param": "Pull down Mechanism",
-    "value": "Motor with Chain"
-   },
-   {
-    "param": "Feed force",
-    "value": "70000-80000 lbs"
-   },
-   {
-    "param": "Hoist force",
-    "value": "70000-80000 lbs"
-   },
-   {
-    "param": "Engine / Motor type",
-    "value": "Cat -C18, 27\nCummins- QSX23"
-   },
-   {
-    "param": "Engine output power",
-    "value": "600 HP, 700 HP, 800 HP"
-   },
-   {
-    "param": "Compressor capacity (2)",
-    "value": "1200 cfm @ 100 psi\n1600 cfm @ 100 psi\n1900 cfm @ 100 psi"
-   },
-   {
-    "param": "Levelling jacks",
-    "value": "4"
-   },
-   {
-    "param": "Undercarriage",
-    "value": "D7/D8"
-   },
-   {
-    "param": "Estimated weight",
-    "value": "75-90 tons"
-   }
-  ]
- }
+  {
+    "slug": "dthr-150",
+    "category": "water-well",
+    "categoryLabel": "Water Well Drill Rigs",
+    "title": "DTHR-150",
+    "seriesTag": "DTHR Series",
+    "heroImage": "/sites/klruniversal-com-3601ad32/products/dthr-150/hero.png",
+    "quickSpecs": [
+      {
+        "label": "Drill Diameter",
+        "value": "4.5″ to 10″"
+      },
+      {
+        "label": "Depth",
+        "value": "100–200 m"
+      }
+    ],
+    "bandSubtitle": "Water Well DTHR Series",
+    "bandHeading": "Hydraulic-powered and built for air, foam, mud rotary and DTH drilling, the DTHR Series adapts to any terrain with ease.",
+    "specRows": [
+      {
+        "param": "Hole diameter",
+        "value": "DTH (continuous): 4.5″–6.5″\nDTH (overburden): 7″\nRotary (continuous): 6″–8″\nRotary (overburden): 10″"
+      },
+      {
+        "param": "Rated drilling depth",
+        "value": "100–150 m (depth depends on formation, compressor and drill string; model range: 100–200 m)"
+      },
+      {
+        "param": "Carrier truck",
+        "value": "Standard: 4×2 / 4×4\nStandard mounting: Single-truck mounting (compressor + rig)"
+      },
+      {
+        "param": "Prime mover",
+        "value": "Truck engine"
+      },
+      {
+        "param": "Formations",
+        "value": "Soft,hard,unconsolidated,alluvial"
+      },
+      {
+        "param": "Mast",
+        "value": "Max pull-up force: 5,200 kg\nMax pull-down force: 2,700 kg\nPull-up speed: 45 m/min\nRod handling: 3 m rods"
+      },
+      {
+        "param": "Rotary head",
+        "value": "Max speed: 0–120 rpm\nMax torque: 360 kg·m"
+      },
+      {
+        "param": "Rod changer",
+        "value": "Standard: Manually operated single rod changer\nOptional: Automatic rod changer (for 2-truck version)"
+      },
+      {
+        "param": "Air compressor (compatible options)",
+        "value": "Atlas Copco / ELGI / as per request\nCapacity: 750–1250 cfm @ 250–350 psi (other options such as 550 cfm @ 200 psi available on request)"
+      },
+      {
+        "param": "Mud pump",
+        "value": "Make: G&P\nCapacity: 5″ × 4″"
+      },
+      {
+        "param": "Optional package",
+        "value": "Optional package\nOnly Down-the-Hole drill package"
+      }
+    ]
+  },
+  {
+    "slug": "dthr-300",
+    "category": "water-well",
+    "categoryLabel": "Water Well Drill Rigs",
+    "title": "DTHR-300",
+    "seriesTag": "DTHR Series",
+    "heroImage": "/sites/klruniversal-com-3601ad32/products/dthr-300/hero.png",
+    "quickSpecs": [
+      {
+        "label": "Drill Diameter",
+        "value": "4.5″ to 17½″"
+      },
+      {
+        "label": "Depth",
+        "value": "200–400 m"
+      }
+    ],
+    "bandSubtitle": "Water Well DTHR Series",
+    "bandHeading": "Hydraulic-powered and built for air, foam, mud, rotary and DTH drilling, the DTHR Series adapts to any terrain with ease",
+    "specRows": [
+      {
+        "param": "Hole diameter",
+        "value": "DTH (continuous): 4.5″–6.5″DTH (overburden): 9″, 10″Rotary (continuous): 8″–12¼″Rotary (overburden): 12¼″ & 17½″"
+      },
+      {
+        "param": "Rated drilling depth",
+        "value": "300–350 metres (depth depends on formation, compressor and drill string; model range: 200–400 m)"
+      },
+      {
+        "param": "Carrier Truck",
+        "value": "–Standard: (6×4) Ashok Leyland truck / as per customer requestStandard mounting: Single-truck mounting (compressor + rig)Optional: Double-truck mounting with separate compressor carrier"
+      },
+      {
+        "param": "Prime Mover",
+        "value": "Truck engine"
+      },
+      {
+        "param": "Formation",
+        "value": "Soft/hard/unconsolidated/alluvial"
+      },
+      {
+        "param": "Mast",
+        "value": "Max pull-up force (std): 11,200 kgMax pull-down force (std): 5,500Pull-up speed: 45 m/minRod handling: 6 m rodsOptional pull-up force: 17,000 kg"
+      },
+      {
+        "param": "Rotatory Head",
+        "value": "Max speed: 0–120 rpmMax torque: 550 kg·m"
+      },
+      {
+        "param": "Rod Changer",
+        "value": "Standard: Manually operated single rod changerOptional: Automatic rod changer (two-truck version)"
+      },
+      {
+        "param": "Air compressor (compatible options)",
+        "value": "Atlas Copco / ELGI / as per requestCapacity: 750–1250 cfm @ 250–350 psi (typical pairing: 1100 cfm @ 300 psi)"
+      },
+      {
+        "param": "Mud Pump",
+        "value": "Make: G&PCapacity: 6″ × 6″"
+      }
+    ]
+  },
+  {
+    "slug": "dthr-600",
+    "category": "water-well",
+    "categoryLabel": "Water Well Drill Rigs",
+    "title": "DTHR-600",
+    "seriesTag": "DTHR Series",
+    "heroImage": "/sites/klruniversal-com-3601ad32/products/dthr-600/hero.png",
+    "quickSpecs": [
+      {
+        "label": "Drill Diameter",
+        "value": "4.5” to 17½”"
+      },
+      {
+        "label": "Depth",
+        "value": "400-650 m"
+      }
+    ],
+    "bandSubtitle": "Water Well DTHR Series",
+    "bandHeading": "Hydraulic-powered and built for air, foam, mud, rotary and DTH drilling, the DTHR Series adapts to any terrain with ease.",
+    "specRows": [
+      {
+        "param": "Hole diameter",
+        "value": "DTH (continuous): 4.5″–8″ up to depth of 600 m\nDTH (overburden): 9″–12″ up to depth of 30 m\nRotary (continuous): 8″–12¼″ up to depth of 600 m\nRotary (overburden): 14″–17½″ up to depth of 300 m"
+      },
+      {
+        "param": "Rated drilling depth",
+        "value": "600 metres (depth depends on formation, compressor and drill string; model range: 400–650 m)"
+      },
+      {
+        "param": "Carrier",
+        "value": "Standard: (6×4) Ashok Leyland truck / as per customer request\nStandard mounting: Double-truck mounting (rig + compressor carrier)\nOptional: Skid mount"
+      },
+      {
+        "param": "Prime mover",
+        "value": "Deck engine — Make: Cummins / any reputed make"
+      },
+      {
+        "param": "Formations",
+        "value": "Soft/hard/unconsolidated/alluvial"
+      },
+      {
+        "param": "Mast",
+        "value": "Max pull-up force: 33,800 kgf\nMax pull-down force: 12,900 kgf\nMax pull-up speed: 25 m/min"
+      },
+      {
+        "param": "Rotary head",
+        "value": "Max speed: 0–120 rpm\nMax torque: 720 kg·m"
+      },
+      {
+        "param": "Rod changer",
+        "value": "Standard: Manually operated single rod changer\nOptional: Automatic rod changer"
+      },
+      {
+        "param": "Air compressor (compatible options)",
+        "value": "Atlas Copco / ELGI / as per request\nCapacity: 1200 cfm @ 330 psi (also compatible 750–1250 cfm @ 250–350 psi)"
+      },
+      {
+        "param": "Mud pump",
+        "value": "Make: G&P\nCapacity: 10″ × 7½″"
+      }
+    ]
+  },
+  {
+    "slug": "dthr-750",
+    "category": "water-well",
+    "categoryLabel": "Water Well Drill Rigs",
+    "title": "DTHR-750",
+    "seriesTag": "DTHR Series",
+    "heroImage": "/sites/klruniversal-com-3601ad32/products/dthr-750/hero.png",
+    "quickSpecs": [
+      {
+        "label": "Drill Diameter",
+        "value": "4.5” to 24”"
+      },
+      {
+        "label": "Depth",
+        "value": "650–800 m"
+      }
+    ],
+    "bandSubtitle": "Water Well DTHR Series",
+    "bandHeading": "Hydraulic-powered and built for air, foam, mud, rotary and DTH drilling, the DTHR Series adapts to any terrain with ease.",
+    "specRows": [
+      {
+        "param": "Hole diameter",
+        "value": "DTH (continuous): 4.5″–8″ up to depth of 600 m\nDTH (overburden): 9″–12″ up to depth of 100 m\nRotary (continuous): 8″–12¼″ up to depth of 750 m\nRotary (overburden): 14″–24″ up to depth of 400 m"
+      },
+      {
+        "param": "Rated drilling depth",
+        "value": "750 metres (depth depends on formation, compressor and drill string; model range: 650–800 m)"
+      },
+      {
+        "param": "Carrier",
+        "value": "Standard: (8×4) Ashok Leyland truck / as per customer request\nStandard mounting: Double-truck mounting (rig + compressor carrier)\nOptional: Skid mount"
+      },
+      {
+        "param": "Prime mover",
+        "value": "Deck engine — Make: Cummins / any reputed make"
+      },
+      {
+        "param": "Formations",
+        "value": "Soft/hard/unconsolidated/alluvial"
+      },
+      {
+        "param": "Mast",
+        "value": "Max pull-up force: 43,000 kgf\nMax pull-down force: 12,900 kgf\nMax pull-up speed: 25 m/min"
+      },
+      {
+        "param": "Rotary head",
+        "value": "Max speed: 0–120 rpm\nMax torque: 1,050 kg·m"
+      },
+      {
+        "param": "Rod changer",
+        "value": "Standard: Manually operated single rod changer\nOptional: Automatic rod changer"
+      },
+      {
+        "param": "Air compressor (compatible options)",
+        "value": "Atlas Copco / ELGI / as per request\nCapacity: 1,350 cfm @ 350 psi (also compatible 750–1,250 cfm @ 250–350 psi)"
+      },
+      {
+        "param": "Mud pump",
+        "value": "Make: G&P\nCapacity: 10″ × 7½″"
+      }
+    ]
+  },
+  {
+    "slug": "tbw-40",
+    "category": "water-well",
+    "categoryLabel": "Water Well Drill Rigs",
+    "title": "TBW – 40",
+    "seriesTag": "DTHR Series",
+    "heroImage": "/sites/klruniversal-com-3601ad32/products/tbw-40/hero.png",
+    "quickSpecs": [
+      {
+        "label": "Drill Diameter",
+        "value": "4.5” to 6.5”"
+      },
+      {
+        "label": "Depth",
+        "value": "100–150 m"
+      }
+    ],
+    "bandSubtitle": "Water Well DTHR Series",
+    "bandHeading": "Tractor-mounted and hydraulic-powered, the TBW Series is built for air or mud drilling across mixed formations up to 150 metres.",
+    "specRows": [
+      {
+        "param": "Hole diameter",
+        "value": "4.5″–6.5″"
+      },
+      {
+        "param": "Rated drilling depth",
+        "value": "150 metres (depth depends on formation, compressor and drill string; model range: 100–150 m)"
+      },
+      {
+        "param": "Carrier",
+        "value": "Make: New Holland / as per customer request"
+      },
+      {
+        "param": "Prime mover",
+        "value": "Tractor engine"
+      },
+      {
+        "param": "Formations",
+        "value": "Soft/hard/unconsolidated/alluvial"
+      },
+      {
+        "param": "Mast",
+        "value": "Max pull-up force: 4,500 kgf\nMax pull-down force: 2,400 kgf\nMax pull-up speed: 35 m/min\nRod handling capacity: 3 m rods"
+      },
+      {
+        "param": "Rotary head",
+        "value": "Max speed: 0–120 rpm\nMax torque: 270 kg·m"
+      },
+      {
+        "param": "Rod changer",
+        "value": "Manually operated single rod changer"
+      },
+      {
+        "param": "Mud pump",
+        "value": "Centrifugal pump / duplex double-acting mud pump — mounted on a separate skid with a separate engine"
+      },
+      {
+        "param": "Air compressor (compatible options)",
+        "value": "Make: Atlas Copco / ELGI / as per customer request\nCapacity: 600 cfm @ 200 psi (separate skid-mounted)"
+      }
+    ]
+  },
+  {
+    "slug": "ea-20-30",
+    "category": "surface-mining",
+    "categoryLabel": "Surface Mining & Quarrying Drill Rigs",
+    "title": "EA-20|30 — Down-the-Hole Drill",
+    "seriesTag": "Mining & Quarrying Series",
+    "heroImage": "/sites/klruniversal-com-3601ad32/products/ea-20-30/hero.png",
+    "quickSpecs": [
+      {
+        "label": "Drill Diameter",
+        "value": "4″ to 16″"
+      },
+      {
+        "label": "Depth",
+        "value": "30m"
+      }
+    ],
+    "bandSubtitle": "Excavator-attached DTH drilling",
+    "bandHeading": "Built on a 20–30-ton excavator, the EA-20|30 delivers reliable DTH drilling with single-pass efficiency and optional dust suppression for quarrying, mining and construction.",
+    "specRows": [
+      {
+        "param": "Hole diameter",
+        "value": "4″–16″ (recommended range 5″–6-3/4″; other sizes on request)"
+      },
+      {
+        "param": "Rated drilling depth",
+        "value": "Up to 200 m (single-pass 6 m standard; 9 m optional; overall depth depends on formation, compressor, and drill string)"
+      },
+      {
+        "param": "Carrier",
+        "value": "Excavator — Make options: Sany / Tata Hitachi / Volvo / Hyundai (e.g., SY215 / EX215LC) or as per customer request"
+      },
+      {
+        "param": "Carrier range",
+        "value": "20–30 ton"
+      },
+      {
+        "param": "Prime mover",
+        "value": "Excavator engine"
+      },
+      {
+        "param": "Formations",
+        "value": "Soft / hard / unconsolidated / alluvial"
+      },
+      {
+        "param": "Mast",
+        "value": "Max pull-up force: 5,200 kgf\nMax pull-down force: 2,700 kgf"
+      },
+      {
+        "param": "Rotary head",
+        "value": "Max speed: 0–250 rpm\nMax torque: 200 kg·m\nOptional head: 0–200 rpm, 250 kg·m"
+      },
+      {
+        "param": "Rod handling",
+        "value": "6 m rods (standard), 9 m rods (optional)"
+      },
+      {
+        "param": "Options",
+        "value": "Automatic rod changer; dust collector or water injection"
+      },
+      {
+        "param": "Air compressor (compatible options)",
+        "value": "Atlas Copco / ELGI / as per request — Capacity: 750–1250 cfm @ 250–350 psi"
+      },
+      {
+        "param": "Controls & mounting",
+        "value": "Excavator-mounted package with integrated controls; skid options available on request"
+      }
+    ]
+  },
+  {
+    "slug": "tha-20-30",
+    "category": "surface-mining",
+    "categoryLabel": "Surface Mining & Quarrying Drill Rigs",
+    "title": "THA-20|30 — Top hammer drill",
+    "seriesTag": "Mining & Quarrying Series",
+    "heroImage": "/sites/klruniversal-com-3601ad32/products/tha-20-30/hero.png",
+    "quickSpecs": [
+      {
+        "label": "Drill Diameter",
+        "value": "4″ to 16″"
+      },
+      {
+        "label": "Depth",
+        "value": "30 m"
+      }
+    ],
+    "bandSubtitle": "Excavator-attached top hammer drilling",
+    "bandHeading": "Mounted on a 20–30-ton excavator, THA-20|30 delivers fast, precise percussion drilling with single-pass efficiency and optional dust suppression for quarrying, mining, and construction sites.",
+    "specRows": [
+      {
+        "param": "Hole diameter",
+        "value": "4″–16″ (other sizes on request)"
+      },
+      {
+        "param": "Rated drilling depth",
+        "value": "Up to 400 m (single-pass 6 m standard; 9 m optional; overall depth depends on formation, compressor, and drill string)"
+      },
+      {
+        "param": "Carrier",
+        "value": "Excavator — Make options: Sany / Tata Hitachi / Volvo / Hyundai (e.g., SY215 / EX215LC) or as per customer request"
+      },
+      {
+        "param": "Carrier range",
+        "value": "20–30 ton"
+      },
+      {
+        "param": "Prime mover",
+        "value": "Excavator engine"
+      },
+      {
+        "param": "Formations",
+        "value": "Soft, hard, unconsolidated, alluvial"
+      },
+      {
+        "param": "Mast",
+        "value": "Max pull-up force: 5,200 kgf\nMax pull-down force: 2,700 kgf"
+      },
+      {
+        "param": "Rotary head",
+        "value": "Max speed: 0–250 rpm"
+      },
+      {
+        "param": "Drifter power",
+        "value": "5 / 10 / 13 / 17 / 21 / 27 kW (as configured)"
+      },
+      {
+        "param": "Rod handling",
+        "value": "6 m rods (standard), 9 m rods (optional)"
+      },
+      {
+        "param": "Options",
+        "value": "Automatic rod changer; dust collector or water injection"
+      },
+      {
+        "param": "Air compressor (compatible options)",
+        "value": "Atlas Copco / ELGI / KLR / as per request — Capacity: 750–1250 cfm @ 250–350 psi"
+      },
+      {
+        "param": "Controls & mounting",
+        "value": "Excavator-mounted package with integrated controls; skid options available on request"
+      }
+    ]
+  },
+  {
+    "slug": "itd-10",
+    "category": "surface-mining",
+    "categoryLabel": "Surface Mining & Quarrying Drill Rigs",
+    "title": "ITD 10 — Down-the-Hole Drill",
+    "seriesTag": "Mining & Quarrying Series",
+    "heroImage": "/sites/klruniversal-com-3601ad32/products/itd-10/hero.png",
+    "quickSpecs": [
+      {
+        "label": "Drill Diameter",
+        "value": "4.5” to 6.5”"
+      },
+      {
+        "label": "Depth",
+        "value": "Up to 30 m"
+      }
+    ],
+    "bandSubtitle": "Compact DTH drilling for shallow boreholes",
+    "bandHeading": "ITD 10 is a nimble, easy-to-deploy DTH rig designed for short-depth jobs—tube wells, site investigations, and utilities—delivering clean, fast penetration with a small footprint and simple operation.",
+    "specRows": [
+      {
+        "param": "Compressor capacity​",
+        "value": "4.5″ (114 mm) to 6.5″ (165 mm) ​"
+      },
+      {
+        "param": "Single pass (Standard)​",
+        "value": "3 m​"
+      },
+      {
+        "param": "Multi pass capacity",
+        "value": "30 m"
+      },
+      {
+        "param": "Rotation Torque​",
+        "value": "1471 Nm​"
+      },
+      {
+        "param": "Rotation Speed​",
+        "value": "100 RPM​"
+      },
+      {
+        "param": "Pull down Mechanism​",
+        "value": "Cylinder with Chain​"
+      },
+      {
+        "param": "Feed force​",
+        "value": "4850 lbs​"
+      },
+      {
+        "param": "Hoist force",
+        "value": "4850 lbs​"
+      },
+      {
+        "param": "Compressor capacity​",
+        "value": "450 cfm @ 150 psi​\n600 cfm @ 250 psi​"
+      }
+    ]
+  },
+  {
+    "slug": "hd-100",
+    "category": "surface-mining",
+    "categoryLabel": "Surface Mining & Quarrying Drill Rigs",
+    "title": "HD 100 — Down-the-Hole Drill",
+    "seriesTag": "Mining & Quarrying Series",
+    "heroImage": "/sites/klruniversal-com-3601ad32/products/hd-100/hero.png",
+    "quickSpecs": [
+      {
+        "label": "Drill Diameter",
+        "value": "4” to 16"
+      },
+      {
+        "label": "Depth",
+        "value": "30 m"
+      }
+    ],
+    "bandSubtitle": "Compact, versatile DTH rig for 4″–16″ wells up to 200 m",
+    "bandHeading": "A compact, hydraulic DTH rig for dependable water-well and utility drilling up to 200 meters. HD 100 balances penetration speed and control across mixed formations, pairing a wide hole-size range (4″–16″) with flexible compressor options for clean, efficient air drilling on varied sites.",
+    "specRows": [
+      {
+        "param": "Compressor capacity​",
+        "value": "3.5″ (89 mm) to 5″ (127 mm)"
+      },
+      {
+        "param": "Single pass (Standard)​",
+        "value": "3 m​"
+      },
+      {
+        "param": "Multi pass capacity​",
+        "value": "30 m​"
+      },
+      {
+        "param": "Horizontal Drilling​",
+        "value": "20 m​"
+      },
+      {
+        "param": "Rotation Torque​",
+        "value": "2100 Nm​"
+      },
+      {
+        "param": "Rotation Speed​",
+        "value": "80 RPM​"
+      },
+      {
+        "param": "Pull-down Mechanism​",
+        "value": "motor with Chain​"
+      },
+      {
+        "param": "Feed force​",
+        "value": "3300 lbs​"
+      },
+      {
+        "param": "Hoist force​",
+        "value": "3300 lbs​"
+      },
+      {
+        "param": "Compressor capacity​",
+        "value": "450 cfm @ 150 / 200 psi​"
+      }
+    ]
+  },
+  {
+    "slug": "ts-590-30-40-50-d-e",
+    "category": "surface-mining",
+    "categoryLabel": "Surface Mining & Quarrying Drill Rigs",
+    "title": "TS 590 — 30 | 40 | 50 (D / E)",
+    "seriesTag": "Mining & Quarrying Series",
+    "heroImage": "/sites/klruniversal-com-3601ad32/products/ts-590-30-40-50-d-e/hero.png",
+    "quickSpecs": [
+      {
+        "label": "Drill Diameter",
+        "value": "4″ to 16″"
+      },
+      {
+        "label": "Depth",
+        "value": "30m to 45m"
+      }
+    ],
+    "bandSubtitle": "Modular DTH & rotary rig for versatile 4″–16″ wells up to 200 m",
+    "bandHeading": "The TS 590 platform is offered in 30 / 40 / 50 variants with D (DTH) and E (Rotary) configurations. It’s designed to switch between drilling methods with minimal changeover, giving contractors the flexibility to handle varied formations and project scopes on the same chassis.",
+    "specRows": [
+      {
+        "param": "Compressor capacity​",
+        "value": "5″ (127 mm) to 9″ (229 mm)"
+      },
+      {
+        "param": "Single pass (Standard)​",
+        "value": "7.6 m /9 m"
+      },
+      {
+        "param": "Single pass (Optional)​",
+        "value": "13m​"
+      },
+      {
+        "param": "Multi pass capacity​",
+        "value": "30 m, 36 m, 45 m​"
+      },
+      {
+        "param": "Drill pipe length​",
+        "value": "9 m / 13 m​"
+      },
+      {
+        "param": "Storage capacity​",
+        "value": "3+1/4+1​"
+      },
+      {
+        "param": "Rotation Torque​",
+        "value": "3400 Nm / 9600 Nm​"
+      },
+      {
+        "param": "Rotation Speed​​",
+        "value": "0- 120 RPM​\n0-150 RPM​\n0-180 RPM​"
+      },
+      {
+        "param": "Pull down Mechanism​",
+        "value": "Cylinder with Chain​"
+      },
+      {
+        "param": "Feed force​",
+        "value": "40000-60000 lbs​"
+      },
+      {
+        "param": "Hoist force​",
+        "value": "40000-60000 lbs​"
+      },
+      {
+        "param": "Engine / Motor type​",
+        "value": "Cat- C15​\nCummins- KTA 1150C / QSX15/ X15​\nElectric Motor – Crompton greeves / Simens 320 hp /540 hp"
+      },
+      {
+        "param": "Engine output power​",
+        "value": "540HP​"
+      },
+      {
+        "param": "Compressor capacity​",
+        "value": "1000 cfm @ 100 psi​\n900 cfm @ 350 psi​"
+      },
+      {
+        "param": "Levelling jacks",
+        "value": "3​"
+      },
+      {
+        "param": "Undercarriage​",
+        "value": "D5/D6​"
+      },
+      {
+        "param": "Estimated weight",
+        "value": "45-55 tons​"
+      }
+    ]
+  },
+  {
+    "slug": "ts-911-70-80-d-e",
+    "category": "surface-mining",
+    "categoryLabel": "Surface Mining & Quarrying Drill Rigs",
+    "title": "TS 911 — 70 | 80 (D / E)",
+    "seriesTag": "Mining & Quarrying Series",
+    "heroImage": "/sites/klruniversal-com-3601ad32/products/ts-911-70-80-d-e/hero.png",
+    "quickSpecs": [
+      {
+        "label": "Drill Diameter",
+        "value": "4″ to 16″"
+      },
+      {
+        "label": "Depth",
+        "value": "60 m"
+      }
+    ],
+    "bandSubtitle": "Modular DTH & rotary rig for 4″–16″ wells up to 200 m",
+    "bandHeading": "Water-well, irrigation and civil drilling needs.",
+    "specRows": [
+      {
+        "param": "Compressor capacity​",
+        "value": "9-5/8″ (250 mm) to 12-1/4″ (311 mm)​"
+      },
+      {
+        "param": "Single pass (Standard)​",
+        "value": "11.3 m​"
+      },
+      {
+        "param": "Single pass (Optional)​",
+        "value": "18 m ​"
+      },
+      {
+        "param": "Multi pass capacity​",
+        "value": "60 m​"
+      },
+      {
+        "param": "Drill pipe length​",
+        "value": "9 m / 12.2 m​"
+      },
+      {
+        "param": "Storage capacity​",
+        "value": "3+1/4+1​"
+      },
+      {
+        "param": "Rotation Torque​",
+        "value": "12200 / 14688 Nm​"
+      },
+      {
+        "param": "Rotation Speed​",
+        "value": "0-150 RPM​\n0-180 RPM​"
+      },
+      {
+        "param": "Pull down Mechanism​",
+        "value": "Motor with Chain​"
+      },
+      {
+        "param": "Feed force​",
+        "value": "70000-80000 lbs"
+      },
+      {
+        "param": "Hoist force​",
+        "value": "70000-80000 lbs​"
+      },
+      {
+        "param": "Engine / Motor type​",
+        "value": "Cat -C18,27​\nCummins- QSX23​"
+      },
+      {
+        "param": "Engine output power​",
+        "value": "600 HP,  700 HP,  800 HP​"
+      },
+      {
+        "param": "Compressor capacity​",
+        "value": "1200 cfm @ 100 psi​\n1600 cfm @ 100 psi​\n1900 cfm @ 100 psi​"
+      },
+      {
+        "param": "Levelling jacks",
+        "value": "4​"
+      },
+      {
+        "param": "Undercarriage​",
+        "value": "D7/D8​"
+      },
+      {
+        "param": "Estimated weight",
+        "value": "75-90 tons​"
+      }
+    ]
+  },
+  {
+    "slug": "tp-30",
+    "category": "construction",
+    "categoryLabel": "Construction Drill Rigs",
+    "title": "TP30 — Rotary & Auger Drill",
+    "seriesTag": "Piling & Foundation Rigs",
+    "heroImage": "/sites/klruniversal-com-3601ad32/products/tp-30/hero.png",
+    "quickSpecs": [
+      {
+        "label": "Drill Diameter",
+        "value": "Up to 24″"
+      },
+      {
+        "label": "Depth",
+        "value": "Up to 50 m"
+      }
+    ],
+    "bandSubtitle": "Tractor-mounted rotary/auger rig for fast, clean boreholes",
+    "bandHeading": "PD 1200 combines a robust mast with high-torque rotary drive and on-board mud handling for efficient foundation, utilities, and civil works across soft, hard, unconsolidated, and alluvial formations.",
+    "specRows": [
+      {
+        "param": "Hole diameter (rotary)Hole diameter (auger)",
+        "value": "300–1200 mm\nUp to 24″ (610 mm)"
+      },
+      {
+        "param": "Max depth",
+        "value": "50 m"
+      },
+      {
+        "param": "Carrier",
+        "value": "New Holland / as per customer request"
+      },
+      {
+        "param": "Prime mover & Power",
+        "value": "Tractor engine, 75 HP"
+      },
+      {
+        "param": "Formations",
+        "value": "Soft/hard/unconsolidated/alluvial"
+      },
+      {
+        "param": "Mast",
+        "value": "Max pull-up force 4,500 kgf\nMax pull-down force 2,400 kgf\nFeed / pull-up speed – 35 m/min"
+      },
+      {
+        "param": "Rotary head (standard)Rotary head (optional)",
+        "value": "Max speed 0–200 rpm • Max torque 250 kg·m\nMax speed 0–160 rpm • Max torque 320 kg·m"
+      },
+      {
+        "param": "Rod handling capacity",
+        "value": "Rotary drilling 3 m • Auger drilling 6 m"
+      },
+      {
+        "param": "Rod changer",
+        "value": "Manually operated single rod changer"
+      },
+      {
+        "param": "Mud pump",
+        "value": "On-board 1000 LPM pump (up to 16″ drilling); external mud pump for &gt;16″"
+      }
+    ]
+  },
+  {
+    "slug": "kpr",
+    "category": "construction",
+    "categoryLabel": "Construction Drill Rigs",
+    "title": "Reliable KPR Pole Hole Drilling Rig – KLR Universal",
+    "seriesTag": "Piling & Foundation Rigs",
+    "heroImage": "/sites/klruniversal-com-3601ad32/products/kpr/hero.png",
+    "quickSpecs": [
+      {
+        "label": "Drill Diameter",
+        "value": "24″ to 47.2″"
+      },
+      {
+        "label": "Depth",
+        "value": "15 m"
+      }
+    ],
+    "bandSubtitle": "Heavy-duty water well rig for deep, large-diameter bores",
+    "bandHeading": "The KPR is a robust, truck-mounted drilling rig designed for large-diameter water wells. Equipped with a 260 HP deck engine, heavy-duty mast, and high-torque rotary head (2,500 kg·m), it delivers exceptional performance in soft, hard, unconsolidated, and alluvial formations. Ideal for irrigation, municipal, and industrial borewell projects.",
+    "specRows": [
+      {
+        "param": "Hole diameter options",
+        "value": "24″ (610 mm) — up to 66 ft (20 m) depth\n31.5″ (800 mm) — up to 33 ft (10 m) depth\n39.3″ (1000 mm) — up to 23 ft (7 m) depth\n47.2″ (1200 mm) — up to 16 ft (7 m) (optional)"
+      },
+      {
+        "param": "Carrier",
+        "value": "10×4 Truck / As per customer request"
+      },
+      {
+        "param": "Standard mounting",
+        "value": "Skid mount"
+      },
+      {
+        "param": "Prime mover",
+        "value": "Deck engine (260 HP)"
+      },
+      {
+        "param": "Engine make",
+        "value": "Cummins / Any reputed make"
+      },
+      {
+        "param": "Formations",
+        "value": "Soft / Hard / Unconsolidated / Alluvial"
+      },
+      {
+        "param": "Mast",
+        "value": "Max pull-up force: 32,100 kgf\nMax pull-down force: 16,900 kgf\nPull-up speed: 16 m/min"
+      },
+      {
+        "param": "Rotary head",
+        "value": "Max speed: 30 rpmMax torque: 2,500 kg·m"
+      },
+      {
+        "param": "Air compressor (compatible options)",
+        "value": "Atlas Copco / ELGI / As per customer request — 2 × 1100 cfm @ 300 psi or 1200 cfm @ 300 psi (optional)"
+      }
+    ]
+  },
+  {
+    "slug": "cp-20",
+    "category": "construction",
+    "categoryLabel": "Construction Drill Rigs",
+    "title": "CP20 — Rotary & Auger Drill",
+    "seriesTag": "Piling & Foundation Rigs",
+    "heroImage": "/sites/klruniversal-com-3601ad32/products/cp-20/hero.png",
+    "quickSpecs": [
+      {
+        "label": "Drill Diameter",
+        "value": "Up to 24″"
+      },
+      {
+        "label": "Depth",
+        "value": "Up to 50 m"
+      }
+    ],
+    "bandSubtitle": "Deck-engine rotary/auger rig for fast, clean boreholes",
+    "bandHeading": "CMP 40 combines a powerful deck engine with high-torque rotary drive and on-board mud handling, delivering efficient foundations and utility bores in soft, hard, unconsolidated, and alluvial formations.",
+    "specRows": [
+      {
+        "param": "Hole diameter (rotary)Hole diameter (auger)",
+        "value": "300–1200 mm\nUp to 24″ (610 mm)"
+      },
+      {
+        "param": "Max depth",
+        "value": "50 m"
+      },
+      {
+        "param": "Carrier",
+        "value": "New Holland / as per customer request"
+      },
+      {
+        "param": "Prime mover & Power",
+        "value": "Deck engine, 105 HP"
+      },
+      {
+        "param": "Formations",
+        "value": "Soft/hard/unconsolidated/alluvial"
+      },
+      {
+        "param": "Mast",
+        "value": "Max pull-up force 5,500 kgf\nMax pull-down force 2,500 kgf\nFeed / pull-up speed – 35 m/min"
+      },
+      {
+        "param": "Rotary head (standard)Rotary head (optional)",
+        "value": "Max speed 0–200 rpm • Max torque 250 kg·m\nMax speed 0–160 rpm • Max torque 320 kg·m"
+      },
+      {
+        "param": "Rod handling capacity",
+        "value": "Rotary drilling 3 m • Auger drilling 6 m"
+      },
+      {
+        "param": "Rod changer",
+        "value": "Manually operated single rod changer"
+      },
+      {
+        "param": "Mud pump",
+        "value": "On-board 1000 LPM pump (up to 16″ drilling); external mud pump for &gt;16″"
+      }
+    ]
+  },
+  {
+    "slug": "core-drill-rig-150",
+    "category": "exploration",
+    "categoryLabel": "Exploration Drill Rigs",
+    "title": "CDR 150 — Core drill rig",
+    "seriesTag": "Core Drilling Rigs",
+    "heroImage": "/sites/klruniversal-com-3601ad32/products/core-drill-rig-150/hero.png",
+    "quickSpecs": [
+      {
+        "label": "Drill Diameter",
+        "value": "75.7″ to 96.0″"
+      },
+      {
+        "label": "Depth",
+        "value": "100–200 m"
+      }
+    ],
+    "bandSubtitle": "CDR 150 — Core drill rig (NQ/HQ)",
+    "bandHeading": "Compact and reliable for mineral exploration and geotechnical investigations. A 101 HP diesel engine drives a strong mast (5,200 kgf pull-up, 3,100 kgf pull-down) and a wide-range rotary head (300–900 rpm, 30–90 kg·m) to deliver consistent NQ/HQ core recovery. Achieves up to 150 m (NQ) and 100 m (HQ) in mixed formations with quick set-ups and steady penetration.",
+    "specRows": [
+      {
+        "param": "Hole diameter",
+        "value": "NQ: 75.7 mm\nHQ: 96.0 mm"
+      },
+      {
+        "param": "Rated drilling depth",
+        "value": "NQ: 150 m\nHQ: 100 m (overall capability varies by formation, compressor, and drill string; model range 100–200 m)"
+      },
+      {
+        "param": "Prime mover",
+        "value": "Diesel engine — 101 HP"
+      },
+      {
+        "param": "Mast",
+        "value": "Max pull-up force: 5,200 kgf\nMax pull-down force: 3,100 kgf"
+      },
+      {
+        "param": "Rotary head",
+        "value": "Speed range: 300–900 rpm\nMax torque: 30–90 kg·m"
+      },
+      {
+        "param": "Air compressor (compatible options)",
+        "value": "Atlas Copco / ELGI / as per request — Capacity: 750–1250 cfm @ 250–350 psi"
+      }
+    ]
+  },
+  {
+    "slug": "core-drill-rig-500",
+    "category": "exploration",
+    "categoryLabel": "Exploration Drill Rigs",
+    "title": "CDR 500 — Core drill rig",
+    "seriesTag": "Core Drilling Rigs",
+    "heroImage": "/sites/klruniversal-com-3601ad32/products/core-drill-rig-500/hero.png",
+    "quickSpecs": [
+      {
+        "label": "Drill Diameter",
+        "value": "75.7″ to 96.0″"
+      },
+      {
+        "label": "Depth",
+        "value": "200–500 m"
+      }
+    ],
+    "bandSubtitle": "CDR 500 — Core drill rig (NQ/HQ)",
+    "bandHeading": "Built for deeper exploration and geotechnical programmes, the CDR 500 pairs a diesel powerpack with a high-strength mast (7,800 kgf pull-up, 4,700 kgf pull-down) and a versatile rotary head (160–1000 rpm, 40–250 kg·m). It delivers consistent core recovery up to 500 m in NQ and 300 m in HQ, maintaining steady penetration across mixed formations with reliable, field-ready operation.",
+    "specRows": [
+      {
+        "param": "Hole diameter",
+        "value": "NQ: 75.7 mm\nHQ: 96.0 mm"
+      },
+      {
+        "param": "Rated drilling depth",
+        "value": "NQ: 500 m\nHQ: 300 m (overall capability varies by formation, compressor, and drill string; model range 200–400 m)"
+      },
+      {
+        "param": "Prime mover",
+        "value": "Diesel engine"
+      },
+      {
+        "param": "Mast",
+        "value": "Max pull-up force: 7,800 kgf\nMax pull-down force: 4,700 kgf"
+      },
+      {
+        "param": "Rotary head",
+        "value": "Speed range: 160–1000 rpm\nMax torque: 40–250 kg·m"
+      },
+      {
+        "param": "Air compressor (compatible options)",
+        "value": "Atlas Copco / ELGI / as per request — Capacity: 750–1250 cfm @ 250–350 psi"
+      }
+    ]
+  },
+  {
+    "slug": "core-drill-rig-750",
+    "category": "exploration",
+    "categoryLabel": "Exploration Drill Rigs",
+    "title": "CDR 750 — Core drill rig",
+    "seriesTag": "Core Drilling Rigs",
+    "heroImage": "/sites/klruniversal-com-3601ad32/products/core-drill-rig-750/hero.png",
+    "quickSpecs": [
+      {
+        "label": "Drill Diameter",
+        "value": "75.7″ to 96.0″"
+      },
+      {
+        "label": "Depth",
+        "value": "100–750 m"
+      }
+    ],
+    "bandSubtitle": "CDR 750 — deep core capability with stable control.",
+    "bandHeading": "A diesel powerpack, high-capacity mast (11,400 kgf pull-up, 4,500 kgf pull-down) and wide-range rotary head (160–1000 rpm, 50–310 kg·m) support consistent NQ/HQ core recovery. The rig is configured for demanding exploration programmes, achieving up to 750 m (NQ) and 500 m (HQ) in mixed formations with reliable field operation.",
+    "specRows": [
+      {
+        "param": "Hole diameter",
+        "value": "NQ: 75.7 mm\nHQ: 96.0 mm"
+      },
+      {
+        "param": "Rated drilling depth",
+        "value": "NQ: 750 m\nHQ: 500 m (overall capability varies by formation, compressor, and drill string)"
+      },
+      {
+        "param": "Prime mover",
+        "value": "Diesel engine"
+      },
+      {
+        "param": "Mast",
+        "value": "Max pull-up force: 11,400 kgf\nMax pull-down force: 4,500 kgf"
+      },
+      {
+        "param": "Rotary head",
+        "value": "Speed range: 160–1000 rpm\nMax torque: 50–310 kg·m"
+      },
+      {
+        "param": "Air compressor (compatible options)",
+        "value": "Atlas Copco / ELGI / as per request — Capacity: 750–1250 cfm @ 250–350 psi"
+      }
+    ]
+  },
+  {
+    "slug": "tmc",
+    "category": "exploration",
+    "categoryLabel": "Exploration Drill Rigs",
+    "title": "TMC 40 — Core drill rig (NQ/HQ)",
+    "seriesTag": "Core Drilling Rigs",
+    "heroImage": "/sites/klruniversal-com-3601ad32/products/tmc/hero.png",
+    "quickSpecs": [
+      {
+        "label": "Drill Diameter",
+        "value": "75.7″ to 96.0″"
+      },
+      {
+        "label": "Depth",
+        "value": "50m"
+      }
+    ],
+    "bandSubtitle": "Compact, diesel-powered core rig for near-surface exploration.",
+    "bandHeading": "Delivers dependable NQ/HQ recovery with a strong mast (4,500 kgf pull-up, 2,400 kgf pull-down) and a wide torque band (up to 700 kg·m). Suitable for mineral exploration and geotechnical work up to 150 m (NQ) and 100 m (HQ).",
+    "specRows": [
+      {
+        "param": "Hole diameter",
+        "value": "NQ: 75.7 mm • HQ: 96.0 mm"
+      },
+      {
+        "param": "Rated drilling rate",
+        "value": "NQ: 150 m • HQ: 100 m"
+      },
+      {
+        "param": "Prime mover",
+        "value": "Diesel engine"
+      },
+      {
+        "param": "Mast",
+        "value": "Max pull-up force: 4,500 kgf • Max pull-down force: 2,400 kgf"
+      },
+      {
+        "param": "Rotary head",
+        "value": "Speed range: 40–120 rpm • Max torque: 0–700 kg·m"
+      }
+    ]
+  },
+  {
+    "slug": "ith-60",
+    "category": "underground-drill-rigs",
+    "categoryLabel": "Underground Drill Rigs",
+    "title": "ITH 60 — In-the-hole drill",
+    "seriesTag": null,
+    "heroImage": "/sites/klruniversal-com-3601ad32/products/ith-60/hero.png",
+    "quickSpecs": [
+      {
+        "label": "Drill Diameter",
+        "value": "6.5” to 12″"
+      },
+      {
+        "label": "Depth",
+        "value": "Up to 50 m"
+      }
+    ],
+    "bandSubtitle": "Compact electric ITH for precise hard-rock holes",
+    "bandHeading": "Purpose-built for vertical and angled holes in competent rock, ITH 60 pairs an electric prime mover with a high-torque rotary head for smooth, controlled penetration and efficient air flushing—ideal for mining, tunneling, and civil works.",
+    "specRows": [
+      {
+        "param": "Hole diameter",
+        "value": "6.5″–12″ (vertical downward and up to ~85° left/right in hard-rock formations)"
+      },
+      {
+        "param": "Rated drilling depth",
+        "value": "Up to 50 m"
+      },
+      {
+        "param": "Prime mover",
+        "value": "Electric engine"
+      },
+      {
+        "param": "Mast",
+        "value": "Max pull-up force: 8,500 kgf\nMax pull-down force: 4,900 kgf"
+      },
+      {
+        "param": "Rotary head",
+        "value": "Max speed: 0–100 rpm\nMax torque: 360 kg·m"
+      },
+      {
+        "param": "Rod Changer",
+        "value": "Standard: Manually operated single rod changer\nOptional: Automatic rod changer"
+      },
+      {
+        "param": "Air compressor (compatible options)",
+        "value": "Atlas Copco / ELGI / as per request — Capacity: 600–1200 cfm @ 200–350 psi"
+      }
+    ]
+  },
+  {
+    "slug": "kwd-10",
+    "category": "underground-drill-rigs",
+    "categoryLabel": "Underground Drill Rigs",
+    "title": "KWD 10 — Down-the-Hole Drill",
+    "seriesTag": null,
+    "heroImage": "/sites/klruniversal-com-3601ad32/products/kwd-10/hero.png",
+    "quickSpecs": [
+      {
+        "label": "Drill Diameter",
+        "value": "4.5” to 6”"
+      },
+      {
+        "label": "Depth",
+        "value": "Up to 30 m"
+      }
+    ],
+    "bandSubtitle": "Compact DTH rig for shallow wells up to 30 m",
+    "bandHeading": "Built for quick deployments and dependable penetration in soft to hard rock, the KWD 10 pairs a diesel powerpack with a high-torque head—ideal for tube wells, site utilities, and short-depth jobs.",
+    "specRows": [
+      {
+        "param": "Hole diameter",
+        "value": "4.5″–6″"
+      },
+      {
+        "param": "Rated drilling depth",
+        "value": "30 m"
+      },
+      {
+        "param": "Prime mover",
+        "value": "Diesel engine"
+      },
+      {
+        "param": "Formations",
+        "value": "Soft / hard rock"
+      },
+      {
+        "param": "Mast",
+        "value": "Max pull-up force: 2,200 kgf\nMax pull-down force: 2,200 kgf\nPull-up speed: 25 m/min"
+      },
+      {
+        "param": "Rotary head",
+        "value": "Max speed: 0–100 rpm\nMax torque: 150 kg·m"
+      },
+      {
+        "param": "Air compressor (compatible options)",
+        "value": "Atlas Copco / ELGI / as per request — Capacity: 450–600 cfm @ 150–250 psi"
+      }
+    ]
+  },
+  {
+    "slug": "ts-911-75-sp",
+    "category": "surface-mining",
+    "categoryLabel": "Surface Mining & Quarrying Drill Rigs",
+    "title": "TS 911 – 75 SP",
+    "seriesTag": "Mining & Quarrying Series",
+    "heroImage": "/sites/klruniversal-com-3601ad32/products/ts-911-75-sp/hero.png",
+    "quickSpecs": [
+      {
+        "label": "Drill Diameter",
+        "value": "4″ to 16″"
+      },
+      {
+        "label": "Depth",
+        "value": "60 m"
+      }
+    ],
+    "bandSubtitle": "Modular DTH & rotary rig for 4″–16″ wells up to 200 m",
+    "bandHeading": "The platform is available in 70 and 80 variants with D (Down-the-Hole) and E (Rotary) configurations. Built for flexible deployment across mixed formations, it enables quick changeover between methods on the same chassis for water-well, irrigation and civil drilling needs.",
+    "specRows": [
+      {
+        "param": "Compressor capacity",
+        "value": "9-5/8″ (250 mm) to 12-1/4″ (311 mm)"
+      },
+      {
+        "param": "Single pass (Standard)",
+        "value": "11.3 m"
+      },
+      {
+        "param": "Single pass (Optional)",
+        "value": "18 m"
+      },
+      {
+        "param": "Multi pass capacity",
+        "value": "60 m"
+      },
+      {
+        "param": "Drill pipe length",
+        "value": "9 m / 12.2 m"
+      },
+      {
+        "param": "Storage capacity",
+        "value": "3+1/4+1"
+      },
+      {
+        "param": "Rotation Torque",
+        "value": "12200 / 14688 Nm"
+      },
+      {
+        "param": "Rotation Speed",
+        "value": "0-150 RPM\n0-180 RPM"
+      },
+      {
+        "param": "Pull down Mechanism",
+        "value": "Motor with Chain"
+      },
+      {
+        "param": "Feed force",
+        "value": "70000-80000 lbs"
+      },
+      {
+        "param": "Hoist force",
+        "value": "70000-80000 lbs"
+      },
+      {
+        "param": "Engine / Motor type",
+        "value": "Cat -C18, 27\nCummins- QSX23"
+      },
+      {
+        "param": "Engine output power",
+        "value": "600 HP, 700 HP, 800 HP"
+      },
+      {
+        "param": "Compressor capacity (2)",
+        "value": "1200 cfm @ 100 psi\n1600 cfm @ 100 psi\n1900 cfm @ 100 psi"
+      },
+      {
+        "param": "Levelling jacks",
+        "value": "4"
+      },
+      {
+        "param": "Undercarriage",
+        "value": "D7/D8"
+      },
+      {
+        "param": "Estimated weight",
+        "value": "75-90 tons"
+      }
+    ]
+  }
 ]

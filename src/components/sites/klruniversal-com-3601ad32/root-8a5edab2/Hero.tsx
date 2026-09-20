@@ -52,11 +52,15 @@ export function Hero() {
 
       <div className="absolute left-6 top-1/2 w-[min(90vw,380px)] -translate-y-1/2 rounded-xl bg-white/95 p-5 shadow-xl lg:left-16">
         <h1 className="text-2xl font-medium leading-[1.15] text-black lg:text-3xl">
+          {/* The spaces around <br /> and between the spans are deliberate.
+              Both spans are block-level, so the spaces render as nothing, but
+              without them a parser reads the heading as one run-on string:
+              "SpecializedCustomizedEquipment for All Drilling Applications." */}
           <span className="hero-rise block">
-            Specialized
+            Specialized{" "}
             <br />
             Customized
-          </span>
+          </span>{" "}
           <span className="hero-rise hero-rise-2 block text-klr-red">
             Equipment for All Drilling Applications.
           </span>

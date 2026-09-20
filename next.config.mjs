@@ -46,6 +46,16 @@ const nextConfig = {
         destination: "https://klruniversal.com/:path*",
         permanent: true,
       },
+      // Rigs live at /drilling-rigs/<category>/<slug> but the category level
+      // of that path had no page, so every /drilling-rigs/<category> 404'd.
+      // Categories are served from /product_category/<category>.
+      {
+        source: "/drilling-rigs/:category",
+        destination: "/product_category/:category",
+        permanent: true,
+      },
+      // The conventional feed path, pointing at the real feed.
+      { source: "/blog/feed", destination: "/rss.xml", permanent: true },
       ...LEGACY_REDIRECTS.map(([source, destination]) => ({
         source,
         destination,

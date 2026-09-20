@@ -19,6 +19,12 @@ export const metadata: Metadata = {
   title: "About Us | KLR Universal",
   description:
     "From humble beginnings as Hyderabad's first drill tools manufacturer to a globally recognised name in drilling technologies — the KLR Universal story.",
+  openGraph: {
+    title: "About Us | KLR Universal",
+    description: "From humble beginnings as Hyderabad's first drill tools manufacturer to a globally recognised name in drilling technologies — the KLR Universal story.",
+    url: "/about-us",
+    type: "website",
+  },
 };
 
 const ASSET_BASE = "/sites/klruniversal-com-3601ad32/about-us-57424c1f/images";

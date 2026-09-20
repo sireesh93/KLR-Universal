@@ -2,12 +2,19 @@ import type { Metadata } from "next";
 import { Header } from "@/components/sites/klruniversal-com-3601ad32/shared/Header";
 import { Footer } from "@/components/sites/klruniversal-com-3601ad32/shared/Footer";
 import { ToolCategoryTemplate } from "@/components/sites/klruniversal-com-3601ad32/shared/ToolCategoryTemplate";
+import { JsonLd } from "@/components/sites/klruniversal-com-3601ad32/shared/JsonLd";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/drilling-tools/rotary-drilling-tools" },
   title: "Rotary Drilling Tools by KLR Universal",
   description:
     "Rotary drilling tools from KLR Universal — tricone bits, drag bits and rotary accessories built in-house for water well, mining and construction drilling.",
+  openGraph: {
+    title: "Rotary Drilling Tools by KLR Universal",
+    description: "Rotary drilling tools from KLR Universal — tricone bits, drag bits and rotary accessories built in-house for water well, mining and construction drilling.",
+    url: "/drilling-tools/rotary-drilling-tools",
+    type: "website",
+  },
 };
 
 const ASSET_BASE =
@@ -37,6 +44,16 @@ const FEATURES = [
 export default function RotaryDrillingToolsPage() {
   return (
     <>
+      <JsonLd data={{
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "name": "Rotary Drilling Tools",
+        "url": "https://klruniversal.com/drilling-tools/rotary-drilling-tools",
+        "inLanguage": "en",
+        "isPartOf": { "@type": "WebSite", "@id": "https://klruniversal.com" },
+        "about": { "@type": "Thing", "name": "Tricone bits, drag bits and rotary accessories" },
+        "publisher": { "@id": "https://klruniversal.com/#organization" },
+      }} />
       <Header />
       <main className="flex-1">
         <ToolCategoryTemplate

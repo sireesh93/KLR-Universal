@@ -4,12 +4,19 @@ import { ChevronRight } from "lucide-react";
 import { Header } from "@/components/sites/klruniversal-com-3601ad32/shared/Header";
 import { Footer } from "@/components/sites/klruniversal-com-3601ad32/shared/Footer";
 import { CtaButton } from "@/components/sites/klruniversal-com-3601ad32/shared/CtaButton";
+import { JsonLd } from "@/components/sites/klruniversal-com-3601ad32/shared/JsonLd";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/drilling-tools/drill-rods" },
   title: "Drill Rods by KLR Universal",
   description:
     "Friction welded, induction hardened drill rods from KLR Universal — 2-7/8″ (73 mm) to 13-3/8″ (340 mm), made in-house with a dedicated Heat Treatment Division.",
+  openGraph: {
+    title: "Drill Rods by KLR Universal",
+    description: "Friction welded, induction hardened drill rods from KLR Universal — 2-7/8″ (73 mm) to 13-3/8″ (340 mm), made in-house with a dedicated Heat Treatment Division.",
+    url: "/drilling-tools/drill-rods",
+    type: "website",
+  },
 };
 
 const HERO_IMAGE =
@@ -34,6 +41,16 @@ const SPEC_ROWS = [
 export default function DrillRodsPage() {
   return (
     <>
+      <JsonLd data={{
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "name": "KLR Drill Rods",
+        "url": "https://klruniversal.com/drilling-tools/drill-rods",
+        "inLanguage": "en",
+        "isPartOf": { "@type": "WebSite", "@id": "https://klruniversal.com" },
+        "about": { "@type": "Thing", "name": "Friction welded, induction hardened drill rods" },
+        "publisher": { "@id": "https://klruniversal.com/#organization" },
+      }} />
       <Header />
       <main className="flex-1">
         <div className="mx-auto flex max-w-[1400px] items-center gap-1 px-4 py-4 text-xs text-black/50 md:px-8">

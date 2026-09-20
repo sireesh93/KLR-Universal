@@ -24,8 +24,11 @@ export async function generateMetadata({
   // Drill"), which would overrun the ~60 character display limit, so the plain
   // form is kept whenever the descriptive one gets too long.
   const noun = product.categoryLabel.replace(/Rigs$/, "Rig");
-  const descriptive = `${product.title} ${noun} | KLR Universal`;
-  const title = descriptive.length <= 60 ? descriptive : `${product.title} | KLR Universal`;
+  // A few product names already carry the brand ("... – KLR Universal"), which
+  // would otherwise repeat it twice in one title.
+  const name = product.title.replace(/\s*[-–—|]\s*KLR Universal\s*$/i, "").trim();
+  const descriptive = `${name} ${noun} | KLR Universal`;
+  const title = descriptive.length <= 60 ? descriptive : `${name} | KLR Universal`;
   const description = product.bandHeading
     ? `${product.title} — ${product.categoryLabel} by KLR Universal. ${product.bandHeading}`.slice(0, 160)
     : `${product.title} — ${product.categoryLabel} by KLR Universal, trusted in 60+ countries for reliable drilling equipment.`;
@@ -36,6 +39,7 @@ export async function generateMetadata({
     openGraph: {
       title,
       description,
+      url: `/drilling-rigs/${product.category}/${product.slug}`,
       type: "website",
       images: product.heroImage ? [product.heroImage] : undefined,
     },

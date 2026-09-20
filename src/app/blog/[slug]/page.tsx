@@ -10,10 +10,15 @@ export function generateStaticParams() {
   return blogPosts.filter((p) => !p.standaloneUrl).map((p) => ({ slug: p.slug }));
 }
 
+/** Cut at a word boundary under 160 characters, with no trailing ellipsis:
+ *  a description that stops mid-word reads as broken in search results. */
 function excerptFrom(post: ReturnType<typeof getBlogPost>) {
   const firstParagraph = post?.blocks.find((b) => b.tag === "P");
   const text = firstParagraph && "text" in firstParagraph ? firstParagraph.text : "";
-  return text.length > 157 ? `${text.slice(0, 157).trimEnd()}...` : text;
+  if (text.length <= 160) return text;
+  const cut = text.slice(0, 160);
+  const lastSpace = cut.lastIndexOf(" ");
+  return (lastSpace > 100 ? cut.slice(0, lastSpace) : cut).replace(/[\s,;:—-]+$/, "");
 }
 
 export async function generateMetadata({
@@ -24,15 +29,21 @@ export async function generateMetadata({
   const { slug } = await params;
   const post = getBlogPost(slug);
   if (!post) return {};
-  const title = `${post.title} | KLR Universal Blog`;
+  // Google truncates around 60 characters. The suffix is the only part that
+  // can go without rewriting the client's headline, so it is dropped whenever
+  // it would push the title over.
+  const suffixed = `${post.title} | KLR Universal Blog`;
+  const title = suffixed.length > 60 ? post.title : suffixed;
   const description = excerptFrom(post);
+  const url = `/blog/${post.slug}`;
   return {
     title,
     description,
-    alternates: { canonical: `/blog/${post.slug}` },
+    alternates: { canonical: url },
     openGraph: {
       title,
       description,
+      url,
       type: "article",
       images: post.heroImage ? [post.heroImage] : undefined,
     },

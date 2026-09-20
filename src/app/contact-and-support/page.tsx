@@ -11,6 +11,12 @@ export const metadata: Metadata = {
   title: "Contact & Support | KLR Universal",
   description:
     "Have a question, need support, or ready to explore a solution? KLR Universal's teams are here to help every step of the way.",
+  openGraph: {
+    title: "Contact & Support | KLR Universal",
+    description: "Have a question, need support, or ready to explore a solution? KLR Universal's teams are here to help every step of the way.",
+    url: "/contact-and-support",
+    type: "website",
+  },
 };
 
 const HERO_IMAGE =

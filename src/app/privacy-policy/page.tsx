@@ -1,12 +1,19 @@
 import type { Metadata } from "next";
 import { Header } from "@/components/sites/klruniversal-com-3601ad32/shared/Header";
 import { Footer } from "@/components/sites/klruniversal-com-3601ad32/shared/Footer";
+import { JsonLd } from "@/components/sites/klruniversal-com-3601ad32/shared/JsonLd";
 
 export const metadata: Metadata = {
   title: "Privacy Policy | KLR Universal",
   description:
     "How KLR Universal collects, uses, and protects the personal information you share through this website.",
   alternates: { canonical: "/privacy-policy" },
+  openGraph: {
+    title: "Privacy Policy | KLR Universal",
+    description: "How KLR Universal collects, uses, and protects the personal information you share through this website.",
+    url: "/privacy-policy",
+    type: "website",
+  },
 };
 
 const LAST_UPDATED = "19 September 2026";
@@ -14,6 +21,15 @@ const LAST_UPDATED = "19 September 2026";
 export default function PrivacyPolicyPage() {
   return (
     <>
+      <JsonLd data={{
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "Privacy Policy",
+        "url": "https://klruniversal.com/privacy-policy",
+        "inLanguage": "en",
+        "isPartOf": { "@type": "WebSite", "@id": "https://klruniversal.com" },
+        "publisher": { "@id": "https://klruniversal.com/#organization" },
+      }} />
       <Header />
       <main className="flex-1">
         <section className="bg-klr-header py-10">

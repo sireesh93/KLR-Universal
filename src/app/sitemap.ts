@@ -6,17 +6,29 @@ import { SITE_URL } from "@/lib/site";
 const BLOG_PAGE_SIZE = 6;
 const BLOG_PAGE_COUNT = Math.ceil(blogPosts.length / BLOG_PAGE_SIZE);
 
+// Every URL carries a lastModified date: Google ignores changeFrequency and
+// priority entirely, but uses lastmod to decide what to recrawl. Pages without
+// their own date fall back to the newest blog post, which is when the site
+// last changed in any meaningful way.
+function newestPostDate(): Date {
+  const times = blogPosts
+    .map((p) => new Date(p.date).getTime())
+    .filter((t) => !Number.isNaN(t));
+  return times.length ? new Date(Math.max(...times)) : new Date();
+}
+
 export default function sitemap(): MetadataRoute.Sitemap {
+  const siteUpdated = newestPostDate();
   const staticRoutes: MetadataRoute.Sitemap = [
-    { url: `${SITE_URL}/`, changeFrequency: "weekly", priority: 1 },
-    { url: `${SITE_URL}/about-us`, changeFrequency: "monthly", priority: 0.8 },
-    { url: `${SITE_URL}/contact-and-support`, changeFrequency: "monthly", priority: 0.8 },
-    { url: `${SITE_URL}/blog`, changeFrequency: "weekly", priority: 0.7 },
-    { url: `${SITE_URL}/drilling-tools/drill-rods`, changeFrequency: "monthly", priority: 0.7 },
-    { url: `${SITE_URL}/drilling-tools/dth-drilling-tools`, changeFrequency: "monthly", priority: 0.7 },
-    { url: `${SITE_URL}/drilling-tools/rotary-drilling-tools`, changeFrequency: "monthly", priority: 0.7 },
-    { url: `${SITE_URL}/privacy-policy`, changeFrequency: "yearly", priority: 0.3 },
-    { url: `${SITE_URL}/terms`, changeFrequency: "yearly", priority: 0.3 },
+    { url: `${SITE_URL}/`, changeFrequency: "weekly", priority: 1, lastModified: siteUpdated },
+    { url: `${SITE_URL}/about-us`, changeFrequency: "monthly", priority: 0.8, lastModified: siteUpdated },
+    { url: `${SITE_URL}/contact-and-support`, changeFrequency: "monthly", priority: 0.8, lastModified: siteUpdated },
+    { url: `${SITE_URL}/blog`, changeFrequency: "weekly", priority: 0.7, lastModified: siteUpdated },
+    { url: `${SITE_URL}/drilling-tools/drill-rods`, changeFrequency: "monthly", priority: 0.7, lastModified: siteUpdated },
+    { url: `${SITE_URL}/drilling-tools/dth-drilling-tools`, changeFrequency: "monthly", priority: 0.7, lastModified: siteUpdated },
+    { url: `${SITE_URL}/drilling-tools/rotary-drilling-tools`, changeFrequency: "monthly", priority: 0.7, lastModified: siteUpdated },
+    { url: `${SITE_URL}/privacy-policy`, changeFrequency: "yearly", priority: 0.3, lastModified: siteUpdated },
+    { url: `${SITE_URL}/terms`, changeFrequency: "yearly", priority: 0.3, lastModified: siteUpdated },
   ];
 
   const blogPaginationRoutes: MetadataRoute.Sitemap = Array.from(
@@ -25,6 +37,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${SITE_URL}/blog/page/${i + 2}`,
       changeFrequency: "weekly",
       priority: 0.5,
+      lastModified: siteUpdated,
     })
   );
 
@@ -45,12 +58,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     url: `${SITE_URL}/product_category/${category}`,
     changeFrequency: "monthly",
     priority: 0.8,
+    lastModified: siteUpdated,
   }));
 
   const productRoutes: MetadataRoute.Sitemap = products.map((product) => ({
     url: `${SITE_URL}/drilling-rigs/${product.category}/${product.slug}`,
     changeFrequency: "monthly",
     priority: 0.9,
+    lastModified: siteUpdated,
   }));
 
   return [
