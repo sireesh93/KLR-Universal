@@ -22,6 +22,12 @@ export const LEGACY_REDIRECTS = [
   ["/drilling-machine-for-sale-in-hyderabad", "/product_category/water-well"],
 
   // DTH and tooling -> the DTH tools page
+  // Search engines and AI summaries still cite these mining URLs, which had no
+  // mapping and so 404'd. Surface mining and quarrying is the closest range.
+  ["/mining-equipment-manufacturer-in-hyderabad", "/product_category/surface-mining"],
+  ["/mining-equipment-manufacturer-in-india", "/product_category/surface-mining"],
+  ["/mining-drilling-rig-manufacturer-in-hyderabad", "/product_category/surface-mining"],
+  ["/blast-hole-drilling-rig-manufacturer-in-hyderabad", "/product_category/surface-mining"],
   ["/dth-drilling-machine-manufacturer-in-hyderabad", "/drilling-tools/dth-drilling-tools"],
   ["/drilling-tools-manufacturer-in-hyderabad", "/drilling-tools/dth-drilling-tools"],
   ["/dth-hammer-specifications.html", "/drilling-tools/dth-drilling-tools"],
