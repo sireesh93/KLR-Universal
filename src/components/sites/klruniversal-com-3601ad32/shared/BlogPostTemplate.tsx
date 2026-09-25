@@ -75,11 +75,20 @@ function renderBlock(block: Block, i: number) {
       return (
         <div key={i} className="mt-6 overflow-x-auto">
           <table className="w-full border-collapse text-sm">
+            <thead>
+              <tr className="border-b border-black/10">
+                {block.rows[0]?.map((cell, c) => (
+                  <th key={c} scope="col" className="py-2 pr-4 text-left font-semibold">
+                    {cell}
+                  </th>
+                ))}
+              </tr>
+            </thead>
             <tbody>
-              {block.rows.map((row, r) => (
+              {block.rows.slice(1).map((row, r) => (
                 <tr key={r} className="border-b border-black/10">
                   {row.map((cell, c) => (
-                    <td key={c} className={`py-2 pr-4 ${r === 0 ? "font-semibold" : "text-black/70"}`}>
+                    <td key={c} className="py-2 pr-4 text-black/70">
                       {cell}
                     </td>
                   ))}

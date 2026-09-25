@@ -47,6 +47,7 @@ const ORGANIZATION_JSON_LD = {
     contactType: "sales",
   },
   foundingDate: "1984",
+  founder: { "@type": "Person", name: "K. Laxma Reddy", jobTitle: "Founder" },
   slogan: "Delivering Reliable Drilling. Since 1984.",
   areaServed: { "@type": "Place", name: "60+ countries across Asia, Africa, the Middle East and Latin America" },
   knowsAbout: [

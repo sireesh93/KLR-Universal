@@ -40,7 +40,7 @@ export function Flagship() {
             <Image
               key={src}
               src={src}
-              alt={`Flagship product ${i + 1}`}
+              alt={`KLR Universal flagship drilling rig, view ${i + 1} of ${SLIDES.length}`}
               fill
               className={`object-contain transition-opacity duration-700 ${
                 i === active ? "opacity-100" : "opacity-0"

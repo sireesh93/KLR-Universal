@@ -81,6 +81,12 @@ const nextConfig = {
             key: "Strict-Transport-Security",
             value: "max-age=63072000; includeSubDomains; preload",
           },
+          // Points crawlers and agents at the machine-readable layer from any page.
+          {
+            key: "Link",
+            value:
+              '</llms.txt>; rel="describedby"; type="text/plain", </rss.xml>; rel="alternate"; type="application/rss+xml"',
+          },
         ],
       },
     ];

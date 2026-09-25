@@ -35,6 +35,7 @@
 - [About Us](https://klruniversal.com/about-us): Company history, manufacturing capability, global reach.
 - [Contact & Support](https://klruniversal.com/contact-and-support): Enquiry form, address, FAQs.
 - [Blog](https://klruniversal.com/blog): Technical articles on drilling rig selection, DTH vs rotary drilling, exploration drilling, and equipment maintenance.
+- [Blog feed (RSS)](https://klruniversal.com/rss.xml): The latest technical articles, machine-readable.
 - [Sitemap](https://klruniversal.com/sitemap.xml): All indexable pages.
 
 ## Machine-readable files
