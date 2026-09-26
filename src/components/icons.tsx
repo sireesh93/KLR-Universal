@@ -51,30 +51,6 @@ export function BeeIcon(props: SVGProps<SVGSVGElement>) {
   );
 }
 
-export function HoneycombIcon(props: SVGProps<SVGSVGElement>) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" {...props}>
-      <path
-        d="M12 2 20 6.5v9L12 20 4 15.5v-9L12 2Z"
-        stroke="currentColor"
-        strokeWidth="1.7"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-}
-
-export function HoneyDropIcon(props: SVGProps<SVGSVGElement>) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" {...props}>
-      <path
-        d="M12 2c3.6 4.6 6.5 8.8 6.5 12.3A6.5 6.5 0 0 1 5.5 14.3C5.5 10.8 8.4 6.6 12 2Z"
-        fill="currentColor"
-      />
-    </svg>
-  );
-}
-
 export function InstagramIcon(props: SVGProps<SVGSVGElement>) {
   return (
     <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" {...props}>

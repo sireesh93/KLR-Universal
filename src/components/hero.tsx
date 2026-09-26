@@ -1,6 +1,6 @@
-import { Star } from "lucide-react"
+import { CandyOff, Star, WheatOff } from "lucide-react"
 
-import { BeeIcon, HoneycombPattern, HoneyDropIcon } from "@/components/icons"
+import { BeeIcon, HoneycombPattern } from "@/components/icons"
 import { OrderNowButton } from "@/components/order-now-button"
 import { Button } from "@/components/ui/button"
 
@@ -15,11 +15,11 @@ export function Hero() {
         <div>
           <div className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/15 px-4 py-1.5 text-sm font-bold text-accent">
             <BeeIcon className="size-4" />
-            Small-batch &amp; honey-kissed
+            India&apos;s home of guilt-free indulgence
           </div>
 
           <h1 className="mt-6 max-w-xl font-heading text-5xl font-extrabold leading-[1.05] tracking-tight text-foreground sm:text-6xl">
-            Deliciously golden.
+            Deliciously guilt-free.
             <br />
             Irresistibly{" "}
             <span className="relative inline-block text-accent">
@@ -41,9 +41,9 @@ export function Hero() {
           </h1>
 
           <p className="mt-6 max-w-lg text-lg leading-relaxed text-muted-foreground">
-            Yummy Bee bakes small-batch pastries, cookies and cakes with real,
-            raw honey and simple ingredients — baked fresh every morning and
-            ready for pickup or delivery.
+            Yummy Bee crafts India&apos;s favorite guilt-free treats — sugar-free,
+            gluten-free, millet-based desserts and clean-eating bites, made
+            with zero maida, zero preservatives, and zero compromise.
           </p>
 
           <div className="mt-9 flex flex-col gap-3.5 sm:flex-row sm:items-center">
@@ -81,27 +81,27 @@ export function Hero() {
             <div className="absolute inset-0 flex items-center justify-center">
               <BeeIcon className="size-40 text-primary-foreground/90 drop-shadow-lg" />
             </div>
-            <HoneyDropIcon className="absolute left-10 top-10 size-8 text-primary-foreground/70" />
-            <HoneyDropIcon className="absolute bottom-16 right-14 size-10 text-primary-foreground/50" />
+            <CandyOff className="absolute left-10 top-10 size-8 text-primary-foreground/70" />
+            <WheatOff className="absolute bottom-16 right-14 size-10 text-primary-foreground/50" />
           </div>
 
           <div className="absolute -left-4 top-6 flex items-center gap-2.5 rounded-2xl border border-border/70 bg-card px-4 py-3 shadow-lg sm:-left-8">
             <span className="flex size-9 items-center justify-center rounded-full bg-accent/15 text-accent">
-              <HoneyDropIcon className="size-5" />
+              <CandyOff className="size-5" />
             </span>
             <div className="text-sm">
-              <p className="font-bold text-foreground">100% Natural</p>
-              <p className="text-muted-foreground">Raw local honey</p>
+              <p className="font-bold text-foreground">100% Sugar-Free</p>
+              <p className="text-muted-foreground">Zero refined sugar</p>
             </div>
           </div>
 
           <div className="absolute -bottom-6 right-2 flex items-center gap-2.5 rounded-2xl border border-border/70 bg-card px-4 py-3 shadow-lg sm:-right-6">
             <span className="flex size-9 items-center justify-center rounded-full bg-primary/20 text-accent">
-              <BeeIcon className="size-5" />
+              <WheatOff className="size-5" />
             </span>
             <div className="text-sm">
-              <p className="font-bold text-foreground">Baked Daily</p>
-              <p className="text-muted-foreground">Fresh every morning</p>
+              <p className="font-bold text-foreground">Zero Maida</p>
+              <p className="text-muted-foreground">Millet-based, always</p>
             </div>
           </div>
         </div>

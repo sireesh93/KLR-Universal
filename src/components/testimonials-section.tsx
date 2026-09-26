@@ -3,21 +3,21 @@ import { Quote, Star } from "lucide-react"
 const TESTIMONIALS = [
   {
     quote:
-      "The honey glazed donuts disappear within minutes of walking into the office. Genuinely the best bakery treat I've had in years.",
-    name: "Priya Nair",
-    role: "Weekly regular",
+      "Finally a dessert I don't feel guilty about ordering twice in one day. The millet chocolate cake tastes like a proper indulgence, not a diet snack.",
+    name: "Ananya Rao",
+    role: "Jubilee Hills, Hyderabad",
   },
   {
     quote:
-      "You can actually taste the difference real honey makes. The Bee's Knees cookies are now a permanent fixture at our family gatherings.",
-    name: "Marcus Webb",
-    role: "Loyalty member",
+      "The sugar-free boba tea is unreal — you genuinely can't tell there's no sugar in it. My whole office orders it now.",
+    name: "Kiran Reddy",
+    role: "Kondapur, Hyderabad",
   },
   {
     quote:
-      "Ordered a Golden Honey Cake for my daughter's birthday — it was gone before the candles cooled. Booking another one already!",
-    name: "Elena Torres",
-    role: "First-time customer",
+      "Ordered the Dubai mini burgers for a family dinner and they disappeared in minutes — vegan, gluten-free, and nobody could tell.",
+    name: "Meera Iyer",
+    role: "JP Nagar, Bangalore",
   },
 ]
 

@@ -1,29 +1,29 @@
-import { Clock, Heart, Leaf, Truck } from "lucide-react"
+import { CandyOff, ShieldCheck, Vegan, WheatOff } from "lucide-react"
 
 const FEATURES = [
   {
-    icon: Leaf,
-    title: "Naturally Sourced",
+    icon: CandyOff,
+    title: "100% Sugar-Free",
     description:
-      "Raw honey from local apiaries and simple, real ingredients — nothing artificial.",
+      "Every dessert is made with zero refined sugar, without losing an ounce of flavor.",
   },
   {
-    icon: Clock,
-    title: "Baked Fresh Daily",
+    icon: WheatOff,
+    title: "Zero Maida",
     description:
-      "Every batch is mixed and baked before sunrise so it reaches you at its best.",
+      "No refined flour, ever — just our secret millet blend and clean ingredients.",
   },
   {
-    icon: Truck,
-    title: "Fast Delivery",
+    icon: Vegan,
+    title: "Vegan-Friendly",
     description:
-      "Same-day delivery across the city, or grab it warm at pickup counters.",
+      "Plant-based options across the menu, so everyone gets to indulge.",
   },
   {
-    icon: Heart,
-    title: "Made With Love",
+    icon: ShieldCheck,
+    title: "Clean & Transparent",
     description:
-      "Family recipes, handled by hand, refined over three generations of bakers.",
+      "No preservatives, no shortcuts — just honest, wholesome ingredients.",
   },
 ]
 

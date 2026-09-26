@@ -1,8 +1,8 @@
 const STATS = [
-  { value: "12+", label: "Years of buzzing business" },
-  { value: "50k+", label: "Happy customers" },
-  { value: "120", label: "Recipes baked with love" },
-  { value: "4.9★", label: "Average rating" },
+  { value: "15+", label: "Cafés across India" },
+  { value: "0g", label: "Refined sugar, always" },
+  { value: "100%", label: "Gluten & maida free" },
+  { value: "4.8★", label: "Average rating" },
 ]
 
 export function StatsStrip() {

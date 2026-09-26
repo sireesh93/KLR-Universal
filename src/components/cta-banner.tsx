@@ -11,8 +11,8 @@ export function CtaBanner() {
             Ready to taste the buzz?
           </h2>
           <p className="mx-auto mt-4 max-w-lg text-base text-primary-foreground/85 sm:text-lg">
-            Order fresh, honey-kissed treats for pickup or delivery — made
-            daily, just for you.
+            Order guilt-free treats for pickup or delivery — sugar-free,
+            gluten-free, made clean, every time.
           </p>
           <div className="mt-8 flex justify-center">
             <OrderNowButton

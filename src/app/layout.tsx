@@ -14,13 +14,13 @@ const nunito = Nunito({
 });
 
 export const metadata: Metadata = {
-  title: "Yummy Bee | Artisan Honey Bakery",
+  title: "Yummy Bee | Guilt-Free Desserts & Wholesome Café",
   description:
-    "Yummy Bee bakes small-batch, honey-kissed treats fresh every day. Explore our menu and order online — sweetness, delivered.",
+    "Yummy Bee is India's pioneering café for guilt-free indulgence — sugar-free, gluten-free, millet-based desserts and clean-eating favorites. Order online today.",
   openGraph: {
-    title: "Yummy Bee | Artisan Honey Bakery",
+    title: "Yummy Bee | Guilt-Free Desserts & Wholesome Café",
     description:
-      "Small-batch, honey-kissed treats baked fresh every day. Explore our menu and order online.",
+      "Sugar-free, gluten-free, millet-based desserts and clean-eating favorites, made with zero maida and zero compromise.",
     type: "website",
   },
 };

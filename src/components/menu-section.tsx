@@ -1,49 +1,62 @@
-import { ArrowRight } from "lucide-react"
+import {
+  ArrowRight,
+  CakeSlice,
+  Cookie,
+  CupSoda,
+  Hamburger,
+  IceCreamBowl,
+  Pizza,
+} from "lucide-react"
 
-import { BeeIcon, HoneycombIcon, HoneyDropIcon } from "@/components/icons"
 import { ORDER_URL } from "@/lib/constants"
 
 const MENU_ITEMS = [
   {
-    name: "Honey Glazed Donuts",
-    description: "Pillowy-soft donuts dipped in warm, raw honey glaze.",
-    price: "$4.50",
-    icon: HoneyDropIcon,
+    name: "Dubai Viral Mini Burgers",
+    description:
+      "Vegan, gluten-free sliders inspired by Dubai's viral trend — zero maida, zero preservatives.",
+    price: "₹199",
+    icon: Hamburger,
     badge: "Bestseller",
   },
   {
-    name: "Bee's Knees Cookies",
-    description: "Brown-butter cookies with honeycomb crunch and sea salt.",
-    price: "$3.25",
-    icon: HoneycombIcon,
-    badge: null,
-  },
-  {
-    name: "Golden Honey Cake",
-    description: "Layered vanilla sponge soaked in honey syrup and cream.",
-    price: "$32.00",
-    icon: BeeIcon,
+    name: "Sugar-Free Boba Tea",
+    description:
+      "Classic bubble tea, reinvented — full flavor, zero added sugar.",
+    price: "₹149",
+    icon: CupSoda,
     badge: "New",
   },
   {
-    name: "Honeycomb Croissants",
-    description: "Buttery, flaky croissants laced with honeycomb butter.",
-    price: "$5.00",
-    icon: HoneycombIcon,
+    name: "Millet Chocolate Cake",
+    description:
+      "Rich chocolate cake baked with our secret millet blend — no maida, no refined sugar.",
+    price: "₹329",
+    icon: CakeSlice,
     badge: null,
   },
   {
-    name: "Wildflower Muffins",
-    description: "Moist muffins studded with wildflower honey drizzle.",
-    price: "$3.75",
-    icon: HoneyDropIcon,
+    name: "Guilt-Free Cheesecake",
+    description:
+      "Silky, creamy cheesecake that's sugar-free and gluten-free, without compromising on taste.",
+    price: "₹249",
+    icon: IceCreamBowl,
     badge: null,
   },
   {
-    name: "Royal Jelly Tart",
-    description: "Silky honey custard tart in a toasted almond crust.",
-    price: "$6.50",
-    icon: BeeIcon,
+    name: "Multigrain Veggie Pizza",
+    description:
+      "Wholesome continental pizza on a multigrain, gluten-free base.",
+    price: "₹279",
+    icon: Pizza,
+    badge: null,
+  },
+  {
+    name: "Sugar-Free Brownie",
+    description:
+      "Fudgy, chocolatey brownie made clean — sugar-free, gluten-free, still indulgent.",
+    price: "₹129",
+    icon: Cookie,
     badge: "Bestseller",
   },
 ]
@@ -57,11 +70,11 @@ export function MenuSection() {
             Our Menu
           </span>
           <h2 className="mt-3 font-heading text-4xl font-extrabold text-foreground sm:text-5xl">
-            Our signature treats
+            Our signature guilt-free treats
           </h2>
           <p className="mt-5 text-lg text-muted-foreground">
-            A taste of what comes out of our ovens every day — every item
-            made with real honey, never corn syrup.
+            Every item on our menu is sugar-free and gluten-free by design —
+            clean ingredients, zero maida, never a compromise on taste.
           </p>
         </div>
 
