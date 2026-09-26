@@ -33,6 +33,12 @@ export const LEGACY_REDIRECTS = [
   ["/dth-hammer-specifications.html", "/drilling-tools/dth-drilling-tools"],
   ["/hammers-trouble-shooting.html", "/drilling-tools/dth-drilling-tools"],
 
+  // Section roots that never had a page. Search still lists /drilling-rigs, so
+  // send each to the page that answers what it implies.
+  ["/drilling-rigs", "/drilling-rig-manufacturer-in-india"],
+  ["/product_category", "/drilling-rig-manufacturer-in-india"],
+  ["/drilling-tools", "/drilling-tools/dth-drilling-tools"],
+
   // Construction / horizontal rigs
   ["/horizontal-drilling-rig-manufacturer-in-india", "/product_category/construction"],
 
