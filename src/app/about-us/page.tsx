@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import { CheckCircle2 } from "lucide-react";
 import { Header } from "@/components/sites/klruniversal-com-3601ad32/shared/Header";
 import { Footer } from "@/components/sites/klruniversal-com-3601ad32/shared/Footer";
@@ -227,7 +228,14 @@ export default function AboutUsPage() {
               </p>
               <p className="mt-4 text-sm text-white/70">
                 Awarded multiple times by EEPC and Economic Development
-                bodies for innovation, quality, and customer satisfaction.
+                bodies for innovation, quality, and customer satisfaction.{" "}
+                <Link
+                  href="/drilling-rig-manufacturer-in-india"
+                  className="underline hover:text-white"
+                >
+                  Drilling rig manufacturer in India
+                </Link>
+                .
               </p>
             </div>
             <div className="flex flex-col gap-4">

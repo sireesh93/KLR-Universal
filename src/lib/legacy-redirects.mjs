@@ -37,7 +37,9 @@ export const LEGACY_REDIRECTS = [
   ["/horizontal-drilling-rig-manufacturer-in-india", "/product_category/construction"],
 
   // Broad manufacturer terms -> the homepage, which is genuinely about this
-  ["/drilling-rig-manufacturer-in-india", "/"],
+  // /drilling-rig-manufacturer-in-india used to 301 to the homepage. It is now
+  // a real page targeting that search, so the redirect is gone: a redirect wins
+  // over a route in Next, and would have made the new page unreachable.
   ["/drilling-equipment-manufacturer-in-hyderabad", "/"],
   ["/drilling-equipments-manufacturer-in-hyderabad", "/"],
   ["/hydraulic-drilling-machine-manufacturer-in-hyderabad", "/"],
