@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { HOME_URL } from "@/lib/site";
 import { Header } from "@/components/sites/klruniversal-com-3601ad32/shared/Header";
 import { Footer } from "@/components/sites/klruniversal-com-3601ad32/shared/Footer";
 import { JsonLd } from "@/components/sites/klruniversal-com-3601ad32/shared/JsonLd";
@@ -27,7 +28,7 @@ export default function TermsPage() {
         "name": "Terms of Use",
         "url": "https://klruniversal.com/terms",
         "inLanguage": "en",
-        "isPartOf": { "@type": "WebSite", "@id": "https://klruniversal.com" },
+        "isPartOf": { "@type": "WebSite", "@id": HOME_URL },
         "publisher": { "@id": "https://klruniversal.com/#organization" },
       }} />
       <Header />

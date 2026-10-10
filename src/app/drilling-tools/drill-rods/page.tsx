@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { HOME_URL } from "@/lib/site";
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
 import { Header } from "@/components/sites/klruniversal-com-3601ad32/shared/Header";
@@ -47,7 +48,7 @@ export default function DrillRodsPage() {
         "name": "KLR Drill Rods",
         "url": "https://klruniversal.com/drilling-tools/drill-rods",
         "inLanguage": "en",
-        "isPartOf": { "@type": "WebSite", "@id": "https://klruniversal.com" },
+        "isPartOf": { "@type": "WebSite", "@id": HOME_URL },
         "about": { "@type": "Thing", "name": "Friction welded, induction hardened drill rods" },
         "publisher": { "@id": "https://klruniversal.com/#organization" },
       }} />

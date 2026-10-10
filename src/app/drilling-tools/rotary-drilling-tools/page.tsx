@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { HOME_URL } from "@/lib/site";
 import { Header } from "@/components/sites/klruniversal-com-3601ad32/shared/Header";
 import { Footer } from "@/components/sites/klruniversal-com-3601ad32/shared/Footer";
 import { ToolCategoryTemplate } from "@/components/sites/klruniversal-com-3601ad32/shared/ToolCategoryTemplate";
@@ -50,7 +51,7 @@ export default function RotaryDrillingToolsPage() {
         "name": "Rotary Drilling Tools",
         "url": "https://klruniversal.com/drilling-tools/rotary-drilling-tools",
         "inLanguage": "en",
-        "isPartOf": { "@type": "WebSite", "@id": "https://klruniversal.com" },
+        "isPartOf": { "@type": "WebSite", "@id": HOME_URL },
         "about": { "@type": "Thing", "name": "Tricone bits, drag bits and rotary accessories" },
         "publisher": { "@id": "https://klruniversal.com/#organization" },
       }} />
