@@ -63,21 +63,6 @@ export function ProductTemplate({ product }: { product: Product }) {
         value: r.value,
       })),
     ],
-    // Google requires a Product to carry at least one of aggregateRating,
-    // offers or review to be schema-valid (Semrush flagged this as an error
-    // on all 21 product pages). We have no real ratings or reviews to
-    // report, and won't fabricate any. We also won't invent a price: these
-    // are quote-based industrial rigs with no fixed public price, and a
-    // made-up number would be misleading structured data. What we can
-    // state honestly is that the rig is a real, current, sellable product,
-    // so the fix is an Offer carrying only verifiable facts and no price.
-    offers: {
-      "@type": "Offer",
-      url: `${SITE_URL}/drilling-rigs/${product.category}/${product.slug}`,
-      availability: "https://schema.org/InStock",
-      itemCondition: "https://schema.org/NewCondition",
-      seller: { "@type": "Organization", "@id": `${SITE_URL}/#organization`, name: "KLR Universal" },
-    },
   };
 
   return (
