@@ -43,6 +43,13 @@ export function Hero() {
             alt={slide.alt}
             fill
             sizes="100vw"
+            // Both slides sit in the same spot (crossfaded via opacity), so
+            // without this the browser has no way to tell the hidden slide
+            // apart from the one that's actually the LCP element -- it was
+            // fetching both at the same priority on first load. Only the
+            // slide shown first needs to jump the queue.
+            priority={i === 0}
+            loading={i === 0 ? undefined : "lazy"}
             className={`object-cover transition-opacity duration-1000 ease-out ${
               i === active ? "opacity-100" : "opacity-0"
             }`}
