@@ -66,7 +66,7 @@ function buildDocument(): string {
     const inCategory = products.filter((p) => p.category === category);
     out.push(`## ${inCategory[0].categoryLabel}`);
     out.push("");
-    out.push(`Category page: ${SITE_URL}/product_category/${category}`);
+    out.push(`Category page: ${SITE_URL}/product-category/${category}`);
     out.push("");
     for (const p of inCategory) {
       out.push(`### ${p.title}`);

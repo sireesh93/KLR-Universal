@@ -198,7 +198,7 @@ export default function DrillingRigManufacturerIndiaPage() {
                     <tr key={range.category} className="border-b border-black/5 align-top">
                       <td className="px-5 py-3 font-medium">
                         <Link
-                          href={`/product_category/${range.category}`}
+                          href={`/product-category/${range.category}`}
                           className="hover:text-klr-red"
                         >
                           {range.label}

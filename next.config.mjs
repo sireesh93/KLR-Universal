@@ -48,10 +48,21 @@ const nextConfig = {
       },
       // Rigs live at /drilling-rigs/<category>/<slug> but the category level
       // of that path had no page, so every /drilling-rigs/<category> 404'd.
-      // Categories are served from /product_category/<category>.
+      // Categories are served from /product-category/<category>.
       {
         source: "/drilling-rigs/:category",
-        destination: "/product_category/:category",
+        destination: "/product-category/:category",
+        permanent: true,
+      },
+      // The category route used to be /product_category (underscore).
+      // Semrush flagged the underscore as a warning -- Google treats it as a
+      // word joiner rather than a separator, hyphens are the documented
+      // preference. These URLs were already live and indexed, so this
+      // preserves whatever ranking/link equity they held rather than just
+      // letting them 404.
+      {
+        source: "/product_category/:category",
+        destination: "/product-category/:category",
         permanent: true,
       },
       // The conventional feed path, pointing at the real feed.

@@ -14,20 +14,20 @@
  */
 export const LEGACY_REDIRECTS = [
   // Water well / borewell drilling -> the water well rig category
-  ["/bore-well-drilling-machine-manufacturer-in-hyderabad", "/product_category/water-well"],
-  ["/borewell-machine-manufacturer-in-hyderabad", "/product_category/water-well"],
-  ["/borehole-drilling-machine-manufacturer-in-hyderabad", "/product_category/water-well"],
-  ["/borehole-drilling-machine-for-sale", "/product_category/water-well"],
-  ["/bore-well-machine-price-in-hyderabad", "/product_category/water-well"],
-  ["/drilling-machine-for-sale-in-hyderabad", "/product_category/water-well"],
+  ["/bore-well-drilling-machine-manufacturer-in-hyderabad", "/product-category/water-well"],
+  ["/borewell-machine-manufacturer-in-hyderabad", "/product-category/water-well"],
+  ["/borehole-drilling-machine-manufacturer-in-hyderabad", "/product-category/water-well"],
+  ["/borehole-drilling-machine-for-sale", "/product-category/water-well"],
+  ["/bore-well-machine-price-in-hyderabad", "/product-category/water-well"],
+  ["/drilling-machine-for-sale-in-hyderabad", "/product-category/water-well"],
 
   // DTH and tooling -> the DTH tools page
   // Search engines and AI summaries still cite these mining URLs, which had no
   // mapping and so 404'd. Surface mining and quarrying is the closest range.
-  ["/mining-equipment-manufacturer-in-hyderabad", "/product_category/surface-mining"],
-  ["/mining-equipment-manufacturer-in-india", "/product_category/surface-mining"],
-  ["/mining-drilling-rig-manufacturer-in-hyderabad", "/product_category/surface-mining"],
-  ["/blast-hole-drilling-rig-manufacturer-in-hyderabad", "/product_category/surface-mining"],
+  ["/mining-equipment-manufacturer-in-hyderabad", "/product-category/surface-mining"],
+  ["/mining-equipment-manufacturer-in-india", "/product-category/surface-mining"],
+  ["/mining-drilling-rig-manufacturer-in-hyderabad", "/product-category/surface-mining"],
+  ["/blast-hole-drilling-rig-manufacturer-in-hyderabad", "/product-category/surface-mining"],
   ["/dth-drilling-machine-manufacturer-in-hyderabad", "/drilling-tools/dth-drilling-tools"],
   ["/drilling-tools-manufacturer-in-hyderabad", "/drilling-tools/dth-drilling-tools"],
   ["/dth-hammer-specifications.html", "/drilling-tools/dth-drilling-tools"],
@@ -40,7 +40,7 @@ export const LEGACY_REDIRECTS = [
   ["/drilling-tools", "/drilling-tools/dth-drilling-tools"],
 
   // Construction / horizontal rigs
-  ["/horizontal-drilling-rig-manufacturer-in-india", "/product_category/construction"],
+  ["/horizontal-drilling-rig-manufacturer-in-india", "/product-category/construction"],
 
   // Broad manufacturer terms -> the homepage, which is genuinely about this
   // /drilling-rig-manufacturer-in-india used to 301 to the homepage. It is now

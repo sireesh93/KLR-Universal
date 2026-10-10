@@ -2,7 +2,7 @@
  * Locale configuration.
  *
  * English is the source language and lives at the site root, so every URL
- * already indexed (/about-us, /product_category/water-well, ...) keeps its
+ * already indexed (/about-us, /product-category/water-well, ...) keeps its
  * address and its rankings. Translations live under a prefix: /es/about-us.
  *
  * `ready` is the safety gate. A locale is only routed, linked, listed in the

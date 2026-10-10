@@ -25,11 +25,11 @@ export async function generateMetadata({
   return {
     title,
     description,
-    alternates: { canonical: `/product_category/${category}` },
+    alternates: { canonical: `/product-category/${category}` },
     openGraph: {
       title,
       description,
-      url: `/product_category/${category}`,
+      url: `/product-category/${category}`,
       type: "website",
       images: ["/opengraph-image"],
     },
@@ -56,7 +56,7 @@ export default async function ProductCategoryPage({
         "@type": "ListItem",
         position: 2,
         name: categoryProducts[0].categoryLabel,
-        item: `${SITE_URL}/product_category/${category}`,
+        item: `${SITE_URL}/product-category/${category}`,
       },
     ],
   };

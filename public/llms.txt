@@ -17,11 +17,11 @@
 
 ## Product categories
 
-- [Water Well Drill Rigs](https://klruniversal.com/product_category/water-well): DTHR Series. Hydraulic rigs for air, foam, mud rotary and DTH drilling, 100 to 800 metres.
-- [Surface Mining & Quarrying Drill Rigs](https://klruniversal.com/product_category/surface-mining): Mining & Quarrying Series for rotary and DTH drilling in surface and deep rock formations.
-- [Construction Drill Rigs](https://klruniversal.com/product_category/construction): Piling and foundation rigs for construction and foundation projects.
-- [Exploration Drill Rigs](https://klruniversal.com/product_category/exploration): Core drilling rigs for soil investigation and geotechnical exploration.
-- [Underground Drill Rigs](https://klruniversal.com/product_category/underground-drill-rigs): Underground production drills for confined and hazardous mining environments.
+- [Water Well Drill Rigs](https://klruniversal.com/product-category/water-well): DTHR Series. Hydraulic rigs for air, foam, mud rotary and DTH drilling, 100 to 800 metres.
+- [Surface Mining & Quarrying Drill Rigs](https://klruniversal.com/product-category/surface-mining): Mining & Quarrying Series for rotary and DTH drilling in surface and deep rock formations.
+- [Construction Drill Rigs](https://klruniversal.com/product-category/construction): Piling and foundation rigs for construction and foundation projects.
+- [Exploration Drill Rigs](https://klruniversal.com/product-category/exploration): Core drilling rigs for soil investigation and geotechnical exploration.
+- [Underground Drill Rigs](https://klruniversal.com/product-category/underground-drill-rigs): Underground production drills for confined and hazardous mining environments.
 
 ## Drilling tools
 

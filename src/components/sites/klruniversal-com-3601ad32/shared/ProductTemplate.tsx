@@ -38,8 +38,8 @@ export function ProductTemplate({
     "@type": "BreadcrumbList",
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "Home", item: HOME_URL },
-      { "@type": "ListItem", position: 2, name: "Drilling Rigs", item: `${SITE_URL}/product_category/${product.category}` },
-      { "@type": "ListItem", position: 3, name: product.categoryLabel, item: `${SITE_URL}/product_category/${product.category}` },
+      { "@type": "ListItem", position: 2, name: "Drilling Rigs", item: `${SITE_URL}/product-category/${product.category}` },
+      { "@type": "ListItem", position: 3, name: product.categoryLabel, item: `${SITE_URL}/product-category/${product.category}` },
       { "@type": "ListItem", position: 4, name: product.title, item: `${SITE_URL}/drilling-rigs/${product.category}/${product.slug}` },
     ],
   };

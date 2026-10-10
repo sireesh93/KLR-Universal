@@ -56,7 +56,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const categories = [...new Set(products.map((p) => p.category))];
   const categoryRoutes: MetadataRoute.Sitemap = categories.map((category) => ({
-    url: `${SITE_URL}/product_category/${category}`,
+    url: `${SITE_URL}/product-category/${category}`,
     changeFrequency: "monthly",
     priority: 0.8,
     lastModified: siteUpdated,
