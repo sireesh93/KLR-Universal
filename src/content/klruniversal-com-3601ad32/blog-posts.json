@@ -4376,6 +4376,18 @@
    },
    {
     "tag": "H2",
+    "text": "Can a Tractor-Mounted Rig Handle Piling Work?"
+   },
+   {
+    "tag": "P",
+    "text": "A tractor-mounted rig can drill the foundation and fence-post holes light rural construction needs — that's already covered under its general infrastructure applications above. What it isn't is a dedicated piling machine: piling for buildings and retaining structures typically needs larger diameters and depths than a tractor's hydraulics and mast are built to handle."
+   },
+   {
+    "tag": "P",
+    "text": "For that heavier piling work, KLR Universal's dedicated construction range covers it directly: the [TP30 and CP20](/product-category/construction) are rotary & auger rigs drilling up to 24″ diameter and 50 m deep for foundation and piling work, while the KPR pole hole rig handles wider, shallower holes (24″ to 47.2″, up to 15 m) for utility and transmission pole installation. Matching the rig to the actual hole geometry a project needs matters more than defaulting to whatever carrier is already on site."
+   },
+   {
+    "tag": "H2",
     "text": "Conclusion"
    },
    {
@@ -4388,7 +4400,7 @@
    },
    {
     "tag": "P",
-    "text": "At KLR Industries, we have been serving the industry for decades, delivering innovative solutions tailored to the unique requirements of every project. Our advanced technologies are backed by a strong focus on safety and sustainability, ensuring reliable performance and consistent results across our drilling tools and equipment."
+    "text": "At KLR Universal, we have been serving the industry for decades, delivering innovative solutions tailored to the unique requirements of every project. Our advanced technologies are backed by a strong focus on safety and sustainability, ensuring reliable performance and consistent results across our drilling tools and equipment."
    }
   ]
  },
@@ -5235,6 +5247,116 @@
    {
     "tag": "P",
     "text": ""
+   }
+  ]
+ },
+ {
+  "slug": "excavator-mounted-drilling-rigs",
+  "standaloneUrl": false,
+  "title": "Excavator-Mounted Drilling Rigs: How They Work and When to Use One",
+  "date": "October 10, 2026",
+  "heroImage": "/sites/klruniversal-com-3601ad32/products/ea-20-30/hero.png",
+  "blocks": [
+   {
+    "tag": "P",
+    "text": "An excavator-mounted drilling rig replaces an excavator's standard bucket or attachment with a drilling mast and rotary or percussive drive, turning an excavator you may already own into a drill rig. Instead of buying and maintaining a separate carrier chassis, the drilling package bolts onto a 20–30 ton excavator you already run on site."
+   },
+   {
+    "tag": "H2",
+    "text": "Why Mount a Drill on an Excavator?"
+   },
+   {
+    "tag": "P",
+    "text": "Quarries, mines and construction sites already run excavator fleets for earthmoving. An excavator-mounted rig reuses that same carrier for drilling work, which cuts the capital cost of a dedicated rig and lets one machine do two jobs across a project's lifecycle."
+   },
+   {
+    "tag": "H2",
+    "text": "KLR Universal's Excavator-Mounted Rigs"
+   },
+   {
+    "tag": "H3",
+    "text": "EA-20|30 — DTH Drilling"
+   },
+   {
+    "tag": "P",
+    "text": "The [EA-20|30](/drilling-rigs/surface-mining/ea-20-30) mounts a DTH (Down-the-Hole) hammer on a 20–30 ton excavator — Sany, Tata Hitachi, Volvo and Hyundai carriers are all supported, or a customer's own machine on request. It drills 4″ to 16″ diameter holes, with an optional dust collector or water injection for quarry and mine sites where dust control matters."
+   },
+   {
+    "tag": "H3",
+    "text": "THA-20|30 — Top Hammer Drilling"
+   },
+   {
+    "tag": "P",
+    "text": "The [THA-20|30](/drilling-rigs/surface-mining/tha-20-30) uses the same 20–30 ton excavator carrier but drives a top hammer instead of a DTH hammer — the percussive mechanism sits above the rock rather than at the bit. It drills the same 4″ to 16″ diameter range, with the same dust suppression options."
+   },
+   {
+    "tag": "H2",
+    "text": "DTH or Top Hammer — Which One?"
+   },
+   {
+    "tag": "P",
+    "text": "The choice comes down to rock conditions, the same trade-off that applies to any DTH-versus-top-hammer decision: DTH drills faster and straighter in harder, more abrasive rock, since the hammer strikes the rock directly at the bit. Top hammer suits shallower benching and general quarrying work where that direct-impact advantage matters less."
+   },
+   {
+    "tag": "H2",
+    "text": "Where These Rigs Are Used"
+   },
+   {
+    "tag": "P",
+    "text": "Both configurations are built for quarrying, mining and construction site drilling — anywhere a site already runs excavators and wants to add drilling capability without a dedicated rig. See the full [surface mining and quarrying range](/product-category/surface-mining) for the rest of KLR Universal's lineup in this category."
+   }
+  ]
+ },
+ {
+  "slug": "rock-drill-bits-guide",
+  "standaloneUrl": false,
+  "title": "Rock Drill Bits: Types, How They Work, and What Affects Cost",
+  "date": "October 10, 2026",
+  "heroImage": "/sites/klruniversal-com-3601ad32/drilling-tools-dth-drilling-tools-bfd58456/images/dth-bits.png",
+  "blocks": [
+   {
+    "tag": "P",
+    "text": "A rock drill bit is the tool at the end of a drill string that actually breaks or cuts the rock — everything else on a rig (mast, rotary head, compressor) exists to deliver power to this one component. Bit choice has a direct effect on penetration rate, hole quality and how often the bit itself needs replacing."
+   },
+   {
+    "tag": "H2",
+    "text": "The Two Main Bit Families"
+   },
+   {
+    "tag": "H3",
+    "text": "DTH (Percussion) Bits"
+   },
+   {
+    "tag": "P",
+    "text": "DTH bits sit inside a Down-the-Hole hammer and break rock through repeated impact rather than cutting rotation. [KLR DTH Bits](/drilling-tools/dth-drilling-tools) are matched to a formation's compressive strength and abrasiveness, with carbide imprinting on the buttons to extend wear life and keep cost per metre drilled down."
+   },
+   {
+    "tag": "H3",
+    "text": "Rotary Bits — Tricone, Drag and Claw"
+   },
+   {
+    "tag": "P",
+    "text": "Rotary bits cut as the drill string turns, rather than through impact. [KLR's rotary range](/drilling-tools/rotary-drilling-tools) covers tricone bits (precision bearings and shirttail protection for high penetration rates), drag bits (carbide imprinting and heat treatment for tougher formations), and claw bits (customisable carbide patterns for a range of drilling tasks)."
+   },
+   {
+    "tag": "H2",
+    "text": "What Affects a Rock Drill Bit's Price?"
+   },
+   {
+    "tag": "P",
+    "text": "Bit pricing isn't a single number — it moves with diameter, carbide grade and button count, body material, and how closely the bit needs to be matched to a specific rock formation. A bit built for soft, consistent ground costs less than one engineered for hard, abrasive, mixed strata, even at the same diameter."
+   },
+   {
+    "tag": "P",
+    "text": "Because of that, KLR Universal configures bits to the job rather than selling off a fixed price list — [get in touch](/contact-and-support) with your formation type, hole diameter and drilling method, and the team will quote accordingly."
+   },
+   {
+    "tag": "H2",
+    "text": "Choosing the Right Bit"
+   },
+   {
+    "tag": "P",
+    "text": "The short version: match the bit family to the drilling method already in use (DTH hammer → DTH bit, rotary rig → tricone/drag/claw), then match the carbide spec to the actual rock being drilled. Getting this match right affects penetration rate and bit life far more than price alone."
    }
   ]
  }
