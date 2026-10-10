@@ -7,11 +7,11 @@ import { JsonLd } from "@/components/sites/klruniversal-com-3601ad32/shared/Json
 
 export const metadata: Metadata = {
   alternates: { canonical: "/drilling-tools/dth-drilling-tools" },
-  title: "DTH Tools by KLR Universal",
+  title: "DTH Drilling Tools | KLR Universal",
   description:
     "Down The Hole drilling tools from KLR Universal — DTH hammers, button bits and accessories manufactured in-house for water well, mining and quarrying applications.",
   openGraph: {
-    title: "DTH Tools by KLR Universal",
+    title: "DTH Drilling Tools | KLR Universal",
     description: "Down The Hole drilling tools from KLR Universal — DTH hammers, button bits and accessories manufactured in-house for water well, mining and quarrying applications.",
     url: "/drilling-tools/dth-drilling-tools",
     type: "website",

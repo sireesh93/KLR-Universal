@@ -29,11 +29,15 @@ export async function generateMetadata({
   const { slug } = await params;
   const post = getBlogPost(slug);
   if (!post) return {};
-  // Google truncates around 60 characters. The suffix is the only part that
-  // can go without rewriting the client's headline, so it is dropped whenever
-  // it would push the title over.
-  const suffixed = `${post.title} | KLR Universal Blog`;
-  const title = suffixed.length > 60 ? post.title : suffixed;
+  // Google truncates around 60 characters, so the suffix shrinks to fit
+  // rather than disappearing outright -- dropping it entirely made the
+  // <title> tag byte-for-byte identical to the on-page <h1> for every post
+  // with a long headline (Semrush flagged this as a duplicate-H1/title
+  // issue on 19 posts). A truncated-but-distinct title beats an exact
+  // duplicate even for the handful of titles too long for any suffix to fit.
+  const suffixes = [" | KLR Universal Blog", " | KLR Universal", " | KLR"];
+  const fitting = suffixes.find((s) => `${post.title}${s}`.length <= 60);
+  const title = `${post.title}${fitting ?? suffixes[suffixes.length - 1]}`;
   const description = excerptFrom(post);
   const url = `/blog/${post.slug}`;
   return {

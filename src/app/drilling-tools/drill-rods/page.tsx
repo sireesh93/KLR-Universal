@@ -9,11 +9,11 @@ import { JsonLd } from "@/components/sites/klruniversal-com-3601ad32/shared/Json
 
 export const metadata: Metadata = {
   alternates: { canonical: "/drilling-tools/drill-rods" },
-  title: "Drill Rods by KLR Universal",
+  title: "Friction Welded Drill Rods | KLR Universal",
   description:
     "Friction welded, induction hardened drill rods from KLR Universal — 2-7/8″ (73 mm) to 13-3/8″ (340 mm), made in-house with a dedicated Heat Treatment Division.",
   openGraph: {
-    title: "Drill Rods by KLR Universal",
+    title: "Friction Welded Drill Rods | KLR Universal",
     description: "Friction welded, induction hardened drill rods from KLR Universal — 2-7/8″ (73 mm) to 13-3/8″ (340 mm), made in-house with a dedicated Heat Treatment Division.",
     url: "/drilling-tools/drill-rods",
     type: "website",

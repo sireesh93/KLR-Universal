@@ -7,11 +7,11 @@ import { JsonLd } from "@/components/sites/klruniversal-com-3601ad32/shared/Json
 
 export const metadata: Metadata = {
   alternates: { canonical: "/drilling-tools/rotary-drilling-tools" },
-  title: "Rotary Drilling Tools by KLR Universal",
+  title: "Tricone & Drag Bits | KLR Universal",
   description:
     "Rotary drilling tools from KLR Universal — tricone bits, drag bits and rotary accessories built in-house for water well, mining and construction drilling.",
   openGraph: {
-    title: "Rotary Drilling Tools by KLR Universal",
+    title: "Tricone & Drag Bits | KLR Universal",
     description: "Rotary drilling tools from KLR Universal — tricone bits, drag bits and rotary accessories built in-house for water well, mining and construction drilling.",
     url: "/drilling-tools/rotary-drilling-tools",
     type: "website",
