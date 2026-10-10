@@ -34,10 +34,15 @@ export async function generateMetadata({
   // <title> tag byte-for-byte identical to the on-page <h1> for every post
   // with a long headline (Semrush flagged this as a duplicate-H1/title
   // issue on 19 posts). A truncated-but-distinct title beats an exact
-  // duplicate even for the handful of titles too long for any suffix to fit.
+  // duplicate for most posts, but four headlines are 70+ characters on
+  // their own -- long enough that even " | KLR" pushed the tag into
+  // Semrush's separate "too much text in title" flag. Those four carry an
+  // explicit shortTitle instead of being auto-suffixed.
   const suffixes = [" | KLR Universal Blog", " | KLR Universal", " | KLR"];
   const fitting = suffixes.find((s) => `${post.title}${s}`.length <= 60);
-  const title = `${post.title}${fitting ?? suffixes[suffixes.length - 1]}`;
+  const title = post.shortTitle
+    ? `${post.shortTitle} | KLR Universal`
+    : `${post.title}${fitting ?? suffixes[suffixes.length - 1]}`;
   const description = excerptFrom(post);
   const url = `/blog/${post.slug}`;
   return {

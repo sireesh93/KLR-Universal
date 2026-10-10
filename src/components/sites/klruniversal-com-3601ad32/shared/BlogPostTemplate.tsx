@@ -11,6 +11,12 @@ export type BlogPost = {
   slug: string;
   standaloneUrl?: boolean;
   title: string;
+  // The <h1> always renders the full `title`, however long. A handful of
+  // headlines are themselves 70+ characters, long enough that even the
+  // shortest " | KLR" branding suffix pushes the <title> tag past the
+  // ~60-char guideline -- this gives generateMetadata a deliberately
+  // shortened, still-accurate title to use instead for just those posts.
+  shortTitle?: string;
   date: string;
   heroImage: string | null;
   blocks: Block[];
