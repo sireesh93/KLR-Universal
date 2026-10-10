@@ -1,6 +1,6 @@
 import { blogPosts } from "@/content/klruniversal-com-3601ad32/blog-posts";
 import { products } from "@/content/klruniversal-com-3601ad32/products";
-import { SITE_URL } from "@/lib/site";
+import { HOME_URL, SITE_URL } from "@/lib/site";
 
 export const dynamic = "force-static";
 
@@ -76,7 +76,7 @@ function buildDocument(): string {
   out.push(
     "This file is the complete published content of klruniversal.com in one document. " +
       "Product specifications alone are also available at " +
-      `${SITE_URL}/specifications.md. Canonical HTML lives at ${SITE_URL}.`,
+      `${SITE_URL}/specifications.md. Canonical HTML lives at ${HOME_URL}.`,
   );
   out.push("");
   out.push("## Company facts");
