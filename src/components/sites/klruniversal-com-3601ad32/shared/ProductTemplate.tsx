@@ -24,7 +24,13 @@ const WHY_US = [
   "Excellent after-sales support",
 ];
 
-export function ProductTemplate({ product }: { product: Product }) {
+export function ProductTemplate({
+  product,
+  related = [],
+}: {
+  product: Product;
+  related?: Product[];
+}) {
   // Marks up the breadcrumb already visible above, so Google can render the
   // hierarchy in results instead of a bare URL.
   const breadcrumbJsonLd = {
@@ -190,6 +196,55 @@ export function ProductTemplate({ product }: { product: Product }) {
           </div>
         </div>
       </section>
+
+      {/* Related Products. Card markup matches ProductCategoryListing exactly
+          so this reads as the same component language, not a new pattern. */}
+      {related.length > 0 && (
+        <section className="bg-white py-16">
+          <div className="mx-auto max-w-[1400px] px-4 md:px-8">
+            <h2 className="text-3xl font-medium leading-tight md:text-4xl">
+              Related Products
+            </h2>
+
+            <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {related.map((p) => (
+                <Link
+                  key={p.slug}
+                  href={`/drilling-rigs/${p.category}/${p.slug}`}
+                  className="group flex flex-col overflow-hidden rounded-lg border border-black/10 bg-klr-offwhite transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-lg"
+                >
+                  <div className="relative aspect-[4/3] w-full bg-white">
+                    {p.heroImage && (
+                      <Image
+                        src={p.heroImage}
+                        alt={p.title}
+                        fill
+                        sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                        className="object-contain p-6"
+                      />
+                    )}
+                  </div>
+                  <div className="p-5">
+                    {p.seriesTag && (
+                      <span className="inline-block rounded bg-klr-red/10 px-2 py-0.5 text-xs font-medium text-klr-red">
+                        {p.seriesTag}
+                      </span>
+                    )}
+                    <p className="mt-2 font-semibold group-hover:text-klr-red">{p.title}</p>
+                    <div className="mt-3 flex flex-wrap gap-x-4 gap-y-1 text-xs text-black/60">
+                      {p.quickSpecs.map((s) => (
+                        <span key={s.label}>
+                          {s.label}: <span className="font-medium text-black">{s.value}</span>
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
     </>
   );
 }
