@@ -3,7 +3,7 @@ import { Saira } from "next/font/google";
 import { FloatingEnquireTab } from "@/components/sites/klruniversal-com-3601ad32/shared/FloatingEnquireTab";
 import { CookieBanner } from "@/components/sites/klruniversal-com-3601ad32/shared/CookieBanner";
 import { GoogleTranslate } from "@/components/sites/klruniversal-com-3601ad32/shared/GoogleTranslate";
-import { SITE_URL } from "@/lib/site";
+import { HOME_URL, SITE_URL } from "@/lib/site";
 import "./globals.css";
 
 const saira = Saira({
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: SITE_TITLE,
     description: SITE_DESCRIPTION,
-    url: SITE_URL,
+    url: HOME_URL,
     siteName: "KLR Universal",
     locale: "en_IN",
     type: "website",

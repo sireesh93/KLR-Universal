@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
 import { CtaButton } from "./CtaButton";
-import { SITE_URL } from "@/lib/site";
+import { HOME_URL, SITE_URL } from "@/lib/site";
 
 export type Product = {
   slug: string;
@@ -31,7 +31,7 @@ export function ProductTemplate({ product }: { product: Product }) {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: SITE_URL },
+      { "@type": "ListItem", position: 1, name: "Home", item: HOME_URL },
       { "@type": "ListItem", position: 2, name: "Drilling Rigs", item: `${SITE_URL}/product_category/${product.category}` },
       { "@type": "ListItem", position: 3, name: product.categoryLabel, item: `${SITE_URL}/product_category/${product.category}` },
       { "@type": "ListItem", position: 4, name: product.title, item: `${SITE_URL}/drilling-rigs/${product.category}/${product.slug}` },

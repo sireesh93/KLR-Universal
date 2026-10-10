@@ -4,7 +4,7 @@ import { Header } from "@/components/sites/klruniversal-com-3601ad32/shared/Head
 import { Footer } from "@/components/sites/klruniversal-com-3601ad32/shared/Footer";
 import { ProductCategoryListing } from "@/components/sites/klruniversal-com-3601ad32/shared/ProductCategoryListing";
 import { products } from "@/content/klruniversal-com-3601ad32/products";
-import { SITE_URL } from "@/lib/site";
+import { HOME_URL, SITE_URL } from "@/lib/site";
 
 export function generateStaticParams() {
   const categories = [...new Set(products.map((p) => p.category))];
@@ -51,7 +51,7 @@ export default async function ProductCategoryPage({
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: SITE_URL },
+      { "@type": "ListItem", position: 1, name: "Home", item: HOME_URL },
       {
         "@type": "ListItem",
         position: 2,

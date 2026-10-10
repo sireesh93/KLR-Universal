@@ -4,7 +4,7 @@ import { Header } from "@/components/sites/klruniversal-com-3601ad32/shared/Head
 import { Footer } from "@/components/sites/klruniversal-com-3601ad32/shared/Footer";
 import { BlogPostTemplate } from "@/components/sites/klruniversal-com-3601ad32/shared/BlogPostTemplate";
 import { blogPosts, getBlogPost, getRelatedPosts } from "@/content/klruniversal-com-3601ad32/blog-posts";
-import { SITE_URL } from "@/lib/site";
+import { HOME_URL, SITE_URL } from "@/lib/site";
 
 export function generateStaticParams() {
   return blogPosts.filter((p) => !p.standaloneUrl).map((p) => ({ slug: p.slug }));
@@ -86,7 +86,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
       "@type": "Organization",
       "@id": `${SITE_URL}/#organization`,
       name: "KLR Universal",
-      url: SITE_URL,
+      url: HOME_URL,
     },
     publisher: {
       "@type": "Organization",

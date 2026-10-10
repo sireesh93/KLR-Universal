@@ -9,7 +9,7 @@ import { BlogResources } from "@/components/sites/klruniversal-com-3601ad32/root
 import { ContactForm } from "@/components/sites/klruniversal-com-3601ad32/shared/ContactForm";
 import { Footer } from "@/components/sites/klruniversal-com-3601ad32/shared/Footer";
 import type { Metadata } from "next";
-import { SITE_URL } from "@/lib/site";
+import { HOME_URL, SITE_URL } from "@/lib/site";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/" },
@@ -28,7 +28,7 @@ const ORGANIZATION_JSON_LD = {
   // the registered entity name -- asserting one unverified would be worse than
   // omitting it.
   alternateName: ["KLR Industries", "KLR"],
-  url: SITE_URL,
+  url: HOME_URL,
   logo: `${SITE_URL}/sites/klruniversal-com-3601ad32/root-8a5edab2/images/logo-klr.svg`,
   description:
     "KLR Universal – trusted drilling rig & rock drilling tools manufacturer in India, delivering reliable solutions for water well, mining & construction.",
@@ -75,7 +75,7 @@ const WEBSITE_JSON_LD = {
   "@context": "https://schema.org",
   "@type": "WebSite",
   name: "KLR Universal",
-  url: SITE_URL,
+  url: HOME_URL,
   publisher: { "@id": `${SITE_URL}/#organization` },
   inLanguage: "en",
 };

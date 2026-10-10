@@ -6,7 +6,7 @@ import { Footer } from "@/components/sites/klruniversal-com-3601ad32/shared/Foot
 import { CtaButton } from "@/components/sites/klruniversal-com-3601ad32/shared/CtaButton";
 import { JsonLd } from "@/components/sites/klruniversal-com-3601ad32/shared/JsonLd";
 import { products } from "@/content/klruniversal-com-3601ad32/products";
-import { SITE_URL } from "@/lib/site";
+import { HOME_URL, SITE_URL } from "@/lib/site";
 
 const TITLE = "Drilling Rig Manufacturer in India | KLR Universal";
 const DESCRIPTION =
@@ -118,7 +118,7 @@ export default function DrillingRigManufacturerIndiaPage() {
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",
           itemListElement: [
-            { "@type": "ListItem", position: 1, name: "Home", item: SITE_URL },
+            { "@type": "ListItem", position: 1, name: "Home", item: HOME_URL },
             {
               "@type": "ListItem",
               position: 2,
