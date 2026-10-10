@@ -29,6 +29,25 @@ function postHref(post: Pick<BlogPost, "slug" | "standaloneUrl">) {
 
 export { postHref };
 
+// Body copy is plain strings, but a handful of posts need one contextual
+// link to another page (e.g. mentioning "KLR Universal" and linking it to
+// the manufacturer page). Rather than restructure Block into JSX, P text
+// supports a minimal "[label](href)" markdown link so the source stays
+// plain data.
+function renderInlineText(text: string) {
+  const parts = text.split(/(\[[^\]]+\]\([^)]+\))/);
+  return parts.map((part, i) => {
+    const match = part.match(/^\[([^\]]+)\]\(([^)]+)\)$/);
+    if (!match) return part;
+    const [, label, href] = match;
+    return (
+      <Link key={i} href={href} className="underline hover:text-klr-red">
+        {label}
+      </Link>
+    );
+  });
+}
+
 function renderBlock(block: Block, i: number) {
   switch (block.tag) {
     case "H2":
@@ -52,7 +71,7 @@ function renderBlock(block: Block, i: number) {
     case "P":
       return (
         <p key={i} className="mt-4 text-sm leading-relaxed text-black/70">
-          {block.text}
+          {renderInlineText(block.text)}
         </p>
       );
     case "UL":

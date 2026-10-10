@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { CtaButton } from "../shared/CtaButton";
 import { Reveal } from "../shared/Reveal";
 
@@ -28,9 +29,11 @@ export function WhyUs() {
             <p className="text-white">
               KLR Universal isn&rsquo;t just a name-it&rsquo;s a legacy of
               engineering precision and progress. What began as a small unit
-              manufacturing DTH bits has evolved into a global force in
-              high-performance drilling rigs and rock drilling tools and
-              accessories.
+              manufacturing DTH bits has evolved into a global force in{" "}
+              <Link href="/drilling-rig-manufacturer-in-india" className="underline hover:text-white/80">
+                high-performance drilling rigs
+              </Link>{" "}
+              and rock drilling tools and accessories.
             </p>
             <CtaButton href="/about-us" variant="white" className="mt-6">
               See Our Journey
