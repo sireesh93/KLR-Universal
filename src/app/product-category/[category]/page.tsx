@@ -4,6 +4,7 @@ import { Header } from "@/components/sites/klruniversal-com-3601ad32/shared/Head
 import { Footer } from "@/components/sites/klruniversal-com-3601ad32/shared/Footer";
 import { ProductCategoryListing } from "@/components/sites/klruniversal-com-3601ad32/shared/ProductCategoryListing";
 import { products } from "@/content/klruniversal-com-3601ad32/products";
+import { CATEGORY_DESCRIPTIONS } from "@/content/klruniversal-com-3601ad32/category-descriptions";
 import { HOME_URL, SITE_URL } from "@/lib/site";
 
 export function generateStaticParams() {
@@ -92,6 +93,7 @@ export default async function ProductCategoryPage({
       <main className="flex-1">
         <ProductCategoryListing
           categoryLabel={categoryProducts[0].categoryLabel}
+          description={CATEGORY_DESCRIPTIONS[category]}
           products={categoryProducts}
         />
       </main>

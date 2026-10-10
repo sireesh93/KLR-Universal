@@ -5,9 +5,11 @@ import type { Product } from "./ProductTemplate";
 
 export function ProductCategoryListing({
   categoryLabel,
+  description,
   products,
 }: {
   categoryLabel: string;
+  description?: string[];
   products: Product[];
 }) {
   return (
@@ -28,6 +30,14 @@ export function ProductCategoryListing({
           <p className="mt-3 max-w-2xl text-sm text-black/60">
             {products.length} model{products.length === 1 ? "" : "s"} in this range.
           </p>
+
+          {description && description.length > 0 && (
+            <div className="mt-6 max-w-3xl space-y-4 text-sm leading-relaxed text-black/70">
+              {description.map((paragraph, i) => (
+                <p key={i}>{paragraph}</p>
+              ))}
+            </div>
+          )}
 
           <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {products.map((p) => (
