@@ -32,7 +32,7 @@ function buildDocument(): string {
       "Generated from the same source as the specification tables on each product page.",
   );
   out.push("");
-  out.push("Manufacturer: KLR Universal (also published as KLR Industries), Hyderabad, India");
+  out.push("Manufacturer: KLR Universal, Hyderabad, India");
   out.push("Certification: ISO 9001:2015 | Founded: 1984 | In use in 60+ countries");
   out.push("Enquiries: sales@klruniversal.com | +91 9030327878");
   out.push("");

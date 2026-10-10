@@ -32,16 +32,16 @@ const FAQS = [
     a: "We are an ISO 9001:2015 certified company having wide global presence with world class quality products and services which provide most affordable and reliable solution for drilling across the world.",
   },
   {
-    q: "How many years has KLR Industries been in business?",
+    q: "How many years has KLR Universal been in business?",
     a: "We have been in business for more than 3 decades and are growing strong.",
   },
   {
     q: "Our Manufacturing Facilities",
-    a: "KLR Industries has the biggest facility among all the other Drilling Equipment Manufacturers in India. KLR Introduced Friction Welded and Induction Hardened Drill Rods in India.",
+    a: "KLR Universal has the biggest facility among all the other Drilling Equipment Manufacturers in India. KLR Introduced Friction Welded and Induction Hardened Drill Rods in India.",
   },
   {
     q: "Our support",
-    a: "We support 24/7, KLR Industries firmly believes in constant Support, Development, Improvement and Upgradation of all its products. We have a dedicated team working in our R&D wing in order to constantly improve our products.",
+    a: "We support 24/7, KLR Universal firmly believes in constant Support, Development, Improvement and Upgradation of all its products. We have a dedicated team working in our R&D wing in order to constantly improve our products.",
   },
 ];
 

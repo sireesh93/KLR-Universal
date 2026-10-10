@@ -81,7 +81,7 @@ function buildDocument(): string {
   out.push("");
   out.push("## Company facts");
   out.push("");
-  out.push("- Legal/brand names: KLR Universal, also published as KLR Industries");
+  out.push("- Legal/brand name: KLR Universal");
   out.push("- Founded: 1984 by Mr. K. Laxma Reddy, Hyderabad's first drill tool manufacturer");
   out.push("- Certification: ISO 9001:2015");
   out.push("- Award: EEPC Export Excellence Award");

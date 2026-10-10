@@ -20,14 +20,11 @@ const ORGANIZATION_JSON_LD = {
   "@type": "Organization",
   "@id": `${SITE_URL}/#organization`,
   name: "KLR Universal",
-  // The company's own LinkedIn and YouTube channels (see sameAs) are published
-  // as "KLR Industries", and the Google Business Profile is "KLR Industries
-  // Limited". Three names for one manufacturer leaves search and AI engines
-  // unable to resolve the entity, so the alternates are declared here to bind
-  // them together. legalName is deliberately absent until the client confirms
-  // the registered entity name -- asserting one unverified would be worse than
+  // "KLR" is the short form customers and search queries actually use.
+  // legalName is deliberately absent until the client confirms the
+  // registered entity name -- asserting one unverified would be worse than
   // omitting it.
-  alternateName: ["KLR Industries", "KLR"],
+  alternateName: ["KLR"],
   url: HOME_URL,
   logo: `${SITE_URL}/sites/klruniversal-com-3601ad32/root-8a5edab2/images/logo-klr.svg`,
   description:
