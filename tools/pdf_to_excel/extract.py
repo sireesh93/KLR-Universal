@@ -380,7 +380,7 @@ def gemini_url(model: str, key: str = "") -> str:
 
 
 _BAD_MODEL_WORDS = ("lite", "image", "tts", "live", "audio", "preview", "exp", "thinking",
-                    "8b", "robotics", "embedding", "computer", "native")
+                    "8b", "robotics", "embedding", "computer", "native", "omni", "tts", "transcribe")
 
 
 def pick_models(names: list[str]) -> list[str]:
@@ -446,10 +446,23 @@ def gemini_page(jpg: bytes) -> list[dict]:
         ]}],
         "generationConfig": {"responseMimeType": "application/json", "temperature": 0},
     }
-    minute_retries = 0
+    minute_retries = 0   # per-minute rate limit retries
+    busy_retries = 0     # overloaded (5xx) retries on the current model
+    busy_rounds = 0      # full passes over every model while all were overloaded
+    offset = 0           # temporary skip of overloaded models (not remembered for later pages)
     while True:
-        if _model_idx[0] >= len(models):  # every model on this key is used up today
-            if _key_idx[0] + 1 < len(keys):
+        idx = _model_idx[0] + offset
+        if idx >= len(models):
+            if offset > 0:  # every remaining model was overloaded just now: wait, start over
+                busy_rounds += 1
+                if busy_rounds > 3:
+                    raise GeminiQuotaError("Gemini models are overloaded (HTTP 503) right now; "
+                                           "try again in a few minutes")
+                print(f"  ... all models busy, waiting {30 * busy_rounds}s", flush=True)
+                time.sleep(30 * busy_rounds)
+                offset = 0
+                continue
+            if _key_idx[0] + 1 < len(keys):  # every model on this key is used up today
                 _key_idx[0] += 1
                 _model_idx[0] = 0
                 key = keys[_key_idx[0]]
@@ -458,30 +471,45 @@ def gemini_page(jpg: bytes) -> list[dict]:
                 continue
             raise GeminiQuotaError("ALL Gemini free/paid daily limits are used up "
                                    f"(keys tried: {len(keys)})")
-        model = models[_model_idx[0]]
+        model = models[idx]
         wait = gap - (time.time() - _last_gemini)
         if wait > 0:
             time.sleep(wait)
         _last_gemini = time.time()
         r = requests.post(gemini_url(model), params={"key": key}, json=body, timeout=180)
-        if r.status_code in (429, 500, 503):
-            if r.status_code == 429 and "PerDay" in r.text:
-                print(f"  ! daily free limit reached for {model}", flush=True)
+        if r.status_code == 429 and ("PerDay" in r.text or "limit: 0" in r.text):
+            print(f"  ! daily free limit reached for {model}", flush=True)
+            if offset == 0:
                 _model_idx[0] += 1
-                minute_retries = 0
-                if _model_idx[0] < len(models):
-                    print(f"  -> switching to {models[_model_idx[0]]}", flush=True)
-                continue
+            else:
+                offset += 1
+            minute_retries = busy_retries = 0
+            if _model_idx[0] + offset < len(models):
+                print(f"  -> switching to {models[_model_idx[0] + offset]}", flush=True)
+            continue
+        if r.status_code == 429:  # per-minute limit: wait and retry the same model
             minute_retries += 1
             if minute_retries > 3:
-                raise GeminiQuotaError("Gemini is rate limiting or unavailable (too many "
-                                       "requests per minute or a server problem)")
+                raise GeminiQuotaError("Gemini is rate limiting (too many requests per minute)")
             time.sleep(25 * minute_retries)
+            continue
+        if r.status_code in (500, 502, 503, 504):  # overloaded: retry, then try another model
+            busy_retries += 1
+            if busy_retries <= 2:
+                print(f"  ... {model} busy (HTTP {r.status_code}), retrying in {10 * busy_retries}s",
+                      flush=True)
+                time.sleep(10 * busy_retries)
+            else:
+                busy_retries = 0
+                offset += 1
+                if _model_idx[0] + offset < len(models):
+                    print(f"  -> {model} still busy, trying {models[_model_idx[0] + offset]} "
+                          "for this page", flush=True)
             continue
         if r.status_code in (400, 401, 403, 404):
             raise GeminiConfigError(
                 f"Gemini rejected the request (HTTP {r.status_code}) for model '{model}'. "
-                f"Check the API key / GEMINI_MODEL in run.bat. Details: {mask_key(r.text[:300])}")
+                f"Check the API key / GEMINI_MODEL. Details: {mask_key(r.text[:300])}")
         r.raise_for_status()
         _used_model[0] = model
         text = r.json()["candidates"][0]["content"]["parts"][0]["text"]
@@ -512,12 +540,16 @@ def test_gemini() -> int:
                  if "generateContent" in m.get("supportedGenerationMethods", [])]
         print("Models used, in order:", ", ".join(os.environ.get("GEMINI_MODEL", "").split(",")
                                                   if os.environ.get("GEMINI_MODEL") else pick_models(names)))
-        model = (os.environ.get("GEMINI_MODEL", "").split(",")[0].strip()
-                 or (pick_models(names) or [""])[0])
+        order = ([m.strip() for m in os.environ["GEMINI_MODEL"].split(",")]
+                 if os.environ.get("GEMINI_MODEL") else pick_models(names))
         body = {"contents": [{"role": "user", "parts": [{"text": "Reply with the word OK."}]}]}
-        r = requests.post(gemini_url(model), params={"key": key}, json=body, timeout=60)
-        print(f"Test request with {model}: HTTP {r.status_code}"
-              + ("" if r.ok else "  " + mask_key(r.text[:200])))
+        r = None
+        for model in order[:3]:  # a busy model (HTTP 503) is temporary: try the next one
+            r = requests.post(gemini_url(model), params={"key": key}, json=body, timeout=60)
+            print(f"Test request with {model}: HTTP {r.status_code}"
+                  + ("" if r.ok else "  " + mask_key(r.text[:160]).replace("\n", " ")))
+            if r.ok:
+                break
         bad += 0 if r.ok else 1
     return 1 if bad else 0
 
