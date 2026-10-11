@@ -19,6 +19,8 @@ rem Optional: free Gemini fallback for cards the local OCR is unsure about.
 rem   1) get a free key at https://aistudio.google.com/apikey
 rem   2) remove "rem" from the next line and paste your key
 rem set GEMINI_API_KEY=PASTE_KEY_HERE
+rem Several keys can be given, separated by commas (no spaces): they are used in turn when
+rem one runs out of quota.   set GEMINI_API_KEY=KEY1,KEY2,KEY3
 rem Paid plan (billing enabled): uncomment these two lines for speed and best quality.
 rem set GEMINI_MODEL=gemini-3.8-flash
 rem set GEMINI_WAIT=2

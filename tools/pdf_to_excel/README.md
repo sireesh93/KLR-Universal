@@ -48,6 +48,21 @@ Other options (add after `run.bat` from a terminal): `--dpi 300` for poor scans,
   the file to refresh.
 * `--show 0` hides the console preview; `--save-every 1` saves after every page.
 
+## When quota runs out: automatic model and key rotation
+
+* Models: the script uses each suitable Flash model in turn; when one reaches its daily
+  limit it moves to the next (`GEMINI_MODEL=a,b,c` sets the order yourself).
+* Keys: `GEMINI_API_KEY=KEY1,KEY2` (comma separated). When every model on KEY1 is used up
+  it switches to KEY2 and starts again from the best model.
+* If **everything** is used up, the run **stops** (it will not fall back to poor local OCR
+  unless you pass `--continue-local`), saves the Excel file with everything read so far, and
+  prints and writes `output\remaining.txt` with: the file and page it stopped at, the
+  files fully finished, and the files not started.
+* To continue: put another key in `run.bat` (or wait for tomorrow's reset) and run the
+  same command again. Pages already read are cached in `output\cache` and cost nothing;
+  the run picks up at the stopped page and the Excel file is rebuilt with all results.
+* `run.bat --test-gemini` checks every key you configured.
+
 ## Paid plan / large batches (e.g. 30 PDFs)
 
 1. In AI Studio, open your key's project and click **Set up billing** (link a Google Cloud

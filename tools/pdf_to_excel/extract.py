@@ -349,13 +349,30 @@ class GeminiQuotaError(RuntimeError):
     pass
 
 
+class StopRun(Exception):
+    """All Gemini quota is used (or the key is rejected): stop so a new key can continue."""
+
+    def __init__(self, pdf: str, page: int, reason: str):
+        super().__init__(reason)
+        self.pdf, self.page, self.reason = pdf, page, reason
+
+
 class GeminiConfigError(RuntimeError):
     """Bad key / model / endpoint: retrying will not help, so Gemini is switched off."""
 
 
+_key_idx = [0]
+
+
+def api_keys() -> list[str]:
+    """GEMINI_API_KEY may hold several keys separated by commas; they are used in turn."""
+    return [k.strip() for k in os.environ.get("GEMINI_API_KEY", "").split(",") if k.strip()]
+
+
 def mask_key(text: str) -> str:
-    key = os.environ.get("GEMINI_API_KEY", "")
-    return text.replace(key, "***") if key else text
+    for k in api_keys():
+        text = text.replace(k, "***")
+    return text
 
 
 def gemini_url(model: str, key: str = "") -> str:
@@ -418,7 +435,8 @@ def resolve_model(key: str) -> str:
 def gemini_page(jpg: bytes) -> list[dict]:
     global _last_gemini
     import requests  # noqa: PLC0415
-    key = os.environ["GEMINI_API_KEY"]
+    keys = api_keys()
+    key = keys[min(_key_idx[0], len(keys) - 1)]
     models = resolve_models(key)
     gap = float(os.environ.get("GEMINI_WAIT", "13"))  # free tier is ~5 requests/minute
     body = {
@@ -429,7 +447,17 @@ def gemini_page(jpg: bytes) -> list[dict]:
         "generationConfig": {"responseMimeType": "application/json", "temperature": 0},
     }
     minute_retries = 0
-    while _model_idx[0] < len(models):
+    while True:
+        if _model_idx[0] >= len(models):  # every model on this key is used up today
+            if _key_idx[0] + 1 < len(keys):
+                _key_idx[0] += 1
+                _model_idx[0] = 0
+                key = keys[_key_idx[0]]
+                models = resolve_models(key)
+                print(f"  -> switching to API key #{_key_idx[0] + 1} of {len(keys)}", flush=True)
+                continue
+            raise GeminiQuotaError("ALL Gemini free/paid daily limits are used up "
+                                   f"(keys tried: {len(keys)})")
         model = models[_model_idx[0]]
         wait = gap - (time.time() - _last_gemini)
         if wait > 0:
@@ -461,37 +489,37 @@ def gemini_page(jpg: bytes) -> list[dict]:
         if isinstance(data, dict):
             data = next((v for v in data.values() if isinstance(v, list)), [data])
         return [d for d in data if isinstance(d, dict)]
-    raise GeminiQuotaError("Gemini free daily limit reached on all models (try again tomorrow; "
-                           "finished pages are cached and will not be re-sent)")
 
 
 def test_gemini() -> int:
-    """`extract.py --test-gemini`: check the key and model without touching any PDF."""
+    """`extract.py --test-gemini`: check every key and the models without touching any PDF."""
     import requests  # noqa: PLC0415
-    key = os.environ.get("GEMINI_API_KEY", "")
-    if not key:
+    keys = api_keys()
+    if not keys:
         print("GEMINI_API_KEY is not set. In run.bat use:  set GEMINI_API_KEY=your_key  (no 'rem').")
         return 1
-    print(f"Key found ({key[:4]}..., {len(key)} characters)")
-    r = requests.get("https://generativelanguage.googleapis.com/v1beta/models",
-                     params={"key": key, "pageSize": 200}, timeout=30)
-    print(f"List models: HTTP {r.status_code}")
-    if not r.ok:
-        print(mask_key(r.text[:400]))
-        return 1
-    names = [m["name"].split("/")[-1] for m in r.json().get("models", [])
-             if "generateContent" in m.get("supportedGenerationMethods", [])]
-    print("Models available:", ", ".join(n for n in names if "flash" in n))
-    try:
-        model = resolve_model(key)
-    except GeminiConfigError as exc:
-        print(exc)
-        return 1
-    body = {"contents": [{"role": "user", "parts": [{"text": "Reply with the word OK."}]}]}
-    r = requests.post(gemini_url(model), params={"key": key}, json=body, timeout=60)
-    print(f"Test request with {model}: HTTP {r.status_code}")
-    print(mask_key(r.text[:500]))
-    return 0 if r.ok else 1
+    bad = 0
+    for i, key in enumerate(keys, start=1):
+        print(f"--- Key {i} of {len(keys)} ({key[:4]}..., {len(key)} characters)")
+        r = requests.get("https://generativelanguage.googleapis.com/v1beta/models",
+                         params={"key": key, "pageSize": 200}, timeout=30)
+        print(f"List models: HTTP {r.status_code}")
+        if not r.ok:
+            print(mask_key(r.text[:300]))
+            bad += 1
+            continue
+        names = [m["name"].split("/")[-1] for m in r.json().get("models", [])
+                 if "generateContent" in m.get("supportedGenerationMethods", [])]
+        print("Models used, in order:", ", ".join(os.environ.get("GEMINI_MODEL", "").split(",")
+                                                  if os.environ.get("GEMINI_MODEL") else pick_models(names)))
+        model = (os.environ.get("GEMINI_MODEL", "").split(",")[0].strip()
+                 or (pick_models(names) or [""])[0])
+        body = {"contents": [{"role": "user", "parts": [{"text": "Reply with the word OK."}]}]}
+        r = requests.post(gemini_url(model), params={"key": key}, json=body, timeout=60)
+        print(f"Test request with {model}: HTTP {r.status_code}"
+              + ("" if r.ok else "  " + mask_key(r.text[:200])))
+        bad += 0 if r.ok else 1
+    return 1 if bad else 0
 
 
 def gemini_page_cached(pdf: Path, page_no: int, jpg: bytes, cache_dir: Path) -> list[dict]:
@@ -634,6 +662,8 @@ def page_cards(pdf: Path, page_no: int, page: np.ndarray, args, gemini_ok: list[
                 return merge_gemini(rows, local_cards(light=True), pdf.name, page_no), ""
             print("  ! Gemini returned no cards for this page; using local OCR", flush=True)
         except (GeminiQuotaError, GeminiConfigError) as exc:
+            if not args.continue_local:
+                raise StopRun(pdf.name, page_no, mask_key(str(exc))) from exc
             print(f"  ! {mask_key(str(exc))}\n  ! Gemini switched off; continuing with local OCR only.",
                   flush=True)
             gemini_ok[0] = False
@@ -691,6 +721,33 @@ def dedupe_by_epic(cards: list[Card], quiet: bool = False) -> list[Card]:
     return out
 
 
+def report_stop(stop: StopRun, pdfs: list[Path], cards: list[Card],
+                skipped: list[tuple[str, int, str]], out: Path) -> None:
+    """Print which file/page to continue from and write output/remaining.txt."""
+    names = [p.name for p in pdfs]
+    done_files = [n for n in names[:names.index(stop.pdf)]] if stop.pdf in names else []
+    not_started = names[names.index(stop.pdf) + 1:] if stop.pdf in names else []
+    lines = [
+        "STOPPED: all Gemini quota is used up (or the key was rejected).",
+        f"Reason: {stop.reason}",
+        f"Stopped while reading: {stop.pdf}, page {stop.page}",
+        f"Completely finished files: {', '.join(done_files) or 'none'}",
+        f"Partly done (continue from page {stop.page}): {stop.pdf}",
+        f"Not started: {', '.join(not_started) or 'none'}",
+        "",
+        "TO CONTINUE: set another API key (or several, separated by commas) in run.bat:",
+        "    set GEMINI_API_KEY=KEY2   (or KEY2,KEY3)",
+        "and run.bat again with the same pages. Pages already read are cached, so they cost",
+        "nothing; the run resumes at the page above and the Excel file is rebuilt in full.",
+    ]
+    text = "\n".join(lines)
+    print("\n" + "=" * 70 + "\n" + text + "\n" + "=" * 70)
+    try:
+        (out.parent / "remaining.txt").write_text(text + "\n", encoding="utf-8")
+    except OSError:
+        pass
+
+
 def find_tesseract() -> bool:
     """Locate tesseract (PATH or the usual install folders) and check Telugu data."""
     exe = shutil.which("tesseract")
@@ -738,6 +795,9 @@ def main() -> int:
                     help="save the Excel file every N pages so you can open it while running")
     ap.add_argument("--show", type=int, default=6,
                     help="voters per page to print live in the console (0 = none)")
+    ap.add_argument("--continue-local", action="store_true",
+                    help="when all Gemini quota is used, carry on with (poor) local OCR "
+                         "instead of stopping so another API key can continue")
     ap.add_argument("--dry-run", action="store_true",
                     help="count voter pages per PDF (= number of API requests) without reading them")
     ap.add_argument("--no-skip", action="store_true",
@@ -778,6 +838,7 @@ def main() -> int:
     skipped: list[tuple[str, int, str]] = []
     gemini_ok = [True]
     pages_done = [0]
+    stop: StopRun | None = None
     warned = [False]
 
     def checkpoint(_page_no: int) -> None:
@@ -797,9 +858,13 @@ def main() -> int:
             print(f"Processing {pdf.name}", flush=True)
             try:
                 process_pdf(pdf, args, cards, gemini_ok, checkpoint, skipped)
+            except StopRun:
+                raise
             except Exception as exc:  # noqa: BLE001
                 errors.append((pdf.name, f"{exc}"))
                 traceback.print_exc()
+    except StopRun as exc:
+        stop = exc
     except KeyboardInterrupt:
         print("Interrupted - saving what was extracted so far.")
     finally:
@@ -811,6 +876,8 @@ def main() -> int:
             write_excel(cards, errors, skipped, alt, images=not args.no_images)
             print(f"{out.name} is open in Excel, so results were saved to {alt.name} instead.")
             out = alt
+    if stop:
+        report_stop(stop, pdfs, cards, skipped, out)
     if args.dry_run:
         print("\nDry run (nothing read, no API calls):")
         tv = ts = 0
@@ -820,6 +887,9 @@ def main() -> int:
         print(f"TOTAL: {tv} voter pages = about {tv} Gemini requests; {ts} pages skipped.")
         return 0
     flagged = sum(1 for c in cards if c.reasons)
+    if stop:
+        print(f"Saved {len(cards)} voters read so far -> {out}")
+        return 4
     if skipped:
         print(f"Skipped {len(skipped)} page(s) with no voter cards (no API calls used):")
         by_pdf: dict[str, list[int]] = {}
