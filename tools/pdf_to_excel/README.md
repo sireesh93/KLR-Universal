@@ -32,6 +32,17 @@ Then put PDFs in `input/` and run `./run.sh`. For the optional Gemini step, run
 Useful options (add after `run.bat` from a terminal): `--dpi 300` for poor scans,
 `--max-pages 2` to test quickly, `--no-images` for a smaller Excel file.
 
+## Watching results live
+
+* The console prints one line per page (voters found, how many need review) plus the
+  first few EPIC / phone / house-no rows, and flags problems as they happen.
+* `output\extracted.xlsx` is re-saved every 3 pages (`--save-every N`), so you can open
+  it while the run continues. **Excel locks an open file**: a save that hits the lock is
+  skipped with a note and tried again later, and the final save goes to
+  `extracted_final.xlsx` if the file is still open. For best results, close and reopen
+  the file to refresh.
+* `--show 0` hides the console preview; `--save-every 1` saves after every page.
+
 ## Output
 
 Sheet **Voters** (one row per voter, EPIC ID is the key; repeated EPIC IDs are dropped):

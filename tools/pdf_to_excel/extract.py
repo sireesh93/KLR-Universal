@@ -433,41 +433,52 @@ def write_excel(cards: list[Card], errors: list[tuple[str, str]], out: Path,
 # Main
 # --------------------------------------------------------------------------
 
-def process_pdf(pdf: Path, args, cards: list[Card], gemini_ok: list[bool]) -> None:
+def page_cards(pdf: Path, page_no: int, page: np.ndarray, args, gemini_ok: list[bool],
+               cache_dir: Path) -> list[Card]:
+    crops = detect_cards(page)
+    local: list[Card] = []
+    for crop in crops:
+        card = Card(pdf.name, page_no)
+        try:
+            conf = extract_card_local(crop, card)
+            validate(card, conf)
+        except Exception as exc:  # noqa: BLE001
+            card.reasons.append(f"error: {exc}")
+        local.append(card)
+
+    if args.gemini and gemini_ok[0]:
+        try:
+            rows = gemini_page_cached(pdf, page_no, to_jpg(page, 88), cache_dir)
+            if rows:
+                return merge_gemini(rows, local, pdf.name, page_no)
+            print("  ! Gemini returned no cards for this page; using local OCR", flush=True)
+        except GeminiQuotaError as exc:
+            print(f"  ! {exc}. Continuing with local OCR only.", flush=True)
+            gemini_ok[0] = False
+        except Exception as exc:  # noqa: BLE001
+            print(f"  ! Gemini failed on this page ({exc}); using local OCR", flush=True)
+            for c in local:
+                c.reasons.append("gemini failed")
+    return local
+
+
+def process_pdf(pdf: Path, args, cards: list[Card], gemini_ok: list[bool], checkpoint) -> None:
     cache_dir = Path(args.output).parent / "cache"
     for page_no, page in render_pages(pdf, args.dpi):
         if args.max_pages and page_no > args.max_pages:
             break
-        crops = detect_cards(page)
-        print(f"  {pdf.name} page {page_no}: {len(crops)} cards", flush=True)
-        local: list[Card] = []
-        for crop in crops:
-            card = Card(pdf.name, page_no)
-            try:
-                conf = extract_card_local(crop, card)
-                validate(card, conf)
-            except Exception as exc:  # noqa: BLE001
-                card.reasons.append(f"error: {exc}")
-            local.append(card)
-
-        if args.gemini and gemini_ok[0]:
-            try:
-                rows = gemini_page_cached(pdf, page_no, to_jpg(page, 88), cache_dir)
-                if rows:
-                    cards.extend(merge_gemini(rows, local, pdf.name, page_no))
-                    continue
-                print("  ! Gemini returned no cards for this page; using local OCR", flush=True)
-            except GeminiQuotaError as exc:
-                print(f"  ! {exc}. Continuing with local OCR only.", flush=True)
-                gemini_ok[0] = False
-            except Exception as exc:  # noqa: BLE001
-                print(f"  ! Gemini failed on this page ({exc}); using local OCR", flush=True)
-                for c in local:
-                    c.reasons.append("gemini failed")
-        cards.extend(local)
+        new = page_cards(pdf, page_no, page, args, gemini_ok, cache_dir)
+        cards.extend(new)
+        bad = sum(1 for c in new if c.reasons)
+        print(f"  {pdf.name} page {page_no}: {len(new)} voters, {bad} need review "
+              f"(total {len(cards)})", flush=True)
+        for c in new[:args.show]:  # live preview (Telugu text omitted: consoles garble it)
+            flag = "  <-- " + "; ".join(c.reasons) if c.reasons else ""
+            print(f"      {c.epic or '?':<12} {c.phone or '-':<11} {c.house}{flag}", flush=True)
+        checkpoint(page_no)
 
 
-def dedupe_by_epic(cards: list[Card]) -> list[Card]:
+def dedupe_by_epic(cards: list[Card], quiet: bool = False) -> list[Card]:
     """EPIC ID is the key: keep the first valid row per EPIC, drop repeats."""
     seen: set[str] = set()
     out = []
@@ -477,7 +488,7 @@ def dedupe_by_epic(cards: list[Card]) -> list[Card]:
                 continue
             seen.add(c.epic)
         out.append(c)
-    if len(out) != len(cards):
+    if len(out) != len(cards) and not quiet:
         print(f"Removed {len(cards) - len(out)} duplicate EPIC rows.")
     return out
 
@@ -525,6 +536,10 @@ def main() -> int:
     ap.add_argument("--gemini", action="store_true",
                     help="read each page with the free Gemini API (needs GEMINI_API_KEY); local OCR is the fallback")
     ap.add_argument("--no-images", action="store_true", help="do not embed phone crops")
+    ap.add_argument("--save-every", type=int, default=3,
+                    help="save the Excel file every N pages so you can open it while running")
+    ap.add_argument("--show", type=int, default=6,
+                    help="voters per page to print live in the console (0 = none)")
     ap.add_argument("--max-pages", type=int, default=0, help="limit pages per PDF (testing)")
     args = ap.parse_args()
 
@@ -545,11 +560,26 @@ def main() -> int:
     cards: list[Card] = []
     errors: list[tuple[str, str]] = []
     gemini_ok = [True]
+    pages_done = [0]
+    warned = [False]
+
+    def checkpoint(_page_no: int) -> None:
+        pages_done[0] += 1
+        if args.save_every <= 0 or pages_done[0] % args.save_every:
+            return
+        try:
+            write_excel(dedupe_by_epic(cards, quiet=True), errors, out, images=not args.no_images)
+        except PermissionError:
+            if not warned[0]:
+                print(f"  (live save skipped: {out.name} is open in Excel; "
+                      "close it to see updates. Processing continues.)", flush=True)
+                warned[0] = True
+
     try:
         for pdf in pdfs:
             print(f"Processing {pdf.name}", flush=True)
             try:
-                process_pdf(pdf, args, cards, gemini_ok)
+                process_pdf(pdf, args, cards, gemini_ok, checkpoint)
             except Exception as exc:  # noqa: BLE001
                 errors.append((pdf.name, f"{exc}"))
                 traceback.print_exc()
@@ -560,9 +590,10 @@ def main() -> int:
         try:
             write_excel(cards, errors, out, images=not args.no_images)
         except PermissionError:
-            print(f"ERROR: cannot write {out}. Close it in Excel and run again "
-                  "(Gemini results are cached, so nothing is re-sent).")
-            return 3
+            alt = out.with_name(out.stem + "_final" + out.suffix)
+            write_excel(cards, errors, alt, images=not args.no_images)
+            print(f"{out.name} is open in Excel, so results were saved to {alt.name} instead.")
+            out = alt
     flagged = sum(1 for c in cards if c.reasons)
     print(f"Done: {len(cards)} cards, {flagged} need review -> {out}")
     return 0
