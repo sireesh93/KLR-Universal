@@ -79,9 +79,31 @@ class Card:
 # Image helpers
 # --------------------------------------------------------------------------
 
-def render_pages(pdf_path: Path, dpi: int):
+def parse_pages(spec: str) -> set[int]:
+    """'1-3,7,10-12' -> {1,2,3,7,10,11,12}. Page numbers start at 1."""
+    pages: set[int] = set()
+    for part in re.split(r"[,\s]+", spec.strip()):
+        if not part:
+            continue
+        m = re.fullmatch(r"(\d+)(?:\s*-\s*(\d+))?", part)
+        if not m:
+            raise ValueError(f"bad page range '{part}' (use e.g. 1-5,8,10-12)")
+        lo, hi = int(m.group(1)), int(m.group(2) or m.group(1))
+        if lo < 1 or hi < lo:
+            raise ValueError(f"bad page range '{part}'")
+        pages.update(range(lo, hi + 1))
+    return pages
+
+
+def render_pages(pdf_path: Path, dpi: int, only: set[int] | None = None):
     doc = fitz.open(pdf_path)
+    if only:
+        beyond = sorted(p for p in only if p > len(doc))
+        if beyond:
+            print(f"  note: {pdf_path.name} has only {len(doc)} pages; skipping {beyond}")
     for i, page in enumerate(doc, start=1):
+        if only is not None and i not in only:
+            continue
         pix = page.get_pixmap(dpi=dpi, colorspace=fitz.csGRAY)
         img = np.frombuffer(pix.samples, dtype=np.uint8).reshape(pix.height, pix.width)
         yield i, img
@@ -464,7 +486,7 @@ def page_cards(pdf: Path, page_no: int, page: np.ndarray, args, gemini_ok: list[
 
 def process_pdf(pdf: Path, args, cards: list[Card], gemini_ok: list[bool], checkpoint) -> None:
     cache_dir = Path(args.output).parent / "cache"
-    for page_no, page in render_pages(pdf, args.dpi):
+    for page_no, page in render_pages(pdf, args.dpi, args.page_set):
         if args.max_pages and page_no > args.max_pages:
             break
         new = page_cards(pdf, page_no, page, args, gemini_ok, cache_dir)
@@ -540,9 +562,16 @@ def main() -> int:
                     help="save the Excel file every N pages so you can open it while running")
     ap.add_argument("--show", type=int, default=6,
                     help="voters per page to print live in the console (0 = none)")
+    ap.add_argument("--pages", default="",
+                    help="only these pages of every PDF, e.g. 1-5,8,10-12 (default: all)")
     ap.add_argument("--max-pages", type=int, default=0, help="limit pages per PDF (testing)")
     args = ap.parse_args()
 
+    try:
+        args.page_set = parse_pages(args.pages) if args.pages.strip() else None
+    except ValueError as exc:
+        print(f"ERROR: {exc}")
+        return 2
     if not find_tesseract():
         return 2
 

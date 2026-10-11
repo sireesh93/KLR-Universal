@@ -21,6 +21,13 @@ rem   2) remove "rem" from the next line and paste your key
 rem set GEMINI_API_KEY=PASTE_KEY_HERE
 if defined GEMINI_API_KEY (set "EXTRA=--gemini") else (set "EXTRA=")
 
-".venv\Scripts\python.exe" -W ignore extract.py input -o output\extracted.xlsx %EXTRA% %*
+set "PAGES_ARG="
+if not "%~1"=="" goto run
+echo.
+set /p "PAGES=Pages to process, e.g. 1-5,8,10-12 (press Enter for ALL pages): "
+if defined PAGES set "PAGES_ARG=--pages %PAGES%"
+
+:run
+".venv\Scripts\python.exe" -W ignore extract.py input -o output\extracted.xlsx %EXTRA% %PAGES_ARG% %*
 echo.
 pause

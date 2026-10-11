@@ -29,7 +29,12 @@ Then put PDFs in `input/` and run `./run.sh`. For the optional Gemini step, run
 2. Double-click **`run.bat`**.
 3. Open `output\extracted.xlsx`.
 
-Useful options (add after `run.bat` from a terminal): `--dpi 300` for poor scans,
+**Choosing pages:** `run.bat` asks "Pages to process" each time. Type e.g. `1-5,8,10-12`
+and only those pages (of every PDF in `input\`) are read; press Enter for all pages. The
+same works from a terminal: `run.bat --pages 3-6`. To limit by file, put only the PDFs you
+want in `input\`.
+
+Other options (add after `run.bat` from a terminal): `--dpi 300` for poor scans,
 `--max-pages 2` to test quickly, `--no-images` for a smaller Excel file.
 
 ## Watching results live

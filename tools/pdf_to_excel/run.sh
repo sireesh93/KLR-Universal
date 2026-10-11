@@ -24,4 +24,10 @@ fi
 EXTRA=""
 [ -n "$GEMINI_API_KEY" ] && EXTRA="--gemini"
 
-.venv/bin/python -W ignore extract.py input -o output/extracted.xlsx $EXTRA "$@"
+PAGES_ARG=""
+if [ $# -eq 0 ]; then
+  read -r -p "Pages to process, e.g. 1-5,8,10-12 (press Enter for ALL pages): " PAGES
+  [ -n "$PAGES" ] && PAGES_ARG="--pages $PAGES"
+fi
+
+.venv/bin/python -W ignore extract.py input -o output/extracted.xlsx $EXTRA $PAGES_ARG "$@"
