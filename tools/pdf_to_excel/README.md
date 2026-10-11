@@ -69,8 +69,12 @@ handwritten digits or Telugu names**. For usable phone numbers, turn on Gemini:
 1. Create a free key at https://aistudio.google.com/apikey (no card needed).
 2. In `run.bat`, remove `rem` from the `set GEMINI_API_KEY=...` line and paste the key.
 
-With a key, each **page** (about 30 voters) is sent as one request, so the free daily
-quota covers hundreds of pages. Every page result is cached in `output\cache`, so if the
+With a key, each **page** (about 30 voters) is sent as one request. Free-tier daily limits
+are small and **per model** (check yours at aistudio.google.com, "Rate limit"; at the time
+of writing the Flash models allowed about 5 requests/minute and 20 requests/day each). The
+script uses every suitable Flash model in turn: when one hits its daily limit it switches
+to the next, so the free allowance is roughly 20 pages per model per day. Set
+`GEMINI_MODEL=name1,name2` in `run.bat` to choose models and their order. Every page result is cached in `output\cache`, so if the
 quota runs out the script says so, and running `run.bat` again the next day continues
 without re-sending finished pages. The local EPIC read is used as a cross-check.
 

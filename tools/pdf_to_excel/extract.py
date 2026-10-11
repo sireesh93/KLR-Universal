@@ -359,27 +359,33 @@ _BAD_MODEL_WORDS = ("lite", "image", "tts", "live", "audio", "preview", "exp", "
                     "8b", "robotics", "embedding", "computer", "native")
 
 
-def pick_model(names: list[str]) -> str:
-    """Newest stable 'flash' model that supports generateContent."""
+def pick_models(names: list[str]) -> list[str]:
+    """Usable flash models, best first: newest full flash models, then flash-lite ones.
+
+    Free-tier daily limits are per model, so when one runs out the next is used.
+    """
     def version(n: str) -> tuple:
         return tuple(int(x) for x in re.findall(r"\d+", n)) or (0,)
-    flash = [n for n in names if "flash" in n]
-    stable = [n for n in flash if not any(w in n for w in _BAD_MODEL_WORDS)]
-    pool = stable or flash or names
-    return max(pool, key=version) if pool else ""
+    flash = [n for n in names if "flash" in n
+             and not any(w in n for w in _BAD_MODEL_WORDS if w != "lite")
+             and "latest" not in n]
+    full = sorted((n for n in flash if "lite" not in n), key=version, reverse=True)
+    lite = sorted((n for n in flash if "lite" in n), key=version, reverse=True)
+    return full + lite
 
 
-_model_cache: list[str] = []
+_model_list: list[str] = []
+_model_idx = [0]
 
 
-def resolve_model(key: str) -> str:
-    """GEMINI_MODEL if set, otherwise ask the API which models this key can use."""
+def resolve_models(key: str) -> list[str]:
+    """GEMINI_MODEL (comma-separated list allowed) or every model this key can use."""
     import requests  # noqa: PLC0415
     explicit = os.environ.get("GEMINI_MODEL")
     if explicit:
-        return explicit
-    if _model_cache:
-        return _model_cache[0]
+        return [m.strip() for m in explicit.split(",") if m.strip()]
+    if _model_list:
+        return _model_list
     r = requests.get("https://generativelanguage.googleapis.com/v1beta/models",
                      params={"key": key, "pageSize": 200}, timeout=30)
     if r.status_code in (400, 401, 403):
@@ -388,20 +394,25 @@ def resolve_model(key: str) -> str:
     r.raise_for_status()
     names = [m["name"].split("/")[-1] for m in r.json().get("models", [])
              if "generateContent" in m.get("supportedGenerationMethods", [])]
-    model = pick_model(names)
-    if not model:
+    models = pick_models(names)
+    if not models:
         raise GeminiConfigError("This key has no models that support generateContent.")
-    print(f"  (using Gemini model: {model})", flush=True)
-    _model_cache.append(model)
-    return model
+    print(f"  (Gemini models, in order of use: {', '.join(models)})", flush=True)
+    _model_list.extend(models)
+    return _model_list
+
+
+def resolve_model(key: str) -> str:
+    models = resolve_models(key)
+    return models[min(_model_idx[0], len(models) - 1)]
 
 
 def gemini_page(jpg: bytes) -> list[dict]:
     global _last_gemini
     import requests  # noqa: PLC0415
     key = os.environ["GEMINI_API_KEY"]
-    model = resolve_model(key)
-    url = gemini_url(model, key)
+    models = resolve_models(key)
+    gap = float(os.environ.get("GEMINI_WAIT", "13"))  # free tier is ~5 requests/minute
     body = {
         "contents": [{"role": "user", "parts": [
             {"text": GEMINI_PAGE_PROMPT},
@@ -409,29 +420,40 @@ def gemini_page(jpg: bytes) -> list[dict]:
         ]}],
         "generationConfig": {"responseMimeType": "application/json", "temperature": 0},
     }
-    for attempt in range(4):
-        wait = 7.0 - (time.time() - _last_gemini)  # stay under the free per-minute limit
+    minute_retries = 0
+    while _model_idx[0] < len(models):
+        model = models[_model_idx[0]]
+        wait = gap - (time.time() - _last_gemini)
         if wait > 0:
             time.sleep(wait)
         _last_gemini = time.time()
-        r = requests.post(url, params={"key": key}, json=body, timeout=180)
+        r = requests.post(gemini_url(model), params={"key": key}, json=body, timeout=180)
         if r.status_code in (429, 500, 503):
-            if "PerDay" in r.text or attempt == 3:
-                raise GeminiQuotaError("Gemini free-tier limit reached (try again tomorrow; "
-                                       "finished pages are cached and will not be re-sent)")
-            time.sleep(20 * (attempt + 1))
+            if r.status_code == 429 and "PerDay" in r.text:
+                print(f"  ! daily free limit reached for {model}", flush=True)
+                _model_idx[0] += 1
+                minute_retries = 0
+                if _model_idx[0] < len(models):
+                    print(f"  -> switching to {models[_model_idx[0]]}", flush=True)
+                continue
+            minute_retries += 1
+            if minute_retries > 3:
+                raise GeminiQuotaError("Gemini is rate limiting or unavailable (too many "
+                                       "requests per minute or a server problem)")
+            time.sleep(25 * minute_retries)
             continue
         if r.status_code in (400, 401, 403, 404):
             raise GeminiConfigError(
-                f"Gemini rejected the request (HTTP {r.status_code}). Check the API key and "
-                f"model '{model}' (you can set GEMINI_MODEL in run.bat). Details: {mask_key(r.text[:300])}")
+                f"Gemini rejected the request (HTTP {r.status_code}) for model '{model}'. "
+                f"Check the API key / GEMINI_MODEL in run.bat. Details: {mask_key(r.text[:300])}")
         r.raise_for_status()
         text = r.json()["candidates"][0]["content"]["parts"][0]["text"]
         data = json.loads(text)
         if isinstance(data, dict):
             data = next((v for v in data.values() if isinstance(v, list)), [data])
         return [d for d in data if isinstance(d, dict)]
-    return []
+    raise GeminiQuotaError("Gemini free daily limit reached on all models (try again tomorrow; "
+                           "finished pages are cached and will not be re-sent)")
 
 
 def test_gemini() -> int:
