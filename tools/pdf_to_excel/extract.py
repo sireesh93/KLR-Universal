@@ -20,14 +20,20 @@ import traceback
 from dataclasses import dataclass, field
 from pathlib import Path
 
+import shutil
+
 import cv2
-import fitz  # PyMuPDF
 import numpy as np
 import pytesseract
 from openpyxl import Workbook
 from openpyxl.drawing.image import Image as XLImage
 from openpyxl.styles import Alignment, Font, PatternFill
 from PIL import Image
+
+try:
+    import pymupdf as fitz  # PyMuPDF (new name)
+except ImportError:  # older PyMuPDF
+    import fitz  # type: ignore[no-redef]
 
 EPIC_RE = re.compile(r"^[A-Z]{3}\d{7}$")
 PHONE_RE = re.compile(r"^[6-9]\d{9}$")
@@ -436,6 +442,41 @@ def process_pdf(pdf: Path, args, cards: list[Card], gemini_ok: list[bool]) -> No
             cards.append(card)
 
 
+def find_tesseract() -> bool:
+    """Locate tesseract (PATH or the usual install folders) and check Telugu data."""
+    exe = shutil.which("tesseract")
+    if not exe:
+        candidates = [
+            os.environ.get("TESSERACT_CMD", ""),
+            r"C:\\Program Files\\Tesseract-OCR\\tesseract.exe",
+            r"C:\\Program Files (x86)\\Tesseract-OCR\\tesseract.exe",
+            os.path.expandvars(r"%LOCALAPPDATA%\\Programs\\Tesseract-OCR\\tesseract.exe"),
+            "/opt/homebrew/bin/tesseract",
+            "/usr/local/bin/tesseract",
+        ]
+        exe = next((c for c in candidates if c and Path(c).is_file()), None)
+    if not exe:
+        print("ERROR: Tesseract OCR is not installed (or not found).\n"
+              "  Windows: install from https://github.com/UB-Mannheim/tesseract/wiki\n"
+              "           and tick 'Telugu' under Additional language data.\n"
+              "  Mac:     brew install tesseract tesseract-lang\n"
+              "  If it is installed somewhere else, set TESSERACT_CMD to the full path of tesseract.exe.")
+        return False
+    pytesseract.pytesseract.tesseract_cmd = exe
+    try:
+        langs = set(pytesseract.get_languages(config=""))
+    except Exception as exc:  # noqa: BLE001
+        print(f"ERROR: could not run Tesseract at {exe}: {exc}")
+        return False
+    missing = {"tel", "eng"} - langs
+    if missing:
+        print(f"ERROR: Tesseract language data missing: {', '.join(sorted(missing))}.\n"
+              "  Re-run the Tesseract installer and tick 'Telugu' (and English) under\n"
+              "  Additional language data, or copy tel.traineddata into its tessdata folder.")
+        return False
+    return True
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("input", nargs="?", default="input", help="PDF file or folder")
@@ -446,6 +487,9 @@ def main() -> int:
     ap.add_argument("--no-images", action="store_true", help="do not embed phone crops")
     ap.add_argument("--max-pages", type=int, default=0, help="limit pages per PDF (testing)")
     args = ap.parse_args()
+
+    if not find_tesseract():
+        return 2
 
     src = Path(args.input)
     pdfs = sorted(src.glob("*.pdf")) if src.is_dir() else [src]
