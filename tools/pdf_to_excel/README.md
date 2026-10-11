@@ -48,6 +48,15 @@ Other options (add after `run.bat` from a terminal): `--dpi 300` for poor scans,
   the file to refresh.
 * `--show 0` hides the console preview; `--save-every 1` saves after every page.
 
+## Skipped pages (saves API quota)
+
+Before any Gemini request, each page is checked locally: it must contain at least one
+card whose EPIC ID reads as 3 letters + 7 digits. Map, photo, cover and blank pages fail
+that check and are **skipped without using the API**. They are printed while running
+("SKIPPED - no EPIC IDs found"), summarised at the end (including any PDF with no voter
+data at all), and listed in the **Skipped pages** sheet. If a real voter page was skipped
+by mistake (very poor scan), rerun with `--no-skip` and tell the developer.
+
 ## Output
 
 Sheet **Voters** (one row per voter, EPIC ID is the key; repeated EPIC IDs are dropped):

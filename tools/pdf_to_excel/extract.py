@@ -525,8 +525,8 @@ def merge_gemini(rows: list[dict], local: list[Card], pdf_name: str, page_no: in
 # Excel
 # --------------------------------------------------------------------------
 
-def write_excel(cards: list[Card], errors: list[tuple[str, str]], out: Path,
-                images: bool) -> None:
+def write_excel(cards: list[Card], errors: list[tuple[str, str]],
+                skipped: list[tuple[str, int, str]], out: Path, images: bool) -> None:
     wb = Workbook()
     ws = wb.active
     ws.title = "Voters"
@@ -557,6 +557,13 @@ def write_excel(cards: list[Card], errors: list[tuple[str, str]], out: Path,
     ws.freeze_panes = "A2"
     ws.auto_filter.ref = ws.dimensions
 
+    ss = wb.create_sheet("Skipped pages")
+    ss.append(["Source PDF", "Page", "Reason"])
+    for row in skipped:
+        ss.append(list(row))
+    for col, width in zip("ABC", (22, 8, 50)):
+        ss.column_dimensions[col].width = width
+
     es = wb.create_sheet("Errors")
     es.append(["Source PDF", "Problem"])
     for src, msg in errors:
@@ -568,9 +575,27 @@ def write_excel(cards: list[Card], errors: list[tuple[str, str]], out: Path,
 # Main
 # --------------------------------------------------------------------------
 
+def voter_page_check(crops: list[np.ndarray]) -> str:
+    """'' if the page looks like a voter-card page, else the reason to skip it.
+
+    Cheap local test (no API call): a real card page has at least one card whose EPIC ID
+    area reads as 3 letters + 7 digits. Map / photo / cover pages never do.
+    """
+    if not crops:
+        return "no voter-card grid found"
+    for crop in crops:
+        epic = ocr(crop_rel(crop, REG_EPIC), "eng", 7, "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789")
+        if EPIC_RE.match(fix_epic(epic)):
+            return ""
+    return "no EPIC IDs found (not a voter-card page)"
+
+
 def page_cards(pdf: Path, page_no: int, page: np.ndarray, args, gemini_ok: list[bool],
-               cache_dir: Path) -> list[Card]:
+               cache_dir: Path) -> tuple[list[Card], str]:
     crops = detect_cards(page)
+    reason = "" if args.no_skip else voter_page_check(crops)
+    if reason:
+        return [], reason
     local: list[Card] = []
     for crop in crops:
         card = Card(pdf.name, page_no)
@@ -585,7 +610,7 @@ def page_cards(pdf: Path, page_no: int, page: np.ndarray, args, gemini_ok: list[
         try:
             rows = gemini_page_cached(pdf, page_no, to_jpg(page, 88), cache_dir)
             if rows:
-                return merge_gemini(rows, local, pdf.name, page_no)
+                return merge_gemini(rows, local, pdf.name, page_no), ""
             print("  ! Gemini returned no cards for this page; using local OCR", flush=True)
         except (GeminiQuotaError, GeminiConfigError) as exc:
             print(f"  ! {mask_key(str(exc))}\n  ! Gemini switched off; continuing with local OCR only.",
@@ -595,15 +620,20 @@ def page_cards(pdf: Path, page_no: int, page: np.ndarray, args, gemini_ok: list[
             print(f"  ! Gemini failed on this page ({mask_key(str(exc))}); using local OCR", flush=True)
             for c in local:
                 c.reasons.append("gemini failed")
-    return local
+    return local, ""
 
 
-def process_pdf(pdf: Path, args, cards: list[Card], gemini_ok: list[bool], checkpoint) -> None:
+def process_pdf(pdf: Path, args, cards: list[Card], gemini_ok: list[bool], checkpoint,
+                skipped: list[tuple[str, int, str]]) -> None:
     cache_dir = Path(args.output).parent / "cache"
     for page_no, page in render_pages(pdf, args.dpi, args.page_set):
         if args.max_pages and page_no > args.max_pages:
             break
-        new = page_cards(pdf, page_no, page, args, gemini_ok, cache_dir)
+        new, reason = page_cards(pdf, page_no, page, args, gemini_ok, cache_dir)
+        if reason:
+            skipped.append((pdf.name, page_no, reason))
+            print(f"  {pdf.name} page {page_no}: SKIPPED - {reason}", flush=True)
+            continue
         cards.extend(new)
         bad = sum(1 for c in new if c.reasons)
         print(f"  {pdf.name} page {page_no}: {len(new)} voters, {bad} need review "
@@ -676,6 +706,8 @@ def main() -> int:
                     help="save the Excel file every N pages so you can open it while running")
     ap.add_argument("--show", type=int, default=6,
                     help="voters per page to print live in the console (0 = none)")
+    ap.add_argument("--no-skip", action="store_true",
+                    help="do not skip pages without EPIC IDs (use if a real page was skipped)")
     ap.add_argument("--test-gemini", action="store_true",
                     help="check the Gemini key and model, then exit")
     ap.add_argument("--pages", default="",
@@ -706,6 +738,7 @@ def main() -> int:
     out.parent.mkdir(parents=True, exist_ok=True)
     cards: list[Card] = []
     errors: list[tuple[str, str]] = []
+    skipped: list[tuple[str, int, str]] = []
     gemini_ok = [True]
     pages_done = [0]
     warned = [False]
@@ -715,7 +748,7 @@ def main() -> int:
         if args.save_every <= 0 or pages_done[0] % args.save_every:
             return
         try:
-            write_excel(dedupe_by_epic(cards, quiet=True), errors, out, images=not args.no_images)
+            write_excel(dedupe_by_epic(cards, quiet=True), errors, skipped, out, images=not args.no_images)
         except PermissionError:
             if not warned[0]:
                 print(f"  (live save skipped: {out.name} is open in Excel; "
@@ -726,7 +759,7 @@ def main() -> int:
         for pdf in pdfs:
             print(f"Processing {pdf.name}", flush=True)
             try:
-                process_pdf(pdf, args, cards, gemini_ok, checkpoint)
+                process_pdf(pdf, args, cards, gemini_ok, checkpoint, skipped)
             except Exception as exc:  # noqa: BLE001
                 errors.append((pdf.name, f"{exc}"))
                 traceback.print_exc()
@@ -735,13 +768,23 @@ def main() -> int:
     finally:
         cards = dedupe_by_epic(cards)
         try:
-            write_excel(cards, errors, out, images=not args.no_images)
+            write_excel(cards, errors, skipped, out, images=not args.no_images)
         except PermissionError:
             alt = out.with_name(out.stem + "_final" + out.suffix)
-            write_excel(cards, errors, alt, images=not args.no_images)
+            write_excel(cards, errors, skipped, alt, images=not args.no_images)
             print(f"{out.name} is open in Excel, so results were saved to {alt.name} instead.")
             out = alt
     flagged = sum(1 for c in cards if c.reasons)
+    if skipped:
+        print(f"Skipped {len(skipped)} page(s) with no voter cards (no API calls used):")
+        by_pdf: dict[str, list[int]] = {}
+        for name, pg, _ in skipped:
+            by_pdf.setdefault(name, []).append(pg)
+        for name, pgs in by_pdf.items():
+            print(f"  {name}: pages {', '.join(map(str, pgs))}")
+        no_cards = sorted({p.name for p in pdfs} - {c.source for c in cards})
+        if no_cards:
+            print("Files with NO voter data at all: " + ", ".join(no_cards))
     print(f"Done: {len(cards)} cards, {flagged} need review -> {out}")
     return 0
 
