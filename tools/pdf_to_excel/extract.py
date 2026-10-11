@@ -395,6 +395,37 @@ def gemini_page(jpg: bytes) -> list[dict]:
     return []
 
 
+def test_gemini() -> int:
+    """`extract.py --test-gemini`: check the key/model without touching any PDF."""
+    import requests  # noqa: PLC0415
+    key = os.environ.get("GEMINI_API_KEY", "")
+    model = os.environ.get("GEMINI_MODEL", "gemini-2.5-flash")
+    if not key:
+        print("GEMINI_API_KEY is not set. In run.bat use:  set GEMINI_API_KEY=your_key  (no 'rem').")
+        return 1
+    print(f"Key found ({key[:4]}..., {len(key)} characters), type: "
+          f"{'Vertex/Cloud (AQ.)' if key.startswith('AQ.') else 'AI Studio'}; model: {model}")
+    if not key.startswith("AQ."):
+        r = requests.get("https://generativelanguage.googleapis.com/v1beta/models",
+                         params={"key": key, "pageSize": 100}, timeout=30)
+        print(f"List models: HTTP {r.status_code}")
+        if r.ok:
+            names = [m["name"].split("/")[-1] for m in r.json().get("models", [])
+                     if "generateContent" in m.get("supportedGenerationMethods", [])]
+            flash = [n for n in names if "flash" in n]
+            print("Models you can use:", ", ".join(flash[:12] or names[:12]))
+            if model not in names:
+                print(f"'{model}' is NOT available to this key. Add to run.bat:  "
+                      f"set GEMINI_MODEL={(flash or names or ['?'])[0]}")
+        else:
+            print(mask_key(r.text[:400]))
+    body = {"contents": [{"role": "user", "parts": [{"text": "Reply with the word OK."}]}]}
+    r = requests.post(gemini_url(model, key), params={"key": key}, json=body, timeout=60)
+    print(f"Test request: HTTP {r.status_code}")
+    print(mask_key(r.text[:500]))
+    return 0 if r.ok else 1
+
+
 def gemini_page_cached(pdf: Path, page_no: int, jpg: bytes, cache_dir: Path) -> list[dict]:
     cache = cache_dir / f"{pdf.stem}_p{page_no}.json"
     if cache.is_file():
@@ -586,11 +617,15 @@ def main() -> int:
                     help="save the Excel file every N pages so you can open it while running")
     ap.add_argument("--show", type=int, default=6,
                     help="voters per page to print live in the console (0 = none)")
+    ap.add_argument("--test-gemini", action="store_true",
+                    help="check the Gemini key and model, then exit")
     ap.add_argument("--pages", default="",
                     help="only these pages of every PDF, e.g. 1-5,8,10-12 (default: all)")
     ap.add_argument("--max-pages", type=int, default=0, help="limit pages per PDF (testing)")
     args = ap.parse_args()
 
+    if args.test_gemini:
+        return test_gemini()
     try:
         args.page_set = parse_pages(args.pages) if args.pages.strip() else None
     except ValueError as exc:
