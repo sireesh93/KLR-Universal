@@ -34,31 +34,35 @@ Useful options (add after `run.bat` from a terminal): `--dpi 300` for poor scans
 
 ## Output
 
-Sheet **Voters**: Source PDF, Page, Part No, Constituency / Section (raw header text),
-Serial No, EPIC ID, Voter Name, Relation Type, Relative Name, House No, Age, Gender,
-Phone, **Phone (crop)**, Needs Review, Review Reason, Method.
+Sheet **Voters** (one row per voter, EPIC ID is the key; repeated EPIC IDs are dropped):
 
-* Rows that fail a check are highlighted red with the reason listed. Checks: EPIC is
-  3 letters + 7 digits, phone is a 10-digit Indian mobile number, age 18–120, gender,
-  name present.
-* **Phone (crop)** embeds the image of the handwritten number so you can verify or
-  correct it without opening the PDF. Handwriting is the least reliable field; always
-  skim the red rows.
+| EPIC ID | Name | Address (House No) | Phone | Phone (crop) | Needs Review | Review Reason | Source PDF | Page |
+
+* "Address" is the house number printed on the card (the roll has no fuller address).
+* Rows that fail a check are red: EPIC not 3 letters + 7 digits, phone not a 10-digit
+  Indian mobile number, name or house number missing.
+* **Phone (crop)** embeds the image of the handwritten number so you can verify or fix it
+  without opening the PDF.
 * Sheet **Errors** lists PDFs that could not be processed.
 
-## Optional: free Gemini fallback
+## Accuracy: use the free Gemini step for handwriting
+
+Local OCR reads the printed EPIC ID and house number well, but it **cannot reliably read
+handwritten digits or Telugu names**. For usable phone numbers, turn on Gemini:
 
 1. Create a free key at https://aistudio.google.com/apikey (no card needed).
-2. In `run.bat`, uncomment the `set GEMINI_API_KEY=...` line and paste the key.
+2. In `run.bat`, remove `rem` from the `set GEMINI_API_KEY=...` line and paste the key.
 
-Only flagged cards are sent (one image per card), at about 13 requests a minute to stay
-inside free-tier limits. When the daily free quota runs out the script says so and
-carries on locally. **Privacy:** on the free tier Google may use submitted images to
-improve its products, so leave this off if the handwritten phone numbers must not
-leave your PC. The `input\*.pdf` and `output\` folders are git-ignored.
+With a key, each **page** (about 30 voters) is sent as one request, so the free daily
+quota covers hundreds of pages. Every page result is cached in `output\cache`, so if the
+quota runs out the script says so, and running `run.bat` again the next day continues
+without re-sending finished pages. The local EPIC read is used as a cross-check.
+
+**Privacy:** on the free tier Google may use submitted images to improve its products,
+so leave Gemini off if the handwritten phone numbers must not leave your PC. The
+`input\*.pdf` and `output\` folders are git-ignored.
 
 ## Tuning
 
 If cards are split wrongly or fields are cut off on your scans, adjust the relative
-regions at the top of `extract.py` (`REG_*`, `TEXT_LINE_CENTRES`). Telugu names are read
-with Tesseract and will contain some errors; the Gemini option reads them much better.
+regions at the top of `extract.py` (`REG_*`, `TEXT_LINE_CENTRES`).

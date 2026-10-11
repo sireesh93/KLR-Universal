@@ -49,9 +49,8 @@ TEXT_LINE_HALF = 0.058
 TEXT_X = (0.01, 0.74)
 
 COLUMNS = [
-    "Source PDF", "Page", "Part No", "Constituency / Section", "Serial No", "EPIC ID",
-    "Voter Name", "Relation Type", "Relative Name", "House No", "Age", "Gender",
-    "Phone", "Phone (crop)", "Needs Review", "Review Reason", "Method",
+    "EPIC ID", "Name", "Address (House No)", "Phone", "Phone (crop)",
+    "Needs Review", "Review Reason", "Source PDF", "Page",
 ]
 
 
@@ -272,19 +271,18 @@ def extract_card_local(img: np.ndarray, card: Card) -> float:
     return conf
 
 
-def validate(card: Card, phone_conf: float) -> None:
+def validate(card: Card, phone_conf: float = 1.0) -> None:
+    """Only the four wanted fields matter: EPIC ID, name, address, phone."""
     if not EPIC_RE.match(card.epic):
         card.reasons.append("EPIC format")
     if not PHONE_RE.match(card.phone):
         card.reasons.append("phone not 10 digits")
     elif phone_conf < 0.5:
         card.reasons.append("phone low confidence")
-    if not card.age or not (18 <= int(card.age) <= 120):
-        card.reasons.append("age")
-    if not card.gender:
-        card.reasons.append("gender")
     if not card.name:
         card.reasons.append("name")
+    if not card.house:
+        card.reasons.append("address")
 
 
 def read_header(page: np.ndarray, card_template: Card) -> tuple[str, str]:
@@ -297,62 +295,95 @@ def read_header(page: np.ndarray, card_template: Card) -> tuple[str, str]:
 
 
 # --------------------------------------------------------------------------
-# Optional Gemini (free tier) fallback
+# Optional Gemini (free tier): one request per PAGE, not per card
 # --------------------------------------------------------------------------
 
-GEMINI_PROMPT = (
-    "This is one voter card from an Indian (Telugu) electoral roll with a handwritten "
-    "10-digit mobile number at the bottom. Return JSON with keys: serial, epic, "
-    "voter_name, relation_type (Father/Husband/Mother/Other), relative_name, house_no, "
-    "age, gender (Male/Female/Other), phone. Keep Telugu names in Telugu script. "
-    "Use an empty string if a field is unreadable. Do not guess digits."
+GEMINI_PAGE_PROMPT = (
+    "This is a scanned page of an Indian (Telugu) electoral roll: a grid of voter cards, "
+    "3 per row. Each card has a serial number, an EPIC ID (3 capital letters + 7 digits, "
+    "e.g. YUO6677421, printed top right), the voter's name (after the label ఓటరు పేరు), "
+    "a house number (after ఇంటి సంఖ్య) and a HANDWRITTEN 10-digit mobile number written "
+    "at the bottom of the card. Return a JSON array with one object per card, in reading "
+    "order (row by row, left to right), with keys: serial, epic, name, house_no, phone. "
+    "Write the name in Telugu script exactly as printed (without the label). phone = digits "
+    "only; use an empty string if there is none or it is unreadable. Never invent or guess "
+    "digits. Include every card on the page, even if some fields are blank."
 )
 _last_gemini = 0.0
 
 
-def gemini_read(jpg: bytes) -> dict | None:
+class GeminiQuotaError(RuntimeError):
+    pass
+
+
+def gemini_page(jpg: bytes) -> list[dict]:
     global _last_gemini
     import requests  # noqa: PLC0415
-    key = os.environ.get("GEMINI_API_KEY")
+    key = os.environ["GEMINI_API_KEY"]
     model = os.environ.get("GEMINI_MODEL", "gemini-2.5-flash")
-    if not key:
-        return None
-    wait = 4.5 - (time.time() - _last_gemini)  # stay under free-tier per-minute limit
-    if wait > 0:
-        time.sleep(wait)
     url = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent"
     body = {
         "contents": [{"parts": [
-            {"text": GEMINI_PROMPT},
+            {"text": GEMINI_PAGE_PROMPT},
             {"inline_data": {"mime_type": "image/jpeg", "data": base64.b64encode(jpg).decode()}},
         ]}],
         "generationConfig": {"responseMimeType": "application/json", "temperature": 0},
     }
-    _last_gemini = time.time()
-    r = requests.post(url, params={"key": key}, json=body, timeout=90)
-    if r.status_code == 429:
-        raise RuntimeError("Gemini free-tier limit reached")
-    r.raise_for_status()
-    text = r.json()["candidates"][0]["content"]["parts"][0]["text"]
-    data = json.loads(text)
-    return data[0] if isinstance(data, list) and data else data
+    for attempt in range(4):
+        wait = 7.0 - (time.time() - _last_gemini)  # stay under the free per-minute limit
+        if wait > 0:
+            time.sleep(wait)
+        _last_gemini = time.time()
+        r = requests.post(url, params={"key": key}, json=body, timeout=180)
+        if r.status_code in (429, 500, 503):
+            if "PerDay" in r.text or attempt == 3:
+                raise GeminiQuotaError("Gemini free-tier limit reached (try again tomorrow; "
+                                       "finished pages are cached and will not be re-sent)")
+            time.sleep(20 * (attempt + 1))
+            continue
+        r.raise_for_status()
+        text = r.json()["candidates"][0]["content"]["parts"][0]["text"]
+        data = json.loads(text)
+        if isinstance(data, dict):
+            data = next((v for v in data.values() if isinstance(v, list)), [data])
+        return [d for d in data if isinstance(d, dict)]
+    return []
 
 
-def apply_gemini(card: Card) -> None:
-    data = gemini_read(card.card_jpg or b"")
-    if not data:
-        return
-    g = lambda k: re.sub(r"\s+", " ", str(data.get(k, "") or "")).strip()  # noqa: E731
-    card.serial = g("serial") or card.serial
-    card.epic = re.sub(r"[^A-Z0-9]", "", g("epic").upper()) or card.epic
-    card.name = g("voter_name") or card.name
-    card.relation = g("relation_type") or card.relation
-    card.relative = g("relative_name") or card.relative
-    card.house = g("house_no") or card.house
-    card.age = re.sub(r"\D", "", g("age")) or card.age
-    card.gender = g("gender") or card.gender
-    card.phone = re.sub(r"\D", "", g("phone")) or card.phone
-    card.method = "local+gemini"
+def gemini_page_cached(pdf: Path, page_no: int, jpg: bytes, cache_dir: Path) -> list[dict]:
+    cache = cache_dir / f"{pdf.stem}_p{page_no}.json"
+    if cache.is_file():
+        return json.loads(cache.read_text(encoding="utf-8"))
+    rows = gemini_page(jpg)
+    cache_dir.mkdir(parents=True, exist_ok=True)
+    cache.write_text(json.dumps(rows, ensure_ascii=False), encoding="utf-8")
+    return rows
+
+
+def merge_gemini(rows: list[dict], local: list[Card], pdf_name: str, page_no: int) -> list[Card]:
+    """Build final cards from Gemini's page reading, using local crops/EPIC as a cross-check."""
+    aligned = len(rows) == len(local)
+    out = []
+    for i, row in enumerate(rows):
+        g = lambda k: re.sub(r"\s+", " ", str(row.get(k, "") or "")).strip()  # noqa: E731
+        card = Card(pdf_name, page_no, method="gemini")
+        card.epic = fix_epic(g("epic"))
+        card.name = g("name")
+        card.house = g("house_no").replace(" ", "")
+        card.phone = re.sub(r"\D", "", g("phone"))
+        card.serial = re.sub(r"\D", "", g("serial"))
+        if aligned:
+            lc = local[i]
+            card.phone_img = lc.phone_img
+            if EPIC_RE.match(lc.epic) and EPIC_RE.match(card.epic) and lc.epic != card.epic:
+                card.reasons.append(f"EPIC differs from local OCR ({lc.epic})")
+            elif not EPIC_RE.match(card.epic) and EPIC_RE.match(lc.epic):
+                card.epic = lc.epic
+        else:
+            card.reasons.append(f"card count differs (Gemini {len(rows)}, grid {len(local)})")
+        validate(card)
+        out.append(card)
+    return out
 
 
 # --------------------------------------------------------------------------
@@ -370,32 +401,26 @@ def write_excel(cards: list[Card], errors: list[tuple[str, str]], out: Path,
         c.fill = PatternFill("solid", fgColor="305496")
     red = PatternFill("solid", fgColor="FFC7CE")
     for i, card in enumerate(cards, start=2):
-        ws.append([
-            card.source, card.page, card.part_no, card.header, card.serial, card.epic,
-            card.name, card.relation, card.relative, card.house, card.age, card.gender,
-            card.phone, "", "YES" if card.reasons else "", "; ".join(card.reasons),
-            card.method,
-        ])
+        ws.append([card.epic, card.name, card.house, card.phone, "",
+                   "YES" if card.reasons else "", "; ".join(card.reasons),
+                   card.source, card.page])
         if card.reasons:
             for c in ws[i]:
                 c.fill = red
+        ws.cell(row=i, column=4).number_format = "@"
         if images and card.phone_img:
             img = XLImage(io.BytesIO(card.phone_img))
             scale = 40 / img.height
             img.height, img.width = 40, int(img.width * scale)
-            ws.add_image(img, f"N{i}")
+            ws.add_image(img, f"E{i}")
             ws.row_dimensions[i].height = 32
-    for col, width in zip("ABCDEFGHIJKLMNOPQ",
-                          (22, 6, 8, 40, 8, 14, 28, 10, 28, 14, 6, 9, 14, 24, 8, 28, 12)):
+    for col, width in zip("ABCDEFGHI", (14, 34, 18, 14, 26, 8, 34, 22, 6)):
         ws.column_dimensions[col].width = width
     for row in ws.iter_rows(min_row=2):
         for c in row:
             c.alignment = Alignment(vertical="center", wrap_text=False)
     ws.freeze_panes = "A2"
     ws.auto_filter.ref = ws.dimensions
-    ws.cell(row=1, column=13).number_format = "@"
-    for r in range(2, len(cards) + 2):
-        ws.cell(row=r, column=13).number_format = "@"
 
     es = wb.create_sheet("Errors")
     es.append(["Source PDF", "Problem"])
@@ -409,37 +434,52 @@ def write_excel(cards: list[Card], errors: list[tuple[str, str]], out: Path,
 # --------------------------------------------------------------------------
 
 def process_pdf(pdf: Path, args, cards: list[Card], gemini_ok: list[bool]) -> None:
+    cache_dir = Path(args.output).parent / "cache"
     for page_no, page in render_pages(pdf, args.dpi):
         if args.max_pages and page_no > args.max_pages:
             break
         crops = detect_cards(page)
-        part_no, header = read_header(page, Card(pdf.name, page_no))
         print(f"  {pdf.name} page {page_no}: {len(crops)} cards", flush=True)
+        local: list[Card] = []
         for crop in crops:
-            card = Card(pdf.name, page_no, part_no=part_no, header=header)
+            card = Card(pdf.name, page_no)
             try:
                 conf = extract_card_local(crop, card)
                 validate(card, conf)
-                card.card_jpg = to_jpg(crop, 85)
-                if card.reasons and args.gemini and gemini_ok[0]:
-                    try:
-                        local_reasons = list(card.reasons)
-                        apply_gemini(card)
-                        card.reasons = []
-                        validate(card, 1.0)
-                        if card.reasons:
-                            card.reasons.insert(0, "after Gemini")
-                        elif local_reasons:
-                            card.reasons = []
-                    except RuntimeError as exc:
-                        print(f"  ! {exc}; continuing locally only", flush=True)
-                        gemini_ok[0] = False
-                    except Exception as exc:  # noqa: BLE001
-                        card.reasons.append(f"gemini error: {exc}")
             except Exception as exc:  # noqa: BLE001
                 card.reasons.append(f"error: {exc}")
-            card.card_jpg = None
-            cards.append(card)
+            local.append(card)
+
+        if args.gemini and gemini_ok[0]:
+            try:
+                rows = gemini_page_cached(pdf, page_no, to_jpg(page, 88), cache_dir)
+                if rows:
+                    cards.extend(merge_gemini(rows, local, pdf.name, page_no))
+                    continue
+                print("  ! Gemini returned no cards for this page; using local OCR", flush=True)
+            except GeminiQuotaError as exc:
+                print(f"  ! {exc}. Continuing with local OCR only.", flush=True)
+                gemini_ok[0] = False
+            except Exception as exc:  # noqa: BLE001
+                print(f"  ! Gemini failed on this page ({exc}); using local OCR", flush=True)
+                for c in local:
+                    c.reasons.append("gemini failed")
+        cards.extend(local)
+
+
+def dedupe_by_epic(cards: list[Card]) -> list[Card]:
+    """EPIC ID is the key: keep the first valid row per EPIC, drop repeats."""
+    seen: set[str] = set()
+    out = []
+    for c in cards:
+        if EPIC_RE.match(c.epic):
+            if c.epic in seen:
+                continue
+            seen.add(c.epic)
+        out.append(c)
+    if len(out) != len(cards):
+        print(f"Removed {len(cards) - len(out)} duplicate EPIC rows.")
+    return out
 
 
 def find_tesseract() -> bool:
@@ -483,7 +523,7 @@ def main() -> int:
     ap.add_argument("-o", "--output", default="output/extracted.xlsx")
     ap.add_argument("--dpi", type=int, default=200)
     ap.add_argument("--gemini", action="store_true",
-                    help="re-read flagged cards with the free Gemini API (needs GEMINI_API_KEY)")
+                    help="read each page with the free Gemini API (needs GEMINI_API_KEY); local OCR is the fallback")
     ap.add_argument("--no-images", action="store_true", help="do not embed phone crops")
     ap.add_argument("--max-pages", type=int, default=0, help="limit pages per PDF (testing)")
     args = ap.parse_args()
@@ -516,7 +556,13 @@ def main() -> int:
     except KeyboardInterrupt:
         print("Interrupted - saving what was extracted so far.")
     finally:
-        write_excel(cards, errors, out, images=not args.no_images)
+        cards = dedupe_by_epic(cards)
+        try:
+            write_excel(cards, errors, out, images=not args.no_images)
+        except PermissionError:
+            print(f"ERROR: cannot write {out}. Close it in Excel and run again "
+                  "(Gemini results are cached, so nothing is re-sent).")
+            return 3
     flagged = sum(1 for c in cards if c.reasons)
     print(f"Done: {len(cards)} cards, {flagged} need review -> {out}")
     return 0
