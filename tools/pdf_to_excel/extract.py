@@ -448,9 +448,9 @@ def find_tesseract() -> bool:
     if not exe:
         candidates = [
             os.environ.get("TESSERACT_CMD", ""),
-            r"C:\\Program Files\\Tesseract-OCR\\tesseract.exe",
-            r"C:\\Program Files (x86)\\Tesseract-OCR\\tesseract.exe",
-            os.path.expandvars(r"%LOCALAPPDATA%\\Programs\\Tesseract-OCR\\tesseract.exe"),
+            r"C:\Program Files\Tesseract-OCR\tesseract.exe",
+            r"C:\Program Files (x86)\Tesseract-OCR\tesseract.exe",
+            os.path.expandvars(r"%LOCALAPPDATA%\Programs\Tesseract-OCR\tesseract.exe"),
             "/opt/homebrew/bin/tesseract",
             "/usr/local/bin/tesseract",
         ]
