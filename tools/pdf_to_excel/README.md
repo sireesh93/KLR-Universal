@@ -48,6 +48,19 @@ Other options (add after `run.bat` from a terminal): `--dpi 300` for poor scans,
   the file to refresh.
 * `--show 0` hides the console preview; `--save-every 1` saves after every page.
 
+## Paid plan / large batches (e.g. 30 PDFs)
+
+1. In AI Studio, open your key's project and click **Set up billing** (link a Google Cloud
+   billing account). In Google Cloud set a **budget alert** so cost can never surprise you.
+2. In `run.bat` uncomment `GEMINI_MODEL` (best model only, no Lite fallback) and
+   `GEMINI_WAIT=2` (seconds between requests; the free default is 13).
+3. First count the work without using the API:
+   `run.bat --dry-run` prints voter pages per PDF (= number of Gemini requests) and the
+   skipped pages.
+4. Run in chunks overnight, e.g. `run.bat --pages 1-100`. Finished pages are cached, so a
+   rerun never pays twice. When Gemini reads a page, local OCR only does the EPIC
+   cross-check and phone crop, which makes paid runs much faster.
+
 ## Skipped pages (saves API quota)
 
 Before any Gemini request, each page is checked locally: it must contain at least one

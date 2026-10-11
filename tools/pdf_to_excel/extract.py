@@ -297,6 +297,13 @@ def extract_card_local(img: np.ndarray, card: Card) -> float:
     return conf
 
 
+def extract_card_light(img: np.ndarray, card: Card) -> None:
+    """Fast path when Gemini reads the page: only EPIC (cross-check) and the phone crop."""
+    epic = ocr(crop_rel(img, REG_EPIC), "eng", 7, "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789")
+    card.epic = fix_epic(epic)
+    card.phone_img = to_jpg(trim_phone_region(crop_rel(img, REG_PHONE)))
+
+
 def validate(card: Card, phone_conf: float = 1.0) -> None:
     """Only the four wanted fields matter: EPIC ID, name, address, phone."""
     if not EPIC_RE.match(card.epic):
@@ -603,21 +610,28 @@ def page_cards(pdf: Path, page_no: int, page: np.ndarray, args, gemini_ok: list[
     reason = "" if args.no_skip else voter_page_check(crops)
     if reason:
         return [], reason
-    local: list[Card] = []
-    for crop in crops:
-        card = Card(pdf.name, page_no)
-        try:
-            conf = extract_card_local(crop, card)
-            validate(card, conf)
-        except Exception as exc:  # noqa: BLE001
-            card.reasons.append(f"error: {exc}")
-        local.append(card)
+    use_gemini = args.gemini and gemini_ok[0]
 
-    if args.gemini and gemini_ok[0]:
+    def local_cards(light: bool) -> list[Card]:
+        out = []
+        for crop in crops:
+            card = Card(pdf.name, page_no)
+            try:
+                if light:
+                    extract_card_light(crop, card)
+                else:
+                    conf = extract_card_local(crop, card)
+                    validate(card, conf)
+            except Exception as exc:  # noqa: BLE001
+                card.reasons.append(f"error: {exc}")
+            out.append(card)
+        return out
+
+    if use_gemini:
         try:
             rows = gemini_page_cached(pdf, page_no, to_jpg(page, 88), cache_dir)
             if rows:
-                return merge_gemini(rows, local, pdf.name, page_no), ""
+                return merge_gemini(rows, local_cards(light=True), pdf.name, page_no), ""
             print("  ! Gemini returned no cards for this page; using local OCR", flush=True)
         except (GeminiQuotaError, GeminiConfigError) as exc:
             print(f"  ! {mask_key(str(exc))}\n  ! Gemini switched off; continuing with local OCR only.",
@@ -625,9 +639,11 @@ def page_cards(pdf: Path, page_no: int, page: np.ndarray, args, gemini_ok: list[
             gemini_ok[0] = False
         except Exception as exc:  # noqa: BLE001
             print(f"  ! Gemini failed on this page ({mask_key(str(exc))}); using local OCR", flush=True)
-            for c in local:
+            cards = local_cards(light=False)
+            for c in cards:
                 c.reasons.append("gemini failed")
-    return local, ""
+            return cards, ""
+    return local_cards(light=False), ""
 
 
 def process_pdf(pdf: Path, args, cards: list[Card], gemini_ok: list[bool], checkpoint,
@@ -636,6 +652,15 @@ def process_pdf(pdf: Path, args, cards: list[Card], gemini_ok: list[bool], check
     for page_no, page in render_pages(pdf, args.dpi, args.page_set):
         if args.max_pages and page_no > args.max_pages:
             break
+        if args.dry_run:
+            crops = detect_cards(page)
+            reason = "" if args.no_skip else voter_page_check(crops)
+            tally = args.tally.setdefault(pdf.name, [0, 0])
+            tally[1 if reason else 0] += 1
+            print(f"  {pdf.name} page {page_no}: "
+                  f"{'skip (' + reason + ')' if reason else 'voter page, ' + str(len(crops)) + ' cards'}",
+                  flush=True)
+            continue
         new, reason = page_cards(pdf, page_no, page, args, gemini_ok, cache_dir)
         if reason:
             skipped.append((pdf.name, page_no, reason))
@@ -713,6 +738,8 @@ def main() -> int:
                     help="save the Excel file every N pages so you can open it while running")
     ap.add_argument("--show", type=int, default=6,
                     help="voters per page to print live in the console (0 = none)")
+    ap.add_argument("--dry-run", action="store_true",
+                    help="count voter pages per PDF (= number of API requests) without reading them")
     ap.add_argument("--no-skip", action="store_true",
                     help="do not skip pages without EPIC IDs (use if a real page was skipped)")
     ap.add_argument("--test-gemini", action="store_true",
@@ -724,6 +751,7 @@ def main() -> int:
 
     if args.test_gemini:
         return test_gemini()
+    args.tally = {}
     try:
         args.page_set = parse_pages(args.pages) if args.pages.strip() else None
     except ValueError as exc:
@@ -741,6 +769,8 @@ def main() -> int:
         print("--gemini needs the GEMINI_API_KEY environment variable; running local only.")
         args.gemini = False
 
+    if args.dry_run:
+        args.gemini = False
     out = Path(args.output)
     out.parent.mkdir(parents=True, exist_ok=True)
     cards: list[Card] = []
@@ -781,6 +811,14 @@ def main() -> int:
             write_excel(cards, errors, skipped, alt, images=not args.no_images)
             print(f"{out.name} is open in Excel, so results were saved to {alt.name} instead.")
             out = alt
+    if args.dry_run:
+        print("\nDry run (nothing read, no API calls):")
+        tv = ts = 0
+        for name, (v, k) in args.tally.items():
+            print(f"  {name}: {v} voter pages, {k} skipped")
+            tv, ts = tv + v, ts + k
+        print(f"TOTAL: {tv} voter pages = about {tv} Gemini requests; {ts} pages skipped.")
+        return 0
     flagged = sum(1 for c in cards if c.reasons)
     if skipped:
         print(f"Skipped {len(skipped)} page(s) with no voter cards (no API calls used):")
