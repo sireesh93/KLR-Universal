@@ -5359,5 +5359,66 @@
     "text": "The short version: match the bit family to the drilling method already in use (DTH hammer → DTH bit, rotary rig → tricone/drag/claw), then match the carbide spec to the actual rock being drilled. Getting this match right affects penetration rate and bit life far more than price alone."
    }
   ]
+ },
+ {
+  "slug": "types-of-drilling-in-mining",
+  "standaloneUrl": false,
+  "title": "Types of Drilling in Mining: Core, Diamond, RC and Infill Drilling Explained",
+  "date": "October 11, 2026",
+  "heroImage": "/sites/klruniversal-com-3601ad32/products/core-drill-rig-150/hero.png",
+  "blocks": [
+   {
+    "tag": "P",
+    "text": "Mining drilling isn't one method — different stages of a project need different techniques, from the first exploration hole to proving up a resource before mining begins. These are the four terms that come up most: core drilling, diamond drilling, RC drilling, and infill drilling."
+   },
+   {
+    "tag": "H2",
+    "text": "What Is Drilling in Mining?"
+   },
+   {
+    "tag": "P",
+    "text": "Drilling in mining is the process of creating boreholes to locate, sample, or confirm mineral deposits before extraction begins. The method changes depending on what the hole needs to deliver: a visual rock sample, fast chip samples, or simply confirmation that a deposit continues at depth."
+   },
+   {
+    "tag": "H2",
+    "text": "What Is Core Drilling in Mining?"
+   },
+   {
+    "tag": "P",
+    "text": "Core drilling cuts and brings up an intact cylindrical rock sample — the \"core\" — rather than loose chips. [KLR's CDR series](/product-category/exploration) (CDR 150, CDR 500, CDR 750) and the TMC 40 are built specifically for this: a hollow bit cuts around the sample instead of through it, leaving the core intact for geologists to log layer by layer."
+   },
+   {
+    "tag": "H2",
+    "text": "What Is Diamond Drilling in Mining?"
+   },
+   {
+    "tag": "P",
+    "text": "Diamond drilling is core drilling done with a bit set with industrial diamonds — the standard cutting material for coring through hard rock. In practice, \"diamond drilling\" and \"core drilling\" are used almost interchangeably in mining, since diamond bits are the default choice for KLR's core drill rigs and most others on the market."
+   },
+   {
+    "tag": "H2",
+    "text": "What Is RC Drilling in Mining?"
+   },
+   {
+    "tag": "P",
+    "text": "RC (Reverse Circulation) drilling uses a percussive hammer to break rock into chips, then returns those chips to the surface through the drill pipe's inner tube using compressed air — no intact core, just fast, lower-cost chip samples. It's a different equipment class from core drilling, built around the same percussive hammer principle as DTH drilling, and is typically chosen when speed and cost matter more than an unbroken rock sample."
+   },
+   {
+    "tag": "H2",
+    "text": "What Is Infill Drilling in Mining?"
+   },
+   {
+    "tag": "P",
+    "text": "Infill drilling isn't a drilling method at all — it's a program strategy. Once initial exploration holes (often widely spaced) suggest a deposit exists, infill holes are drilled between them to tighten that spacing and increase confidence in the resource estimate, moving it from \"inferred\" toward \"measured.\" Infill programmes can use either core or RC drilling, depending on how much sample detail the project needs at that stage."
+   },
+   {
+    "tag": "H2",
+    "text": "Choosing the Right Method"
+   },
+   {
+    "tag": "P",
+    "text": "Early-stage exploration often favours RC drilling for speed and cost across a wide area; once a deposit looks real, core or diamond drilling gives the detailed rock samples needed to model it properly. Infill drilling can use either, depending on the confidence level a project needs. See [KLR Universal's exploration drill rigs](/product-category/exploration) for the core drilling range this guide covers."
+   }
+  ]
  }
 ]
