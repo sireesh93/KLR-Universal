@@ -61,13 +61,15 @@ by mistake (very poor scan), rerun with `--no-skip` and tell the developer.
 
 Sheet **Voters** (one row per voter, EPIC ID is the key; repeated EPIC IDs are dropped):
 
-| EPIC ID | Name | Address (House No) | Phone | Phone (crop) | Needs Review | Review Reason | Source PDF | Page |
+| EPIC ID | Name | Address (House No) | Phone | Phone (crop) | Needs Review | Review Reason | Source PDF | Page | Read by |
 
 * "Address" is the house number printed on the card (the roll has no fuller address).
 * Rows that fail a check are red: EPIC not 3 letters + 7 digits, phone not a 10-digit
   Indian mobile number, name or house number missing.
 * **Phone (crop)** embeds the image of the handwritten number so you can verify or fix it
   without opening the PDF.
+* **Read by** is the Gemini model that read the page (Flash-Lite models are less accurate on
+  handwriting, so check those rows more carefully).
 * Sheet **Errors** lists PDFs that could not be processed.
 
 ## Accuracy: use the free Gemini step for handwriting

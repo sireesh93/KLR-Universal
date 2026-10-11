@@ -50,7 +50,7 @@ TEXT_X = (0.01, 0.74)
 
 COLUMNS = [
     "EPIC ID", "Name", "Address (House No)", "Phone", "Phone (crop)",
-    "Needs Review", "Review Reason", "Source PDF", "Page",
+    "Needs Review", "Review Reason", "Source PDF", "Page", "Read by",
 ]
 
 
@@ -376,6 +376,7 @@ def pick_models(names: list[str]) -> list[str]:
 
 _model_list: list[str] = []
 _model_idx = [0]
+_used_model = [""]
 
 
 def resolve_models(key: str) -> list[str]:
@@ -447,6 +448,7 @@ def gemini_page(jpg: bytes) -> list[dict]:
                 f"Gemini rejected the request (HTTP {r.status_code}) for model '{model}'. "
                 f"Check the API key / GEMINI_MODEL in run.bat. Details: {mask_key(r.text[:300])}")
         r.raise_for_status()
+        _used_model[0] = model
         text = r.json()["candidates"][0]["content"]["parts"][0]["text"]
         data = json.loads(text)
         if isinstance(data, dict):
@@ -472,7 +474,7 @@ def test_gemini() -> int:
         return 1
     names = [m["name"].split("/")[-1] for m in r.json().get("models", [])
              if "generateContent" in m.get("supportedGenerationMethods", [])]
-    print("Models available:", ", ".join(n for n in names if "flash" in n)[:300])
+    print("Models available:", ", ".join(n for n in names if "flash" in n))
     try:
         model = resolve_model(key)
     except GeminiConfigError as exc:
@@ -486,13 +488,18 @@ def test_gemini() -> int:
 
 
 def gemini_page_cached(pdf: Path, page_no: int, jpg: bytes, cache_dir: Path) -> list[dict]:
+    """Rows for one page; each row carries '_model' (which Gemini model read it)."""
     cache = cache_dir / f"{pdf.stem}_p{page_no}.json"
     if cache.is_file():
-        return json.loads(cache.read_text(encoding="utf-8"))
+        data = json.loads(cache.read_text(encoding="utf-8"))
+        if isinstance(data, dict):  # new format
+            return [dict(r, _model=data.get("model", "cached")) for r in data.get("rows", [])]
+        return [dict(r, _model="cached") for r in data]
     rows = gemini_page(jpg)
     cache_dir.mkdir(parents=True, exist_ok=True)
-    cache.write_text(json.dumps(rows, ensure_ascii=False), encoding="utf-8")
-    return rows
+    cache.write_text(json.dumps({"model": _used_model[0], "rows": rows}, ensure_ascii=False),
+                     encoding="utf-8")
+    return [dict(r, _model=_used_model[0]) for r in rows]
 
 
 def merge_gemini(rows: list[dict], local: list[Card], pdf_name: str, page_no: int) -> list[Card]:
@@ -501,7 +508,7 @@ def merge_gemini(rows: list[dict], local: list[Card], pdf_name: str, page_no: in
     out = []
     for i, row in enumerate(rows):
         g = lambda k: re.sub(r"\s+", " ", str(row.get(k, "") or "")).strip()  # noqa: E731
-        card = Card(pdf_name, page_no, method="gemini")
+        card = Card(pdf_name, page_no, method=str(row.get("_model") or "gemini"))
         card.epic = fix_epic(g("epic"))
         card.name = g("name")
         card.house = g("house_no").replace(" ", "")
@@ -538,7 +545,7 @@ def write_excel(cards: list[Card], errors: list[tuple[str, str]],
     for i, card in enumerate(cards, start=2):
         ws.append([card.epic, card.name, card.house, card.phone, "",
                    "YES" if card.reasons else "", "; ".join(card.reasons),
-                   card.source, card.page])
+                   card.source, card.page, card.method])
         if card.reasons:
             for c in ws[i]:
                 c.fill = red
@@ -549,7 +556,7 @@ def write_excel(cards: list[Card], errors: list[tuple[str, str]],
             img.height, img.width = 40, int(img.width * scale)
             ws.add_image(img, f"E{i}")
             ws.row_dimensions[i].height = 32
-    for col, width in zip("ABCDEFGHI", (14, 34, 18, 14, 26, 8, 34, 22, 6)):
+    for col, width in zip("ABCDEFGHIJ", (14, 34, 18, 14, 26, 8, 34, 22, 6, 22)):
         ws.column_dimensions[col].width = width
     for row in ws.iter_rows(min_row=2):
         for c in row:
