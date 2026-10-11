@@ -351,17 +351,56 @@ def mask_key(text: str) -> str:
     return text.replace(key, "***") if key else text
 
 
-def gemini_url(model: str, key: str) -> str:
-    if key.startswith("AQ."):  # Vertex AI express-mode key
-        return f"https://aiplatform.googleapis.com/v1/publishers/google/models/{model}:generateContent"
+def gemini_url(model: str, key: str = "") -> str:
     return f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent"
+
+
+_BAD_MODEL_WORDS = ("lite", "image", "tts", "live", "audio", "preview", "exp", "thinking",
+                    "8b", "robotics", "embedding", "computer", "native")
+
+
+def pick_model(names: list[str]) -> str:
+    """Newest stable 'flash' model that supports generateContent."""
+    def version(n: str) -> tuple:
+        return tuple(int(x) for x in re.findall(r"\d+", n)) or (0,)
+    flash = [n for n in names if "flash" in n]
+    stable = [n for n in flash if not any(w in n for w in _BAD_MODEL_WORDS)]
+    pool = stable or flash or names
+    return max(pool, key=version) if pool else ""
+
+
+_model_cache: list[str] = []
+
+
+def resolve_model(key: str) -> str:
+    """GEMINI_MODEL if set, otherwise ask the API which models this key can use."""
+    import requests  # noqa: PLC0415
+    explicit = os.environ.get("GEMINI_MODEL")
+    if explicit:
+        return explicit
+    if _model_cache:
+        return _model_cache[0]
+    r = requests.get("https://generativelanguage.googleapis.com/v1beta/models",
+                     params={"key": key, "pageSize": 200}, timeout=30)
+    if r.status_code in (400, 401, 403):
+        raise GeminiConfigError(f"Gemini rejected the API key (HTTP {r.status_code}): "
+                                f"{mask_key(r.text[:200])}")
+    r.raise_for_status()
+    names = [m["name"].split("/")[-1] for m in r.json().get("models", [])
+             if "generateContent" in m.get("supportedGenerationMethods", [])]
+    model = pick_model(names)
+    if not model:
+        raise GeminiConfigError("This key has no models that support generateContent.")
+    print(f"  (using Gemini model: {model})", flush=True)
+    _model_cache.append(model)
+    return model
 
 
 def gemini_page(jpg: bytes) -> list[dict]:
     global _last_gemini
     import requests  # noqa: PLC0415
     key = os.environ["GEMINI_API_KEY"]
-    model = os.environ.get("GEMINI_MODEL", "gemini-2.5-flash")
+    model = resolve_model(key)
     url = gemini_url(model, key)
     body = {
         "contents": [{"role": "user", "parts": [
@@ -385,7 +424,7 @@ def gemini_page(jpg: bytes) -> list[dict]:
         if r.status_code in (400, 401, 403, 404):
             raise GeminiConfigError(
                 f"Gemini rejected the request (HTTP {r.status_code}). Check the API key and "
-                f"GEMINI_MODEL (now '{model}'). Details: {mask_key(r.text[:300])}")
+                f"model '{model}' (you can set GEMINI_MODEL in run.bat). Details: {mask_key(r.text[:300])}")
         r.raise_for_status()
         text = r.json()["candidates"][0]["content"]["parts"][0]["text"]
         data = json.loads(text)
@@ -396,32 +435,30 @@ def gemini_page(jpg: bytes) -> list[dict]:
 
 
 def test_gemini() -> int:
-    """`extract.py --test-gemini`: check the key/model without touching any PDF."""
+    """`extract.py --test-gemini`: check the key and model without touching any PDF."""
     import requests  # noqa: PLC0415
     key = os.environ.get("GEMINI_API_KEY", "")
-    model = os.environ.get("GEMINI_MODEL", "gemini-2.5-flash")
     if not key:
         print("GEMINI_API_KEY is not set. In run.bat use:  set GEMINI_API_KEY=your_key  (no 'rem').")
         return 1
-    print(f"Key found ({key[:4]}..., {len(key)} characters), type: "
-          f"{'Vertex/Cloud (AQ.)' if key.startswith('AQ.') else 'AI Studio'}; model: {model}")
-    if not key.startswith("AQ."):
-        r = requests.get("https://generativelanguage.googleapis.com/v1beta/models",
-                         params={"key": key, "pageSize": 100}, timeout=30)
-        print(f"List models: HTTP {r.status_code}")
-        if r.ok:
-            names = [m["name"].split("/")[-1] for m in r.json().get("models", [])
-                     if "generateContent" in m.get("supportedGenerationMethods", [])]
-            flash = [n for n in names if "flash" in n]
-            print("Models you can use:", ", ".join(flash[:12] or names[:12]))
-            if model not in names:
-                print(f"'{model}' is NOT available to this key. Add to run.bat:  "
-                      f"set GEMINI_MODEL={(flash or names or ['?'])[0]}")
-        else:
-            print(mask_key(r.text[:400]))
+    print(f"Key found ({key[:4]}..., {len(key)} characters)")
+    r = requests.get("https://generativelanguage.googleapis.com/v1beta/models",
+                     params={"key": key, "pageSize": 200}, timeout=30)
+    print(f"List models: HTTP {r.status_code}")
+    if not r.ok:
+        print(mask_key(r.text[:400]))
+        return 1
+    names = [m["name"].split("/")[-1] for m in r.json().get("models", [])
+             if "generateContent" in m.get("supportedGenerationMethods", [])]
+    print("Models available:", ", ".join(n for n in names if "flash" in n)[:300])
+    try:
+        model = resolve_model(key)
+    except GeminiConfigError as exc:
+        print(exc)
+        return 1
     body = {"contents": [{"role": "user", "parts": [{"text": "Reply with the word OK."}]}]}
-    r = requests.post(gemini_url(model, key), params={"key": key}, json=body, timeout=60)
-    print(f"Test request: HTTP {r.status_code}")
+    r = requests.post(gemini_url(model), params={"key": key}, json=body, timeout=60)
+    print(f"Test request with {model}: HTTP {r.status_code}")
     print(mask_key(r.text[:500]))
     return 0 if r.ok else 1
 
