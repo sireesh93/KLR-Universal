@@ -469,7 +469,7 @@ def gemini_page(jpg: bytes) -> list[dict]:
                 models = resolve_models(key)
                 print(f"  -> switching to API key #{_key_idx[0] + 1} of {len(keys)}", flush=True)
                 continue
-            raise GeminiQuotaError("ALL Gemini free/paid daily limits are used up "
+            raise GeminiQuotaError("ALL Gemini models are used up for today (daily limits) or unavailable "
                                    f"(keys tried: {len(keys)})")
         model = models[idx]
         wait = gap - (time.time() - _last_gemini)
@@ -506,10 +506,21 @@ def gemini_page(jpg: bytes) -> list[dict]:
                     print(f"  -> {model} still busy, trying {models[_model_idx[0] + offset]} "
                           "for this page", flush=True)
             continue
-        if r.status_code in (400, 401, 403, 404):
+        key_problem = r.status_code in (401, 403) or (
+            r.status_code == 400 and ("API key" in r.text or "API_KEY" in r.text))
+        if key_problem:
             raise GeminiConfigError(
-                f"Gemini rejected the request (HTTP {r.status_code}) for model '{model}'. "
-                f"Check the API key / GEMINI_MODEL. Details: {mask_key(r.text[:300])}")
+                f"Gemini rejected the API key (HTTP {r.status_code}). "
+                f"Details: {mask_key(r.text[:300])}")
+        if r.status_code in (400, 404):  # this model cannot be used (retired, no image support...)
+            print(f"  ! {model} is not usable (HTTP {r.status_code}); skipping it", flush=True)
+            if offset == 0:
+                _model_idx[0] += 1
+            else:
+                offset += 1
+            if _model_idx[0] + offset < len(models):
+                print(f"  -> switching to {models[_model_idx[0] + offset]}", flush=True)
+            continue
         r.raise_for_status()
         _used_model[0] = model
         text = r.json()["candidates"][0]["content"]["parts"][0]["text"]
