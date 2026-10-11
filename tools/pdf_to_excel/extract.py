@@ -788,6 +788,8 @@ def main() -> int:
     ap.add_argument("input", nargs="?", default="input", help="PDF file or folder")
     ap.add_argument("-o", "--output", default="output/extracted.xlsx")
     ap.add_argument("--dpi", type=int, default=200)
+    ap.add_argument("--no-gemini", action="store_true",
+                    help="never use Gemini, even if GEMINI_API_KEY is set (local OCR only)")
     ap.add_argument("--gemini", action="store_true",
                     help="read each page with the free Gemini API (needs GEMINI_API_KEY); local OCR is the fallback")
     ap.add_argument("--no-images", action="store_true", help="do not embed phone crops")
@@ -825,9 +827,19 @@ def main() -> int:
     if not pdfs:
         print(f"No PDF files found in {src}")
         return 1
-    if args.gemini and not os.environ.get("GEMINI_API_KEY"):
-        print("--gemini needs the GEMINI_API_KEY environment variable; running local only.")
+    if args.no_gemini:
         args.gemini = False
+    elif api_keys():
+        args.gemini = True  # a key is configured: use it, no extra flag needed
+    elif args.gemini:
+        print("--gemini needs GEMINI_API_KEY; running local only.")
+        args.gemini = False
+    if not args.dry_run:
+        if args.gemini:
+            print(f"Gemini: ON ({len(api_keys())} API key(s)). Pages are read by Gemini.")
+        else:
+            print("Gemini: OFF - local OCR only (phone numbers and names will be unreliable).\n"
+                  "  To turn it on, set GEMINI_API_KEY in run.bat (line must not start with 'rem').")
 
     if args.dry_run:
         args.gemini = False
