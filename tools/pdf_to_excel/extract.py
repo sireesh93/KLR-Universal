@@ -249,8 +249,12 @@ def parse_lines(lines: list[str], card: Card) -> None:
                 card.relation = eng
                 break
     if lines[2]:
-        m = re.search(r"[:：;]\s*([0-9A-Za-z][0-9A-Za-z\-/ ]*)", lines[2])
-        card.house = (m.group(1) if m else parse_value(lines[2])).replace(" ", "")
+        m = re.search(r"\d+(?:\s*-\s*\d+)+(?:\s*[/\-]?\s*[0-9A-Za-z]+)*", lines[2])
+        if m:
+            card.house = m.group(0).replace(" ", "")
+        else:
+            m = re.search(r"[:：;]\s*([0-9A-Za-z][0-9A-Za-z\-/ ]*)", lines[2])
+            card.house = (m.group(1) if m else parse_value(lines[2])).replace(" ", "")
     tail = lines[3]
     m = re.search(r"(\d{1,3})", tail)
     if m:
@@ -338,14 +342,29 @@ class GeminiQuotaError(RuntimeError):
     pass
 
 
+class GeminiConfigError(RuntimeError):
+    """Bad key / model / endpoint: retrying will not help, so Gemini is switched off."""
+
+
+def mask_key(text: str) -> str:
+    key = os.environ.get("GEMINI_API_KEY", "")
+    return text.replace(key, "***") if key else text
+
+
+def gemini_url(model: str, key: str) -> str:
+    if key.startswith("AQ."):  # Vertex AI express-mode key
+        return f"https://aiplatform.googleapis.com/v1/publishers/google/models/{model}:generateContent"
+    return f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent"
+
+
 def gemini_page(jpg: bytes) -> list[dict]:
     global _last_gemini
     import requests  # noqa: PLC0415
     key = os.environ["GEMINI_API_KEY"]
     model = os.environ.get("GEMINI_MODEL", "gemini-2.5-flash")
-    url = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent"
+    url = gemini_url(model, key)
     body = {
-        "contents": [{"parts": [
+        "contents": [{"role": "user", "parts": [
             {"text": GEMINI_PAGE_PROMPT},
             {"inline_data": {"mime_type": "image/jpeg", "data": base64.b64encode(jpg).decode()}},
         ]}],
@@ -363,6 +382,10 @@ def gemini_page(jpg: bytes) -> list[dict]:
                                        "finished pages are cached and will not be re-sent)")
             time.sleep(20 * (attempt + 1))
             continue
+        if r.status_code in (400, 401, 403, 404):
+            raise GeminiConfigError(
+                f"Gemini rejected the request (HTTP {r.status_code}). Check the API key and "
+                f"GEMINI_MODEL (now '{model}'). Details: {mask_key(r.text[:300])}")
         r.raise_for_status()
         text = r.json()["candidates"][0]["content"]["parts"][0]["text"]
         data = json.loads(text)
@@ -474,11 +497,12 @@ def page_cards(pdf: Path, page_no: int, page: np.ndarray, args, gemini_ok: list[
             if rows:
                 return merge_gemini(rows, local, pdf.name, page_no)
             print("  ! Gemini returned no cards for this page; using local OCR", flush=True)
-        except GeminiQuotaError as exc:
-            print(f"  ! {exc}. Continuing with local OCR only.", flush=True)
+        except (GeminiQuotaError, GeminiConfigError) as exc:
+            print(f"  ! {mask_key(str(exc))}\n  ! Gemini switched off; continuing with local OCR only.",
+                  flush=True)
             gemini_ok[0] = False
         except Exception as exc:  # noqa: BLE001
-            print(f"  ! Gemini failed on this page ({exc}); using local OCR", flush=True)
+            print(f"  ! Gemini failed on this page ({mask_key(str(exc))}); using local OCR", flush=True)
             for c in local:
                 c.reasons.append("gemini failed")
     return local
