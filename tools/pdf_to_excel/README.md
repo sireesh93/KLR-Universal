@@ -13,7 +13,17 @@ cards the local OCR is unsure about.
 3. That's it. The first `run.bat` creates a virtual environment and installs the
    Python packages (EasyOCR downloads its small digit model once).
 
-## Use
+## One-time setup (macOS)
+
+1. Install Homebrew (brew.sh), then run in Terminal:
+   `brew install python tesseract tesseract-lang`
+   (`tesseract-lang` includes Telugu.)
+2. In Terminal: `cd` into this folder and run `chmod +x run.sh` once.
+
+Then put PDFs in `input/` and run `./run.sh`. For the optional Gemini step, run
+`export GEMINI_API_KEY=your_key` first. Works on Apple Silicon and Intel Macs.
+
+## Use (Windows)
 
 1. Copy your PDFs into the `input\` folder.
 2. Double-click **`run.bat`**.
