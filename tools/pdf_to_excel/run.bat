@@ -15,16 +15,21 @@ if not exist ".venv\Scripts\python.exe" (
 rem Tesseract (see README). Add its folder to PATH for this run if installed in the default place.
 if exist "C:\Program Files\Tesseract-OCR\tesseract.exe" set "PATH=%PATH%;C:\Program Files\Tesseract-OCR"
 
-rem Optional: free Gemini fallback for cards the local OCR is unsure about.
-rem   1) get a free key at https://aistudio.google.com/apikey
-rem   2) remove "rem" from the next line and paste your key
-rem set GEMINI_API_KEY=PASTE_KEY_HERE
-rem Several keys can be given, separated by commas (no spaces): they are used in turn when
-rem one runs out of quota.   set GEMINI_API_KEY=KEY1,KEY2,KEY3
-rem Paid plan (billing enabled): uncomment these two lines for speed and best quality.
-rem set GEMINI_MODEL=gemini-3.8-flash
-rem set GEMINI_WAIT=2
-if defined GEMINI_API_KEY (set "EXTRA=--gemini") else (set "EXTRA=")
+rem ---------------------------------------------------------------------------
+rem Gemini settings live in a separate file, gemini_key.bat, so that updating this
+rem file (git pull) never overwrites your key. Create it once: copy
+rem gemini_key.bat.example to gemini_key.bat and put your key in it.
+rem ---------------------------------------------------------------------------
+if exist "gemini_key.bat" call "gemini_key.bat"
+
+if defined GEMINI_API_KEY (
+  echo Gemini key found.
+) else (
+  echo.
+  echo NOTE: no Gemini key set - only poor local OCR will be used.
+  echo       Copy gemini_key.bat.example to gemini_key.bat and add your key.
+  echo.
+)
 
 set "PAGES_ARG="
 if not "%~1"=="" goto run
@@ -33,6 +38,6 @@ set /p "PAGES=Pages to process, e.g. 1-5,8,10-12 (press Enter for ALL pages): "
 if defined PAGES set "PAGES_ARG=--pages %PAGES%"
 
 :run
-".venv\Scripts\python.exe" -W ignore extract.py input -o output\extracted.xlsx %EXTRA% %PAGES_ARG% %*
+".venv\Scripts\python.exe" -W ignore extract.py input -o output\extracted.xlsx %PAGES_ARG% %*
 echo.
 pause

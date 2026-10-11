@@ -1,0 +1,13 @@
+rem Copy this file to gemini_key.bat (same folder) and edit it. gemini_key.bat is
+rem git-ignored, so updates (git pull) never overwrite it and it is never uploaded.
+rem No quotes, no spaces around "=".
+
+rem Your key from https://aistudio.google.com/apikey  (several keys: KEY1,KEY2,KEY3)
+set GEMINI_API_KEY=PASTE_YOUR_KEY_HERE
+
+rem Optional. Models are used in this order; when one hits its daily limit the next is used.
+rem Leave both lines commented to let the tool pick every suitable Flash model by itself.
+rem set GEMINI_MODEL=gemini-3.8-flash,gemini-3.7-flash,gemini-3.5-flash-lite
+
+rem Seconds between requests. Free tier: 13 (default). Paid plan: 2.
+rem set GEMINI_WAIT=2

@@ -106,7 +106,10 @@ Local OCR reads the printed EPIC ID and house number well, but it **cannot relia
 handwritten digits or Telugu names**. For usable phone numbers, turn on Gemini:
 
 1. Create a free key at https://aistudio.google.com/apikey (no card needed).
-2. In `run.bat`, remove `rem` from the `set GEMINI_API_KEY=...` line and paste the key.
+2. Copy `gemini_key.bat.example` to `gemini_key.bat` (same folder) and paste your key in
+   it. `run.bat` loads that file automatically; it is git-ignored, so `git pull` never
+   overwrites your key and it is never uploaded. (Anywhere this README says "in `run.bat`"
+   for a Gemini setting, put the line in `gemini_key.bat` instead.)
 
 With a key, each **page** (about 30 voters) is sent as one request. Free-tier daily limits
 are small and **per model** (check yours at aistudio.google.com, "Rate limit"; at the time
