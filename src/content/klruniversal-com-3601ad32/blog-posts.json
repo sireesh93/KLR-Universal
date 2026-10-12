@@ -5420,5 +5420,58 @@
     "text": "Early-stage exploration often favours RC drilling for speed and cost across a wide area; once a deposit looks real, core or diamond drilling gives the detailed rock samples needed to model it properly. Infill drilling can use either, depending on the confidence level a project needs. See [KLR Universal's exploration drill rigs](/product-category/exploration) for the core drilling range this guide covers."
    }
   ]
+ },
+ {
+  "slug": "what-is-a-quarry",
+  "standaloneUrl": false,
+  "title": "What Is a Quarry? Quarrying, Open-Pit Mining, and the Rigs Each One Needs",
+  "date": "October 12, 2026",
+  "heroImage": "/sites/klruniversal-com-3601ad32/products/ea-20-30/hero.png",
+  "blocks": [
+   {
+    "tag": "P",
+    "text": "\"Quarry\" and \"open-pit mine\" both describe a large excavation worked from the surface rather than tunnelled underground — but they're not the same thing, and the drilling they need isn't always either."
+   },
+   {
+    "tag": "H2",
+    "text": "What Is a Quarry?"
+   },
+   {
+    "tag": "P",
+    "text": "A quarry is a surface excavation worked specifically for construction materials — crushed stone, sand, gravel, limestone, or dimension stone cut for building. The material itself is the product; nothing is processed further to extract a different substance from it."
+   },
+   {
+    "tag": "H2",
+    "text": "What Is Open-Pit Mining?"
+   },
+   {
+    "tag": "P",
+    "text": "Open-pit mining is the same basic method — extracting material from a large, often terraced surface excavation — applied to ore and minerals rather than construction stone. Coal, copper, iron and gold are commonly mined this way when the deposit sits close enough to the surface that tunnelling underground isn't worth the cost."
+   },
+   {
+    "tag": "H2",
+    "text": "Quarrying vs Open-Pit Mining: What Actually Differs"
+   },
+   {
+    "tag": "P",
+    "text": "The drilling and blasting technique is largely the same in both — the real difference is what happens to the material afterward. A quarry's rock is crushed and sold roughly as-is; an open-pit mine's ore goes through processing to separate the valuable mineral from everything else. That's why the same class of surface drill rig genuinely works both sites."
+   },
+   {
+    "tag": "H2",
+    "text": "Drilling Equipment Used in Quarrying and Open-Pit Mining"
+   },
+   {
+    "tag": "P",
+    "text": "Blast-hole drilling is the first step on both: holes are drilled to a pattern, then charged and blasted to fragment the rock before it's loaded out. [KLR Universal's EA-20|30](/drilling-rigs/surface-mining/ea-20-30) and [THA-20|30](/drilling-rigs/surface-mining/tha-20-30) are built for exactly this — excavator-mounted DTH and top hammer rigs rated for quarrying, mining and construction sites, drilling 4\" to 16\" diameter holes with dust suppression options for sites where that matters. See our [guide to excavator-mounted drilling rigs](/blog/excavator-mounted-drilling-rigs) for how the two compare."
+   },
+   {
+    "tag": "H2",
+    "text": "Choosing Between DTH and Top Hammer for Blast-Hole Drilling"
+   },
+   {
+    "tag": "P",
+    "text": "Harder, more abrasive rock generally favours DTH, since the hammer strikes the rock directly at the bit for straighter, faster holes. Softer benching work suits top hammer, where the percussive mechanism sits above the rock. Rock hardness at the specific site matters more than whether it's technically a quarry or a mine. See the full [surface mining and quarrying range](/product-category/surface-mining) for the rest of KLR Universal's lineup in this category."
+   }
+  ]
  }
 ]
