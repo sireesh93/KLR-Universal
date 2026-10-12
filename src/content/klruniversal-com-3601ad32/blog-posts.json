@@ -4903,7 +4903,7 @@
    },
    {
     "tag": "P",
-    "text": "Structurally, a drilling rig has three main parts: a mast — the tall steel frame that holds everything upright and guides the drill string — the rotary or percussive drive that turns or hammers the bit, and the pipe string that carries that force down to the bit. Rigs built for oil and gas in Gujarat and Assam, mineral exploration in Karnataka, and water wells nationwide all share this same basic structure; what differs between them is scale and drive method."
+    "text": "Structurally, a drilling rig has three main parts: a mast — the tall steel frame that holds everything upright and guides the drill string — the drive that turns or hammers the bit (rotary drilling or percussion drilling), and the pipe string that carries that force down to the bit. Rigs built for oil and gas in Gujarat and Assam, mineral exploration in Karnataka, and water wells nationwide all share this same basic structure across the drilling industry; what differs between them is scale and drive method."
    },
    {
     "tag": "H2",
@@ -4925,7 +4925,7 @@
     "tag": "UL",
     "items": [
      "Land Rigs: for onshore drilling, including oil and gas production and water-well drilling.",
-     "Offshore Rigs: mounted on platforms or ships, built to drill under open water.",
+     "Offshore Rigs: mounted on oil platforms or ships, built to drill offshore oil wells under open water.",
      "Portable Rigs: smaller, mobile units used for shallow drilling or exploration work.",
      "Deepwater Rigs: specialised for drilling in deep ocean conditions, mainly for oil and gas."
     ]
@@ -4940,7 +4940,7 @@
    },
    {
     "tag": "P",
-    "text": "Drilling rigs facilitate access to the underground oil and gas reserves. Without them, we cannot power our vehicles, heat our homes, or run our industries. Some offshore rigs have been game-changers for the energy sector by using the once-distant reserves hidden under the sea floor."
+    "text": "Drilling rigs facilitate access to the underground oil and gas reserves. Without them, we cannot power our vehicles, heat our homes, or run our industries. Some offshore oil rigs, mounted on platforms built specifically for open-water drilling, have been game-changers for the energy sector by using the once-distant reserves hidden under the sea floor."
    },
    {
     "tag": "H4",
