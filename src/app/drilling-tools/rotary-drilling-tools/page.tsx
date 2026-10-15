@@ -15,6 +15,7 @@ export const metadata: Metadata = {
     description: "Rotary drilling tools from KLR Universal — tricone bits, drag bits and rotary accessories built in-house for water well, mining and construction drilling.",
     url: "/drilling-tools/rotary-drilling-tools",
     type: "website",
+    images: ["/sites/klruniversal-com-3601ad32/drilling-tools-rotary-drilling-tools-92dc5dcc/images/hero.jpg"],
   },
 };
 

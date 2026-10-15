@@ -202,7 +202,8 @@
     "tag": "P",
     "text": "Whether you are a startup or one of the major exploration drilling companies, we provide the reliability you need to unlock the next great resource. Contact KLR Universal today to discuss your next project."
    }
-  ]
+  ],
+  "shortTitle": "What Is Exploration Drilling?"
  },
  {
   "slug": "rotary-vs-dth-drilling-hard-rock",
@@ -1112,7 +1113,8 @@
     "tag": "P",
     "text": "For mining engineers, contractors, and procurement teams evaluating drilling solutions, KLR Universal offers purpose-built underground drill rigs like the ITH-60 and KWD-10, designed to meet the demands of modern underground operations."
    }
-  ]
+  ],
+  "shortTitle": "Underground Drill Rigs Guide"
  },
  {
   "slug": "cdr-core-drill-rigs-deep-core-sampling",
@@ -1868,7 +1870,8 @@
     "tag": "P",
     "text": ""
    }
-  ]
+  ],
+  "shortTitle": "Drill Rig Maintenance Tips"
  },
  {
   "slug": "rotary-vs-auger-drill-rigs",
@@ -2248,7 +2251,8 @@
     "tag": "P",
     "text": "For contractors, piling engineers, and project managers evaluating drilling solutions, selecting the right combination of drilling method, tooling, and rig capability is essential for achieving reliable and cost-effective project outcomes."
    }
-  ]
+  ],
+  "shortTitle": "Rotary vs Auger Drill Rigs"
  },
  {
   "slug": "rock-drilling-impact-on-blasting-fragmentation",
@@ -2587,7 +2591,8 @@
     "tag": "P",
     "text": "For operations that want better drilling accuracy and blast efficiency, KLR Universal's modern Quarrying Drill Rigs offer a dependable solution."
    }
-  ]
+  ],
+  "shortTitle": "Rock Drilling's Impact on Blasting"
  },
  {
   "slug": "dth-vs-top-hammer-drilling-guide",
@@ -2747,7 +2752,8 @@
     "tag": "P",
     "text": "Ready to upgrade your fleet? Contact KLR Universal today for a quote on our latest DTH machines."
    }
-  ]
+  ],
+  "shortTitle": "DTH vs Top Hammer Drilling"
  },
  {
   "slug": "drilling-rigs-infrastructure-development",
@@ -2920,7 +2926,8 @@
     "tag": "P",
     "text": "At KLR Universal, we see ourselves as more than just a manufacturer. With a presence in over 60 countries, our focus is on providing the engineering excellence required for the world’s most demanding projects. We understand that every site has a different story. Our role is to provide the foundation drilling equipment and industrial drilling expertise that turns an architectural vision into a permanent reality. Whether you need a hydraulic rig machine for a new highway or a custom solution for a bridge, we are here to support the structures that move the world forward."
    }
-  ]
+  ],
+  "shortTitle": "Drilling Rigs for Infrastructure"
  },
  {
   "slug": "dthr-750-drilling-rig-guide",
@@ -3847,7 +3854,8 @@
     "tag": "P",
     "text": "Matching the right mining drill machine to operational needs ensures safer and more efficient drilling outcomes."
    }
-  ]
+  ],
+  "shortTitle": "Guide to Mining Drilling Rigs"
  },
  {
   "slug": "how-rotary-drill-rigs-work",
@@ -4402,7 +4410,8 @@
     "tag": "P",
     "text": "At KLR Universal, we have been serving the industry for decades, delivering innovative solutions tailored to the unique requirements of every project. Our advanced technologies are backed by a strong focus on safety and sustainability, ensuring reliable performance and consistent results across our drilling tools and equipment."
    }
-  ]
+  ],
+  "shortTitle": "Tractor-Mounted Drilling Rigs"
  },
  {
   "slug": "what-is-water-well-drilling-machine",
@@ -4723,7 +4732,8 @@
     "tag": "P",
     "text": "For beginners exploring options, consulting an experienced partner like KLR Universal can help match the right borewell drilling machine or water well drilling rig to specific project needs, ensuring reliable results for years to come."
    }
-  ]
+  ],
+  "shortTitle": "What Is a Water Well Drilling Machine?"
  },
  {
   "slug": "role-of-drilling-tools-in-mining-construction",
@@ -5305,7 +5315,8 @@
     "tag": "P",
     "text": "Both configurations are built for quarrying, mining and construction site drilling — anywhere a site already runs excavators and wants to add drilling capability without a dedicated rig. See the full [surface mining and quarrying range](/product-category/surface-mining) for the rest of KLR Universal's lineup in this category."
    }
-  ]
+  ],
+  "shortTitle": "Excavator-Mounted Drilling Rigs"
  },
  {
   "slug": "rock-drill-bits-guide",
@@ -5358,7 +5369,8 @@
     "tag": "P",
     "text": "The short version: match the bit family to the drilling method already in use (DTH hammer → DTH bit, rotary rig → tricone/drag/claw), then match the carbide spec to the actual rock being drilled. Getting this match right affects penetration rate and bit life far more than price alone."
    }
-  ]
+  ],
+  "shortTitle": "Rock Drill Bits Guide"
  },
  {
   "slug": "types-of-drilling-in-mining",
@@ -5419,7 +5431,8 @@
     "tag": "P",
     "text": "Early-stage exploration often favours RC drilling for speed and cost across a wide area; once a deposit looks real, core or diamond drilling gives the detailed rock samples needed to model it properly. Infill drilling can use either, depending on the confidence level a project needs. See [KLR Universal's exploration drill rigs](/product-category/exploration) for the core drilling range this guide covers."
    }
-  ]
+  ],
+  "shortTitle": "Types of Drilling in Mining"
  },
  {
   "slug": "what-is-a-quarry",
@@ -5472,6 +5485,7 @@
     "tag": "P",
     "text": "Harder, more abrasive rock generally favours DTH, since the hammer strikes the rock directly at the bit for straighter, faster holes. Softer benching work suits top hammer, where the percussive mechanism sits above the rock. Rock hardness at the specific site matters more than whether it's technically a quarry or a mine. See the full [surface mining and quarrying range](/product-category/surface-mining) for the rest of KLR Universal's lineup in this category."
    }
-  ]
+  ],
+  "shortTitle": "What Is a Quarry?"
  }
 ]

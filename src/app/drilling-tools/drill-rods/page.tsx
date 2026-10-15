@@ -17,6 +17,7 @@ export const metadata: Metadata = {
     description: "Friction welded, induction hardened drill rods from KLR Universal — 2-7/8″ (73 mm) to 13-3/8″ (340 mm), made in-house with a dedicated Heat Treatment Division.",
     url: "/drilling-tools/drill-rods",
     type: "website",
+    images: ["/sites/klruniversal-com-3601ad32/about-us-57424c1f/images/hero-banner-collage.png"],
   },
 };
 
