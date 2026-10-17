@@ -16,9 +16,12 @@ const AI_CRAWLERS = [
   "ChatGPT-User", // ChatGPT browsing on a user's behalf
   "OAI-SearchBot", // OpenAI search
   "ClaudeBot",
+  "Claude-User", // Claude browsing/agent actions on a user's behalf
+  "Claude-SearchBot", // Claude search indexing
   "anthropic-ai",
   "Claude-Web",
   "PerplexityBot",
+  "Perplexity-User", // Perplexity browsing on a user's behalf
   "Google-Extended", // Gemini and AI Overviews
   "Applebot-Extended",
   "Bingbot", // powers Copilot
