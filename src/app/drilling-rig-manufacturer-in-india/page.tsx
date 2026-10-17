@@ -97,7 +97,7 @@ export default function DrillingRigManufacturerIndiaPage() {
           url: `${SITE_URL}${PATH}`,
           description: DESCRIPTION,
           inLanguage: "en",
-          isPartOf: { "@type": "WebSite", "@id": SITE_URL },
+          isPartOf: { "@type": "WebSite", "@id": HOME_URL },
           about: { "@id": `${SITE_URL}/#organization` },
           publisher: { "@id": `${SITE_URL}/#organization` },
         }}
