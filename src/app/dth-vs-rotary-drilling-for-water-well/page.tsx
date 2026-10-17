@@ -25,6 +25,18 @@ export default function DthVsRotaryStandalonePage() {
   const post = getBlogPost(SLUG);
   if (!post) notFound();
 
+  // Same guard as blog/[slug]: post.date is a human string ("May 26, 2026"),
+  // parsed to ISO. Without dateModified an AI engine has no freshness signal
+  // and may rank this comparison page as stale against ones that carry it --
+  // this page answers a direct, frequently-asked comparison query.
+  const published = new Date(post.date);
+  const dateFields = Number.isNaN(published.getTime())
+    ? {}
+    : {
+        datePublished: published.toISOString().slice(0, 10),
+        dateModified: published.toISOString().slice(0, 10),
+      };
+
   return (
     <>
       <JsonLd data={{
@@ -37,6 +49,7 @@ export default function DthVsRotaryStandalonePage() {
           "@id": "https://klruniversal.com/dth-vs-rotary-drilling-for-water-well",
         },
         "inLanguage": "en",
+        ...dateFields,
         "author": { "@id": "https://klruniversal.com/#organization" },
         "publisher": { "@id": "https://klruniversal.com/#organization" },
       }} />

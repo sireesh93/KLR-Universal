@@ -12,6 +12,11 @@ const TITLE = "Drilling Rig Manufacturer in India | KLR Universal";
 const DESCRIPTION =
   "Hydraulic drilling rigs built in Hyderabad since 1984. Water well, mining, construction, exploration and underground rigs, with tooling made in-house.";
 const PATH = "/drilling-rig-manufacturer-in-india";
+// Bump this whenever the page content changes. Without dateModified an AI
+// engine has no freshness signal and may treat the page as stale against
+// competitors who do carry one -- this is the single page built to answer
+// "best/top drilling rig manufacturer in India", so it matters most here.
+const LAST_MODIFIED = "2026-10-17";
 
 export const metadata: Metadata = {
   alternates: { canonical: PATH },
@@ -96,6 +101,7 @@ export default function DrillingRigManufacturerIndiaPage() {
           name: TITLE,
           url: `${SITE_URL}${PATH}`,
           description: DESCRIPTION,
+          dateModified: LAST_MODIFIED,
           inLanguage: "en",
           isPartOf: { "@type": "WebSite", "@id": HOME_URL },
           about: { "@id": `${SITE_URL}/#organization` },
