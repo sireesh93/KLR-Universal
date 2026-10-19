@@ -7,3 +7,11 @@
 # Batch files must always use CRLF
 *.bat text eol=crlf
 *.cmd text eol=crlf
+
+# QA/design-review screenshots and research notes: not served at runtime,
+# never referenced by app code, and were bloating every Hostinger deploy
+# archive by ~19MB (30% of the tracked repo) -- slow enough on this host's
+# upload link to blow the TUS session window and 404 mid-transfer.
+docs/design-references export-ignore
+research_notes export-ignore
+reports export-ignore
