@@ -4,7 +4,10 @@ import { FloatingEnquireTab } from "@/components/sites/klruniversal-com-3601ad32
 import { CookieBanner } from "@/components/sites/klruniversal-com-3601ad32/shared/CookieBanner";
 import { GoogleTranslate } from "@/components/sites/klruniversal-com-3601ad32/shared/GoogleTranslate";
 import { HOME_URL, SITE_URL } from "@/lib/site";
+import { buildCsp } from "@/lib/csp.mjs";
 import "./globals.css";
+
+const META_CSP = buildCsp({ forMeta: true });
 
 const saira = Saira({
   variable: "--font-saira",
@@ -89,11 +92,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         {/* Hostinger's edge replaces our Content-Security-Policy header with a
             single directive, so the policy is restored here where it cannot be
             stripped. frame-ancestors is header-only and is therefore absent;
-            X-Frame-Options: SAMEORIGIN already covers framing. */}
-        <meta
-          httpEquiv="Content-Security-Policy"
-          content="default-src 'self'; script-src 'self' 'unsafe-inline' https://translate.google.com https://translate.googleapis.com https://translate-pa.googleapis.com https://www.gstatic.com https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://www.gstatic.com https://fonts.googleapis.com; img-src 'self' data: blob: https://www.google.com https://translate.google.com https://translate.googleapis.com https://translate-pa.googleapis.com https://www.gstatic.com https://fonts.gstatic.com https://www.googletagmanager.com https://www.google-analytics.com https://*.google-analytics.com; font-src 'self' data: https://fonts.gstatic.com; frame-src 'self' https://www.google.com https://translate.google.com https://www.googletagmanager.com; connect-src 'self' https://translate.googleapis.com https://translate-pa.googleapis.com https://www.googletagmanager.com https://www.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com https://stats.g.doubleclick.net; object-src 'none'; base-uri 'self'; form-action 'self'"
-        />
+            X-Frame-Options: SAMEORIGIN already covers framing. Sourced from
+            src/lib/csp.mjs -- do not hand-edit this string, it drifted out of
+            sync with the header once already and silently kept origins
+            blocked that the header had already allowed. */}
+        <meta httpEquiv="Content-Security-Policy" content={META_CSP} />
       </head>
       <body className="min-h-full flex flex-col">
         {/* GTM's no-JavaScript fallback, required to sit immediately after the
