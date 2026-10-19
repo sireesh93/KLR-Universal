@@ -6,10 +6,10 @@ import { JsonLd } from "@/components/sites/klruniversal-com-3601ad32/shared/Json
 
 export const metadata: Metadata = {
   alternates: { canonical: "/blog" },
-  title: "Blog | KLR Universal",
+  title: "Blog | KLR Universal Drilling Resources",
   description: "News, innovations, and expert resources from KLR Universal — technical articles on drilling rig selection, DTH and rotary drilling, and equipment maintenance.",
   openGraph: {
-    title: "Blog | KLR Universal",
+    title: "Blog | KLR Universal Drilling Resources",
     description: "News, innovations, and expert resources from KLR Universal — technical articles on drilling rig selection, DTH and rotary drilling, and equipment maintenance.",
     url: "/blog",
     type: "website",

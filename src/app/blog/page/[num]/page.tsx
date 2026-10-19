@@ -15,7 +15,7 @@ export async function generateMetadata({
   params: Promise<{ num: string }>;
 }): Promise<Metadata> {
   const { num } = await params;
-  const title = `Blog — Page ${num} | KLR Universal`;
+  const title = `Blog — Page ${num} of Drilling Articles | KLR`;
   const description = `Page ${num} of technical articles from KLR Universal on drilling rig selection, DTH and rotary drilling methods, exploration drilling and equipment maintenance.`;
   return {
     title,

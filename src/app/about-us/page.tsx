@@ -17,11 +17,11 @@ const ABOUT_JSON_LD = {
 
 export const metadata: Metadata = {
   alternates: { canonical: "/about-us" },
-  title: "About Us | KLR Universal",
+  title: "About KLR Universal | Drilling Rig Manufacturer",
   description:
     "From humble beginnings as Hyderabad's first drill tools manufacturer to a globally recognised name in drilling technologies — the KLR Universal story.",
   openGraph: {
-    title: "About Us | KLR Universal",
+    title: "About KLR Universal | Drilling Rig Manufacturer",
     description: "From humble beginnings as Hyderabad's first drill tools manufacturer to a globally recognised name in drilling technologies — the KLR Universal story.",
     url: "/about-us",
     type: "website",
