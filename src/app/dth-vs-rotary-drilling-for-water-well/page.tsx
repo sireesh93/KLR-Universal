@@ -12,10 +12,10 @@ export const metadata: Metadata = {
   alternates: { canonical: "/dth-vs-rotary-drilling-for-water-well" },
   title: "DTH vs Rotary Drilling for Water Wells | KLR Universal",
   description:
-    "How DTH and rotary drilling compare for water well work — penetration rate, formation suitability, hole quality and running cost — and how to choose between them.",
+    "How DTH and rotary drilling compare for water wells — penetration rate, formation suitability, hole quality and running cost — and how to choose between them.",
   openGraph: {
     title: "DTH vs Rotary Drilling for Water Wells | KLR Universal",
-    description: "How DTH and rotary drilling compare for water well work — penetration rate, formation suitability, hole quality and running cost — and how to choose between them.",
+    description: "How DTH and rotary drilling compare for water wells — penetration rate, formation suitability, hole quality and running cost — and how to choose between them.",
     url: "/dth-vs-rotary-drilling-for-water-well",
     type: "website",
   },

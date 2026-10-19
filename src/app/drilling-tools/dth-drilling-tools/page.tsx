@@ -9,10 +9,10 @@ export const metadata: Metadata = {
   alternates: { canonical: "/drilling-tools/dth-drilling-tools" },
   title: "DTH Drilling Tools | KLR Universal",
   description:
-    "Down The Hole drilling tools from KLR Universal — DTH hammers, button bits and accessories manufactured in-house for water well, mining and quarrying applications.",
+    "Down The Hole drilling tools from KLR Universal — DTH hammers, button bits and accessories manufactured in-house for water well and mining applications.",
   openGraph: {
     title: "DTH Drilling Tools | KLR Universal",
-    description: "Down The Hole drilling tools from KLR Universal — DTH hammers, button bits and accessories manufactured in-house for water well, mining and quarrying applications.",
+    description: "Down The Hole drilling tools from KLR Universal — DTH hammers, button bits and accessories manufactured in-house for water well and mining applications.",
     url: "/drilling-tools/dth-drilling-tools",
     type: "website",
     images: ["/sites/klruniversal-com-3601ad32/drilling-tools-dth-drilling-tools-bfd58456/images/hero.jpg"],
