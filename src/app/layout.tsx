@@ -3,6 +3,7 @@ import { Saira } from "next/font/google";
 import { FloatingEnquireTab } from "@/components/sites/klruniversal-com-3601ad32/shared/FloatingEnquireTab";
 import { CookieBanner } from "@/components/sites/klruniversal-com-3601ad32/shared/CookieBanner";
 import { GoogleTranslate } from "@/components/sites/klruniversal-com-3601ad32/shared/GoogleTranslate";
+import { ChatWidget } from "@/components/sites/klruniversal-com-3601ad32/shared/ChatWidget";
 import { HOME_URL, SITE_URL } from "@/lib/site";
 import { buildCsp } from "@/lib/csp.mjs";
 import "./globals.css";
@@ -116,6 +117,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <FloatingEnquireTab />
         <GoogleTranslate />
         <CookieBanner />
+        <ChatWidget />
       </body>
     </html>
   );
