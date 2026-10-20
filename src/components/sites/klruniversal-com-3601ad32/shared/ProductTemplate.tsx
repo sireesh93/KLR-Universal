@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
 import { CtaButton } from "./CtaButton";
+import { FaqAccordion } from "../contact-and-support-0e2de176/FaqAccordion";
 import { HOME_URL, SITE_URL } from "@/lib/site";
 
 export type Product = {
@@ -44,6 +45,42 @@ export function ProductTemplate({
     ],
   };
 
+  // Every answer is sourced from data already rendered on this page --
+  // quickSpecs, categoryLabel, WHY_US -- so the FAQPage markup can never
+  // drift from what a visitor actually sees, and never states a per-model
+  // number (power source, customization) that isn't true industry-wide.
+  const specsLine = product.quickSpecs.map((s) => `${s.label}: ${s.value}`).join("; ");
+  const faqs = [
+    {
+      q: `What are the key specifications of the ${product.title}?`,
+      a: specsLine
+        ? `${specsLine}. Full specifications are listed in the table below.`
+        : `Full specifications for the ${product.title} are listed in the table below.`,
+    },
+    {
+      q: `What category of drilling rig is the ${product.title}?`,
+      a: `The ${product.title} is part of KLR Universal's ${product.categoryLabel} range.`,
+    },
+    {
+      q: `Can the ${product.title} be customized for specific project requirements?`,
+      a: `Yes. KLR Universal builds custom drilling equipment to meet application-specific requirements -- contact our team to discuss configuration for your project.`,
+    },
+    {
+      q: `Does KLR Universal provide after-sales support for the ${product.title}?`,
+      a: `Yes. KLR Universal backs every rig with dedicated after-sales support, drawing on 40+ years of manufacturing experience and a presence in 60+ countries.`,
+    },
+  ];
+
+  const faqJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((item) => ({
+      "@type": "Question",
+      name: item.q,
+      acceptedAnswer: { "@type": "Answer", text: item.a },
+    })),
+  };
+
   const productJsonLd = {
     "@context": "https://schema.org",
     "@type": "Product",
@@ -83,6 +120,12 @@ export function ProductTemplate({
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(breadcrumbJsonLd).replace(/</g, "\\u003c"),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(faqJsonLd).replace(/</g, "\\u003c"),
         }}
       />
       {/* Breadcrumb */}
@@ -194,6 +237,18 @@ export function ProductTemplate({
               </table>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* FAQ: visible accordion matching the FAQPage schema above verbatim --
+          schema with no matching on-page content is what gets FAQ rich
+          results rejected or ignored. */}
+      <section className="bg-white py-16">
+        <div className="mx-auto max-w-[800px] px-4 md:px-8">
+          <h2 className="text-3xl font-medium leading-tight md:text-4xl">
+            Frequently Asked Questions
+          </h2>
+          <FaqAccordion items={faqs} />
         </div>
       </section>
 

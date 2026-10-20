@@ -60,4 +60,11 @@ export const LEGACY_REDIRECTS = [
   ["/contact-us.asp", "/contact-and-support"],
   ["/demo-web-form", "/contact-and-support"],
   ["/contact-and-support/feed", "/contact-and-support"],
+
+  // Comparison posts promoted from /blog/<slug> to a clean root URL, same
+  // treatment already given to dth-vs-rotary-drilling-for-water-well.
+  // generateStaticParams excludes standaloneUrl posts from /blog/[slug], so
+  // without this the old indexed URL 404s instead of landing on the new one.
+  ["/blog/rotary-vs-dth-drilling-hard-rock", "/rotary-vs-dth-drilling-hard-rock"],
+  ["/blog/dth-vs-top-hammer-drilling-guide", "/dth-vs-top-hammer-drilling-guide"],
 ];

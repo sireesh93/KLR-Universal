@@ -207,7 +207,7 @@
  },
  {
   "slug": "rotary-vs-dth-drilling-hard-rock",
-  "standaloneUrl": false,
+  "standaloneUrl": true,
   "title": "Rotary vs DTH Drilling: Which Method Is Best for Hard Rock Conditions?",
   "shortTitle": "Rotary vs DTH Drilling for Hard Rock",
   "date": "May 20, 2026",
@@ -2596,7 +2596,7 @@
  },
  {
   "slug": "dth-vs-top-hammer-drilling-guide",
-  "standaloneUrl": false,
+  "standaloneUrl": true,
   "title": "DTH Drilling vs Top Hammer Drilling: Key Differences Explained",
   "date": "April 20, 2026",
   "heroImage": "/sites/klruniversal-com-3601ad32/blog-posts/dth-vs-top-hammer-drilling-guide/hero.jpg",

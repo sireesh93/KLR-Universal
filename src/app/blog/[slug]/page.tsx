@@ -4,6 +4,7 @@ import { Header } from "@/components/sites/klruniversal-com-3601ad32/shared/Head
 import { Footer } from "@/components/sites/klruniversal-com-3601ad32/shared/Footer";
 import { BlogPostTemplate } from "@/components/sites/klruniversal-com-3601ad32/shared/BlogPostTemplate";
 import { blogPosts, getBlogPost, getRelatedPosts } from "@/content/klruniversal-com-3601ad32/blog-posts";
+import { HOWTO_STEPS } from "@/content/klruniversal-com-3601ad32/howto-steps";
 import { HOME_URL, SITE_URL } from "@/lib/site";
 
 export function generateStaticParams() {
@@ -108,6 +109,19 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
     },
   };
 
+  const howTo = HOWTO_STEPS[post.slug];
+  const howToJsonLd = howTo && {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    name: howTo.name,
+    description: howTo.description,
+    step: howTo.steps.map((s) => ({
+      "@type": "HowToStep",
+      name: s.name,
+      text: s.text,
+    })),
+  };
+
   return (
     <>
       <script
@@ -116,6 +130,14 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           __html: JSON.stringify(blogPostingJsonLd).replace(/</g, "\\u003c"),
         }}
       />
+      {howToJsonLd && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(howToJsonLd).replace(/</g, "\\u003c"),
+          }}
+        />
+      )}
       <Header />
       <main className="flex-1">
         <BlogPostTemplate post={post} related={getRelatedPosts(post.slug)} />

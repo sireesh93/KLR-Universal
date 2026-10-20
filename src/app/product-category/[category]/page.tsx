@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Header } from "@/components/sites/klruniversal-com-3601ad32/shared/Header";
 import { Footer } from "@/components/sites/klruniversal-com-3601ad32/shared/Footer";
 import { ProductCategoryListing } from "@/components/sites/klruniversal-com-3601ad32/shared/ProductCategoryListing";
+import { FaqAccordion } from "@/components/sites/klruniversal-com-3601ad32/contact-and-support-0e2de176/FaqAccordion";
 import { products } from "@/content/klruniversal-com-3601ad32/products";
 import { CATEGORY_DESCRIPTIONS } from "@/content/klruniversal-com-3601ad32/category-descriptions";
 import { HOME_URL, SITE_URL } from "@/lib/site";
@@ -62,6 +63,37 @@ export default async function ProductCategoryPage({
     ],
   };
 
+  // Sourced from the same product array and category label already on the
+  // page, plus the real depth/diameter spread used in CATEGORY_DESCRIPTIONS
+  // -- no per-model number invented here, only the count and name the page
+  // already states.
+  const categoryLabel = categoryProducts[0].categoryLabel;
+  const modelNames = categoryProducts.map((p) => p.title).join(", ");
+  const faqs = [
+    {
+      q: `How many ${categoryLabel} models does KLR Universal offer?`,
+      a: `KLR Universal offers ${categoryProducts.length} models in the ${categoryLabel} range: ${modelNames}.`,
+    },
+    {
+      q: `Are KLR Universal's ${categoryLabel} built in-house?`,
+      a: `Yes. Every rig is built in-house at KLR Universal's Hyderabad facility, operating since 1984, including its own Heat Treatment Division for the drill rods and hammer components.`,
+    },
+    {
+      q: `Can KLR Universal customize a ${categoryLabel} rig for my project?`,
+      a: `Yes. KLR Universal builds custom drilling equipment to meet application-specific requirements -- contact our team to discuss your project.`,
+    },
+  ];
+
+  const faqJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((item) => ({
+      "@type": "Question",
+      name: item.q,
+      acceptedAnswer: { "@type": "Answer", text: item.a },
+    })),
+  };
+
   const itemListJsonLd = {
     "@context": "https://schema.org",
     "@type": "ItemList",
@@ -89,13 +121,28 @@ export default async function ProductCategoryPage({
           __html: JSON.stringify(breadcrumbJsonLd).replace(/</g, "\\u003c"),
         }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(faqJsonLd).replace(/</g, "\\u003c"),
+        }}
+      />
       <Header />
       <main className="flex-1">
         <ProductCategoryListing
-          categoryLabel={categoryProducts[0].categoryLabel}
+          categoryLabel={categoryLabel}
           description={CATEGORY_DESCRIPTIONS[category]}
           products={categoryProducts}
         />
+        {/* Visible accordion matching the FAQPage schema above verbatim. */}
+        <section className="bg-klr-offwhite py-16">
+          <div className="mx-auto max-w-[800px] px-4 md:px-8">
+            <h2 className="text-3xl font-medium leading-tight md:text-4xl">
+              Frequently Asked Questions
+            </h2>
+            <FaqAccordion items={faqs} />
+          </div>
+        </section>
       </main>
       <Footer />
     </>
