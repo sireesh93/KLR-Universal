@@ -109,6 +109,15 @@ export function ChatWidget() {
   const launcherRef = useRef<HTMLButtonElement>(null);
   const titleId = useId();
 
+  // Open on arrival so a visitor doesn't have to notice the launcher. This
+  // fires once per full page load -- the widget lives in the root layout,
+  // which the App Router keeps mounted across client-side navigation, so it
+  // won't re-trigger just from clicking between pages.
+  useEffect(() => {
+    const timer = setTimeout(() => setOpen(true), 1200);
+    return () => clearTimeout(timer);
+  }, []);
+
   useEffect(() => {
     if (open && messages.length === 0) {
       addBot(
@@ -496,7 +505,7 @@ export function ChatWidget() {
         onClick={() => setOpen((v) => !v)}
         aria-expanded={open}
         aria-label={open ? "Close chat assistant" : "Open chat assistant"}
-        className="flex size-14 items-center justify-center rounded-full bg-klr-red text-white shadow-lg transition-transform duration-200 hover:scale-105 hover:bg-klr-red-dark active:scale-95"
+        className="flex size-14 items-center justify-center rounded-full bg-klr-red text-white shadow-lg ring-2 ring-white transition-transform duration-200 hover:scale-105 hover:bg-klr-red-dark active:scale-95"
       >
         {open ? <X className="size-6" aria-hidden="true" /> : <MessageCircle className="size-6" aria-hidden="true" />}
       </button>
