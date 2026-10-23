@@ -51,9 +51,6 @@ const DRILLING_RIGS: CategoryPanel[] = [
       { name: "THA-20|30", href: "/drilling-rigs/surface-mining/tha-20-30", thumb: `${THUMB_BASE}/tha-20-30.png` },
       { name: "ITD 10", href: "/drilling-rigs/surface-mining/itd-10", thumb: `${THUMB_BASE}/itd-10.png` },
       { name: "HD 100", href: "/drilling-rigs/surface-mining/hd-100", thumb: `${THUMB_BASE}/hd-100.png` },
-      { name: "TS 590 — 30 | 40 | 50 (D / E)", href: "/drilling-rigs/surface-mining/ts-590-30-40-50-d-e", thumb: `${THUMB_BASE}/ts-590-30-40-50-d-e.png` },
-      { name: "TS 911 — 70 | 80 (D / E)", href: "/drilling-rigs/surface-mining/ts-911-70-80-d-e", thumb: `${THUMB_BASE}/ts-911-70-80-d-e.png` },
-      { name: "TS 911 – 75 SP", href: "/drilling-rigs/surface-mining/ts-911-75-sp", thumb: `${THUMB_BASE}/ts-911-75-sp.png` },
     ],
   },
   {
