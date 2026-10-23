@@ -68,6 +68,21 @@ gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personali
 try{if(localStorage.getItem('klr-cookie-consent')==='accepted'){gtag('consent','update',{ad_storage:'granted',ad_user_data:'granted',ad_personalization:'granted',analytics_storage:'granted'});}}catch(e){}`,
           }}
         />
+        {/* Google Ads tag (AW-18455594051). Placed after the consent-default
+            block above, not literally first in <head>, so it inherits the
+            denied-until-accepted gating instead of firing before consent
+            exists -- same reasoning as the GTM container below. gtag.js is
+            async; dataLayer already exists by the time it loads, so command
+            order here is safe. www.googletagmanager.com is already allowed
+            in script-src for GTM; no CSP change needed. */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18455594051" />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+gtag('js',new Date());
+gtag('config','AW-18455594051');`,
+          }}
+        />
         {/* Google Tag Manager, as high in <head> as the framework allows, so
             the container is loading before anything else competes for it.
             Inline scripts are not hoisted by React the way src scripts are, so
