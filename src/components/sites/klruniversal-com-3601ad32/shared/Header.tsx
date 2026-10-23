@@ -38,6 +38,11 @@ const DRILLING_RIGS: CategoryPanel[] = [
       { name: "DTHR-600", href: "/drilling-rigs/water-well/dthr-600", thumb: `${THUMB_BASE}/dthr-600.png` },
       { name: "DTHR-750", href: "/drilling-rigs/water-well/dthr-750", thumb: `${THUMB_BASE}/dthr-750.png` },
       { name: "TBW-40", href: "/drilling-rigs/water-well/tbw-40", thumb: `${THUMB_BASE}/tbw-40.png` },
+      { name: "DTH-1500", href: "/drilling-rigs/water-well/dth-1500", thumb: `${THUMB_BASE}/dth-1500.png` },
+      { name: "DTH-1500 Double Truck", href: "/drilling-rigs/water-well/dth-1500-double-truck", thumb: `${THUMB_BASE}/dth-1500-double-truck.png` },
+      { name: "DTH-2500", href: "/drilling-rigs/water-well/dth-2500", thumb: `${THUMB_BASE}/dth-2500.png` },
+      { name: "DTHR-100", href: "/drilling-rigs/water-well/dthr-100", thumb: `${THUMB_BASE}/dthr-100.png` },
+      { name: "KPR (Large Diameter)", href: "/drilling-rigs/water-well/kpr-water-well", thumb: `${THUMB_BASE}/kpr-water-well.png` },
     ],
   },
   {
@@ -51,6 +56,9 @@ const DRILLING_RIGS: CategoryPanel[] = [
       { name: "THA-20|30", href: "/drilling-rigs/surface-mining/tha-20-30", thumb: `${THUMB_BASE}/tha-20-30.png` },
       { name: "ITD 10", href: "/drilling-rigs/surface-mining/itd-10", thumb: `${THUMB_BASE}/itd-10.png` },
       { name: "HD 100", href: "/drilling-rigs/surface-mining/hd-100", thumb: `${THUMB_BASE}/hd-100.png` },
+      { name: "ITD 46", href: "/drilling-rigs/surface-mining/itd-46", thumb: `${THUMB_BASE}/itd-46.png` },
+      { name: "TB 4 (TH)", href: "/drilling-rigs/surface-mining/tb-4-th", thumb: `${THUMB_BASE}/tb-4-th.png` },
+      { name: "EA 20|30 (TH)", href: "/drilling-rigs/surface-mining/ea-20-30-th", thumb: `${THUMB_BASE}/ea-20-30-th.png` },
     ],
   },
   {
@@ -62,6 +70,7 @@ const DRILLING_RIGS: CategoryPanel[] = [
       { name: "CP 20", href: "/drilling-rigs/construction/cp-20", thumb: `${THUMB_BASE}/cp-20.png` },
       { name: "TP30", href: "/drilling-rigs/construction/tp-30", thumb: `${THUMB_BASE}/tp-30.png` },
       { name: "KPR", href: "/drilling-rigs/construction/kpr", thumb: `${THUMB_BASE}/kpr.png` },
+      { name: "PD 1200", href: "/drilling-rigs/construction/pd-1200", thumb: `${THUMB_BASE}/pd-1200.png` },
     ],
   },
   {
@@ -74,6 +83,11 @@ const DRILLING_RIGS: CategoryPanel[] = [
       { name: "CDR 500", href: "/drilling-rigs/exploration/core-drill-rig-500", thumb: `${THUMB_BASE}/core-drill-rig-500.png` },
       { name: "CDR 750", href: "/drilling-rigs/exploration/core-drill-rig-750", thumb: `${THUMB_BASE}/core-drill-rig-750.png` },
       { name: "TMC 40", href: "/drilling-rigs/exploration/tmc", thumb: `${THUMB_BASE}/tmc.png` },
+      { name: "TC 40", href: "/drilling-rigs/exploration/tc-40", thumb: `${THUMB_BASE}/tc-40.png` },
+      { name: "CDR-50", href: "/drilling-rigs/exploration/cdr-50", thumb: `${THUMB_BASE}/cdr-50.png` },
+      { name: "CDR-300", href: "/drilling-rigs/exploration/cdr-300", thumb: `${THUMB_BASE}/cdr-300.png` },
+      { name: "CDR-1000", href: "/drilling-rigs/exploration/cdr-1000", thumb: `${THUMB_BASE}/cdr-1000.png` },
+      { name: "CDR-2000", href: "/drilling-rigs/exploration/cdr-2000", thumb: `${THUMB_BASE}/cdr-2000.png` },
     ],
   },
   {

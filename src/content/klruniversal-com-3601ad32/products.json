@@ -1038,5 +1038,773 @@
         "value": "Atlas Copco / ELGI / as per request — Capacity: 450–600 cfm @ 150–250 psi"
       }
     ]
+  },
+  {
+    "slug": "dth-1500",
+    "category": "water-well",
+    "categoryLabel": "Water Well Drill Rigs",
+    "title": "DTH-1500",
+    "seriesTag": "Water Well DTH Series",
+    "heroImage": "/sites/klruniversal-com-3601ad32/products/dth-1500/hero.png",
+    "quickSpecs": [
+      {
+        "label": "Hole Diameter",
+        "value": "6.5″–12″"
+      },
+      {
+        "label": "Depth",
+        "value": "1500 ft"
+      }
+    ],
+    "bandSubtitle": "Water Well DTH Series",
+    "bandHeading": "Truck-mounted DTH rig built for domestic water well programmes, pairing a high-torque rotary head with a heavy-duty mast for reliable deep-well drilling.",
+    "specRows": [
+      {
+        "param": "Hole diameter",
+        "value": "6.5″, 9″, 10″, 12″ (165.1, 229, 254, 305 mm)"
+      },
+      {
+        "param": "Depth",
+        "value": "1500 feet"
+      },
+      {
+        "param": "Rotary head speed",
+        "value": "0–170 rpm"
+      },
+      {
+        "param": "Rotary head torque",
+        "value": "280 kg·m"
+      },
+      {
+        "param": "Air compressor capacity",
+        "value": "1200 cfm @ 320 psi / 1100 cfm @ 300 psi (34 m³/min @ 22.1 bar / 31.1 m³/min @ 20.7 bar)"
+      },
+      {
+        "param": "Mast max pull up / pull down force",
+        "value": "34,171 lbs (15,500 kgs) / 16,534 lbs (7,500 kgs)"
+      },
+      {
+        "param": "Prime mover",
+        "value": "Truck engine"
+      }
+    ]
+  },
+  {
+    "slug": "dth-1500-double-truck",
+    "category": "water-well",
+    "categoryLabel": "Water Well Drill Rigs",
+    "title": "DTH-1500 Double Truck",
+    "seriesTag": "Water Well DTH Series",
+    "heroImage": "/sites/klruniversal-com-3601ad32/products/dth-1500-double-truck/hero.png",
+    "quickSpecs": [
+      {
+        "label": "Hole Diameter",
+        "value": "6.5″–12″"
+      },
+      {
+        "label": "Depth",
+        "value": "1500 ft"
+      }
+    ],
+    "bandSubtitle": "Water Well DTH Series",
+    "bandHeading": "The DTH-1500 drilling package split across two carrier trucks -- rig and compressor on separate chassis -- for operators who need the same depth capacity with a lighter per-axle load.",
+    "specRows": [
+      {
+        "param": "Hole diameter",
+        "value": "6.5″, 9″, 10″, 12″ (165.1, 229, 254, 305 mm)"
+      },
+      {
+        "param": "Depth",
+        "value": "1500 feet"
+      },
+      {
+        "param": "Rotary head speed",
+        "value": "0–170 rpm"
+      },
+      {
+        "param": "Rotary head torque",
+        "value": "280 kg·m"
+      },
+      {
+        "param": "Air compressor capacity",
+        "value": "1200 cfm @ 320 psi / 1100 cfm @ 300 psi (34 m³/min @ 22.1 bar / 31.1 m³/min @ 20.7 bar)"
+      },
+      {
+        "param": "Mast max pull up / pull down force",
+        "value": "34,171 lbs (15,500 kgs) / 16,534 lbs (7,500 kgs)"
+      },
+      {
+        "param": "Prime mover",
+        "value": "Truck engine"
+      },
+      {
+        "param": "Mounting",
+        "value": "Double-truck: rig and compressor on separate carrier trucks"
+      }
+    ]
+  },
+  {
+    "slug": "dth-2500",
+    "category": "water-well",
+    "categoryLabel": "Water Well Drill Rigs",
+    "title": "DTH-2500",
+    "seriesTag": "Water Well DTH Series",
+    "heroImage": "/sites/klruniversal-com-3601ad32/products/dth-2500/hero.png",
+    "quickSpecs": [
+      {
+        "label": "Hole Diameter",
+        "value": "6.5″–12″"
+      },
+      {
+        "label": "Depth",
+        "value": "2500 ft"
+      }
+    ],
+    "bandSubtitle": "Water Well DTH Series",
+    "bandHeading": "The largest rig in the domestic DTH line, built for the deepest, highest-yield water well programmes with the torque and compressor capacity to match.",
+    "specRows": [
+      {
+        "param": "Hole diameter",
+        "value": "6.5″, 9″, 10″, 12″ (165.1, 229, 254, 305 mm)"
+      },
+      {
+        "param": "Depth",
+        "value": "2500 feet"
+      },
+      {
+        "param": "Rotary head speed",
+        "value": "0–170 rpm"
+      },
+      {
+        "param": "Rotary head torque",
+        "value": "500 kg·m"
+      },
+      {
+        "param": "Air compressor capacity",
+        "value": "1200 cfm @ 320 psi / 1500 cfm @ 400 psi (34 m³/min @ 22.7 bar / 42.5 m³/min @ 27.6 bar)"
+      },
+      {
+        "param": "Mast max pull up / pull down force",
+        "value": "48,410 lbs (22,000 kgs) / 28,660 lbs (13,000 kgs)"
+      },
+      {
+        "param": "Prime mover",
+        "value": "Truck engine"
+      }
+    ]
+  },
+  {
+    "slug": "dthr-100",
+    "category": "water-well",
+    "categoryLabel": "Water Well Drill Rigs",
+    "title": "DTHR-100",
+    "seriesTag": "Water Well DTHR Series",
+    "heroImage": "/sites/klruniversal-com-3601ad32/products/dthr-100/hero.png",
+    "quickSpecs": [
+      {
+        "label": "Hole Diameter",
+        "value": "6.5″–12″"
+      },
+      {
+        "label": "Depth",
+        "value": "100 ft"
+      }
+    ],
+    "bandSubtitle": "Water Well DTHR Series",
+    "bandHeading": "The entry point of the export DTHR line, sized for shallower domestic and agricultural bores while keeping the same truck-mounted DTH architecture as the rest of the series.",
+    "specRows": [
+      {
+        "param": "Hole diameter",
+        "value": "6.5″, 9″, 10″, 12″ (165, 229, 254, 305 mm)"
+      },
+      {
+        "param": "Depth",
+        "value": "100 ft (30 m)"
+      },
+      {
+        "param": "Rotary head speed",
+        "value": "0–170 rpm"
+      },
+      {
+        "param": "Rotary head torque",
+        "value": "300 kg·m / 600 kg·m"
+      },
+      {
+        "param": "Air compressor capacity",
+        "value": "1000 cfm @ 275 psi (28 m³/min @ 19 bar)"
+      },
+      {
+        "param": "Mast max pull up / pull down force",
+        "value": "18,739 lbs (8,500 kgs) / 9,920 lbs (4,500 kgs)"
+      },
+      {
+        "param": "Prime mover",
+        "value": "Truck engine"
+      }
+    ]
+  },
+  {
+    "slug": "tc-40",
+    "category": "exploration",
+    "categoryLabel": "Exploration Drill Rigs",
+    "title": "TC 40",
+    "seriesTag": "Tractor Mounted Core Rig",
+    "heroImage": "/sites/klruniversal-com-3601ad32/products/tc-40/hero.png",
+    "quickSpecs": [
+      {
+        "label": "Core Diameter",
+        "value": "NQ"
+      },
+      {
+        "label": "Depth",
+        "value": "492 ft"
+      }
+    ],
+    "bandSubtitle": "Tractor Mounted Core Rig",
+    "bandHeading": "A tractor-mounted coring rig for shallow, mobile exploration work -- the same compact carrier as the TBW-40 water well rig, built instead for NQ core sampling.",
+    "specRows": [
+      {
+        "param": "Hole diameter",
+        "value": "4.5″ to 6.5″ (114 mm to 165 mm)"
+      },
+      {
+        "param": "Depth",
+        "value": "492 ft (150 m)"
+      },
+      {
+        "param": "Core diameter (NQ)",
+        "value": "492.13 ft (150 m)"
+      },
+      {
+        "param": "Rotary head torque / speed",
+        "value": "0 to 700 rpm / 40 to 120 kg·m"
+      },
+      {
+        "param": "Mast max pull up / pull down force",
+        "value": "9,920 lbs (4,500 kgs) / 5,291 lbs (2,400 kgs)"
+      },
+      {
+        "param": "Air compressor",
+        "value": "600 cfm – 200 psi (17 m³/min – 13.79 bar) / as per customer request"
+      },
+      {
+        "param": "Tractor",
+        "value": "New Holland / Form tractor (as per customer request)"
+      },
+      {
+        "param": "Prime mover",
+        "value": "Tractor engine"
+      }
+    ]
+  },
+  {
+    "slug": "cdr-50",
+    "category": "exploration",
+    "categoryLabel": "Exploration Drill Rigs",
+    "title": "CDR-50",
+    "seriesTag": "Core Drill CDR Series",
+    "heroImage": "/sites/klruniversal-com-3601ad32/products/cdr-50/hero.png",
+    "quickSpecs": [
+      {
+        "label": "Hole Diameter",
+        "value": "3″ (76 mm)"
+      },
+      {
+        "label": "Depth",
+        "value": "164 ft"
+      }
+    ],
+    "bandSubtitle": "Core Drill CDR Series",
+    "bandHeading": "Diamond coring rig in the CDR range, rated to 164 ft with NQ/HQ wireline capability.",
+    "specRows": [
+      {
+        "param": "Hole diameter",
+        "value": "3″ (76 mm)"
+      },
+      {
+        "param": "Main winch",
+        "value": "Single line capacity: 6,614 lbf (3,000 kg) / drum speed: 148 fpm (45 m/min) / cable size: 0.55″ (14 mm)"
+      },
+      {
+        "param": "Wire line winch",
+        "value": "Line pull: 2,205 lbf (1,000 kg) / line speed: 328 fpm (100 m/min)"
+      },
+      {
+        "param": "Rotary head torque / speed",
+        "value": "1000 rpm / 77–309 lbf (30–140 kg·m)"
+      },
+      {
+        "param": "Mast max pull up / pull down force",
+        "value": "11,904 lbs (5,400 kgs) / 5,291 lbs (2,400 kgs)"
+      },
+      {
+        "param": "Capacity NQ / HQ",
+        "value": "164 ft (50 m)"
+      },
+      {
+        "param": "Prime mover",
+        "value": "76 HP"
+      },
+      {
+        "param": "Depth",
+        "value": "164 ft (50 m)"
+      },
+      {
+        "param": "Core diameter",
+        "value": "1.87″ (48 mm)"
+      }
+    ]
+  },
+  {
+    "slug": "cdr-300",
+    "category": "exploration",
+    "categoryLabel": "Exploration Drill Rigs",
+    "title": "CDR-300",
+    "seriesTag": "Core Drill CDR Series",
+    "heroImage": "/sites/klruniversal-com-3601ad32/products/cdr-300/hero.png",
+    "quickSpecs": [
+      {
+        "label": "Hole Diameter",
+        "value": "3″ (76 mm)"
+      },
+      {
+        "label": "Depth",
+        "value": "984 ft"
+      }
+    ],
+    "bandSubtitle": "Core Drill CDR Series",
+    "bandHeading": "Diamond coring rig in the CDR range, rated to 984 ft with NQ/HQ wireline capability.",
+    "specRows": [
+      {
+        "param": "Hole diameter",
+        "value": "3″ (76 mm)"
+      },
+      {
+        "param": "Main winch",
+        "value": "Single line capacity: 11,023 lbf (5,000 kg) / drum speed: 131 fpm (40 m/min) / cable size: 0.63″ (16 mm)"
+      },
+      {
+        "param": "Wire line winch",
+        "value": "Line pull: 2,205 lbf (1,000 kg) / line speed: 328 fpm (100 m/min)"
+      },
+      {
+        "param": "Rotary head torque / speed",
+        "value": "1200 rpm / 882 lbf (400 kg·m)"
+      },
+      {
+        "param": "Mast max pull up / pull down force",
+        "value": "18,739 lbs (8,500 kgs) / 9,920 lbs (4,500 kgs)"
+      },
+      {
+        "param": "Capacity NQ / HQ",
+        "value": "984 ft (300 m) / 656 ft (200 m)"
+      },
+      {
+        "param": "Prime mover",
+        "value": "169 HP"
+      },
+      {
+        "param": "Depth",
+        "value": "984 ft (300 m)"
+      },
+      {
+        "param": "Core diameter",
+        "value": "1.87″ (48 mm)"
+      }
+    ]
+  },
+  {
+    "slug": "cdr-1000",
+    "category": "exploration",
+    "categoryLabel": "Exploration Drill Rigs",
+    "title": "CDR-1000",
+    "seriesTag": "Core Drill CDR Series",
+    "heroImage": "/sites/klruniversal-com-3601ad32/products/cdr-1000/hero.png",
+    "quickSpecs": [
+      {
+        "label": "Hole Diameter",
+        "value": "3″ (76 mm)"
+      },
+      {
+        "label": "Depth",
+        "value": "3,281 ft"
+      }
+    ],
+    "bandSubtitle": "Core Drill CDR Series",
+    "bandHeading": "Diamond coring rig in the CDR range, rated to 3,281 ft with NQ/HQ wireline capability.",
+    "specRows": [
+      {
+        "param": "Hole diameter",
+        "value": "3″ (76 mm)"
+      },
+      {
+        "param": "Main winch",
+        "value": "Single line capacity: 22,046 lbf (10,000 kg) / drum speed: 131 fpm (40 m/min) / cable size: 0.9″ (22 mm)"
+      },
+      {
+        "param": "Wire line winch",
+        "value": "Line pull: 4,409 lbf (2,000 kg) / line speed: 328 fpm (100 m/min)"
+      },
+      {
+        "param": "Rotary head torque / speed",
+        "value": "0–1200 rpm / 155–1,875 lbf (70–850 kg·m)"
+      },
+      {
+        "param": "Mast max pull up / pull down force",
+        "value": "40,001 lbs (18,200 kgs) / 20,001 lbs (9,100 kgs)"
+      },
+      {
+        "param": "Capacity NQ / HQ",
+        "value": "3,281 ft (1000 m) / 2,297 ft (700 m)"
+      },
+      {
+        "param": "Prime mover",
+        "value": "260 HP"
+      },
+      {
+        "param": "Depth",
+        "value": "3,281 ft (1000 m)"
+      },
+      {
+        "param": "Core diameter",
+        "value": "1.87″ (48 mm)"
+      }
+    ]
+  },
+  {
+    "slug": "cdr-2000",
+    "category": "exploration",
+    "categoryLabel": "Exploration Drill Rigs",
+    "title": "CDR-2000",
+    "seriesTag": "Core Drill CDR Series",
+    "heroImage": "/sites/klruniversal-com-3601ad32/products/cdr-2000/hero.png",
+    "quickSpecs": [
+      {
+        "label": "Hole Diameter",
+        "value": "3″ (76 mm)"
+      },
+      {
+        "label": "Depth",
+        "value": "6,561 ft"
+      }
+    ],
+    "bandSubtitle": "Core Drill CDR Series",
+    "bandHeading": "Diamond coring rig in the CDR range, rated to 6,561 ft with NQ/HQ wireline capability.",
+    "specRows": [
+      {
+        "param": "Hole diameter",
+        "value": "3″ (76 mm)"
+      },
+      {
+        "param": "Main winch",
+        "value": "Single line capacity: 33,069 lbs (15,000 kgs) / drum speed: 131 ft/min (40 m/min) / cable size: 1″ (25 mm)"
+      },
+      {
+        "param": "Wire line winch",
+        "value": "Line pull: 4,409 lbf (2,000 kg) / line speed: 394 fpm (120 m/min)"
+      },
+      {
+        "param": "Rotary head torque / speed",
+        "value": "0–1200 rpm / 295–9,835 lbf (40–1350 kg·m)"
+      },
+      {
+        "param": "Mast max pull up / pull down force",
+        "value": "52,910 lbs (24,000 kgs) / 25,353 lbs (11,500 kgs)"
+      },
+      {
+        "param": "Capacity NQ / HQ",
+        "value": "6,561 ft (2000 m) / 3,937 ft (1200 m)"
+      },
+      {
+        "param": "Prime mover",
+        "value": "320 HP"
+      },
+      {
+        "param": "Depth",
+        "value": "6,561 ft (2000 m)"
+      },
+      {
+        "param": "Core diameter",
+        "value": "1.87″ (48 mm)"
+      }
+    ]
+  },
+  {
+    "slug": "itd-46",
+    "category": "surface-mining",
+    "categoryLabel": "Surface Mining & Quarrying Drill Rigs",
+    "title": "ITD 46",
+    "seriesTag": "Surface Blast Hole",
+    "heroImage": "/sites/klruniversal-com-3601ad32/products/itd-46/hero.png",
+    "quickSpecs": [
+      {
+        "label": "Hole Diameter",
+        "value": "4.5″–12″"
+      },
+      {
+        "label": "Depth",
+        "value": "98 ft"
+      }
+    ],
+    "bandSubtitle": "Surface Blast Hole",
+    "bandHeading": "A larger-diameter step up from the ITD 10, built for surface blast hole drilling up to 12″ diameter on a diesel-engine crawler carrier.",
+    "specRows": [
+      {
+        "param": "Hole diameter",
+        "value": "4.5″ (114.3), 6.5″ (165.1 mm), 9″ (228.6 mm), 10″ (254 mm), 12″ (304.8 mm)"
+      },
+      {
+        "param": "Depth",
+        "value": "98.4 ft (30 m)"
+      },
+      {
+        "param": "Rotary head torque / speed",
+        "value": "0 to 100 rpm / 280 kg·m"
+      },
+      {
+        "param": "Mast max pull up / pull down force",
+        "value": "11,905 lbs (5,400 kgs) / 5,512 lbs (2,500 kgs)"
+      },
+      {
+        "param": "Air compressor",
+        "value": "450 cfm – 150 psi (12.7 m³/min – 10.34 bar) or 600 cfm – 250 psi (17 m³/min – 17.24 bar), 1200 cfm – 320 psi (34 m³/min – 22.06 bar)"
+      },
+      {
+        "param": "Prime mover",
+        "value": "Diesel engine"
+      }
+    ]
+  },
+  {
+    "slug": "tb-4-th",
+    "category": "surface-mining",
+    "categoryLabel": "Surface Mining & Quarrying Drill Rigs",
+    "title": "TB 4 (TH)",
+    "seriesTag": "Excavator Mount Blast Hole Rig",
+    "heroImage": "/sites/klruniversal-com-3601ad32/products/tb-4-th/hero.png",
+    "quickSpecs": [
+      {
+        "label": "Hole Diameter",
+        "value": "3.5″–6.5″"
+      },
+      {
+        "label": "Max Pass",
+        "value": "20 m"
+      }
+    ],
+    "bandSubtitle": "Excavator Mount Blast Hole Rig",
+    "bandHeading": "A top-hammer drill module built onto an excavator carrier for blast hole work in confined or hard-to-access sites, with multi-pass drilling to 20 m.",
+    "specRows": [
+      {
+        "param": "Hole diameter",
+        "value": "3.5″ (89 mm) to 6.5″ (165 mm)"
+      },
+      {
+        "param": "Rotation speed",
+        "value": "0–90 rpm"
+      },
+      {
+        "param": "Hydraulic drifter",
+        "value": "22 kW – 30 kW"
+      },
+      {
+        "param": "Rotation torque",
+        "value": "2,050 Nm"
+      },
+      {
+        "param": "Multi pass capacity",
+        "value": "20 m"
+      },
+      {
+        "param": "Single pass (standard)",
+        "value": "5 / 6 / 9 m"
+      },
+      {
+        "param": "Feed force",
+        "value": "11,000 lbs"
+      },
+      {
+        "param": "Compressor capacity",
+        "value": "375 / 550 cfm @ 150 psi"
+      }
+    ]
+  },
+  {
+    "slug": "ea-20-30-th",
+    "category": "surface-mining",
+    "categoryLabel": "Surface Mining & Quarrying Drill Rigs",
+    "title": "EA 20 | 30 (TH)",
+    "seriesTag": "Excavator Mount Blast Hole Rig",
+    "heroImage": "/sites/klruniversal-com-3601ad32/products/ea-20-30-th/hero.png",
+    "quickSpecs": [
+      {
+        "label": "Hole Diameter",
+        "value": "5″–6.75″"
+      },
+      {
+        "label": "Max Pass",
+        "value": "20/30 m"
+      }
+    ],
+    "bandSubtitle": "Excavator Mount Blast Hole Rig",
+    "bandHeading": "The excavator-mounted top-hammer variant of the EA 20|30, pairing higher rotation torque with 20 m and 30 m multi-pass capacity for deeper blast hole patterns.",
+    "specRows": [
+      {
+        "param": "Hole diameter",
+        "value": "5″ (127 mm) to 6.75″ (171 mm)"
+      },
+      {
+        "param": "Rotation speed",
+        "value": "0–90 rpm"
+      },
+      {
+        "param": "Rotation torque",
+        "value": "2,350 Nm"
+      },
+      {
+        "param": "Multi pass capacity",
+        "value": "20 / 30 m"
+      },
+      {
+        "param": "Single pass (standard)",
+        "value": "5 / 6 / 9 m"
+      },
+      {
+        "param": "Feed force",
+        "value": "11,000 lbs"
+      },
+      {
+        "param": "Compressor capacity",
+        "value": "550 / 750 cfm @ 200/250 psi"
+      }
+    ]
+  },
+  {
+    "slug": "pd-1200",
+    "category": "construction",
+    "categoryLabel": "Construction Drill Rigs",
+    "title": "PD 1200",
+    "seriesTag": "Rotary & Auger Drill",
+    "heroImage": "/sites/klruniversal-com-3601ad32/products/pd-1200/hero.png",
+    "quickSpecs": [
+      {
+        "label": "Hole Diameter",
+        "value": "Up to 24″"
+      },
+      {
+        "label": "Depth",
+        "value": "50 m"
+      }
+    ],
+    "bandSubtitle": "Rotary & Auger Drill",
+    "bandHeading": "Tractor-mounted rotary/auger rig combining a robust mast with high-torque rotary drive and on-board mud handling for fast, clean boreholes in foundation, utility, and civil works.",
+    "specRows": [
+      {
+        "param": "Hole diameter (rotary)",
+        "value": "300–1200 mm"
+      },
+      {
+        "param": "Hole diameter (auger)",
+        "value": "Up to 24″ (610 mm)"
+      },
+      {
+        "param": "Max depth",
+        "value": "50 m"
+      },
+      {
+        "param": "Formations",
+        "value": "Soft / hard / unconsolidated / alluvial"
+      },
+      {
+        "param": "Rotary head (standard)",
+        "value": "Max speed 0–200 rpm, max torque 250 kg·m"
+      },
+      {
+        "param": "Rotary head (optional)",
+        "value": "Max speed 0–160 rpm, max torque 320 kg·m"
+      },
+      {
+        "param": "Mast",
+        "value": "Max pull-up force 4,500 kgf, max pull-down force 2,400 kgf, feed/pull-up speed 35 m/min"
+      },
+      {
+        "param": "Rod handling capacity",
+        "value": "Rotary drilling 3 m, auger drilling 6 m"
+      },
+      {
+        "param": "Rod changer",
+        "value": "On-board"
+      },
+      {
+        "param": "Mud pump",
+        "value": "On-board 1000 LPM pump (up to 16″ drilling); external mud pump for over 16″"
+      },
+      {
+        "param": "Carrier",
+        "value": "New Holland / as per customer request"
+      },
+      {
+        "param": "Prime mover & power",
+        "value": "Tractor engine, 75 HP"
+      }
+    ]
+  },
+  {
+    "slug": "kpr-water-well",
+    "category": "water-well",
+    "categoryLabel": "Water Well Drill Rigs",
+    "title": "KPR — Large Diameter Water Well Rig",
+    "seriesTag": "Water Well Large Diameter Series",
+    "heroImage": "/sites/klruniversal-com-3601ad32/products/kpr-water-well/hero.png",
+    "quickSpecs": [
+      {
+        "label": "Hole Diameter",
+        "value": "24″–47.2″"
+      },
+      {
+        "label": "Depth",
+        "value": "Up to 20 m"
+      }
+    ],
+    "bandSubtitle": "Water Well Large Diameter Series",
+    "bandHeading": "Heavy-duty truck-mounted rig for large-diameter water wells, with a 260 HP deck engine and high-torque rotary head for irrigation, municipal, and industrial borewell projects in soft, hard, unconsolidated, and alluvial formations.",
+    "specRows": [
+      {
+        "param": "Hole diameter options",
+        "value": "24″ (610 mm) — up to 66 ft (20 m) depth; 31.5″ (800 mm) — up to 33 ft (10 m); 39.3″ (1000 mm) — up to 23 ft (7 m); 47.2″ (1200 mm) — up to 16 ft (7 m) (optional)"
+      },
+      {
+        "param": "Carrier",
+        "value": "10×4 truck / as per customer request"
+      },
+      {
+        "param": "Standard mounting",
+        "value": "Skid mount"
+      },
+      {
+        "param": "Prime mover",
+        "value": "Deck engine (260 HP)"
+      },
+      {
+        "param": "Engine make",
+        "value": "Cummins / any reputed make"
+      },
+      {
+        "param": "Formations",
+        "value": "Soft / hard / unconsolidated / alluvial"
+      },
+      {
+        "param": "Mast",
+        "value": "Max pull-up force 32,100 kgf, max pull-down force 16,900 kgf, pull-up speed 16 m/min"
+      },
+      {
+        "param": "Rotary head",
+        "value": "Max speed 30 rpm, max torque 2,500 kg·m"
+      },
+      {
+        "param": "Air compressor (compatible options)",
+        "value": "Atlas Copco / ELGI / as per customer request — 2 × 1100 cfm @ 300 psi or 1200 cfm @ 300 psi (optional)"
+      }
+    ]
   }
 ]

@@ -47,6 +47,15 @@ const FEATURES = [
     img: `${ASSET_BASE}/dth-hammers.png`,
     sizes: null,
   },
+  {
+    title: "Casing System",
+    desc: "The KLR Eccentric, Symmetric, and Odex Casing System is built for drilling in unstable soils, enabling simultaneous drilling and casing installation. Ideal for foundation piling and deep boreholes, it prevents soil collapse while ensuring stability and precision, minimizing downtime and costs on challenging ground.",
+    // No dedicated product photo supplied yet -- reusing the DTH Bits shot
+    // as a placeholder until a proper cutout is available, same fallback
+    // pattern already used above for Service Kits.
+    img: `${ASSET_BASE}/dth-bits.png`,
+    sizes: null,
+  },
 ];
 
 export default function DthDrillingToolsPage() {
