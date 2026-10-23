@@ -102,10 +102,49 @@ const DRILLING_RIGS: CategoryPanel[] = [
   },
 ];
 
-const DRILLING_TOOLS = [
-  { label: "Down The Hole Drilling Tools", href: "/drilling-tools/dth-drilling-tools" },
-  { label: "Rotary Drilling Tools", href: "/drilling-tools/rotary-drilling-tools" },
-  { label: "KLR Drill Rods", href: "/drilling-tools/drill-rods" },
+const DTH_THUMB_BASE =
+  "/sites/klruniversal-com-3601ad32/drilling-tools-dth-drilling-tools-bfd58456/images";
+const ROTARY_THUMB_BASE =
+  "/sites/klruniversal-com-3601ad32/drilling-tools-rotary-drilling-tools-92dc5dcc/images";
+
+// Same CategoryPanel shape as DRILLING_RIGS, so the nav drawer lists the
+// individual tools under each category -- click DTH Drilling Tools, see DTH
+// Hammers / DTH Bits / etc, click one, land on its own page -- instead of
+// jumping straight to one page with everything on it.
+const DRILLING_TOOLS: CategoryPanel[] = [
+  {
+    key: "dth-drilling-tools",
+    label: "DTH Drilling Tools",
+    title: "DTH Drilling Tools",
+    desc: "Down The Hole hammers, bits, cluster hammers, service kits and casing systems manufactured in-house for water well and mining applications.",
+    products: [
+      { name: "DTH Hammers", href: "/drilling-tools/dth-drilling-tools/dth-hammers", thumb: `${DTH_THUMB_BASE}/dth-hammers.png` },
+      { name: "DTH Bits", href: "/drilling-tools/dth-drilling-tools/dth-bits", thumb: `${DTH_THUMB_BASE}/dth-bits.png` },
+      { name: "Cluster Hammers", href: "/drilling-tools/dth-drilling-tools/cluster-hammers", thumb: `${DTH_THUMB_BASE}/cluster-hammers.png` },
+      { name: "Service Kits", href: "/drilling-tools/dth-drilling-tools/service-kits", thumb: `${DTH_THUMB_BASE}/dth-hammers.png` },
+      { name: "Casing System", href: "/drilling-tools/dth-drilling-tools/casing-system", thumb: `${DTH_THUMB_BASE}/dth-bits.png` },
+    ],
+  },
+  {
+    key: "rotary-drilling-tools",
+    label: "Rotary Drilling Tools",
+    title: "Rotary Drilling Tools",
+    desc: "Tricone bits, claw bits and drag bits built in-house for water well, mining and construction drilling.",
+    products: [
+      { name: "Tricone Bits", href: "/drilling-tools/rotary-drilling-tools/tricone-bits", thumb: `${ROTARY_THUMB_BASE}/tricone-bits.png` },
+      { name: "Claw Bits", href: "/drilling-tools/rotary-drilling-tools/claw-bits", thumb: `${ROTARY_THUMB_BASE}/claw-bits.png` },
+      { name: "Drag Bits", href: "/drilling-tools/rotary-drilling-tools/drag-bits", thumb: `${ROTARY_THUMB_BASE}/drag-bits.png` },
+    ],
+  },
+  {
+    key: "drill-rods",
+    label: "KLR Drill Rods",
+    title: "KLR Drill Rods",
+    desc: "Friction welded, induction hardened drill rods made in-house with a dedicated Heat Treatment Division.",
+    products: [
+      { name: "Drill Rods", href: "/drilling-tools/drill-rods", thumb: "/sites/klruniversal-com-3601ad32/about-us-57424c1f/images/hero-banner-collage.png" },
+    ],
+  },
 ];
 
 export function Header() {
@@ -274,14 +313,16 @@ export function Header() {
           <p className="mt-8 text-lg font-semibold">Drilling Tools</p>
           <ul className="mt-3 space-y-3">
             {DRILLING_TOOLS.map((item) => (
-              <li key={item.label}>
-                <Link
-                  href={item.href}
-                  onClick={closeProducts}
-                  className="text-sm text-white hover:underline"
+              <li key={item.key}>
+                <button
+                  type="button"
+                  onClick={() => setActiveCategory(item)}
+                  className={`text-left text-sm hover:text-white ${
+                    activeCategory?.key === item.key ? "font-semibold text-white" : "text-white"
+                  }`}
                 >
                   {item.label}
-                </Link>
+                </button>
               </li>
             ))}
           </ul>

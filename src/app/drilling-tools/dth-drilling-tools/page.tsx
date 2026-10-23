@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { HOME_URL } from "@/lib/site";
 import { Header } from "@/components/sites/klruniversal-com-3601ad32/shared/Header";
 import { Footer } from "@/components/sites/klruniversal-com-3601ad32/shared/Footer";
-import { ToolCategoryTemplate } from "@/components/sites/klruniversal-com-3601ad32/shared/ToolCategoryTemplate";
+import { ToolCategoryListing, type ToolListItem } from "@/components/sites/klruniversal-com-3601ad32/shared/ToolCategoryListing";
 import { JsonLd } from "@/components/sites/klruniversal-com-3601ad32/shared/JsonLd";
 
 export const metadata: Metadata = {
@@ -22,39 +22,41 @@ export const metadata: Metadata = {
 const ASSET_BASE =
   "/sites/klruniversal-com-3601ad32/drilling-tools-dth-drilling-tools-bfd58456/images";
 
-const FEATURES = [
+const ITEMS: ToolListItem[] = [
   {
+    slug: "dth-hammers",
     title: "DTH Hammers",
-    desc: "KLR DTH Hammers are engineered to provide superior performance with longer rebuild intervals, reducing downtime and maximise productivity. With optimized air usage, these hammers boost efficiency while consuming less compressor power. Built for tough rock formations, they feature advanced air control technology for consistent, high-efficiency drilling.",
-    img: `${ASSET_BASE}/dth-hammers.png`,
-    sizes: "Available sizes: 2″ (51mm) to 12″ (305mm) Customizable according to requirement",
+    heroImage: `${ASSET_BASE}/dth-hammers.png`,
+    blurb: "Longer rebuild intervals and optimized air usage for consistent, high-efficiency drilling in tough rock.",
+    sizes: "2″ to 12″",
   },
   {
+    slug: "dth-bits",
     title: "DTH Bits",
-    desc: "Precision-designed to match the compressive strength, abrasiveness, and homogeneity of rock formations, KLR DTH Bits provide optimal drilling performance. Manufactured in-house with stringent quality checks, they offer exceptional reliability and long-lasting durability. The carbide imprinting technology enhances strength and longevity, ensuring minimal wear and lower cost per meter drilled.",
-    img: `${ASSET_BASE}/dth-bits.png`,
-    sizes: "Available sizes: 2-1/2″ (63mm) to 20″ (508mm) Customizable according to requirement",
+    heroImage: `${ASSET_BASE}/dth-bits.png`,
+    blurb: "Carbide-imprinted button bits matched to rock compressive strength, abrasiveness and homogeneity.",
+    sizes: "2-1/2″ to 20″",
   },
   {
+    slug: "cluster-hammers",
     title: "Cluster Hammers",
-    desc: "Designed for high-efficiency and smooth operations, KLR Cluster Hammers use premium alloy steel with high-performance tungsten carbide buttons. These hammers minimize wear and downtime, preventing blockages and back hammering for precise, consistent drilling.",
-    img: `${ASSET_BASE}/cluster-hammers.png`,
-    sizes: "Available sizes: 11-7/8″ (300mm) to 47-1/4″ (1200mm) Customizable according to requirement",
+    heroImage: `${ASSET_BASE}/cluster-hammers.png`,
+    blurb: "Premium alloy steel with tungsten carbide buttons for large-diameter, high-efficiency drilling.",
+    sizes: "11-7/8″ to 47-1/4″",
   },
   {
+    slug: "service-kits",
     title: "Service Kits",
-    desc: "Extend the life of your DTH equipment with KLR Service Kits. These kits are designed to maximize the performance and reliability of your tools, ensuring minimal downtime. With high-quality components, KLR Service Kits deliver unmatched durability and ensure continuous, efficient drilling.",
-    img: `${ASSET_BASE}/dth-hammers.png`,
-    sizes: null,
+    heroImage: `${ASSET_BASE}/dth-hammers.png`,
+    blurb: "High-quality components to extend DTH hammer life and minimize downtime.",
+    sizes: "Matched to your hammer size",
   },
   {
+    slug: "casing-system",
     title: "Casing System",
-    desc: "The KLR Eccentric, Symmetric, and Odex Casing System is built for drilling in unstable soils, enabling simultaneous drilling and casing installation. Ideal for foundation piling and deep boreholes, it prevents soil collapse while ensuring stability and precision, minimizing downtime and costs on challenging ground.",
-    // No dedicated product photo supplied yet -- reusing the DTH Bits shot
-    // as a placeholder until a proper cutout is available, same fallback
-    // pattern already used above for Service Kits.
-    img: `${ASSET_BASE}/dth-bits.png`,
-    sizes: null,
+    heroImage: `${ASSET_BASE}/dth-bits.png`,
+    blurb: "Eccentric, Symmetric and Odex systems for simultaneous drilling and casing in unstable soils.",
+    sizes: "Available to customer requirement",
   },
 ];
 
@@ -73,12 +75,11 @@ export default function DthDrillingToolsPage() {
       }} />
       <Header />
       <main className="flex-1">
-        <ToolCategoryTemplate
-          title="DTH Tools by KLR Universal"
-          heroImage={`${ASSET_BASE}/hero.jpg`}
-          bandHeading="KLR DTH Hammers, DTH Bits, Cluster Hammers, and Service Kits"
-          bandDesc="Designed for high-efficiency and durability in even the toughest drilling environments, KLR Universal's DTH tools deliver consistent, reliable performance across various applications. From high-performance DTH hammers and precision-engineered bits to cluster hammers and all-in-one service kits, KLR Universal ensures seamless, uninterrupted operations while minimizing downtime."
-          features={FEATURES}
+        <ToolCategoryListing
+          category="dth-drilling-tools"
+          categoryLabel="DTH Drilling Tools"
+          description="Designed for high-efficiency and durability in even the toughest drilling environments, KLR Universal's DTH tools deliver consistent, reliable performance across various applications. From high-performance DTH hammers and precision-engineered bits to cluster hammers, service kits and casing systems, KLR Universal ensures seamless, uninterrupted operations while minimizing downtime."
+          items={ITEMS}
         />
       </main>
       <Footer />
