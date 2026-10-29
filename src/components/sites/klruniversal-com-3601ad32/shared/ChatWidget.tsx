@@ -109,15 +109,6 @@ export function ChatWidget() {
   const launcherRef = useRef<HTMLButtonElement>(null);
   const titleId = useId();
 
-  // Open on arrival so a visitor doesn't have to notice the launcher. This
-  // fires once per full page load -- the widget lives in the root layout,
-  // which the App Router keeps mounted across client-side navigation, so it
-  // won't re-trigger just from clicking between pages.
-  useEffect(() => {
-    const timer = setTimeout(() => setOpen(true), 1200);
-    return () => clearTimeout(timer);
-  }, []);
-
   useEffect(() => {
     if (open && messages.length === 0) {
       addBot(

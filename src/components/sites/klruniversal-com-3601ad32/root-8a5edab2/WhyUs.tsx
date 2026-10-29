@@ -21,7 +21,12 @@ export function WhyUs() {
   return (
     <section className="relative overflow-hidden bg-klr-red py-16 text-white">
       <div className="mx-auto max-w-[1400px] px-4 md:px-8">
-        <Reveal className="grid gap-10 md:grid-cols-[1.1fr_1fr] md:items-start">
+        {/* Not wrapped in Reveal: on mobile (where Hero is hidden) this is
+            the first visible content and the LCP candidate. Reveal starts
+            elements at opacity:0 until IntersectionObserver fires post-
+            hydration, which measurably delays LCP for content that's
+            already in the initial viewport with nothing to scroll to. */}
+        <div className="grid gap-10 md:grid-cols-[1.1fr_1fr] md:items-start">
           <h2 className="text-3xl font-medium leading-tight md:text-4xl">
             Drilling Innovation from the Ground Up
           </h2>
@@ -39,7 +44,7 @@ export function WhyUs() {
               See Our Journey
             </CtaButton>
           </div>
-        </Reveal>
+        </div>
 
         <h3 className="mt-14 text-2xl font-medium">Why KLR Universal?</h3>
         <div className="mt-6 border-t border-white/20" />
