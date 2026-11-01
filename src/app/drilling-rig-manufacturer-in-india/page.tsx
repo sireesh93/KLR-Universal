@@ -280,9 +280,15 @@ export default function DrillingRigManufacturerIndiaPage() {
                     unconsolidated ground favours rotary.
                   </li>
                   <li>
-                    <strong className="text-black">Then mounting.</strong> Truck,
-                    crawler or tractor mounting depends on terrain and how often
-                    the rig moves.
+                    <strong className="text-black">Then mounting.</strong>{" "}
+                    <Link href="/truck-mounted-drilling-rig" className="text-klr-red hover:underline">
+                      Truck
+                    </Link>{" "}
+                    or{" "}
+                    <Link href="/tractor-mounted-drilling-rig" className="text-klr-red hover:underline">
+                      tractor mounting
+                    </Link>{" "}
+                    depends on terrain, depth and how often the rig moves.
                   </li>
                 </ul>
                 <CtaButton href="/contact-and-support" className="mt-6">

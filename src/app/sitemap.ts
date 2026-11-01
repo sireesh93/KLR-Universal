@@ -24,6 +24,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${SITE_URL}/about-us`, changeFrequency: "monthly", priority: 0.8, lastModified: siteUpdated },
     { url: `${SITE_URL}/contact-and-support`, changeFrequency: "monthly", priority: 0.8, lastModified: siteUpdated },
     { url: `${SITE_URL}/drilling-rig-manufacturer-in-india`, changeFrequency: "monthly", priority: 0.8, lastModified: siteUpdated },
+    { url: `${SITE_URL}/truck-mounted-drilling-rig`, changeFrequency: "monthly", priority: 0.75, lastModified: siteUpdated },
+    { url: `${SITE_URL}/tractor-mounted-drilling-rig`, changeFrequency: "monthly", priority: 0.75, lastModified: siteUpdated },
     { url: `${SITE_URL}/blog`, changeFrequency: "weekly", priority: 0.7, lastModified: siteUpdated },
     { url: `${SITE_URL}/drilling-tools/drill-rods`, changeFrequency: "monthly", priority: 0.7, lastModified: siteUpdated },
     { url: `${SITE_URL}/drilling-tools/dth-drilling-tools`, changeFrequency: "monthly", priority: 0.7, lastModified: siteUpdated },
