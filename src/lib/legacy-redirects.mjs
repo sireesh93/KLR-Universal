@@ -67,4 +67,48 @@ export const LEGACY_REDIRECTS = [
   // without this the old indexed URL 404s instead of landing on the new one.
   ["/blog/rotary-vs-dth-drilling-hard-rock", "/rotary-vs-dth-drilling-hard-rock"],
   ["/blog/dth-vs-top-hammer-drilling-guide", "/dth-vs-top-hammer-drilling-guide"],
+  ["/blog/dth-vs-rotary-drilling-for-water-well", "/dth-vs-rotary-drilling-for-water-well"],
+
+  // Old WordPress product detail pages (/Products/klr-*, capital P as the old
+  // CMS served it). Verified every target slug/category against the current
+  // product data before writing these -- none guessed.
+  ["/Products/klr-cdr-750", "/drilling-rigs/exploration/core-drill-rig-750"],
+  ["/Products/klr-cdr-500", "/drilling-rigs/exploration/core-drill-rig-500"],
+  ["/Products/klr-cdr-300", "/drilling-rigs/exploration/cdr-300"],
+  ["/Products/klr-cdr-150", "/drilling-rigs/exploration/core-drill-rig-150"],
+  ["/Products/klr-cdr-50", "/drilling-rigs/exploration/cdr-50"],
+  ["/Products/klr-cdr-1000", "/drilling-rigs/exploration/cdr-1000"],
+  ["/Products/klr-cdr-2000", "/drilling-rigs/exploration/cdr-2000"],
+  ["/Products/klr-dth-1500-double", "/drilling-rigs/water-well/dth-1500-double-truck"],
+  ["/Products/klr-dth-1500", "/drilling-rigs/water-well/dth-1500"],
+  ["/Products/klr-dthr-600", "/drilling-rigs/water-well/dthr-600"],
+  ["/Products/klr-dthr-300", "/drilling-rigs/water-well/dthr-300"],
+  ["/Products/klr-dthr-100", "/drilling-rigs/water-well/dthr-100"],
+  ["/Products/klr-tbw-40", "/drilling-rigs/water-well/tbw-40"],
+  ["/Products/klr-tc-40", "/drilling-rigs/exploration/tc-40"],
+  ["/Products/klr-itd-46-blast-hole-drill-rig", "/drilling-rigs/surface-mining/itd-46"],
+  ["/Products/klr-kpr-5-42", "/drilling-rigs/construction/kpr"],
+  // Generic old tool listing pages. "bits" and "hammers" covered both DTH and
+  // rotary tooling on the old site with no single current equivalent; routed
+  // to the DTH tools hub as the larger, primary line -- an imperfect but
+  // defensible default, not a guess at a non-existent page.
+  ["/Products/bits", "/drilling-tools/dth-drilling-tools"],
+  ["/Products/hammers", "/drilling-tools/dth-drilling-tools"],
+  ["/Products/drill-rods", "/drilling-tools/drill-rods"],
+  // Not redirected, left to 404: /Products/round-khr, klr-itd-60-ground-blast-
+  // hole-drill-rig, klr-k2-blast-hole-drill-rig -- none match a current slug,
+  // so routing them anywhere would be a guess, not a mapping.
+
+  // Marketing / informational pages from the old site.
+  ["/lp-thankyou", "/contact-and-support"],
+  ["/thank-you", "/contact-and-support"],
+  ["/where-to-buy", "/contact-and-support"],
+  ["/wide-range-of-products", "/drilling-rig-manufacturer-in-india"],
+  ["/facilities-of-biggest-drilling-equipment-manufacturers-in-india", "/about-us"],
+  ["/about-klr-industries", "/about-us"],
+  ["/drilling-tools-construction-mining", "/drilling-tools/dth-drilling-tools"],
+  ["/what-is-drilling-rig-oil-gas-mining", "/drilling-rig-manufacturer-in-india"],
+  ["/depth-soil-type-drilling-rig-choice", "/blog/how-depth-soil-type-impact-drilling-rig-choice"],
+  ["/tractor-borewell-machine-price", "/tractor-mounted-drilling-rig"],
+  ["/klr-website", "/"],
 ];
