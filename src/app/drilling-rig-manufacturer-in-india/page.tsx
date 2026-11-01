@@ -266,9 +266,13 @@ export default function DrillingRigManufacturerIndiaPage() {
                 </h2>
                 <ul className="mt-4 list-disc space-y-2 pl-5 text-black/70">
                   <li>
-                    <strong className="text-black">Start with depth.</strong> Water
+                    <strong className="text-black">Start with the job.</strong> Water
                     well work at 100 to 200 m points to the DTHR-150; 650 to 800 m
-                    to the DTHR-750.
+                    to the DTHR-750. Foundation or pole-hole work points to a{" "}
+                    <Link href="/piling-rig" className="text-klr-red hover:underline">
+                      piling rig
+                    </Link>{" "}
+                    instead.
                   </li>
                   <li>
                     <strong className="text-black">Then hole diameter.</strong> This
