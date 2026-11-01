@@ -276,8 +276,16 @@ export default function DrillingRigManufacturerIndiaPage() {
                   </li>
                   <li>
                     <strong className="text-black">Then the formation.</strong> Hard
-                    rock usually favours down-the-hole drilling; softer and
-                    unconsolidated ground favours rotary.
+                    rock usually favours{" "}
+                    <Link href="/dth-drilling-rig" className="text-klr-red hover:underline">
+                      down-the-hole drilling
+                    </Link>
+                    ; softer and unconsolidated ground favours rotary. Where
+                    the job needs an intact sample rather than cuttings, a{" "}
+                    <Link href="/core-drilling-rigs" className="text-klr-red hover:underline">
+                      core drilling rig
+                    </Link>{" "}
+                    is the right tool instead.
                   </li>
                   <li>
                     <strong className="text-black">Then mounting.</strong>{" "}
