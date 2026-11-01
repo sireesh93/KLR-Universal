@@ -29,6 +29,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${SITE_URL}/dth-drilling-rig`, changeFrequency: "monthly", priority: 0.75, lastModified: siteUpdated },
     { url: `${SITE_URL}/core-drilling-rigs`, changeFrequency: "monthly", priority: 0.75, lastModified: siteUpdated },
     { url: `${SITE_URL}/piling-rig`, changeFrequency: "monthly", priority: 0.75, lastModified: siteUpdated },
+    { url: `${SITE_URL}/mining-rig`, changeFrequency: "monthly", priority: 0.75, lastModified: siteUpdated },
     { url: `${SITE_URL}/blog`, changeFrequency: "weekly", priority: 0.7, lastModified: siteUpdated },
     { url: `${SITE_URL}/drilling-tools/drill-rods`, changeFrequency: "monthly", priority: 0.7, lastModified: siteUpdated },
     { url: `${SITE_URL}/drilling-tools/dth-drilling-tools`, changeFrequency: "monthly", priority: 0.7, lastModified: siteUpdated },

@@ -277,6 +277,11 @@ export default function DrillingRigManufacturerIndiaPage() {
                   <li>
                     <strong className="text-black">Then hole diameter.</strong> This
                     decides the hammer and bit sizes, and often the compressor.
+                    For blast-hole or underground production work, see the{" "}
+                    <Link href="/mining-rig" className="text-klr-red hover:underline">
+                      mining rig
+                    </Link>{" "}
+                    range specifically.
                   </li>
                   <li>
                     <strong className="text-black">Then the formation.</strong> Hard
